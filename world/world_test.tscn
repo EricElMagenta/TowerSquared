@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dawfcshi1vcb7"]
+
+[ext_resource type="Script" path="res://world/world_test.gd" id="1_g220s"]
+
+[node name="WorldTest" type="Node2D"]
+script = ExtResource("1_g220s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 140)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 321, 0, 321, 22.1538, 0, 22.1538)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
