@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=8 format=3 uid="uid://bdegyg4ku5dn8"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_42w66"]
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
+[ext_resource type="Script" path="res://states/state_machine.gd" id="3_3l04b"]
+[ext_resource type="Script" path="res://states/idle.gd" id="4_50gyb"]
+[ext_resource type="Script" path="res://states/walk.gd" id="5_63qnm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8phsy"]
 animations = [{
@@ -29,8 +32,12 @@ animation = &"Idle"
 position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_avwer")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_3l04b")
+initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_50gyb")
 
 [node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_63qnm")
