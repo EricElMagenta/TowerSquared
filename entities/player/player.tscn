@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdegyg4ku5dn8"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_42w66"]
+[ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8phsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ahwc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avwer"]
+size = Vector2(21, 8)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_42w66")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8phsy")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_avwer")
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="StateMachine"]
+
+[node name="Walk" type="Node" parent="StateMachine"]
