@@ -2,12 +2,13 @@ extends State
 class_name Walk
 
 func Enter():
-	print("caminando")
-
-func Update(_delta: float):
-	#var input_axis = Input.get_axis("ui_left", "ui_right")
-	#if input_axis == 1: print("ASDasdasd")
 	pass
-	
+
+func Physics_Update(delta: float):
+	var vector = parent.get_input_vector()
+	parent.move(delta)
+	if vector == Vector2.ZERO:
+		state_transition.emit(self, "Idle")
+		
 func Exit():
 	pass

@@ -32,6 +32,16 @@ animation = &"Idle"
 position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_avwer")
 
+[node name="LabelState" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 21.0
+offset_bottom = 4.0
+theme_override_font_sizes/font_size = 10
+text = "d"
+horizontal_alignment = 1
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_3l04b")
 initial_state = NodePath("Idle")

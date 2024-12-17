@@ -4,6 +4,8 @@ class_name State
 # Se llama a la señal cada vez que cambiamos de state
 signal state_transition
 
+var parent : CharacterBody2D
+
 # Métodos básic de la state machine
 # Cambiar de un state a otro
 func Enter():

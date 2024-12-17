@@ -1,14 +1,18 @@
 extends Node
+class_name StateMachine
 
+@onready var label_state = %LabelState
 @export var initial_state : State
 
 var current_state : State
 var states : Dictionary = {}
 
 # Si encuentra algún estado en "get_children" lo agrega al diccionario
-func _ready():
+# Se añade una referencia al nodo padre en cada estado.
+func init(parent : CharacterBody2D):
 	for child in get_children():
 		if child is State:
+			child.parent = parent
 			states[child.name.to_lower()] = child
 			child.state_transition.connect(change_state)
 
@@ -18,7 +22,7 @@ func _ready():
 		current_state = initial_state
 
 func _process(delta):
-	print(current_state)
+	label_state.text = current_state.name
 	if current_state:
 		current_state.Update(delta)
 		

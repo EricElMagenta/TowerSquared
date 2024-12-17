@@ -2,13 +2,13 @@ extends State
 class_name Idle
 
 func Enter():
-	print("entrado")
+	pass
 
-func Update(_delta: float):
-	var input_axis = Input.get_axis("ui_left", "ui_right")
-	if input_axis == 1: 
+func Physics_Update(delta: float):
+	var vector = parent.get_input_vector()
+	parent.move(delta)
+	if vector != Vector2.ZERO:
 		state_transition.emit(self, "walk")
 	
-	
 func Exit():
-	print("saliendes")
+	pass
