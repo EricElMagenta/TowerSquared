@@ -14,7 +14,7 @@ func Physics_Update(delta: float):
 		state_transition.emit(self, "Idle")
 	
 	# Cambiar de estado al saltar
-	if parent.is_on_floor() && Input.is_action_just_pressed("jump"):
+	if parent.is_on_floor() && Input.is_action_just_pressed(parent.actions.jump):
 		parent.jump()
 		state_transition.emit(self, "jump")
 		

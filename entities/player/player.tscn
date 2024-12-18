@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=10 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
+[ext_resource type="Resource" uid="uid://fi706ut52ub3" path="res://entities/player/player_input_actions.tres" id="2_wa1jq"]
 [ext_resource type="Script" path="res://states/state_machine.gd" id="3_3l04b"]
 [ext_resource type="Script" path="res://states/idle.gd" id="4_50gyb"]
 [ext_resource type="Script" path="res://states/walk.gd" id="5_63qnm"]
@@ -23,6 +24,7 @@ size = Vector2(21, 8)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_42w66")
+actions = ExtResource("2_wa1jq")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
