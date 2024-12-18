@@ -15,6 +15,12 @@ var input_vector: Vector2 = Vector2.ZERO # Movimiento del jugador
 func _ready():
 	# Se instancia la máquina de estados con el jugador
 	state_machine.init(self)
+	
+	# Se obtiene la información de los power ups agarrados
+	var items = get_tree().get_nodes_in_group("FloorItems")
+	for item in items:
+		item.got_floor.connect(add_floor)
+
 
 func get_input_vector() -> Vector2:
 	input_vector.x = Input.get_action_strength(actions.right) - Input.get_action_strength(actions.left)
@@ -28,3 +34,6 @@ func move(delta) -> void:
 
 func jump() -> void:
 		velocity.y = jump_force
+
+func add_floor(floor_type:String) -> void:
+	print(floor_type)

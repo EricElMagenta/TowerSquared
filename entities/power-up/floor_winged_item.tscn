@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbl1u4as8ed4m"]
+
+[ext_resource type="Script" path="res://entities/power-up/floor_winged_item.gd" id="1_q2brc"]
+[ext_resource type="Texture2D" uid="uid://doxn5ihkovaev" path="res://assets/power-ups/flying_floor.png" id="2_32buu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5w2h"]
+size = Vector2(33, 16)
+
+[node name="FloorWingedItem" type="Area2D" groups=["FloorItems"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_q2brc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_32buu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_q5w2h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

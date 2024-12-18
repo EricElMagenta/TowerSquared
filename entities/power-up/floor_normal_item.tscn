@@ -6,10 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw4e2"]
 size = Vector2(34, 16)
 
-[node name="FloorNormalItem" type="Area2D"]
+[node name="FloorNormalItem" type="Area2D" groups=["FloorItems"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_png7n")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_81q08")
