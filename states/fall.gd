@@ -1,17 +1,16 @@
 extends State
-class_name Jump
+class_name Fall
 
 func Enter():
-	# Saltar al iniciar el estado
-	parent.jump()
-	
+	pass
+
 func Physics_Update(delta:float):
 	# Obtener los inputs para moverse
 	var vector = parent.get_input_vector()
 	parent.move(delta)
 	
-	# Cambio de estado al empezar a caer
-	if parent.velocity.y > 0: state_transition.emit(self, "Fall")
+	# Cambiar estado al tocar el suelo
+	if parent.is_on_floor(): state_transition.emit(self, "Idle")
 
 func Exit():
 	pass

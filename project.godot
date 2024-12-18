@@ -13,6 +13,7 @@ config_version=5
 config/name="Tower Squared"
 run/main_scene="res://world/world_test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.678431, 0.227451, 0.47451, 1)
 config/icon="res://icon.svg"
 
 [display]

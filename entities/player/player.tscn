@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=11 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://states/idle.gd" id="4_50gyb"]
 [ext_resource type="Script" path="res://states/walk.gd" id="5_63qnm"]
 [ext_resource type="Script" path="res://states/jump.gd" id="6_udnbo"]
+[ext_resource type="Script" path="res://states/fall.gd" id="8_6cvpb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8phsy"]
 animations = [{
@@ -57,3 +58,6 @@ script = ExtResource("5_63qnm")
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("6_udnbo")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("8_6cvpb")
