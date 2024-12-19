@@ -22,13 +22,15 @@ func _ready():
 		item.got_floor.connect(add_floor)
 
 
-func get_input_vector() -> Vector2:
+func get_direction() -> Vector2:
 	input_vector.x = Input.get_action_strength(actions.right) - Input.get_action_strength(actions.left)
 	return input_vector.normalized()
 
 func move(delta) -> void:
 	# Add the gravity.
 	if not is_on_floor(): velocity += get_gravity() * delta
+	
+	input_vector = get_direction()
 	velocity = Vector2(input_vector[0] * move_speed, velocity.y)
 	move_and_slide()
 

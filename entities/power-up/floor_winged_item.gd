@@ -5,6 +5,6 @@ signal got_floor
 
 var floor_type = "winged_floor"
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	got_floor.emit(floor_type)
 	queue_free()

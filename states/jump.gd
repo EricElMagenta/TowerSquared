@@ -6,8 +6,6 @@ func Enter():
 	parent.jump()
 	
 func Physics_Update(delta:float):
-	# Obtener los inputs para moverse
-	var vector = parent.get_input_vector()
 	parent.move(delta)
 	
 	# Cambio de estado al empezar a caer

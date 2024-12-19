@@ -6,7 +6,7 @@ func Enter():
 
 func Physics_Update(delta:float):
 	# Obtener los inputs para moverse
-	var vector = parent.get_input_vector()
+	var vector = parent.get_direction()
 	parent.move(delta)
 	
 	# Cambiar estado al detenerse

@@ -5,8 +5,6 @@ func Enter():
 	pass
 
 func Physics_Update(delta:float):
-	# Obtener los inputs para moverse
-	var vector = parent.get_input_vector()
 	parent.move(delta)
 	
 	# Cambiar estado al tocar el suelo
