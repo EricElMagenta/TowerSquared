@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://chmydye5vtuel"]
+
+[ext_resource type="Texture2D" uid="uid://crlg0crv3ndnq" path="res://assets/power-ups/normal_floor_1.png" id="1_uc8p0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qs0o"]
+size = Vector2(32, 16)
+
+[node name="PlayerNormalFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
+collision_layer = 2
+collision_mask = 13
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uc8p0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8qs0o")

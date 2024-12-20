@@ -28,8 +28,15 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(108, 92)
 
 [node name="FloorNormalItem" parent="." instance=ExtResource("3_8vg25")]
-position = Vector2(109, 121)
+position = Vector2(62, 123)
 collision_layer = 0
 
 [node name="FloorWingedItem" parent="." instance=ExtResource("4_4exn3")]
 position = Vector2(171, 123)
+
+[node name="FloorNormalItem2" parent="." instance=ExtResource("3_8vg25")]
+position = Vector2(19, 93)
+collision_layer = 0
+
+[node name="FloorWingedItem2" parent="." instance=ExtResource("4_4exn3")]
+position = Vector2(219, 86)

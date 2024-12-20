@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq2fb44sbvwhm"]
+
+[ext_resource type="Texture2D" uid="uid://doxn5ihkovaev" path="res://assets/power-ups/flying_floor.png" id="1_g2p6w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0qqr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g2p6w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldf3h"]
+size = Vector2(31, 16)
+
+[node name="PlayerWingedFloor" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j0qqr")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ldf3h")

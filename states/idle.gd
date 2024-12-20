@@ -6,19 +6,15 @@ func Enter():
 
 func Physics_Update(delta:float):
 	# Obtener los inputs para moverse
-	var vector = parent.get_direction()
-	parent.move(delta)
-	
+	var direction = parent.move(delta)
 	
 	# Cambiar de estado al saltar
 	if parent.is_on_floor() && Input.is_action_just_pressed(parent.actions.jump):
-		state_transition.emit(self, "jump")
+		state_transition.emit(self, "Jump")
 		
 	# Cambiar de estado al caminar
-	elif vector != Vector2.ZERO:
-		state_transition.emit(self, "walk")
-	
-
+	elif direction != Vector2.ZERO:
+		state_transition.emit(self, "Walk")
 	
 	# Cambio de estado al empezar a caer
 	if parent.velocity.y > 0: state_transition.emit(self, "Fall")

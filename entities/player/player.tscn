@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=12 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://states/walk.gd" id="5_63qnm"]
 [ext_resource type="Script" path="res://states/jump.gd" id="6_udnbo"]
 [ext_resource type="Script" path="res://states/fall.gd" id="8_6cvpb"]
+[ext_resource type="Script" path="res://entities/player/floor_manager.gd" id="9_ns01a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8phsy"]
 animations = [{
@@ -38,12 +39,12 @@ shape = SubResource("RectangleShape2D_avwer")
 
 [node name="LabelState" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = -20.0
-offset_top = -19.0
-offset_right = 20.0
-offset_bottom = -5.0
+offset_left = -18.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0.776471, 0, 0.741176, 1)
 theme_override_font_sizes/font_size = 10
-text = "d"
 horizontal_alignment = 1
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -61,3 +62,6 @@ script = ExtResource("6_udnbo")
 
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource("8_6cvpb")
+
+[node name="FloorManager" type="Node2D" parent="."]
+script = ExtResource("9_ns01a")

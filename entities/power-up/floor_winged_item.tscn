@@ -10,6 +10,7 @@ size = Vector2(33, 16)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_q2brc")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_32buu")
