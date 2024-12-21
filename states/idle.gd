@@ -19,5 +19,8 @@ func Physics_Update(delta:float):
 	# Cambio de estado al empezar a caer
 	if parent.velocity.y > 0: state_transition.emit(self, "Fall")
 	
+	# SWAP DE PISOS
+	parent.swap_floors()
+	
 func Exit():
 	pass

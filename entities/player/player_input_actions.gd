@@ -7,3 +7,5 @@ class_name PlayerInputActions
 @export var up 		: StringName = "up"
 @export var down  	: StringName = "down"
 @export var jump	: StringName = "jump"
+@export var swap_up : StringName = "swap_up"
+@export var swap_down : StringName = "swap_down"
