@@ -34,9 +34,6 @@ actions = ExtResource("2_wa1jq")
 sprite_frames = SubResource("SpriteFrames_8phsy")
 animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_avwer")
-
 [node name="LabelState" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = -18.0
@@ -65,3 +62,7 @@ script = ExtResource("8_6cvpb")
 
 [node name="FloorManager" type="Node2D" parent="."]
 script = ExtResource("9_ns01a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_avwer")
+debug_color = Color(0.941176, 0.121569, 1, 0.188235)

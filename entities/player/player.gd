@@ -5,6 +5,7 @@ class_name Player
 
 @onready var floor_manager = $FloorManager
 @onready var state_machine = $StateMachine
+@onready var collision_shape_2d = $CollisionShape2D
 
 @export var move_speed  = 200.0
 @export var jump_force = -400.0
@@ -16,6 +17,9 @@ var input_vector: Vector2 = Vector2.ZERO # Movimiento del jugador
 func _ready():
 	# Se instancia la máquina de estados con el jugador
 	state_machine.init(self)
+	
+	#
+	floor_manager.init(self)
 	
 func _process(delta):
 	pass
@@ -46,3 +50,7 @@ func swap_floors() -> void:
 		floor_manager.swap_floors_down()
 	elif Input.is_action_just_pressed(actions.swap_up):
 		floor_manager.swap_floors_up()
+
+func update_collision():
+	collision_shape_2d.scale.y += 2.1
+	collision_shape_2d.position.y -= 8.4

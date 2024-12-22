@@ -5,6 +5,7 @@ const FLOOR_HEIGHT = 17
 const FLOOR_OFFSET = 5
 
 var floors = []
+var player : Player
 
 func _ready():
 	# Se obtiene la información de los power ups agarrados
@@ -15,17 +16,20 @@ func _ready():
 func _process(delta) -> void:
 	pass
 
-func get_floors():
-	pass
+func init(player:Player):
+	self.player = player
 
 # AGREGAR PISOS 
 func add_floor(floor_type:String) -> void:
+	player.update_collision()
 	var new_floor_scene = load("res://entities/player/floors/" + floor_type + ".tscn").instantiate()
 	new_floor_scene.add_to_group("PlayerFloors")
 	new_floor_scene.floor_index = len(get_tree().get_nodes_in_group("PlayerFloors"))
 	new_floor_scene.position.y -= FLOOR_HEIGHT * (new_floor_scene.floor_index +1) - FLOOR_OFFSET
 	floors.append(new_floor_scene)
 	call_deferred("add_child", new_floor_scene)
+	
+	
 
 # SWAP DE PISOS HACIA ABAJO
 func swap_floors_down():
