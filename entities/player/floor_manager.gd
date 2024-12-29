@@ -1,7 +1,7 @@
 extends Node2D
 class_name FloorManager
 
-const FLOOR_HEIGHT = 17
+const FLOOR_HEIGHT = 13
 const FLOOR_OFFSET = 5
 
 var floors = []
@@ -16,18 +16,18 @@ func _ready():
 func _process(delta) -> void:
 	pass
 
-func init(player:Player):
-	self.player = player
+func init(new_player:Player):
+	player = new_player
 
 # AGREGAR PISOS 
 func add_floor(floor_type:String) -> void:
-	player.update_collision()
 	var new_floor_scene = load("res://entities/player/floors/" + floor_type + ".tscn").instantiate()
 	new_floor_scene.add_to_group("PlayerFloors")
 	new_floor_scene.floor_index = len(get_tree().get_nodes_in_group("PlayerFloors"))
 	new_floor_scene.position.y -= FLOOR_HEIGHT * (new_floor_scene.floor_index +1) - FLOOR_OFFSET
 	floors.append(new_floor_scene)
 	call_deferred("add_child", new_floor_scene)
+	player.update_collision()
 	
 	
 
@@ -64,3 +64,6 @@ func swap_floors_up():
 			
 			floors[i] = floors[i-1]
 			floors[i-1] = floor_aux
+
+func get_total_floors():
+	return len(floors)

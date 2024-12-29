@@ -8,7 +8,7 @@ class_name Player
 @onready var collision_shape_2d = $CollisionShape2D
 
 @export var move_speed  = 200.0
-@export var jump_force = -400.0
+@export var jump_force = -500.0
 @export var accel = 100
 @export var friction = 100
 
@@ -18,11 +18,11 @@ func _ready():
 	# Se instancia la máquina de estados con el jugador
 	state_machine.init(self)
 	
-	#
+	# Se instancia el floor manager
 	floor_manager.init(self)
 	
 func _process(delta):
-	pass
+	print(floor_manager.get_total_floors())
 
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
@@ -52,5 +52,7 @@ func swap_floors() -> void:
 		floor_manager.swap_floors_up()
 
 func update_collision():
-	collision_shape_2d.scale.y += 2.1
-	collision_shape_2d.position.y -= 8.4
+	if floor_manager.get_total_floors() == 1:
+		collision_shape_2d.scale.x += 0.3
+	collision_shape_2d.scale.y += 1.56
+	collision_shape_2d.position.y -= 6.24

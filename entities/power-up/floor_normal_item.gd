@@ -5,6 +5,7 @@ signal got_floor
 
 var floor_type = "player_normal_floor"
 
-func _on_body_entered(_body):
-	got_floor.emit(floor_type)
-	queue_free()
+func _on_body_entered(body):
+	if body is Player:
+		got_floor.emit(floor_type)
+		queue_free()

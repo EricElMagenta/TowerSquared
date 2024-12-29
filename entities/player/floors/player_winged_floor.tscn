@@ -15,11 +15,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldf3h"]
-size = Vector2(31, 16)
+size = Vector2(30, 12)
 
 [node name="PlayerWingedFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
 collision_layer = 2
-collision_mask = 13
+collision_mask = 5
 script = ExtResource("1_llqid")
 metadata/_edit_group_ = true
 
@@ -28,5 +28,4 @@ sprite_frames = SubResource("SpriteFrames_j0qqr")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ldf3h")
