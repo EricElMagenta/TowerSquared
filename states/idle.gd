@@ -5,6 +5,10 @@ func Enter():
 	pass
 
 func Physics_Update(delta:float):
+	parent.remaining_air_jumps = parent.max_air_jumps
+	
+	parent.player_animations(self.name)
+	
 	# Obtener los inputs para moverse
 	var direction = parent.move(delta)
 	

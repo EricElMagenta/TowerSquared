@@ -2,7 +2,7 @@ extends Node2D
 class_name FloorManager
 
 const FLOOR_HEIGHT = 13
-const FLOOR_OFFSET = 5
+const FLOOR_OFFSET = 2
 
 var floors = []
 var player : Player
@@ -28,6 +28,7 @@ func add_floor(floor_type:String) -> void:
 	floors.append(new_floor_scene)
 	call_deferred("add_child", new_floor_scene)
 	player.update_collision()
+	player.update_player_abilities(floor_type)
 	
 	
 
@@ -65,5 +66,7 @@ func swap_floors_up():
 			floors[i] = floors[i-1]
 			floors[i-1] = floor_aux
 
+# OBTENER TOTAL DE PISOS
 func get_total_floors():
 	return len(floors)
+	

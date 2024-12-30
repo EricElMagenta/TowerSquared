@@ -1,14 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=16 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
 [ext_resource type="Resource" uid="uid://fi706ut52ub3" path="res://entities/player/player_input_actions.tres" id="2_wa1jq"]
 [ext_resource type="Script" path="res://states/state_machine.gd" id="3_3l04b"]
 [ext_resource type="Script" path="res://states/idle.gd" id="4_50gyb"]
+[ext_resource type="Texture2D" uid="uid://cve8gogtv0r1r" path="res://assets/player/feet_4.png" id="4_p57qm"]
 [ext_resource type="Script" path="res://states/walk.gd" id="5_63qnm"]
+[ext_resource type="Texture2D" uid="uid://ccuwiiwbb6vam" path="res://assets/player/feet_2.png" id="5_wyfvs"]
+[ext_resource type="Texture2D" uid="uid://law2iw03waoc" path="res://assets/player/feet_3.png" id="6_2w3c5"]
 [ext_resource type="Script" path="res://states/jump.gd" id="6_udnbo"]
 [ext_resource type="Script" path="res://states/fall.gd" id="8_6cvpb"]
 [ext_resource type="Script" path="res://entities/player/floor_manager.gd" id="9_ns01a"]
+[ext_resource type="Script" path="res://states/air_jump.gd" id="9_xga2y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8phsy"]
 animations = [{
@@ -17,8 +21,33 @@ animations = [{
 "texture": ExtResource("2_4ahwc")
 }],
 "loop": true,
-"name": &"Idle",
-"speed": 5.0
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p57qm")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wyfvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ahwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2w3c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ahwc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avwer"]
@@ -32,7 +61,7 @@ actions = ExtResource("2_wa1jq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8phsy")
-animation = &"Idle"
+animation = &"jump"
 
 [node name="LabelState" type="Label" parent="."]
 unique_name_in_owner = true
@@ -59,6 +88,9 @@ script = ExtResource("6_udnbo")
 
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource("8_6cvpb")
+
+[node name="AirJump" type="Node" parent="StateMachine"]
+script = ExtResource("9_xga2y")
 
 [node name="FloorManager" type="Node2D" parent="."]
 script = ExtResource("9_ns01a")

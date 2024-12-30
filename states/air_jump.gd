@@ -1,9 +1,10 @@
 extends State
-class_name Jump
+class_name AirJump
 
 func Enter():
 	# Saltar al iniciar el estado
-	parent.jump()
+	parent.air_jump()
+	parent.remaining_air_jumps -= 1
 	
 func Physics_Update(delta:float):
 	
@@ -11,10 +12,11 @@ func Physics_Update(delta:float):
 	
 	parent.move(delta)
 	
-	# Saltar en el aire
+	# Salto en el aire (si es que quedan saltos)
 	if !parent.is_on_floor() && Input.is_action_just_pressed(parent.actions.jump):
 		if parent.remaining_air_jumps > 0:
-			state_transition.emit(self, "AirJump")
+			parent.remaining_air_jumps -= 1
+			parent.air_jump()
 	
 	# Cambio de estado al empezar a caer
 	if parent.velocity.y > 0: state_transition.emit(self, "Fall")
