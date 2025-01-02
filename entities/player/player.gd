@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+signal change_direction
+signal shoot_fireball
+
 @export var actions : PlayerInputActions
 
 @onready var floor_manager = $FloorManager
@@ -20,6 +23,7 @@ var input_vector: Vector2 = Vector2.ZERO # Movimiento del jugador
 # VARIABLES DEL JUGADOR (POWER UP Y WEÁS)
 var max_air_jumps = 0 # Saltar en el aire
 var remaining_air_jumps = 0 # Saltos en el aire restantes
+var has_eyes = false
 
 func _ready():
 	# Se instancia la máquina de estados con el jugador
@@ -29,7 +33,7 @@ func _ready():
 	floor_manager.init(self)
 	
 func _process(delta):
-	print(remaining_air_jumps)
+	pass
 
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
@@ -70,15 +74,17 @@ func update_collision():
 
 # OBTENER EL TIPO DE PISO OBTENIDO
 func update_player_abilities(new_floor_type: String):
-	print(new_floor_type)
 	if new_floor_type.to_lower() == "player_winged_floor":
 		max_air_jumps += 1
+	if new_floor_type.to_lower() == "player_eye_floor":
+		has_eyes = true
 
 # GESTIONA LAS ANIMACIONES DEL JUGADOR
 func player_animations(current_animation:String):
 	# Voltea al jugador según la dirección.
 	if input_vector.x: 
 		animated_sprite_2d.flip_h = (input_vector.x < 0)
+		change_direction.emit()
 	
 	if current_animation.to_lower() == "fall" || current_animation.to_lower() == "airjump":
 		current_animation = "Jump"

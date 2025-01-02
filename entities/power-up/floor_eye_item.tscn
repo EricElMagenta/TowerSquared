@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dabhd7dl5qssl"]
+
+[ext_resource type="Script" path="res://entities/power-up/floor_eye_item.gd" id="1_wdddg"]
+[ext_resource type="Texture2D" uid="uid://um6cosyclgxv" path="res://assets/power-ups/eye_floor.png" id="2_oorxu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qw4e2"]
+size = Vector2(32, 14)
+
+[node name="FloorEyeItem" type="Area2D" groups=["FloorItems"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_wdddg")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oorxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qw4e2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

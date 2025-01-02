@@ -18,5 +18,11 @@ func Physics_Update(delta:float):
 	# Cambiar estado al tocar el suelo
 	if parent.is_on_floor(): state_transition.emit(self, "Idle")
 
+	# SWAP DE PISOS
+	parent.swap_floors()
+
+	# DISPARA AL HACER CLICK CUANDO TIENE OJOS
+	if parent.has_eyes && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
+
 func Exit():
 	pass
