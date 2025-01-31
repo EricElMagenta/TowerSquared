@@ -24,6 +24,7 @@ var input_vector: Vector2 = Vector2.ZERO # Movimiento del jugador
 var max_air_jumps = 0 # Saltar en el aire
 var remaining_air_jumps = 0 # Saltos en el aire restantes
 var has_eyes = false
+var dir = 1
 
 func _ready():
 	# Se instancia la máquina de estados con el jugador
@@ -38,7 +39,15 @@ func _process(delta):
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
 func get_direction() -> Vector2:
+	
+	# Obtener los inputs para moverse izquierda o derecha
 	input_vector.x = Input.get_action_strength(actions.right) - Input.get_action_strength(actions.left)
+	
+	# Actualiza la dirección en la que mira el jugador
+	if input_vector.x != 0:
+		if input_vector.x == 1: dir = 1
+		elif input_vector.x == -1: dir = -1
+		
 	return input_vector.normalized()
 
 # MOVERSE
@@ -89,4 +98,3 @@ func player_animations(current_animation:String):
 	if current_animation.to_lower() == "fall" || current_animation.to_lower() == "airjump":
 		current_animation = "Jump"
 	animated_sprite_2d.play(current_animation.to_lower())
-	

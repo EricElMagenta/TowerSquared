@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://chtrtbioa33u2"]
+
+[ext_resource type="Script" path="res://entities/projectiles/fire_ball.gd" id="1_squrk"]
+[ext_resource type="Texture2D" uid="uid://d0u8vpo05faxu" path="res://assets/projectiles/fireball.png" id="2_08ybo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vkhu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_08ybo")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waflc"]
+size = Vector2(14, 14)
+
+[node name="FireBall" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("1_squrk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3vkhu")
+animation = &"fireball"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_waflc")
+
+[node name="FireballTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="FireballTimer" to="." method="_on_timer_timeout"]

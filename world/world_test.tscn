@@ -39,3 +39,12 @@ position = Vector2(177, 125)
 
 [node name="FloorEyeItem" parent="." instance=ExtResource("5_t8t8g")]
 position = Vector2(66, 98)
+
+[node name="FloorEyeItem2" parent="." instance=ExtResource("5_t8t8g")]
+position = Vector2(191, 101)
+
+[node name="FloorWingedItem" parent="." instance=ExtResource("4_4exn3")]
+position = Vector2(11, 103)
+
+[node name="FloorEyeItem3" parent="." instance=ExtResource("5_t8t8g")]
+position = Vector2(8, 85)
