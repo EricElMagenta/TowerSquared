@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=17 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
 [ext_resource type="Resource" uid="uid://fi706ut52ub3" path="res://entities/player/player_input_actions.tres" id="2_wa1jq"]
 [ext_resource type="Script" path="res://states/state_machine.gd" id="3_3l04b"]
+[ext_resource type="Resource" uid="uid://bxnvfrsg4unnr" path="res://entities/player/player_data.tres" id="3_7fvv7"]
 [ext_resource type="Script" path="res://states/idle.gd" id="4_50gyb"]
 [ext_resource type="Texture2D" uid="uid://cve8gogtv0r1r" path="res://assets/player/feet_4.png" id="4_p57qm"]
 [ext_resource type="Script" path="res://states/walk.gd" id="5_63qnm"]
@@ -58,6 +59,7 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_42w66")
 actions = ExtResource("2_wa1jq")
+player_data = ExtResource("3_7fvv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8phsy")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://da8b1ip62w6gf"]
+
+[ext_resource type="Script" path="res://entities/player/floors/player_mouth_floor.gd" id="1_e2u7n"]
+[ext_resource type="Texture2D" uid="uid://bpnxt0ekqba2n" path="res://assets/power-ups/mouth_floor.png" id="3_1pxap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utagd"]
+size = Vector2(31, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2holw"]
+size = Vector2(17, 14)
+
+[node name="PlayerEyeFloor" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_e2u7n")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_1pxap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_utagd")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="EatArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea"]
+position = Vector2(12.5, 0)
+shape = SubResource("RectangleShape2D_2holw")
+debug_color = Color(0.784314, 1, 0, 0.419608)
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

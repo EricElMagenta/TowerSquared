@@ -5,18 +5,12 @@ signal change_direction
 signal shoot_fireball
 
 @export var actions : PlayerInputActions
+@export var player_data : PlayerData
 
 @onready var floor_manager = $FloorManager
 @onready var state_machine = $StateMachine
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
-
-@export var move_speed  = 200.0
-@export var jump_force = -300.0
-@export var air_jump_force = -300
-@export var accel = 100
-@export var friction = 100
-
 
 var input_vector: Vector2 = Vector2.ZERO # Movimiento del jugador
 
@@ -56,16 +50,16 @@ func move(delta) -> Vector2:
 	if not is_on_floor(): velocity += get_gravity() * delta
 	
 	input_vector = get_direction()
-	velocity = Vector2(input_vector[0] * move_speed, velocity.y)
+	velocity = Vector2(input_vector[0] * player_data.move_speed, velocity.y)
 	move_and_slide()
 	return input_vector
 
 # SALTAR
 func jump() -> void:
-	velocity.y = jump_force
+	velocity.y = player_data.jump_force
 
 func air_jump()-> void:
-	velocity.y = air_jump_force
+	velocity.y = player_data.air_jump_force
 
 # ALTERNAR PISOS AL OPPRIMIR EL SWAP
 func swap_floors() -> void:
