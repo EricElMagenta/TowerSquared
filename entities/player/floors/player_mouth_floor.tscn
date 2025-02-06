@@ -1,36 +1,79 @@
-[gd_scene load_steps=5 format=3 uid="uid://da8b1ip62w6gf"]
+[gd_scene load_steps=10 format=3 uid="uid://da8b1ip62w6gf"]
 
 [ext_resource type="Script" path="res://entities/player/floors/player_mouth_floor.gd" id="1_e2u7n"]
-[ext_resource type="Texture2D" uid="uid://bpnxt0ekqba2n" path="res://assets/power-ups/mouth_floor.png" id="3_1pxap"]
+[ext_resource type="Texture2D" uid="uid://chphd5ci7hung" path="res://assets/sprite_sheets/mouth_floor-Sheet.png" id="3_k2kcx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umamm"]
+atlas = ExtResource("3_k2kcx")
+region = Rect2(215, 0, 43, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ad07"]
+atlas = ExtResource("3_k2kcx")
+region = Rect2(0, 0, 43, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_814n3"]
+atlas = ExtResource("3_k2kcx")
+region = Rect2(43, 0, 43, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbehg"]
+atlas = ExtResource("3_k2kcx")
+region = Rect2(86, 0, 43, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17ga1"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_umamm")
+}],
+"loop": false,
+"name": &"chomp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7ad07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_814n3")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_kbehg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_814n3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utagd"]
-size = Vector2(31, 12)
+size = Vector2(30, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2holw"]
 size = Vector2(17, 14)
 
-[node name="PlayerEyeFloor" type="CharacterBody2D"]
+[node name="PlayerMouthFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_e2u7n")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_1pxap")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_17ga1")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 0)
+position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_utagd")
 
-[node name="ReloadTimer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
 [node name="EatArea" type="Area2D" parent="."]
+collision_mask = 21
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea"]
 position = Vector2(12.5, 0)
 shape = SubResource("RectangleShape2D_2holw")
 debug_color = Color(0.784314, 1, 0, 0.419608)
 
-[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="EatArea" to="." method="_on_eat_area_body_entered"]

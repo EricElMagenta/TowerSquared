@@ -1,20 +1,83 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkx4mfae7w2of"]
+[gd_scene load_steps=13 format=3 uid="uid://dkx4mfae7w2of"]
 
 [ext_resource type="Script" path="res://entities/player/floors/player_eye_floor.gd" id="1_6eear"]
-[ext_resource type="Texture2D" uid="uid://um6cosyclgxv" path="res://assets/power-ups/eye_floor.png" id="2_4ad1j"]
 [ext_resource type="PackedScene" uid="uid://chtrtbioa33u2" path="res://entities/projectiles/fire_ball.tscn" id="2_4frmf"]
+[ext_resource type="Texture2D" uid="uid://b4b0xrww1cxx1" path="res://assets/sprite_sheets/eye_floor-Sheet.png" id="4_2sibq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovho2"]
+atlas = ExtResource("4_2sibq")
+region = Rect2(0, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewtph"]
+atlas = ExtResource("4_2sibq")
+region = Rect2(38, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d72na"]
+atlas = ExtResource("4_2sibq")
+region = Rect2(76, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfudy"]
+atlas = ExtResource("4_2sibq")
+region = Rect2(114, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no4th"]
+atlas = ExtResource("4_2sibq")
+region = Rect2(152, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kedb"]
+atlas = ExtResource("4_2sibq")
+region = Rect2(190, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibyew"]
+atlas = ExtResource("4_2sibq")
+region = Rect2(228, 0, 38, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wl5xu"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_ovho2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ewtph")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_d72na")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tfudy")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_no4th")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6kedb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibyew")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utagd"]
 size = Vector2(31, 12)
 
-[node name="PlayerEyeFloor" type="CharacterBody2D"]
+[node name="PlayerEyeFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_6eear")
 fireball = ExtResource("2_4frmf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4ad1j")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wl5xu")
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 0)
@@ -24,4 +87,5 @@ shape = SubResource("RectangleShape2D_utagd")
 wait_time = 0.5
 autostart = true
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

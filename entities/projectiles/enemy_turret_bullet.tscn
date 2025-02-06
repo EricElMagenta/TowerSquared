@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://didnaihsp7ind"]
+
+[ext_resource type="Script" path="res://entities/projectiles/enemy_turret_bullet.gd" id="1_534ga"]
+[ext_resource type="Texture2D" uid="uid://dwc8ejxy86jtp" path="res://assets/projectiles/enemy_turret_bullet.png" id="1_pw1d4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aotow"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fp31"]
+size = Vector2(17, 11)
+
+[node name="EnemyTurretBullet" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_534ga")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pw1d4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aotow")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_1fp31")
+debug_color = Color(0.619743, 0.983057, 7.70092e-07, 0.419608)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

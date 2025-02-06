@@ -13,9 +13,6 @@ func _ready():
 	for item in items:
 		item.got_floor.connect(add_floor)
 
-func _process(delta) -> void:
-	pass
-
 func init(new_player:Player):
 	player = new_player
 
@@ -25,8 +22,12 @@ func add_floor(floor_type:String) -> void:
 	new_floor_scene.add_to_group("PlayerFloors")
 	new_floor_scene.floor_index = len(get_tree().get_nodes_in_group("PlayerFloors"))
 	new_floor_scene.position.y -= FLOOR_HEIGHT * (new_floor_scene.floor_index +1) - FLOOR_OFFSET
+	new_floor_scene.scale.x = player.dir
+	adjust_floor_position(new_floor_scene)
+	
 	floors.append(new_floor_scene)
 	call_deferred("add_child", new_floor_scene)
+	
 	player.update_collision()
 	player.update_player_abilities(floor_type)
 	
@@ -69,4 +70,11 @@ func swap_floors_up():
 # OBTENER TOTAL DE PISOS
 func get_total_floors():
 	return len(floors)
+
+# CORRIJE LA POSICIÓN DE LOS PISOS PARA ALINEARLOS CON LOS OTROS PISOS
+func adjust_floor_position(new_floor:CharacterBody2D):
+	if new_floor.name.to_lower() == "PlayerMouthFloor".to_lower():
+		new_floor.position.x += 6 * player.dir
 	
+	if new_floor.name.to_lower() == "PlayerEyeFloor".to_lower():
+		new_floor.position.x += 3.4 * player.dir

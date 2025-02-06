@@ -3,6 +3,7 @@ class_name Player
 
 signal change_direction
 signal shoot_fireball
+signal flapping
 
 @export var actions : PlayerInputActions
 @export var player_data : PlayerData
@@ -18,6 +19,7 @@ var input_vector: Vector2 = Vector2.ZERO # Movimiento del jugador
 var max_air_jumps = 0 # Saltar en el aire
 var remaining_air_jumps = 0 # Saltos en el aire restantes
 var has_eyes = false
+var has_mouth = false
 var dir = 1
 
 func _ready():
@@ -26,9 +28,6 @@ func _ready():
 	
 	# Se instancia el floor manager
 	floor_manager.init(self)
-	
-func _process(delta):
-	pass
 
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
@@ -42,7 +41,7 @@ func get_direction() -> Vector2:
 		if input_vector.x == 1: dir = 1
 		elif input_vector.x == -1: dir = -1
 		
-	return input_vector.normalized()
+	return input_vector
 
 # MOVERSE
 func move(delta) -> Vector2:
@@ -60,6 +59,7 @@ func jump() -> void:
 
 func air_jump()-> void:
 	velocity.y = player_data.air_jump_force
+	flapping.emit()
 
 # ALTERNAR PISOS AL OPPRIMIR EL SWAP
 func swap_floors() -> void:
@@ -75,12 +75,14 @@ func update_collision():
 	collision_shape_2d.scale.y += 1.56
 	collision_shape_2d.position.y -= 6.24
 
-# OBTENER EL TIPO DE PISO OBTENIDO
+# DETECTAR EL TIPO DE PISO OBTENIDO Y ACTUALIZAR HABILIDADES DEL JUGADOR
 func update_player_abilities(new_floor_type: String):
-	if new_floor_type.to_lower() == "player_winged_floor":
+	if new_floor_type.to_lower() == "player_winged_floor":	
 		max_air_jumps += 1
-	if new_floor_type.to_lower() == "player_eye_floor":
-		has_eyes = true
+		remaining_air_jumps += 1
+		
+	if new_floor_type.to_lower() == "player_eye_floor":	has_eyes = true
+	if new_floor_type.to_lower() == "player_mouth_floor": has_mouth = true
 
 # GESTIONA LAS ANIMACIONES DEL JUGADOR
 func player_animations(current_animation:String):
@@ -92,3 +94,7 @@ func player_animations(current_animation:String):
 	if current_animation.to_lower() == "fall" || current_animation.to_lower() == "airjump":
 		current_animation = "Jump"
 	animated_sprite_2d.play(current_animation.to_lower())
+
+func get_hit():
+	get_tree().call_deferred("reload_current_scene")
+	
