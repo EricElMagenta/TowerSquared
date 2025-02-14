@@ -1,7 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://dabhd7dl5qssl"]
+[gd_scene load_steps=11 format=3 uid="uid://dabhd7dl5qssl"]
 
 [ext_resource type="Script" path="res://entities/power-up/floor_eye_item.gd" id="1_wdddg"]
-[ext_resource type="Texture2D" uid="uid://um6cosyclgxv" path="res://assets/power-ups/eye_floor.png" id="2_oorxu"]
+[ext_resource type="Texture2D" uid="uid://b4b0xrww1cxx1" path="res://assets/sprite_sheets/eye_floor-Sheet.png" id="2_2bfiq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovho2"]
+atlas = ExtResource("2_2bfiq")
+region = Rect2(0, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewtph"]
+atlas = ExtResource("2_2bfiq")
+region = Rect2(38, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d72na"]
+atlas = ExtResource("2_2bfiq")
+region = Rect2(76, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfudy"]
+atlas = ExtResource("2_2bfiq")
+region = Rect2(114, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no4th"]
+atlas = ExtResource("2_2bfiq")
+region = Rect2(152, 0, 38, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kedb"]
+atlas = ExtResource("2_2bfiq")
+region = Rect2(190, 0, 38, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_54mf4"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_ovho2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ewtph")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_d72na")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tfudy")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_no4th")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6kedb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw4e2"]
 size = Vector2(32, 14)
@@ -12,8 +62,9 @@ collision_mask = 2
 script = ExtResource("1_wdddg")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_oorxu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_54mf4")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qw4e2")

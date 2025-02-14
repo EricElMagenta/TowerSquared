@@ -29,5 +29,7 @@ func Physics_Update(delta:float):
 	# DISPARA AL HACER CLICK CUANDO TIENE OJOS
 	if parent.has_eyes && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
 	
+	parent.push_object()
+	
 func Exit():
 	pass

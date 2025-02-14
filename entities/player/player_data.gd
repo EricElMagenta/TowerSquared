@@ -6,3 +6,5 @@ class_name PlayerData
 @export var air_jump_force = -300
 @export var accel = 100
 @export var friction = 100
+@export var arm_strength = 0
+@export var push_force = 100

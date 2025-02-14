@@ -1,7 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbl1u4as8ed4m"]
+[gd_scene load_steps=7 format=3 uid="uid://bbl1u4as8ed4m"]
 
 [ext_resource type="Script" path="res://entities/power-up/floor_winged_item.gd" id="1_q2brc"]
-[ext_resource type="Texture2D" uid="uid://doxn5ihkovaev" path="res://assets/power-ups/flying_floor.png" id="2_32buu"]
+[ext_resource type="Texture2D" uid="uid://bb7nuo8u6fjra" path="res://assets/sprite_sheets/flying_floor-Sheet.png" id="2_itdt4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afrjq"]
+atlas = ExtResource("2_itdt4")
+region = Rect2(0, 0, 69, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5avmj"]
+atlas = ExtResource("2_itdt4")
+region = Rect2(69, 0, 69, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lk2vh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afrjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5avmj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5w2h"]
 size = Vector2(33, 16)
@@ -12,8 +34,11 @@ collision_mask = 2
 script = ExtResource("1_q2brc")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_32buu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lk2vh")
+animation = &"idle"
+frame = 1
+frame_progress = 0.108057
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

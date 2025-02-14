@@ -95,6 +95,19 @@ func player_animations(current_animation:String):
 		current_animation = "Jump"
 	animated_sprite_2d.play(current_animation.to_lower())
 
+# RECIBIR DAÑO
 func get_hit():
 	get_tree().call_deferred("reload_current_scene")
-	
+
+# EMPUJAR OBJECTOS EMPUJABLES
+func push_object():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		
+		# Obtiene el objeto con el que colisiona
+		var collision_object = collision.get_collider()
+		
+		# Empuja el objeto
+		if collision_object.is_in_group("pushable"):
+			if abs(collision_object.get_linear_velocity().x) < player_data.move_speed && player_data.arm_strength > collision_object.mass:
+				collision_object.apply_central_impulse(collision.get_normal() * -player_data.push_force)

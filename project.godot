@@ -84,6 +84,7 @@ suck_and_spit={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="PowerUps"
 2d_physics/layer_5="Projectiles"
+2d_physics/layer_6="Objects"
 
 [rendering]
 

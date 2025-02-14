@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dawfcshi1vcb7"]
+[gd_scene load_steps=9 format=3 uid="uid://dawfcshi1vcb7"]
 
 [ext_resource type="Script" path="res://world/world_test.gd" id="1_g220s"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_gapq2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bdei3gdapp6v2" path="res://entities/power-up/floor_mouth_item.tscn" id="6_albxm"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="6_vvljy"]
 [ext_resource type="PackedScene" uid="uid://bbl1u4as8ed4m" path="res://entities/power-up/floor_winged_item.tscn" id="7_0j1l7"]
+[ext_resource type="PackedScene" uid="uid://dlvwc64hbl2fb" path="res://entities/objects/damaged_box.tscn" id="8_vhrq3"]
 
 [node name="WorldTest" type="Node2D"]
 script = ExtResource("1_g220s")
@@ -17,32 +18,41 @@ collision_mask = 6
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-192, 4, 304, 4, 304, -84, 240, -84, 240, -60, 232, -60, 232, -92, 320, -92, 320, 20, -192, 20)
+polygon = PackedVector2Array(-231, -9, -147, -15, -85, -3, 304, 4, 304, -84, 240, -84, 240, -60, 232, -60, 232, -92, 320, -92, 320, 20, -231, 20)
 metadata/_edit_group_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_gapq2")]
-position = Vector2(110, 92)
+position = Vector2(299, 0)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, -41.095)
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(110, 50.905)
+position = Vector2(299, -41.095)
 
 [node name="EnemyTurretBullet" parent="." instance=ExtResource("4_wk1se")]
-position = Vector2(28, 122)
+position = Vector2(192, 92)
 
 [node name="FloorEyeItem" parent="." instance=ExtResource("5_1fhhm")]
-position = Vector2(70, 124)
+position = Vector2(281, 28)
 
 [node name="FloorNormalItem" parent="." instance=ExtResource("6_vvljy")]
-position = Vector2(112, 124)
+position = Vector2(92, 83)
 
 [node name="FloorWingedItem2" parent="." instance=ExtResource("7_0j1l7")]
-position = Vector2(63, 64)
+position = Vector2(-2, 56)
+
+[node name="FloorWingedItem3" parent="." instance=ExtResource("7_0j1l7")]
+position = Vector2(-3, 80)
+
+[node name="FloorWingedItem4" parent="." instance=ExtResource("7_0j1l7")]
+position = Vector2(-3, 37)
 
 [node name="FloorMouthlItem" parent="." instance=ExtResource("6_albxm")]
-position = Vector2(177, 121)
+position = Vector2(142, 82)
+
+[node name="DamagedBox" parent="." instance=ExtResource("8_vhrq3")]
+position = Vector2(243, 34)

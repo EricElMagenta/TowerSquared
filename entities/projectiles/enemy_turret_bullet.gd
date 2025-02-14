@@ -2,7 +2,7 @@ extends EnemyProjectile
 
 @onready var hitbox = $Hitbox
 
-const SPEED = 0
+const SPEED = 300
 
 func _physics_process(delta):
 	velocity.x = SPEED

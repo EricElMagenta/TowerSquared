@@ -25,3 +25,7 @@ func _on_timer_timeout():
 func collision_detected():
 	queue_free()
 	
+func _on_area_2d_body_entered(body):
+	if body.has_method("box_destroyed"):
+		body.box_destroyed()
+		queue_free()

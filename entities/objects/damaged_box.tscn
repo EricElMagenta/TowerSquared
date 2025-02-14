@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlvwc64hbl2fb"]
+
+[ext_resource type="Script" path="res://entities/objects/damaged_box.gd" id="1_5jx7w"]
+[ext_resource type="Texture2D" uid="uid://bametojry0nac" path="res://assets/sprite_sheets/damaged_box-Sheet.png" id="2_6b771"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksmrt"]
+atlas = ExtResource("2_6b771")
+region = Rect2(38, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blrkx"]
+atlas = ExtResource("2_6b771")
+region = Rect2(76, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gttk"]
+atlas = ExtResource("2_6b771")
+region = Rect2(114, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8scqu"]
+atlas = ExtResource("2_6b771")
+region = Rect2(152, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5ggc"]
+atlas = ExtResource("2_6b771")
+region = Rect2(0, 0, 38, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_da3iw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksmrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blrkx")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_6gttk")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_8scqu")
+}],
+"loop": false,
+"name": &"destroyed",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5ggc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6n5h"]
+size = Vector2(17, 20)
+
+[node name="DamagedBox" type="RigidBody2D" groups=["pushable"]]
+collision_layer = 32
+collision_mask = 17
+mass = 5.0
+lock_rotation = true
+script = ExtResource("1_5jx7w")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_da3iw")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_f6n5h")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

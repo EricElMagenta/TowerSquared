@@ -1,7 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdei3gdapp6v2"]
+[gd_scene load_steps=8 format=3 uid="uid://bdei3gdapp6v2"]
 
 [ext_resource type="Script" path="res://entities/power-up/floor_mouth_item.gd" id="1_qe7eo"]
-[ext_resource type="Texture2D" uid="uid://crlg0crv3ndnq" path="res://assets/power-ups/normal_floor_1.png" id="2_qqoc1"]
+[ext_resource type="Texture2D" uid="uid://chphd5ci7hung" path="res://assets/sprite_sheets/mouth_floor-Sheet.png" id="2_eb8po"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ad07"]
+atlas = ExtResource("2_eb8po")
+region = Rect2(0, 0, 43, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_814n3"]
+atlas = ExtResource("2_eb8po")
+region = Rect2(43, 0, 43, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbehg"]
+atlas = ExtResource("2_eb8po")
+region = Rect2(86, 0, 43, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cc5lv"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7ad07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_814n3")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_kbehg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_814n3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw4e2"]
 size = Vector2(34, 16)
@@ -12,8 +44,9 @@ collision_mask = 2
 script = ExtResource("1_qe7eo")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_qqoc1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cc5lv")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qw4e2")

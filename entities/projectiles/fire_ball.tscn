@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://chtrtbioa33u2"]
+[gd_scene load_steps=6 format=3 uid="uid://chtrtbioa33u2"]
 
 [ext_resource type="Script" path="res://entities/projectiles/fire_ball.gd" id="1_squrk"]
 [ext_resource type="Texture2D" uid="uid://d0u8vpo05faxu" path="res://assets/projectiles/fireball.png" id="2_08ybo"]
@@ -17,10 +17,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_waflc"]
 size = Vector2(14, 14)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwd8r"]
+radius = 9.05539
+
 [node name="FireBall" type="CharacterBody2D"]
 collision_layer = 16
-collision_mask = 5
 script = ExtResource("1_squrk")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3vkhu")
@@ -33,4 +36,13 @@ shape = SubResource("RectangleShape2D_waflc")
 wait_time = 0.5
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 36
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mwd8r")
+debug_color = Color(0.980148, 0, 0.382122, 0.42)
+
 [connection signal="timeout" from="FireballTimer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
