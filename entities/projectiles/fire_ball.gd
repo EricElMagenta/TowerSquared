@@ -26,6 +26,13 @@ func collision_detected():
 	queue_free()
 	
 func _on_area_2d_body_entered(body):
-	if body.has_method("box_destroyed"):
-		body.box_destroyed()
-		queue_free()
+	
+#	SI DISPARA A UN OBJETO AGARRABLE LO DESTRUYE SIEMPRE Y CUANDO NO ESTÉ SIENDO AGARRADO
+	if body.is_in_group("grabeable"):
+		if !body.grabbed && body.has_method("get_destroyed"):
+			body.get_destroyed()
+			queue_free()
+			
+#	DESTRUYE EL OBJETO CON EL CHOCA SIEMPRE Y CUANDO SEA DESTRUIBLE
+	else:
+		body.get_destroyed()

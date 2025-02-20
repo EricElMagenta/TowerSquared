@@ -10,3 +10,5 @@ class_name PlayerInputActions
 @export var swap_up 	: StringName = "swap_up"
 @export var swap_down 	: StringName = "swap_down"
 @export var shoot 		: StringName = "shoot"
+@export var action		: StringName = "action"
+@export var stop_action		: StringName = "stop_action"

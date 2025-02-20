@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcfhdth2ps4n7"]
+
+[ext_resource type="Script" path="res://entities/power-up/floor_arm_item.gd" id="1_u7dnr"]
+[ext_resource type="Texture2D" uid="uid://bdu4oer888i8a" path="res://assets/sprite_sheets/arm_floor-Sheet.png" id="2_m4bfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4t8n"]
+atlas = ExtResource("2_m4bfg")
+region = Rect2(48, 0, 48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj563"]
+atlas = ExtResource("2_m4bfg")
+region = Rect2(0, 0, 48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsjg1"]
+atlas = ExtResource("2_m4bfg")
+region = Rect2(96, 0, 48, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4au0"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_d4t8n")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_wj563")
+}, {
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_tsjg1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_wj563")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v33i"]
+size = Vector2(33, 14)
+
+[node name="FloorArmItem" type="Area2D" groups=["FloorItems"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_u7dnr")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q4au0")
+animation = &"idle"
+frame_progress = 0.671272
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, 1)
+shape = SubResource("RectangleShape2D_3v33i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

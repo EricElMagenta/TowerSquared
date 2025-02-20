@@ -30,8 +30,6 @@ func add_floor(floor_type:String) -> void:
 	
 	player.update_collision()
 	player.update_player_abilities(floor_type)
-	
-	
 
 # SWAP DE PISOS HACIA ABAJO
 func swap_floors_down():
@@ -78,3 +76,6 @@ func adjust_floor_position(new_floor:CharacterBody2D):
 	
 	if new_floor.name.to_lower() == "PlayerEyeFloor".to_lower():
 		new_floor.position.x += 3.4 * player.dir
+	
+	if new_floor.name.to_lower() == "PlayerArmFloor".to_lower():
+		new_floor.position.x += 8 * player.dir

@@ -4,6 +4,8 @@ class_name Player
 signal change_direction
 signal shoot_fireball
 signal flapping
+signal action
+signal stop_action
 
 @export var actions : PlayerInputActions
 @export var player_data : PlayerData
@@ -20,6 +22,7 @@ var max_air_jumps = 0 # Saltar en el aire
 var remaining_air_jumps = 0 # Saltos en el aire restantes
 var has_eyes = false
 var has_mouth = false
+var has_arms = false
 var dir = 1
 
 func _ready():
@@ -83,6 +86,7 @@ func update_player_abilities(new_floor_type: String):
 		
 	if new_floor_type.to_lower() == "player_eye_floor":	has_eyes = true
 	if new_floor_type.to_lower() == "player_mouth_floor": has_mouth = true
+	if new_floor_type.to_lower() == "player_arm_floor": has_arms = true
 
 # GESTIONA LAS ANIMACIONES DEL JUGADOR
 func player_animations(current_animation:String):
@@ -100,14 +104,14 @@ func get_hit():
 	get_tree().call_deferred("reload_current_scene")
 
 # EMPUJAR OBJECTOS EMPUJABLES
-func push_object():
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		
-		# Obtiene el objeto con el que colisiona
-		var collision_object = collision.get_collider()
-		
-		# Empuja el objeto
-		if collision_object.is_in_group("pushable"):
-			if abs(collision_object.get_linear_velocity().x) < player_data.move_speed && player_data.arm_strength > collision_object.mass:
-				collision_object.apply_central_impulse(collision.get_normal() * -player_data.push_force)
+#func push_object():
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+		#
+		## Obtiene el objeto con el que colisiona
+		#var collision_object = collision.get_collider()
+		#
+		## Empuja el objeto
+		#if collision_object.is_in_group("pushable"):
+			#if abs(collision_object.get_linear_velocity().x) < player_data.move_speed && has_arms:
+				#collision_object.apply_central_impulse(collision.get_normal() * -player_data.push_force)

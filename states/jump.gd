@@ -19,11 +19,18 @@ func Physics_Update(delta:float):
 	# Cambio de estado al empezar a caer
 	if parent.velocity.y > 0: state_transition.emit(self, "Fall")
 
+	###################### HABILIDADES ################################
 	# SWAP DE PISOS
 	parent.swap_floors()
 
 	# DISPARA AL HACER CLICK CUANDO TIENE OJOS
 	if parent.has_eyes && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
+	
+	# AGARRAR COSAS
+	if parent.has_arms && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
+	
+	# SOLTAR COSAS
+	if parent.has_arms && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 
 func Exit():
 	pass
