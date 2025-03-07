@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bametojry0nac"
-path="res://.godot/imported/damaged_box-Sheet.png-0b87378541a5eff40b8ab4d45f0cfc02.ctex"
+uid="uid://d3hn5lqmhn10x"
+path="res://.godot/imported/enemy_flying_bomb-Sheet.png-49e6f0c03210a71ac1c59376f13617d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/damaged_box-Sheet.png"
-dest_files=["res://.godot/imported/damaged_box-Sheet.png-0b87378541a5eff40b8ab4d45f0cfc02.ctex"]
+source_file="res://assets/enemies/enemy_flying_bomb-Sheet.png"
+dest_files=["res://.godot/imported/enemy_flying_bomb-Sheet.png-49e6f0c03210a71ac1c59376f13617d7.ctex"]
 
 [params]
 

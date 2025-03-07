@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c33jihhfvimav"
-path="res://.godot/imported/explosion-Sheet.png-01bce4bec7558d307ec17cebcc3c1bb7.ctex"
+uid="uid://chphd5ci7hung"
+path="res://.godot/imported/mouth_floor-Sheet.png-b70ec7c769ffb1a4c4efc0521f701bc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/explosion-Sheet.png"
-dest_files=["res://.godot/imported/explosion-Sheet.png-01bce4bec7558d307ec17cebcc3c1bb7.ctex"]
+source_file="res://assets/player/mouth_floor-Sheet.png"
+dest_files=["res://.godot/imported/mouth_floor-Sheet.png-b70ec7c769ffb1a4c4efc0521f701bc9.ctex"]
 
 [params]
 

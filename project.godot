@@ -90,6 +90,7 @@ stop_action={
 2d_physics/layer_4="PowerUps"
 2d_physics/layer_5="Projectiles"
 2d_physics/layer_6="Objects"
+2d_physics/layer_7="EnemyProjectiles"
 
 [rendering]
 

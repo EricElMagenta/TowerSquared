@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4b0xrww1cxx1"
-path="res://.godot/imported/eye_floor-Sheet.png-1b45344acd7234e3f090ef6b5a063581.ctex"
+uid="uid://dl57ncm4miimv"
+path="res://.godot/imported/player_reference.png-c0a36efcf83eff6b9b57756a30dc35ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/eye_floor-Sheet.png"
-dest_files=["res://.godot/imported/eye_floor-Sheet.png-1b45344acd7234e3f090ef6b5a063581.ctex"]
+source_file="res://assets/objects/player_reference.png"
+dest_files=["res://.godot/imported/player_reference.png-c0a36efcf83eff6b9b57756a30dc35ce.ctex"]
 
 [params]
 

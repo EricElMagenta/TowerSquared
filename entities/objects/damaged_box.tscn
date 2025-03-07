@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlvwc64hbl2fb"]
+[gd_scene load_steps=12 format=3 uid="uid://dlvwc64hbl2fb"]
 
 [ext_resource type="Script" path="res://entities/objects/damaged_box.gd" id="1_5jx7w"]
-[ext_resource type="Texture2D" uid="uid://bametojry0nac" path="res://assets/sprite_sheets/damaged_box-Sheet.png" id="2_6b771"]
+[ext_resource type="Texture2D" uid="uid://bametojry0nac" path="res://assets/objects/damaged_box-Sheet.png" id="2_6b771"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksmrt"]
 atlas = ExtResource("2_6b771")
@@ -55,11 +55,14 @@ animations = [{
 size = Vector2(17.25, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oo82f"]
-size = Vector2(17, 18)
+size = Vector2(19, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pmf7"]
+size = Vector2(21, 22)
 
 [node name="DamagedBox" type="CharacterBody2D" groups=["grabeable"]]
 collision_layer = 32
-collision_mask = 49
+collision_mask = 113
 script = ExtResource("1_5jx7w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -72,11 +75,20 @@ shape = SubResource("RectangleShape2D_f6n5h")
 
 [node name="FloorDetectArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 33
+collision_mask = 97
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorDetectArea"]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_oo82f")
 debug_color = Color(0, 1, 0.423529, 0.419608)
+
+[node name="GrabBulletDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabBulletDetect"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_7pmf7")
+debug_color = Color(0.2456, 0.000453007, 0.790911, 0.419608)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

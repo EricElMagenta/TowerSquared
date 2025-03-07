@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdei3gdapp6v2"]
 
 [ext_resource type="Script" path="res://entities/power-up/floor_mouth_item.gd" id="1_qe7eo"]
-[ext_resource type="Texture2D" uid="uid://chphd5ci7hung" path="res://assets/sprite_sheets/mouth_floor-Sheet.png" id="2_eb8po"]
+[ext_resource type="Texture2D" uid="uid://chphd5ci7hung" path="res://assets/player/mouth_floor-Sheet.png" id="2_eb8po"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ad07"]
 atlas = ExtResource("2_eb8po")

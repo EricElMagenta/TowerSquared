@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdu4oer888i8a"
-path="res://.godot/imported/arm_floor-Sheet.png-e91b67735750095a817c7211541c4b34.ctex"
+uid="uid://clh5xe442n5me"
+path="res://.godot/imported/stone_door.png-f5375623bc9e5ef897405de8f8ab75dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/arm_floor-Sheet.png"
-dest_files=["res://.godot/imported/arm_floor-Sheet.png-e91b67735750095a817c7211541c4b34.ctex"]
+source_file="res://assets/objects/stone_door.png"
+dest_files=["res://.godot/imported/stone_door.png-f5375623bc9e5ef897405de8f8ab75dd.ctex"]
 
 [params]
 

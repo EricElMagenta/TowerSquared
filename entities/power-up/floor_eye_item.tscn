@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dabhd7dl5qssl"]
 
 [ext_resource type="Script" path="res://entities/power-up/floor_eye_item.gd" id="1_wdddg"]
-[ext_resource type="Texture2D" uid="uid://b4b0xrww1cxx1" path="res://assets/sprite_sheets/eye_floor-Sheet.png" id="2_2bfiq"]
+[ext_resource type="Texture2D" uid="uid://b4b0xrww1cxx1" path="res://assets/player/eye_floor-Sheet.png" id="2_2bfiq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ovho2"]
 atlas = ExtResource("2_2bfiq")

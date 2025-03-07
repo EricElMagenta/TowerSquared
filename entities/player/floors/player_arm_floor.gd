@@ -16,7 +16,6 @@ func _physics_process(delta):
 	# SI NO TIENE NADA, VUELVE A LA ANIMACIÓN NORMAL
 	if !grabbed_item:
 		animated_sprite_2d.play("idle")
-	print(grabbed_item)
 
 func change_direction():
 	if scale.x != player.dir: 

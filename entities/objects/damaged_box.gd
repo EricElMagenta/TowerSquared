@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var floor_detect_area = $FloorDetectArea
+@onready var grab_bullet_detect = $GrabBulletDetect
 
 #const lerp_speed = 500
 
@@ -27,6 +28,12 @@ func _physics_process(delta):
 		if not is_on_floor(): velocity += get_gravity() * delta
 		
 	velocity.x *= -0.3
+	
+#	HITBOX SEPARADA PARA DETECTAR BALAS MIENTRAS EL OBJETO ESTÁ AGARRADO. 
+#	NO ES LO IDEAL PORQUE EL CÓDIGO DEBERÍA ESTAR EN LA BALA.
+	for body in grab_bullet_detect.get_overlapping_bodies():
+		body.queue_free()
+		get_destroyed()
 
 	move_and_slide()
 

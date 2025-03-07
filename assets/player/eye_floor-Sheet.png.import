@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chphd5ci7hung"
-path="res://.godot/imported/mouth_floor-Sheet.png-242a3a93efc84eb6265becf43b4f0186.ctex"
+uid="uid://b4b0xrww1cxx1"
+path="res://.godot/imported/eye_floor-Sheet.png-50d251400ed81d025992e23a8b05dbef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/mouth_floor-Sheet.png"
-dest_files=["res://.godot/imported/mouth_floor-Sheet.png-242a3a93efc84eb6265becf43b4f0186.ctex"]
+source_file="res://assets/player/eye_floor-Sheet.png"
+dest_files=["res://.godot/imported/eye_floor-Sheet.png-50d251400ed81d025992e23a8b05dbef.ctex"]
 
 [params]
 

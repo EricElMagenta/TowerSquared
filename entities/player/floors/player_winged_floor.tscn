@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bq2fb44sbvwhm"]
 
 [ext_resource type="Script" path="res://entities/player/floors/player_winged_floor.gd" id="1_llqid"]
-[ext_resource type="Texture2D" uid="uid://bb7nuo8u6fjra" path="res://assets/sprite_sheets/flying_floor-Sheet.png" id="2_68wys"]
+[ext_resource type="Texture2D" uid="uid://bb7nuo8u6fjra" path="res://assets/player/flying_floor-Sheet.png" id="2_68wys"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u15r1"]
 atlas = ExtResource("2_68wys")
