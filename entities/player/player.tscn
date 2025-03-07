@@ -101,3 +101,7 @@ script = ExtResource("9_ns01a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_avwer")
 debug_color = Color(0.941176, 0.121569, 1, 0.188235)
+
+[node name="ImmunityTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true

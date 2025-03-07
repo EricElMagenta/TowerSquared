@@ -4,8 +4,13 @@
 
 [resource]
 script = ExtResource("1_017m7")
+max_health = 3
+current_health = null
 move_speed = 200.0
 jump_force = -300.0
 air_jump_force = -300
 accel = 100
 friction = 100
+arm_strength = 0
+push_force = 100
+knockback_force = Vector2(500, -300)
