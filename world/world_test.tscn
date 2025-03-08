@@ -40,7 +40,7 @@ position = Vector2(211, 101)
 position = Vector2(201, 57)
 
 [node name="FloorNormalItem" parent="." instance=ExtResource("6_vvljy")]
-position = Vector2(-2, 54)
+position = Vector2(128, 88)
 
 [node name="FloorWingedItem3" parent="." instance=ExtResource("7_0j1l7")]
 position = Vector2(52, 54)

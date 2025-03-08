@@ -1,7 +1,7 @@
 extends Enemy
 
 # VARIABLES
-@export var speed = 50
+@export var speed = 100
 var dir = 1
 var damage = 1
 

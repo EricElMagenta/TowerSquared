@@ -35,4 +35,6 @@ func _on_area_2d_body_entered(body):
 			
 #	DESTRUYE EL OBJETO CON EL CHOCA SIEMPRE Y CUANDO SEA DESTRUIBLE
 	else:
-		if body.has_method("get_destroyed"): body.get_destroyed()
+		if body.has_method("get_destroyed"): 
+			body.get_destroyed()
+			queue_free()

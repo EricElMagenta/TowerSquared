@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 # SEÑALES
+signal health_changed
 signal change_direction
 signal shoot_fireball
 signal flapping
@@ -134,6 +135,7 @@ func get_hit(damage) -> void:
 
 # IMNUNIDAD POST DAÑO
 func get_hit_immunity() -> void:
+	health_changed.emit(player_data.current_health)
 	immunity_timer.start()
 	while immunity_timer.time_left > 0:
 		damage_blink = true
