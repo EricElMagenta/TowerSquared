@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://i8ek1ejvkff1"]
+
+[ext_resource type="Texture2D" uid="uid://d33fi84ve785q" path="res://assets/UI/panel-button.png" id="1_y66sc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7w6g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_guik7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_elnts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvn52"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_taere"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ewsw"]
+texture = ExtResource("1_y66sc")
+texture_margin_left = 12.0
+texture_margin_right = 12.0
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_d7w6g")
+Button/styles/focus = SubResource("StyleBoxEmpty_guik7")
+Button/styles/hover = SubResource("StyleBoxEmpty_elnts")
+Button/styles/normal = SubResource("StyleBoxEmpty_rvn52")
+Button/styles/pressed = SubResource("StyleBoxEmpty_taere")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_5ewsw")
