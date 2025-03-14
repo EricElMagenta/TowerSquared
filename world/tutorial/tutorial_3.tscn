@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b1mcvwww2aed5"]
+[gd_scene load_steps=15 format=4 uid="uid://b1mcvwww2aed5"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_3.gd" id="1_ese5q"]
 [ext_resource type="PackedScene" uid="uid://big88cj551hbg" path="res://world/tutorial/tutorial_4.tscn" id="2_fivyh"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dlvwc64hbl2fb" path="res://entities/objects/damaged_box.tscn" id="11_m5wk5"]
 [ext_resource type="PackedScene" uid="uid://dlgi51sve5pnm" path="res://entities/enemies/enemy_flying_bomb.tscn" id="12_q6c85"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause_menu.tscn" id="13_amdd0"]
+[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/scene_transition.tscn" id="14_tl7wv"]
 
 [node name="Tutorial3" type="Node2D"]
 script = ExtResource("1_ese5q")
@@ -95,3 +96,5 @@ position = Vector2(835, -9)
 [node name="HealthContainer" parent="CanvasLayer" instance=ExtResource("7_vqksp")]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_amdd0")]
+
+[node name="SceneTransition" parent="." instance=ExtResource("14_tl7wv")]

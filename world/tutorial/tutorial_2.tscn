@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bve5uq4p6a3if"]
+[gd_scene load_steps=14 format=4 uid="uid://bve5uq4p6a3if"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_2.gd" id="1_52r1m"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_kbksk"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c2xk2n4yqau76" path="res://entities/enemies/enemy_dynamite.tscn" id="7_3gtma"]
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health_container.tscn" id="11_w45p5"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause_menu.tscn" id="12_umxdn"]
+[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/scene_transition.tscn" id="13_4h4hn"]
 
 [node name="Tutorial2" type="Node2D"]
 script = ExtResource("1_52r1m")
@@ -60,18 +61,17 @@ position = Vector2(-66, 64)
 
 [node name="EnemyDynamite" parent="." instance=ExtResource("7_3gtma")]
 position = Vector2(-106, 192)
-scale = Vector2(1.2, 1.2)
 
 [node name="EnemyDynamite2" parent="." instance=ExtResource("7_3gtma")]
 position = Vector2(-277, 175)
-scale = Vector2(1.2, 1.2)
 
 [node name="EnemyDynamite3" parent="." instance=ExtResource("7_3gtma")]
 position = Vector2(-217, 16)
-scale = Vector2(1.2, 1.2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthContainer" parent="CanvasLayer" instance=ExtResource("11_w45p5")]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_umxdn")]
+
+[node name="SceneTransition" parent="." instance=ExtResource("13_4h4hn")]

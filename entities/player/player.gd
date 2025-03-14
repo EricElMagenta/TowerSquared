@@ -45,9 +45,6 @@ func _ready():
 	# Resetea la vida al máximo
 	player_data.current_health = player_data.max_health
 
-func _physics_process(delta):
-	pass
-
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
 func get_direction() -> Vector2:
@@ -129,9 +126,6 @@ func get_hit(damage) -> void:
 		get_hit_immunity()
 		if player_data.current_health <= 0: ded()
 		velocity.y = player_data.knockback_force.y
-		
-		print(player_data.current_health)
-
 
 # IMNUNIDAD POST DAÑO
 func get_hit_immunity() -> void:
@@ -147,6 +141,7 @@ func get_hit_immunity() -> void:
 
 func ded() -> void:
 	get_tree().call_deferred("reload_current_scene")
+
 
 # EMPUJAR OBJECTOS EMPUJABLES
 #func push_object():

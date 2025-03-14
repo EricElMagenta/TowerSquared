@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=22 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
@@ -10,10 +10,24 @@
 [ext_resource type="Script" path="res://states/walk.gd" id="5_63qnm"]
 [ext_resource type="Texture2D" uid="uid://ccuwiiwbb6vam" path="res://assets/player/feet_2.png" id="5_wyfvs"]
 [ext_resource type="Texture2D" uid="uid://law2iw03waoc" path="res://assets/player/feet_3.png" id="6_2w3c5"]
+[ext_resource type="Texture2D" uid="uid://vi1fls6mh4ce" path="res://assets/player/player-victory-Sheet.png" id="6_oifr3"]
 [ext_resource type="Script" path="res://states/jump.gd" id="6_udnbo"]
 [ext_resource type="Script" path="res://states/fall.gd" id="8_6cvpb"]
 [ext_resource type="Script" path="res://entities/player/floor_manager.gd" id="9_ns01a"]
 [ext_resource type="Script" path="res://states/air_jump.gd" id="9_xga2y"]
+[ext_resource type="Script" path="res://states/victory.gd" id="15_uxgkx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j21rn"]
+atlas = ExtResource("6_oifr3")
+region = Rect2(0, 0, 43, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdqoq"]
+atlas = ExtResource("6_oifr3")
+region = Rect2(43, 0, 43, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6408h"]
+atlas = ExtResource("6_oifr3")
+region = Rect2(86, 0, 43, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8phsy"]
 animations = [{
@@ -32,6 +46,20 @@ animations = [{
 "loop": true,
 "name": &"jump",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_j21rn")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_jdqoq")
+}, {
+"duration": 40.0,
+"texture": SubResource("AtlasTexture_6408h")
+}],
+"loop": false,
+"name": &"victory",
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -64,7 +92,7 @@ player_data = ExtResource("3_7fvv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8phsy")
-animation = &"jump"
+animation = &"victory"
 
 [node name="LabelState" type="Label" parent="."]
 unique_name_in_owner = true
@@ -95,6 +123,9 @@ script = ExtResource("8_6cvpb")
 
 [node name="AirJump" type="Node" parent="StateMachine"]
 script = ExtResource("9_xga2y")
+
+[node name="Victory" type="Node" parent="StateMachine"]
+script = ExtResource("15_uxgkx")
 
 [node name="FloorManager" type="Node2D" parent="."]
 script = ExtResource("9_ns01a")

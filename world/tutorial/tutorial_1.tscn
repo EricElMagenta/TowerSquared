@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b61pattpo6dc2"]
+[gd_scene load_steps=13 format=4 uid="uid://b61pattpo6dc2"]
 
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_kbksk"]
 [ext_resource type="Script" path="res://world/tutorial/tutorial_1.gd" id="1_ucgpn"]
@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause_menu.tscn" id="9_oeq48"]
 [ext_resource type="Texture2D" uid="uid://4utidbtgt47n" path="res://assets/UI/button-pause.png" id="10_wi003"]
 [ext_resource type="Theme" uid="uid://i8ek1ejvkff1" path="res://ui/theme_button.tres" id="11_dde5s"]
+[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/scene_transition.tscn" id="12_ys628"]
 
 [node name="Tutorial1" type="Node2D"]
 script = ExtResource("1_ucgpn")
 next_level = ExtResource("2_e7tkt")
 
 [node name="DoorStone" parent="." instance=ExtResource("1_kbksk")]
-position = Vector2(1188, -277)
+position = Vector2(1197, -277)
 
 [node name="WorldTileSet1" parent="." instance=ExtResource("2_dmy0k")]
 position = Vector2(-16, 0)
@@ -67,5 +68,7 @@ layout_mode = 0
 offset_right = 14.0
 offset_bottom = 14.0
 theme = ExtResource("11_dde5s")
+
+[node name="SceneTransition" parent="." instance=ExtResource("12_ys628")]
 
 [connection signal="pressed" from="CanvasLayer/PauseIcon/PauseButton" to="CanvasLayer/PauseMenu" method="_on_pause_button_pressed"]

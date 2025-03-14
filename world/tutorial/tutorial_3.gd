@@ -8,17 +8,29 @@ extends Node2D
 @onready var health_container = $CanvasLayer/HealthContainer
 @onready var player = $Player
 @onready var button = $Button
+@onready var scene_transition = $SceneTransition
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
+	
+	# TRANCISIÓN DEL NIVEL
+	scene_transition.new_level_transition()
+	await get_tree().create_timer(0.5).timeout
+	
+	# TERMINAR NIVEL
 	door_stone.level_finished.connect(go_to_next_level)
+	
+	# VIDA DEL JUGADOR
 	health_container.set_max_health(player.player_data.max_health)
 	player.health_changed.connect(health_container.update_health)
-	button.button_pressed.connect(open_dohhr)
 	
+	# OBJETOS
+	button.button_pressed.connect(open_dohhr)
 	door_stone.sprite_2d.frame = 1
 
 func go_to_next_level():
+	scene_transition.next_level_transition()
+	await get_tree().create_timer(0.5).timeout
 	get_tree().call_deferred("change_scene_to_packed", next_level)
 
 func open_dohhr():
