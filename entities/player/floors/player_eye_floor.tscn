@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkx4mfae7w2of"]
+[gd_scene load_steps=14 format=3 uid="uid://dkx4mfae7w2of"]
 
 [ext_resource type="Script" path="res://entities/player/floors/player_eye_floor.gd" id="1_6eear"]
 [ext_resource type="PackedScene" uid="uid://chtrtbioa33u2" path="res://entities/projectiles/fire_ball.tscn" id="2_4frmf"]
@@ -67,25 +67,38 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utagd"]
-size = Vector2(31, 12)
+size = Vector2(31, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpt3l"]
+radius = 5.09902
 
 [node name="PlayerEyeFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_6eear")
 fireball = ExtResource("2_4frmf")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wl5xu")
 animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 0)
+position = Vector2(-2.5, 0.5)
 shape = SubResource("RectangleShape2D_utagd")
 
 [node name="ReloadTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="ShootArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootArea"]
+position = Vector2(13, 0)
+shape = SubResource("CircleShape2D_rpt3l")
+debug_color = Color(1, 1, 0, 0.419608)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

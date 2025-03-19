@@ -5,15 +5,10 @@ var grabbed_by: Floor
 var grabbed = false
 
 # NODOS
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var floor_detect_area = $FloorDetectArea
 @onready var grab_bullet_detect = $GrabBulletDetect
-
+@onready var floor_detect_area = $FloorDetectArea
 
 ##################################### FUNCIONES PRINCIPALES ###############################
-func _ready():
-	animated_sprite_2d.play("idle")
-	
 func _physics_process(delta):
 	# Se vuelve inmune a los disparos del jugador mientras es agarrado
 	if grabbed && grabbed_by:
@@ -36,35 +31,9 @@ func _physics_process(delta):
 #	NO ES LO IDEAL PORQUE EL CÓDIGO DEBERÍA ESTAR EN LA BALA.
 	for body in grab_bullet_detect.get_overlapping_bodies():
 		body.queue_free()
-		get_destroyed()
 
 	move_and_slide()
 
-##################################### FUNCIONES AUXILIARES ###############################
-#func _integrate_forces(state):
-	#if grabbed:
-		#var speed = lerp_speed*global_transform.origin.distance_to(grabbed_by.global_transform.origin)
-		#var dir = global_transform.origin.direction_to(grabbed_by.global_transform.origin)
-		#apply_central_force(dir*speed)
-		#
-		#set_deferred("freeze", true) 
-		#set_deferred("freeze_mode", 1) 
-		#
-		#gravity_scale = 0
-	#else:
-		#gravity_scale = 1
-
-
-# ANIMACIÓN DE ROMPERSE
-func get_destroyed():
-	set_collision_mask_value(2, false)
-	animated_sprite_2d.play("destroyed")
-
-# MARCA EL ITEM COMO AGARRADO
-func get_grabbed():
-	grabbed = true
-
-##################################### SEÑALES ###############################
-# DESTRUYE EL OBJETO
-func _on_animated_sprite_2d_animation_finished():
-	call_deferred("queue_free")
+func destroy_bullet(bullet):
+	bullet.queue_free()
+	

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dh73la223amvh" path="res://assets/power-ups/normal_floor.png" id="2_fegk5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qs0o"]
-size = Vector2(30, 12)
+size = Vector2(30, 14)
 
 [node name="PlayerNormalFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
 collision_layer = 2

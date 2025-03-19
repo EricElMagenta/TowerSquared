@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b61pattpo6dc2"]
+[gd_scene load_steps=11 format=4 uid="uid://b61pattpo6dc2"]
 
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_kbksk"]
 [ext_resource type="Script" path="res://world/tutorial/tutorial_1.gd" id="1_ucgpn"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="7_6xl4q"]
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health_container.tscn" id="8_7v6ap"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause_menu.tscn" id="9_oeq48"]
-[ext_resource type="Texture2D" uid="uid://4utidbtgt47n" path="res://assets/UI/button-pause.png" id="10_wi003"]
-[ext_resource type="Theme" uid="uid://i8ek1ejvkff1" path="res://ui/theme_button.tres" id="11_dde5s"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/scene_transition.tscn" id="12_ys628"]
 
 [node name="Tutorial1" type="Node2D"]
@@ -48,27 +46,4 @@ offset_bottom = 0.0
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_oeq48")]
 
-[node name="PauseIcon" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 300.0
-offset_top = 3.0
-offset_right = 314.0
-offset_bottom = 17.0
-metadata/_edit_group_ = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PauseIcon"]
-layout_mode = 0
-offset_right = 14.0
-offset_bottom = 14.0
-texture = ExtResource("10_wi003")
-
-[node name="PauseButton" type="Button" parent="CanvasLayer/PauseIcon"]
-layout_mode = 0
-offset_right = 14.0
-offset_bottom = 14.0
-theme = ExtResource("11_dde5s")
-
 [node name="SceneTransition" parent="." instance=ExtResource("12_ys628")]
-
-[connection signal="pressed" from="CanvasLayer/PauseIcon/PauseButton" to="CanvasLayer/PauseMenu" method="_on_pause_button_pressed"]

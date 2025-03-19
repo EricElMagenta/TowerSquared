@@ -5,6 +5,7 @@ extends EnemyProjectile
 
 # VARIABLES
 var damage = 1
+var dir = 1
 const SPEED = 300
 
 
@@ -14,14 +15,18 @@ func _physics_process(delta):
 		if body.has_method("get_hit"):
 			body.get_hit(damage)
 		
-	velocity.x = SPEED
+		
+	velocity.x = SPEED * dir
 	move_and_slide()
+
+	#if is_on_wall():
+		#queue_free()
+		
+func get_eaten():
+	queue_free()
 
 ##################################### FUNCIONES AUXILIARES ###############################
 func _on_hitbox_body_entered(body):
 	if body.has_method("get_destroyed"):
 		body.get_destroyed()
 		queue_free()
-
-func get_eaten():
-	queue_free()

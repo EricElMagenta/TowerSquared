@@ -1,9 +1,12 @@
 extends Floor
 
+#VARIABLES
 @export var fireball:PackedScene
-@onready var animated_sprite_2d = $AnimatedSprite2D
-
 var can_shoot = true
+
+# NODOS
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var shoot_area = $ShootArea
 
 func _ready():
 	player.change_direction.connect(change_direction)
@@ -21,11 +24,11 @@ func shoot_fireball():
 	var fireball_instance = fireball.instantiate()
 	fireball_instance.dir = player.dir
 	
-	if fireball_instance.dir == 1: fireball_instance.spawm_pos = global_position + Vector2(25, 0)
-	elif fireball_instance.dir == -1: fireball_instance.spawm_pos = global_position + Vector2(-25, 0)
+	if fireball_instance.dir == 1: fireball_instance.spawm_pos = global_position + Vector2(15, 0)
+	elif fireball_instance.dir == -1: fireball_instance.spawm_pos = global_position + Vector2(-15, 0)
 	
 	# RELOAD
-	if can_shoot: 
+	if can_shoot && len(shoot_area.get_overlapping_bodies()) == 0: 
 		animated_sprite_2d.play("shoot")
 		get_tree().root.add_child(fireball_instance)
 		can_shoot = false

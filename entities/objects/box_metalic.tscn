@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bul1gey3ok4aa"]
+
+[ext_resource type="Texture2D" uid="uid://bfr7mv7d8y1eu" path="res://assets/objects/metalic_box.png" id="1_mk0iu"]
+[ext_resource type="Script" path="res://entities/objects/box_metalic.gd" id="1_u57sy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i2tn"]
+size = Vector2(18, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_376mb"]
+size = Vector2(19, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3ogr"]
+size = Vector2(20, 21)
+
+[node name="BoxMetalic" type="CharacterBody2D" groups=["grabeable"]]
+collision_layer = 32
+collision_mask = 97
+script = ExtResource("1_u57sy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mk0iu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_3i2tn")
+
+[node name="FloorDetectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 97
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorDetectArea"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_376mb")
+debug_color = Color(0, 1, 0.423529, 0.419608)
+
+[node name="GrabBulletDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabBulletDetect"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_q3ogr")
+debug_color = Color(0.2456, 0.000453007, 0.790911, 0.419608)

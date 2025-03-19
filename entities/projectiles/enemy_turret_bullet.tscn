@@ -11,7 +11,7 @@ size = Vector2(17, 11)
 
 [node name="EnemyTurretBullet" type="CharacterBody2D"]
 collision_layer = 64
-collision_mask = 33
+collision_mask = 32
 script = ExtResource("1_534ga")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -52,7 +52,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6n5h"]
-size = Vector2(17.25, 18)
+size = Vector2(17.25, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oo82f"]
 size = Vector2(19, 20)
@@ -70,7 +70,7 @@ sprite_frames = SubResource("SpriteFrames_da3iw")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.375, -1)
+position = Vector2(-0.375, -0.5)
 shape = SubResource("RectangleShape2D_f6n5h")
 
 [node name="FloorDetectArea" type="Area2D" parent="."]

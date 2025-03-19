@@ -32,6 +32,7 @@ var dir = 1
 var damage_blink = false
 var knockback = Vector2.ZERO
 
+##################################### FUNCIONES PRINCIPALES ###############################
 func _ready():
 	# Se instancia la máquina de estados con el jugador
 	state_machine.init(self)

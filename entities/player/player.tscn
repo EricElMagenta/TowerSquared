@@ -84,7 +84,7 @@ size = Vector2(21, 8)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
-collision_mask = 41
+collision_mask = 169
 floor_snap_length = 6.0
 script = ExtResource("1_42w66")
 actions = ExtResource("2_wa1jq")
@@ -92,7 +92,7 @@ player_data = ExtResource("3_7fvv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8phsy")
-animation = &"victory"
+animation = &"idle"
 
 [node name="LabelState" type="Label" parent="."]
 unique_name_in_owner = true
