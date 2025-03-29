@@ -8,7 +8,7 @@ var can_shoot = true
 @onready var shoot_timer = $ShootTimer
 
 ###################################### FUNCIONES PRINCIPALES ###############################
-func _physics_process(delta):
+func _physics_process(_delta):
 	if can_shoot: shoot_bullet()
 	
 ##################################### FUNCIONES AUXILIARES ###############################

@@ -1,11 +1,11 @@
 extends HBoxContainer
 
 # Precarga los cuadritos de vida
-@onready var health_ui_class = preload("res://ui/heart_ui.tscn")
+@onready var health_ui_class = preload("res://ui/health/heart_ui.tscn")
 
 # Crea cuadritos de vida en base a la vida máxima recibida
-func set_max_health(max:int):
-	for i in range(max):
+func set_max_health(maximum:int):
+	for i in range(maximum):
 		var health = health_ui_class.instantiate()
 		add_child(health)
 

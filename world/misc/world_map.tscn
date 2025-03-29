@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://dclprx5p7vro3"]
+
+[ext_resource type="Script" path="res://world/misc/world_map.gd" id="1_4ieoi"]
+[ext_resource type="Texture2D" uid="uid://bh3f32ctmhr2p" path="res://assets/world/world-map.png" id="2_g101i"]
+[ext_resource type="PackedScene" uid="uid://5mluh6cdtwub" path="res://entities/player/player_world_icon.tscn" id="3_c6t0m"]
+[ext_resource type="PackedScene" uid="uid://dl6mjjkge5uud" path="res://world/misc/tower_tutorial.tscn" id="4_vyxy7"]
+[ext_resource type="PackedScene" uid="uid://bd6serfnfsj0y" path="res://world/misc/tower_gravity.tscn" id="5_27k7b"]
+[ext_resource type="PackedScene" uid="uid://ded4idbhp5n0x" path="res://world/misc/tower_sea.tscn" id="6_40v8w"]
+[ext_resource type="PackedScene" uid="uid://b8br3oex526t5" path="res://world/misc/world_plaza.tscn" id="7_skcb8"]
+[ext_resource type="PackedScene" uid="uid://cwe8d1b5jmcgu" path="res://world/misc/tower_air.tscn" id="8_ro87f"]
+
+[node name="WorldMap" type="Node2D"]
+script = ExtResource("1_4ieoi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 0)
+texture = ExtResource("2_g101i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(137, 94)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(184, 172, 164, 167, 146, 158, 140, 145, 132, 134, 129, 121, 125, 109, 113, 103, 107, 76, 109, 68, 147, 53, 151, 46, 166, 41, 179, 21, 176, 13, 186, -6, 200, -18, 226, -30, 244, -31, 244, -82, 270, -82, 270, -35, 287, -41, 333, -78, 359, -91, 382, -86, 404, -75, 429, -70, 471, -70, 512, -80, 529, -79, 540, -72, 547, -49, 520, 24, 486, 42, 448, 56, 433, 59, 433, 61, 439, 86, 446, 102, 469, 104, 482, 112, 495, 133, 493, 150, 468, 165, 429, 162, 414, 154, 401, 133, 398, 120, 403, 106, 417, 103, 408, 75, 397, 65, 375, 65, 353, 69, 338, 79, 324, 93, 318, 102, 314, 119, 312, 124, 297, 129, 292, 134, 284, 139, 273, 150, 240, 163, 211, 169, 189, 171, 186, 175, 392, 204, 616, 177, 622, -136, 363, -170, 189, -168, 51, -110, 35, 189, 177, 180, 185, 179)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="TutorialTower" parent="." instance=ExtResource("4_vyxy7")]
+position = Vector2(196, 111)
+
+[node name="TowerGravity" parent="." instance=ExtResource("5_27k7b")]
+position = Vector2(447, 109)
+
+[node name="TowerSea" parent="." instance=ExtResource("6_40v8w")]
+position = Vector2(258, -117)
+
+[node name="WorldPlaza" parent="." instance=ExtResource("7_skcb8")]
+position = Vector2(305, 32)
+
+[node name="TowerAir" parent="." instance=ExtResource("8_ro87f")]
+position = Vector2(464, -54)
+
+[node name="PlayerWorldIcon" parent="." instance=ExtResource("3_c6t0m")]
+position = Vector2(137, 94)
+metadata/_edit_group_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerWorldIcon"]
+remote_path = NodePath("../../Camera2D")

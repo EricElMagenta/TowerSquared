@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8br3oex526t5"]
+
+[ext_resource type="Script" path="res://world/misc/world_plaza.gd" id="1_4fibm"]
+[ext_resource type="Texture2D" uid="uid://sl05tek1a5hn" path="res://assets/world/world-plaza.png" id="1_csirh"]
+[ext_resource type="PackedScene" uid="uid://cfjt4a46f1giq" path="res://world/misc/floor_plaza.tscn" id="2_vld0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx53u"]
+size = Vector2(77, 73)
+
+[node name="WorldPlaza" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_4fibm")
+next_zone = ExtResource("2_vld0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_wx53u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_csirh")

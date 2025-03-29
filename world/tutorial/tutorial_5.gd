@@ -1,7 +1,7 @@
 extends Node2D
 
 # VARIABLES
-@export var next_level:PackedScene
+@export var map_world:PackedScene
 
 # NODOS
 @onready var door_stone = $DoorStone
@@ -27,4 +27,4 @@ func _ready():
 func go_to_next_level():
 	scene_transition.next_level_transition()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().call_deferred("change_scene_to_packed", next_level)
+	get_tree().call_deferred("change_scene_to_packed", map_world)

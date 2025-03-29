@@ -7,13 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="4_68g8a"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="5_jf5ve"]
 [ext_resource type="PackedScene" uid="uid://x8chpjjpgpgg" path="res://entities/objects/button.tscn" id="6_i6d8m"]
-[ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health_container.tscn" id="7_vqksp"]
+[ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="7_vqksp"]
 [ext_resource type="PackedScene" uid="uid://dabhd7dl5qssl" path="res://entities/power-up/floor_eye_item.tscn" id="9_fgkro"]
 [ext_resource type="PackedScene" uid="uid://c2xk2n4yqau76" path="res://entities/enemies/enemy_dynamite.tscn" id="10_kv71b"]
 [ext_resource type="PackedScene" uid="uid://dlvwc64hbl2fb" path="res://entities/objects/damaged_box.tscn" id="11_m5wk5"]
 [ext_resource type="PackedScene" uid="uid://dlgi51sve5pnm" path="res://entities/enemies/enemy_flying_bomb.tscn" id="12_q6c85"]
-[ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause_menu.tscn" id="13_amdd0"]
-[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/scene_transition.tscn" id="14_tl7wv"]
+[ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="13_amdd0"]
+[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="14_tl7wv"]
 
 [node name="Tutorial3" type="Node2D"]
 script = ExtResource("1_ese5q")

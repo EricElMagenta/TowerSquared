@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="4_gxaq4"]
 [ext_resource type="PackedScene" uid="uid://bcfhdth2ps4n7" path="res://entities/power-up/floor_arm_item.tscn" id="4_whpd6"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="7_gst0k"]
-[ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health_container.tscn" id="8_au4bf"]
-[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/scene_transition.tscn" id="9_eg72w"]
-[ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause_menu.tscn" id="10_xfkr7"]
+[ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="8_au4bf"]
+[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="9_eg72w"]
+[ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="10_xfkr7"]
 
 [node name="Tutorial4" type="Node2D"]
 script = ExtResource("1_j4ard")

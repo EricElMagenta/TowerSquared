@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfjt4a46f1giq"]
+
+[ext_resource type="Texture2D" uid="uid://2723ftcg8r64" path="res://assets/world/world-floor-plaza.png" id="1_hdubb"]
+[ext_resource type="Script" path="res://world/misc/floor_plaza.gd" id="1_uwono"]
+[ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_lnk80"]
+[ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="3_wgcn2"]
+[ext_resource type="PackedScene" uid="uid://dv2eqyyogoled" path="res://entities/npcs/npc-suspicious-floor.tscn" id="5_5exih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upulw"]
+size = Vector2(20, 47)
+
+[node name="FloorPlaza" type="Node2D"]
+script = ExtResource("1_uwono")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(3, -15)
+polygon = PackedVector2Array(-163, 92, 157, 92, 157, 104, -163, 104)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hdubb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-135, 58)
+offset = Vector2(0, -10)
+limit_left = -160
+limit_top = -80
+limit_right = 160
+limit_bottom = 80
+
+[node name="Npc-suspicious-floor" parent="." instance=ExtResource("5_5exih")]
+position = Vector2(-41, 48)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Player" parent="." instance=ExtResource("2_lnk80")]
+position = Vector2(-135, 58)
+metadata/_edit_group_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="FloorNormalItem" parent="Player" instance=ExtResource("3_wgcn2")]
+
+[node name="Exit" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-165, 47)
+shape = SubResource("RectangleShape2D_upulw")
+debug_color = Color(0.659144, 0.364796, 0.917478, 0.42)
+
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

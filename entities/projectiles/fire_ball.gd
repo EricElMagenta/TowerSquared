@@ -11,7 +11,7 @@ func _ready():
 	global_position = spawm_pos
 
 # Viaja hasta chocar con algo, entonces desaparece
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = Vector2(speed * dir, 0)
 	move_and_slide()
 	

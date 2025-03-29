@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwe8d1b5jmcgu"]
+
+[ext_resource type="Script" path="res://world/misc/tower_air.gd" id="1_kfwgj"]
+[ext_resource type="Texture2D" uid="uid://iqaxps1c2op2" path="res://assets/world/tower-air-Sheet.png" id="1_tyqys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bocnc"]
+size = Vector2(109, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx1bk"]
+atlas = ExtResource("1_tyqys")
+region = Rect2(0, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k60xt"]
+atlas = ExtResource("1_tyqys")
+region = Rect2(96, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dt0t"]
+atlas = ExtResource("1_tyqys")
+region = Rect2(192, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw8yx"]
+atlas = ExtResource("1_tyqys")
+region = Rect2(288, 0, 96, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ag5bq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx1bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k60xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dt0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw8yx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="TowerAir" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_kfwgj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_bocnc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ag5bq")
+frame_progress = 0.462665

@@ -19,6 +19,7 @@ signal stop_action
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var immunity_timer = $ImmunityTimer
+@onready var dialogue_area = $DialogueArea
 
 
 # VARIABLES DEL JUGADOR (POWER UP Y WEÁS)
@@ -31,6 +32,7 @@ var has_arms = false
 var dir = 1
 var damage_blink = false
 var knockback = Vector2.ZERO
+var talking_to : CharacterBody2D = null
 
 ##################################### FUNCIONES PRINCIPALES ###############################
 func _ready():
@@ -45,6 +47,10 @@ func _ready():
 	
 	# Resetea la vida al máximo
 	player_data.current_health = player_data.max_health
+
+#func _physics_process(delta):
+	#if Input.is_action_just_pressed(actions.up):
+		#print("juejeje")
 
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
@@ -81,8 +87,10 @@ func air_jump()-> void:
 # ALTERNAR PISOS AL OPPRIMIR EL SWAP
 func swap_floors() -> void:
 	if Input.is_action_just_pressed(actions.swap_down):
+		TranslationServer.set_locale("en")
 		floor_manager.swap_floors_down()
 	elif Input.is_action_just_pressed(actions.swap_up):
+		TranslationServer.set_locale("es")
 		floor_manager.swap_floors_up()
 
 # MODIFICAR COLISIONES

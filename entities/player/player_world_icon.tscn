@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://5mluh6cdtwub"]
+
+[ext_resource type="Script" path="res://entities/player/player_world_icon.gd" id="1_sq4n2"]
+[ext_resource type="Resource" uid="uid://fi706ut52ub3" path="res://entities/player/player_input_actions.tres" id="2_7rvhl"]
+[ext_resource type="Texture2D" uid="uid://exwufrwoaqme" path="res://assets/player/player-world-icon-sheet.png" id="2_22vxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qylon"]
+size = Vector2(16, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52f2s"]
+atlas = ExtResource("2_22vxj")
+region = Rect2(0, 0, 21, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r53j"]
+atlas = ExtResource("2_22vxj")
+region = Rect2(21, 0, 21, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys0ev"]
+atlas = ExtResource("2_22vxj")
+region = Rect2(84, 0, 21, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfgnh"]
+atlas = ExtResource("2_22vxj")
+region = Rect2(105, 0, 21, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iabcb"]
+atlas = ExtResource("2_22vxj")
+region = Rect2(42, 0, 21, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgnic"]
+atlas = ExtResource("2_22vxj")
+region = Rect2(63, 0, 21, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcrg7"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_52f2s")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_3r53j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_ys0ev")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_jfgnh")
+}],
+"loop": true,
+"name": &"walk_left_right",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_iabcb")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_cgnic")
+}],
+"loop": true,
+"name": &"walk_up_down",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgfd"]
+size = Vector2(28, 21)
+
+[node name="PlayerWorldIcon" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_sq4n2")
+actions = ExtResource("2_7rvhl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_qylon")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kcrg7")
+animation = &"walk_up_down"
+
+[node name="ZoneDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDetect"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_rfgfd")
+debug_color = Color(0.800593, 0.313805, 0.095456, 0.42)

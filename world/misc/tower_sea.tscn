@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ded4idbhp5n0x"]
+
+[ext_resource type="Texture2D" uid="uid://dd5miyjlun3v8" path="res://assets/world/tower-sea.png" id="1_1oadx"]
+[ext_resource type="Script" path="res://world/misc/tower_sea.gd" id="1_l3ewo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqvlq"]
+size = Vector2(86, 83)
+
+[node name="TowerSea" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_l3ewo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1oadx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0.5)
+shape = SubResource("RectangleShape2D_eqvlq")

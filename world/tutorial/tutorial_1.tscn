@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b61pattpo6dc2"]
+[gd_scene load_steps=12 format=4 uid="uid://b61pattpo6dc2"]
 
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_kbksk"]
 [ext_resource type="Script" path="res://world/tutorial/tutorial_1.gd" id="1_ucgpn"]
@@ -7,13 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://c2xk2n4yqau76" path="res://entities/enemies/enemy_dynamite.tscn" id="2_ikdm2"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="3_i03aw"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="7_6xl4q"]
-[ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health_container.tscn" id="8_7v6ap"]
-[ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause_menu.tscn" id="9_oeq48"]
-[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/scene_transition.tscn" id="12_ys628"]
+[ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="8_7v6ap"]
+[ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="9_oeq48"]
+[ext_resource type="PackedScene" uid="uid://c2yuywmwih48o" path="res://entities/npcs/npc_question.tscn" id="11_rvvn1"]
+[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="12_ys628"]
 
 [node name="Tutorial1" type="Node2D"]
 script = ExtResource("1_ucgpn")
 next_level = ExtResource("2_e7tkt")
+
+[node name="NpcQuestion" parent="." instance=ExtResource("11_rvvn1")]
+position = Vector2(55, 81)
 
 [node name="DoorStone" parent="." instance=ExtResource("1_kbksk")]
 position = Vector2(1197, -277)

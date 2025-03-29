@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://dv2eqyyogoled"]
+
+[ext_resource type="Texture2D" uid="uid://d2aj1m77x4yew" path="res://assets/npc/npc-suspicious-floor-sheet.png" id="1_0reh1"]
+[ext_resource type="Script" path="res://entities/npcs/npc_suspicious_floor.gd" id="1_3rokb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2wp6"]
+size = Vector2(46, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aoo8"]
+atlas = ExtResource("1_0reh1")
+region = Rect2(0, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37pk7"]
+atlas = ExtResource("1_0reh1")
+region = Rect2(51, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wk71"]
+atlas = ExtResource("1_0reh1")
+region = Rect2(102, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldytu"]
+atlas = ExtResource("1_0reh1")
+region = Rect2(153, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw6m1"]
+atlas = ExtResource("1_0reh1")
+region = Rect2(204, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ctde"]
+atlas = ExtResource("1_0reh1")
+region = Rect2(255, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbiq4"]
+atlas = ExtResource("1_0reh1")
+region = Rect2(306, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqx4d"]
+atlas = ExtResource("1_0reh1")
+region = Rect2(357, 0, 51, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ee4p1"]
+animations = [{
+"frames": [{
+"duration": 25.0,
+"texture": SubResource("AtlasTexture_2aoo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37pk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wk71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldytu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw6m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ctde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbiq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqx4d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}]
+
+[node name="Npc-suspicious-floor" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 2
+script = ExtResource("1_3rokb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 5.5)
+shape = SubResource("RectangleShape2D_e2wp6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ee4p1")
+animation = &"idle"
+frame_progress = 0.320076

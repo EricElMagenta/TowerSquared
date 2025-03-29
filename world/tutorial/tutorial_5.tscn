@@ -2,21 +2,21 @@
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_5.gd" id="1_flj1x"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="2_72bpf"]
-[ext_resource type="PackedScene" uid="uid://cg1svx0ux4606" path="res://world/tutorial/tutorial_6.tscn" id="2_tmkkg"]
+[ext_resource type="PackedScene" uid="uid://dclprx5p7vro3" path="res://world/misc/world_map.tscn" id="2_yt207"]
 [ext_resource type="PackedScene" uid="uid://dcw2eb7cpgu33" path="res://world/tile_set_tutorial.tscn" id="3_mdhev"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="4_2p7gd"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="5_3kwix"]
 [ext_resource type="PackedScene" uid="uid://bcri3wu70of4w" path="res://entities/hazards/turret.tscn" id="6_7qru0"]
 [ext_resource type="PackedScene" uid="uid://d3v6ramhqdbgx" path="res://entities/areas/area_bullet_despawn.tscn" id="7_v2dg8"]
 [ext_resource type="PackedScene" uid="uid://dlvwc64hbl2fb" path="res://entities/objects/damaged_box.tscn" id="8_s5kkd"]
-[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/scene_transition.tscn" id="10_0wb0w"]
+[ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="10_0wb0w"]
 [ext_resource type="PackedScene" uid="uid://bcfhdth2ps4n7" path="res://entities/power-up/floor_arm_item.tscn" id="10_kk5gd"]
-[ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health_container.tscn" id="11_h1487"]
-[ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause_menu.tscn" id="13_36tqn"]
+[ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="11_h1487"]
+[ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="13_36tqn"]
 
 [node name="Tutorial5" type="Node2D"]
 script = ExtResource("1_flj1x")
-next_level = ExtResource("2_tmkkg")
+map_world = ExtResource("2_yt207")
 
 [node name="DoorStone" parent="." instance=ExtResource("2_72bpf")]
 position = Vector2(4055, -469)

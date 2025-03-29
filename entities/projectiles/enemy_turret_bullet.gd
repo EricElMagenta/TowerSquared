@@ -10,7 +10,7 @@ const SPEED = 300
 
 
 ##################################### FUNCIONES PRINCIPALES ###############################
-func _physics_process(delta):
+func _physics_process(_delta):
 	for body in hitbox.get_overlapping_bodies():
 		if body.has_method("get_hit"):
 			body.get_hit(damage)

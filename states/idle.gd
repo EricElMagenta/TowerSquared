@@ -36,5 +36,11 @@ func Physics_Update(delta:float):
 	# SOLTAR COSAS
 	if parent.has_arms && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 	
+	for body in parent.dialogue_area.get_overlapping_bodies():
+		if Input.is_action_just_pressed(parent.actions.up) && body.has_method("talk_to_player"):
+			body.talk_to_player()
+			state_transition.emit(self, "Talking")
+			parent.talking_to = body
+
 func Exit():
 	pass

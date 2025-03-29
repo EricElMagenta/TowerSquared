@@ -11,7 +11,7 @@ var damage = 1
 func _ready():
 	animated_sprite_2d.play("fly")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Detecta al jugador constantemente
 	for body in hitbox.get_overlapping_bodies():
 		if body.has_method("get_hit"):

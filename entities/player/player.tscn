@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=24 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://entities/player/floor_manager.gd" id="9_ns01a"]
 [ext_resource type="Script" path="res://states/air_jump.gd" id="9_xga2y"]
 [ext_resource type="Script" path="res://states/victory.gd" id="15_uxgkx"]
+[ext_resource type="Script" path="res://states/talking.gd" id="16_xdf66"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j21rn"]
 atlas = ExtResource("6_oifr3")
@@ -82,6 +83,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avwer"]
 size = Vector2(21, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gynlg"]
+size = Vector2(36, 25)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 169
@@ -96,7 +100,6 @@ animation = &"idle"
 
 [node name="LabelState" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
 offset_left = -18.0
 offset_top = 8.0
 offset_right = 22.0
@@ -127,6 +130,9 @@ script = ExtResource("9_xga2y")
 [node name="Victory" type="Node" parent="StateMachine"]
 script = ExtResource("15_uxgkx")
 
+[node name="Talking" type="Node" parent="StateMachine"]
+script = ExtResource("16_xdf66")
+
 [node name="FloorManager" type="Node2D" parent="."]
 script = ExtResource("9_ns01a")
 
@@ -137,3 +143,11 @@ debug_color = Color(0.941176, 0.121569, 1, 0.188235)
 [node name="ImmunityTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="DialogueArea" type="Area2D" parent="."]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_gynlg")
+debug_color = Color(0.886275, 0.682353, 0.2, 0.419608)
