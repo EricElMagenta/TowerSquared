@@ -20,6 +20,7 @@ signal stop_action
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var immunity_timer = $ImmunityTimer
 @onready var dialogue_area = $DialogueArea
+@onready var talk_prompt = $TalkPrompt
 
 
 # VARIABLES DEL JUGADOR (POWER UP Y WEÁS)

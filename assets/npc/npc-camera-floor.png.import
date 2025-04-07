@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4utidbtgt47n"
-path="res://.godot/imported/button-pause.png-e2412601ccb673f90462b0318318e1c6.ctex"
+uid="uid://bamm7ic260bxx"
+path="res://.godot/imported/npc-camera-floor.png-4a4c4b5103e0bbeda65f54c657218332.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/button-pause.png"
-dest_files=["res://.godot/imported/button-pause.png-e2412601ccb673f90462b0318318e1c6.ctex"]
+source_file="res://assets/npc/npc-camera-floor.png"
+dest_files=["res://.godot/imported/npc-camera-floor.png-4a4c4b5103e0bbeda65f54c657218332.ctex"]
 
 [params]
 

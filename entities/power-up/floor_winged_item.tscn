@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbl1u4as8ed4m"]
+[gd_scene load_steps=8 format=3 uid="uid://bbl1u4as8ed4m"]
 
 [ext_resource type="Script" path="res://entities/power-up/floor_winged_item.gd" id="1_q2brc"]
 [ext_resource type="Texture2D" uid="uid://bb7nuo8u6fjra" path="res://assets/player/flying_floor-Sheet.png" id="2_itdt4"]
+[ext_resource type="PackedScene" uid="uid://w3s6t4qluteh" path="res://ui/power_up_screen/power_up_screen.tscn" id="3_l4rmc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afrjq"]
 atlas = ExtResource("2_itdt4")
@@ -43,5 +44,7 @@ frame_progress = 0.108057
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_q5w2h")
+
+[node name="PowerUpScreen" parent="." instance=ExtResource("3_l4rmc")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

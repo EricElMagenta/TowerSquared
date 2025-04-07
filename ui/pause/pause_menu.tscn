@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/pause/pause_menu.gd" id="1_beqrs"]
 [ext_resource type="Theme" uid="uid://i8ek1ejvkff1" path="res://ui/theme_button.tres" id="2_4ebe6"]
-[ext_resource type="Texture2D" uid="uid://4utidbtgt47n" path="res://assets/UI/button-pause.png" id="3_wq8pe"]
+[ext_resource type="Texture2D" uid="uid://4utidbtgt47n" path="res://ui/button-pause.png" id="3_wq8pe"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -73,6 +73,7 @@ offset_bottom = 9.0
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="PauseIcon"]
+layout_mode = 0
 offset_left = -7.0
 offset_right = 21.0
 offset_bottom = 28.0
@@ -80,6 +81,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_wq8pe")
 
 [node name="PauseButton" type="Button" parent="PauseIcon"]
+layout_mode = 0
 offset_left = -7.0
 offset_right = 7.0
 offset_bottom = 14.0

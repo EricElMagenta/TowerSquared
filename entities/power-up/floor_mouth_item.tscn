@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdei3gdapp6v2"]
+[gd_scene load_steps=9 format=3 uid="uid://bdei3gdapp6v2"]
 
 [ext_resource type="Script" path="res://entities/power-up/floor_mouth_item.gd" id="1_qe7eo"]
 [ext_resource type="Texture2D" uid="uid://chphd5ci7hung" path="res://assets/player/mouth_floor-Sheet.png" id="2_eb8po"]
+[ext_resource type="PackedScene" uid="uid://w3s6t4qluteh" path="res://ui/power_up_screen/power_up_screen.tscn" id="3_nqphm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ad07"]
 atlas = ExtResource("2_eb8po")
@@ -50,5 +51,7 @@ animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qw4e2")
+
+[node name="PowerUpScreen" parent="." instance=ExtResource("3_nqphm")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doxn5ihkovaev"
-path="res://.godot/imported/flying_floor.png-ff0ae793d6353b16905376c79a00ddd3.ctex"
+uid="uid://4utidbtgt47n"
+path="res://.godot/imported/button-pause.png-2c2afd14ad00d90dd2d094258485de8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/power-ups/flying_floor.png"
-dest_files=["res://.godot/imported/flying_floor.png-ff0ae793d6353b16905376c79a00ddd3.ctex"]
+source_file="res://ui/button-pause.png"
+dest_files=["res://.godot/imported/button-pause.png-2c2afd14ad00d90dd2d094258485de8b.ctex"]
 
 [params]
 

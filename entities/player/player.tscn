@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=25 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://states/air_jump.gd" id="9_xga2y"]
 [ext_resource type="Script" path="res://states/victory.gd" id="15_uxgkx"]
 [ext_resource type="Script" path="res://states/talking.gd" id="16_xdf66"]
+[ext_resource type="PackedScene" uid="uid://cg73ce71qhivk" path="res://ui/text_box/talk_prompt.tscn" id="18_r1dyh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j21rn"]
 atlas = ExtResource("6_oifr3")
@@ -151,3 +152,11 @@ collision_mask = 256
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_gynlg")
 debug_color = Color(0.886275, 0.682353, 0.2, 0.419608)
+
+[node name="TalkPrompt" parent="." instance=ExtResource("18_r1dyh")]
+visible = false
+anchors_preset = 9
+anchor_right = 0.0
+offset_top = -28.0
+offset_bottom = -28.0
+grow_horizontal = 1

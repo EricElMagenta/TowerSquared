@@ -3,3 +3,10 @@ question_floor_greet,Welcome!,¡Buenas las tenga!
 ,,
 ,,
 suspicious_floor_greet,I know nothing!,¡No sé nada! 
+,,
+# Recoger Power Ups,,
+item_normal_floor,"Does absolutely nothing, but now you are taller.","No hace absolutamente nada, pero ahora eres más alto."
+item_eye_floor,Shoot fireballs from your eye.,Dispara fuego desde tus ojos.
+item_arm_floor,Grab small objects.,Agarra objetos pequeños.
+item_winged_floor,"Air jump unlocked! The more wings, the more jumps.","¡Ahora puedes saltar en el aire! A más alas, más saltos."
+item_mouth_floor,Devours enemy projectiles.,Devora proyectiles enemigos.

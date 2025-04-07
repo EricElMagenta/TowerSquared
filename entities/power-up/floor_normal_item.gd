@@ -1,6 +1,5 @@
 extends Area2D
 
-
 signal got_floor
 
 var floor_type = "player_normal_floor"

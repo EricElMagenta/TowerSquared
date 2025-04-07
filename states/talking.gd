@@ -2,7 +2,7 @@ extends State
 class_name Talking
 
 func Enter():
-	pass
+	parent.talk_prompt.visible = false
 
 func Update(_delta:float):
 	if Input.is_action_just_pressed(parent.actions.action):
@@ -10,4 +10,4 @@ func Update(_delta:float):
 		state_transition.emit(self, "Idle")
 	
 func Exit():
-	pass
+	parent.talk_prompt.visible = true

@@ -36,11 +36,24 @@ func Physics_Update(delta:float):
 	# SOLTAR COSAS
 	if parent.has_arms && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 	
-	for body in parent.dialogue_area.get_overlapping_bodies():
-		if Input.is_action_just_pressed(parent.actions.up) && body.has_method("talk_to_player"):
-			body.talk_to_player()
-			state_transition.emit(self, "Talking")
-			parent.talking_to = body
+	
+	# OCULTA PROMPT PARA HABLAR
+	if len(parent.dialogue_area.get_overlapping_bodies()) < 1:
+		parent.talk_prompt.visible = false
+		
+	# DETECTA NPC EN EL AREA DEL JUGADOR
+	else:
+		for body in parent.dialogue_area.get_overlapping_bodies():
+			
+			# Mostrar signo para hablar
+			if body.has_method("talk_to_player"):
+				parent.talk_prompt.visible = true
+				
+				# Habla con el NPC si se oprime el botón
+				if Input.is_action_just_pressed(parent.actions.up):
+					body.talk_to_player()
+					state_transition.emit(self, "Talking")
+					parent.talking_to = body
 
 func Exit():
 	pass

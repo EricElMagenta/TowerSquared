@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg73ce71qhivk"]
+
+[ext_resource type="Script" path="res://ui/text_box/talk_prompt.gd" id="1_nav8c"]
+[ext_resource type="Texture2D" uid="uid://5patjf10epir" path="res://assets/UI/talk-sign.png" id="1_tqlch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2egcu"]
+atlas = ExtResource("1_tqlch")
+region = Rect2(0, 0, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1sjb"]
+atlas = ExtResource("1_tqlch")
+region = Rect2(15, 0, 15, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4u46e"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_2egcu")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_j1sjb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="TalkPrompt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nav8c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4u46e")
+frame_progress = 0.450591
