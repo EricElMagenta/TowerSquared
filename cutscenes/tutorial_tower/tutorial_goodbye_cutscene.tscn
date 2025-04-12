@@ -1,0 +1,375 @@
+[gd_scene load_steps=11 format=3 uid="uid://vwm03qpk2pfh"]
+
+[ext_resource type="Script" path="res://cutscenes/tutorial_tower/tutorial_goodbye_cutscene.gd" id="1_3ilti"]
+[ext_resource type="Texture2D" uid="uid://ivtoskl0p6fn" path="res://assets/world/tower-tutorial-top.png" id="1_s6jpc"]
+[ext_resource type="PackedScene" uid="uid://b46taia2b66ye" path="res://cutscenes/tutorial_tower/tutorial_goodbye_entrance.tscn" id="2_qccr6"]
+[ext_resource type="Texture2D" uid="uid://jx1dcoflck1y" path="res://assets/npc/npc-camera-stand-alone.png" id="3_3yo0e"]
+[ext_resource type="Texture2D" uid="uid://bifymtcmbnfbx" path="res://assets/cutscenes/cutscene-player-sheet.png" id="3_ethwj"]
+[ext_resource type="Texture2D" uid="uid://diktyvxexh6ko" path="res://assets/npc/npc-camera-floor-alone.png" id="4_p5vd7"]
+[ext_resource type="Texture2D" uid="uid://3raufiknpfyg" path="res://assets/npc/npc-camera-floor-alone-muscle2.png" id="5_tx1x2"]
+
+[sub_resource type="Animation" id="Animation_wog4h"]
+resource_name = "Goodbye"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/PanelContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 6.06667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.7, 4.26667, 6.16667, 6.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"apply_shake"
+}, {
+"args": [],
+"method": &"apply_shake"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"change_scene"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Characters/NpcCamera:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.736149),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Characters/NpcCameraPunch:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.736149),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Characters/Player:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.73492, 0.735836, 0.902816, 1.03615, 1.10282),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(149, 68), Vector2(159, 59), Vector2(159, 59), Vector2(159, -104), Vector2(159, -104)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Characters/Player:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Characters/Player:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.10282),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerFalling:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.03615, 1.10282),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PlayerFalling:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.26666, 4.26666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(510, -14), Vector2(510, 223)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PlayerFalling:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2.26666, 2.7, 3.2, 3.73333, 4.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.14159, 6.28319, 9.42478, 12.5664, 15.708]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/PanelContainer/RichTextLabel:text")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 6.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["tutorial_end_5", "tutorial_end_6"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/PanelContainer:size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 6.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(135, 64), Vector2(217, 92)]
+}
+
+[sub_resource type="Animation" id="Animation_fi4hb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/PanelContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Characters/NpcCamera:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Characters/NpcCameraPunch:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Characters/Player:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(152, 67)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Characters/Player:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Characters/Player:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerFalling:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerFalling:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(510, -14)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PlayerFalling:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/PanelContainer/RichTextLabel:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["tutorial_end_5"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/PanelContainer:size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(135, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yo4bq"]
+_data = {
+"Goodbye": SubResource("Animation_wog4h"),
+"RESET": SubResource("Animation_fi4hb")
+}
+
+[node name="TutorialGoodbyeCutscene" type="Node2D"]
+script = ExtResource("1_3ilti")
+next_scene = ExtResource("2_qccr6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 41.0
+offset_top = 23.0
+offset_right = 176.0
+offset_bottom = 87.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "tutorial_end_5"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yo4bq")
+}
+autoplay = "Goodbye"
+
+[node name="PlayerFalling" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(510, -14)
+rotation = 3.14159
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("3_ethwj")
+hframes = 5
+frame = 4
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 90)
+texture = ExtResource("1_s6jpc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(449, 90)
+
+[node name="Characters" type="Node2D" parent="."]
+position = Vector2(351, 90)
+
+[node name="Player" type="Sprite2D" parent="Characters"]
+visible = false
+position = Vector2(152, 67)
+scale = Vector2(-1, 1)
+texture = ExtResource("3_ethwj")
+hframes = 5
+
+[node name="NpcCamera" type="Sprite2D" parent="Characters"]
+position = Vector2(116, 63)
+texture = ExtResource("4_p5vd7")
+
+[node name="NpcCameraPunch" type="Sprite2D" parent="Characters"]
+visible = false
+position = Vector2(124, 63)
+texture = ExtResource("5_tx1x2")
+
+[node name="CameraStand" type="Sprite2D" parent="Characters"]
+position = Vector2(-6, 34)
+texture = ExtResource("3_3yo0e")

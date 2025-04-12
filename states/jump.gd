@@ -4,9 +4,10 @@ class_name Jump
 func Enter():
 	# Saltar al iniciar el estado
 	parent.jump()
-	
+
 func Physics_Update(delta:float):
 	
+	parent.talk_prompt.visible = false
 	parent.player_animations(self.name)
 	
 	parent.move(delta)

@@ -1,12 +1,21 @@
 keys,en,es
-question_floor_greet,Welcome!,¡Buenas las tenga!
+question_floor_greet,Hello there.,Bienvenido.
 ,,
 ,,
-suspicious_floor_greet,I know nothing!,¡No sé nada! 
+suspicious_floor_greet,I know nothing!,¡No sé nada!
 ,,
 # Recoger Power Ups,,
 item_normal_floor,"Does absolutely nothing, but now you are taller.","No hace absolutamente nada, pero ahora eres más alto."
-item_eye_floor,Shoot fireballs from your eye.,Dispara fuego desde tus ojos.
-item_arm_floor,Grab small objects.,Agarra objetos pequeños.
+item_eye_floor,Shoot fireballs from your eye.,Dispara fuego desde tu ojo.
+item_arm_floor,Grab and drop small objects.,Agarra y suelta objetos pequeños.
 item_winged_floor,"Air jump unlocked! The more wings, the more jumps.","¡Ahora puedes saltar en el aire! A más alas, más saltos."
 item_mouth_floor,Devours enemy projectiles.,Devora proyectiles enemigos.
+,,
+,,
+# Cinematicas,,
+tutorial_end_1,Welcome!,¡Buenas las tenga!
+tutorial_end_2,Congratulations for making this far!,¡Felicidades por llegar hasta aquí!
+tutorial_end_3,How about a photo to celebrate?,¿Qué tal una foto para celebrar?
+tutorial_end_4,NICE!,¡Sublime!
+tutorial_end_5,One last thing.,Una última cosa.
+tutorial_end_6,"Don't get too cocky, this was just the tutorial!","¡No te emociones, que esto fue solo el tutorial!"

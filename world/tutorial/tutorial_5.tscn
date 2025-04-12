@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=4 uid="uid://cnkjhx3isbn6b"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_5.gd" id="1_flj1x"]
+[ext_resource type="PackedScene" uid="uid://b64jwgtqsajdj" path="res://cutscenes/tutorial_tower/tutorial_end_cutscene.tscn" id="2_7a6iy"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="2_72bpf"]
-[ext_resource type="PackedScene" uid="uid://dclprx5p7vro3" path="res://world/misc/world_map.tscn" id="2_yt207"]
 [ext_resource type="PackedScene" uid="uid://dcw2eb7cpgu33" path="res://world/tile_set_tutorial.tscn" id="3_mdhev"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="4_2p7gd"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="5_3kwix"]
@@ -16,7 +16,7 @@
 
 [node name="Tutorial5" type="Node2D"]
 script = ExtResource("1_flj1x")
-map_world = ExtResource("2_yt207")
+map_world = ExtResource("2_7a6iy")
 
 [node name="DoorStone" parent="." instance=ExtResource("2_72bpf")]
 position = Vector2(4055, -469)

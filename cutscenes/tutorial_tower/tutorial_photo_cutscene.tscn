@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6os5dc1q5uoy"]
+
+[ext_resource type="Script" path="res://cutscenes/tutorial_tower/tutorial_photo_cutscene.gd" id="1_s6cr2"]
+[ext_resource type="Texture2D" uid="uid://c1xim3ia3eok8" path="res://assets/cutscenes/cutscene-tutorial-photo.png" id="1_u8l8p"]
+[ext_resource type="PackedScene" uid="uid://vwm03qpk2pfh" path="res://cutscenes/tutorial_tower/tutorial_goodbye_cutscene.tscn" id="2_j6vla"]
+
+[sub_resource type="Animation" id="Animation_vfwas"]
+resource_name = "Photo"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraFlash:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/PanelContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/PanelContainer/RichTextLabel:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["tutorial_end_4"]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.93333, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tdaho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraFlash:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/PanelContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/PanelContainer/RichTextLabel:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["tutorial_end_4"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36mh2"]
+_data = {
+"Photo": SubResource("Animation_vfwas"),
+"RESET": SubResource("Animation_tdaho")
+}
+
+[node name="TutorialPhotoCutscene" type="Node2D"]
+script = ExtResource("1_s6cr2")
+next_scene = ExtResource("2_j6vla")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 200.0
+offset_top = 30.0
+offset_right = 298.875
+offset_bottom = 92.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "tutorial_end_4"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_36mh2")
+}
+autoplay = "Photo"
+
+[node name="BackgroundBlack" type="ColorRect" parent="."]
+offset_right = 319.0
+offset_bottom = 179.0
+color = Color(0, 0, 0, 1)
+
+[node name="Phot" type="Sprite2D" parent="."]
+position = Vector2(160, 88)
+texture = ExtResource("1_u8l8p")
+
+[node name="CameraFlash" type="ColorRect" parent="."]
+offset_right = 319.0
+offset_bottom = 179.0

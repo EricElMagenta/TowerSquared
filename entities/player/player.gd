@@ -88,10 +88,8 @@ func air_jump()-> void:
 # ALTERNAR PISOS AL OPPRIMIR EL SWAP
 func swap_floors() -> void:
 	if Input.is_action_just_pressed(actions.swap_down):
-		TranslationServer.set_locale("en")
 		floor_manager.swap_floors_down()
 	elif Input.is_action_just_pressed(actions.swap_up):
-		TranslationServer.set_locale("es")
 		floor_manager.swap_floors_up()
 
 # MODIFICAR COLISIONES
