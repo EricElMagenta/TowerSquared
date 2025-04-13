@@ -33,5 +33,9 @@ func Physics_Update(delta:float):
 	# SOLTAR COSAS
 	if parent.has_arms && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 
+	# MORIRSE AL QUEDARSE SIN VIDA
+	if parent.player_data.current_health < 0:
+		state_transition.emit(self, "Dead")
+
 func Exit():
 	pass

@@ -13,6 +13,7 @@ const SPEED = 100
 ##################################### FUNCIONES PRINCIPALES ###############################
 func _ready():
 	animated_sprite_2d.play("idle")
+	position = GameManager.player_map_position
 
 func _physics_process(delta):
 	var input_direction = Input.get_vector(actions.left, actions.right, actions.up, actions.down)
@@ -45,7 +46,10 @@ func handle_animation(input_direction):
 func detect_zone():
 	for area in zone_detect.get_overlapping_areas(): 
 		if Input.is_action_just_pressed(actions.action):
-			if area.has_method("go_to_next_zone"): area.go_to_next_zone()
+			if area.has_method("go_to_next_zone"): 
+				area.go_to_next_zone()
+				GameManager.player_map_position = area.position + Vector2(0, 30)
+				
 			else: print(" no está disponible por ahora")
 		
 

@@ -49,9 +49,9 @@ func _ready():
 	# Resetea la vida al máximo
 	player_data.current_health = player_data.max_health
 
-#func _physics_process(delta):
-	#if Input.is_action_just_pressed(actions.up):
-		#print("juejeje")
+func _physics_process(delta):
+	if Input.is_action_just_pressed(actions.action):
+		get_hit(3)
 
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
@@ -131,8 +131,8 @@ func player_animations(current_animation:String) -> void:
 func get_hit(damage) -> void:
 	if !damage_blink:
 		player_data.current_health -= damage
-		get_hit_immunity()
-		if player_data.current_health <= 0: ded()
+		if player_data.current_health > 0: get_hit_immunity()
+		#else: state_machine.current_state.state_transition.emit(state_machine.current_state, "Dead")
 		velocity.y = player_data.knockback_force.y
 
 # IMNUNIDAD POST DAÑO
@@ -147,8 +147,13 @@ func get_hit_immunity() -> void:
 		await get_tree().create_timer(0.2).timeout
 	damage_blink = false
 
+# ACTIVAR ANIMACIÓN DE MUERTE
 func ded() -> void:
-	get_tree().call_deferred("reload_current_scene")
+	await get_tree().create_timer(0.5).timeout
+	floor_manager.explode()
+	animated_sprite_2d.visible = false
+	await get_tree().create_timer(1).timeout
+	GameManager.restart_scene()
 
 
 # EMPUJAR OBJECTOS EMPUJABLES

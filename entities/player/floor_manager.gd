@@ -79,3 +79,7 @@ func adjust_floor_position(new_floor:CharacterBody2D):
 	
 	if new_floor.name.to_lower() == "PlayerArmFloor".to_lower():
 		new_floor.position.x += 8 * player.dir
+
+# EXPLOTA A TODOS LOS PISOS
+func explode() -> void:
+	get_tree().call_group("PlayerFloors", "im_ded")

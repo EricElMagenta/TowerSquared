@@ -54,6 +54,10 @@ func Physics_Update(delta:float):
 					body.talk_to_player()
 					state_transition.emit(self, "Talking")
 					parent.talking_to = body
+	
+	# MORIRSE AL QUEDARSE SIN VIDA
+	if parent.player_data.current_health < 0:
+		state_transition.emit(self, "Dead")
 
 func Exit():
 	pass
