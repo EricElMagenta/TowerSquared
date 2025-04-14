@@ -51,6 +51,7 @@ func detect_zone():
 				GameManager.player_map_position = area.position + Vector2(0, 30)
 				
 			else: print(" no está disponible por ahora")
-		
 
-	
+func _on_zone_detect_area_entered(area):
+	if area is Area2D:
+		AudioManager.play_map_zone_notification()

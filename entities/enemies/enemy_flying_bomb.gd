@@ -14,7 +14,7 @@ func _ready():
 func _physics_process(_delta):
 	# Detecta al jugador constantemente
 	for body in hitbox.get_overlapping_bodies():
-		if body.has_method("get_hit"):
+		if body.has_method("get_hit") && body.player_data.current_health > 0:
 			body.get_hit(damage)
 	
 	# Cambia de dirección al chocar con paredes
@@ -32,7 +32,12 @@ func handle_collisions():
 func get_destroyed():
 	speed = 0
 	hitbox.set_collision_mask_value(2, false)
+	AudioManager.play_explosion()
 	animated_sprite_2d.play("explode")
+	
+	AudioManager.play_explosion()
+	await get_tree().create_timer(0.4).timeout
+	AudioManager.play_box_explode()
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()

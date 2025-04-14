@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfgfd"]
-size = Vector2(28, 21)
+size = Vector2(23, 9.5)
 
 [node name="PlayerWorldIcon" type="CharacterBody2D"]
 collision_layer = 2
@@ -88,6 +88,8 @@ collision_layer = 0
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDetect"]
-position = Vector2(1, -1)
+position = Vector2(-0.5, 4.75)
 shape = SubResource("RectangleShape2D_rfgfd")
 debug_color = Color(0.800593, 0.313805, 0.095456, 0.42)
+
+[connection signal="area_entered" from="ZoneDetect" to="." method="_on_zone_detect_area_entered"]

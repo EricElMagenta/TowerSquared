@@ -49,9 +49,8 @@ func _ready():
 	# Resetea la vida al máximo
 	player_data.current_health = player_data.max_health
 
-func _physics_process(delta):
-	if Input.is_action_just_pressed(actions.action):
-		get_hit(3)
+#func _physics_process(delta):
+#	pass
 
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
@@ -86,11 +85,10 @@ func air_jump()-> void:
 	flapping.emit()
 
 # ALTERNAR PISOS AL OPPRIMIR EL SWAP
-func swap_floors() -> void:
-	if Input.is_action_just_pressed(actions.swap_down):
-		floor_manager.swap_floors_down()
-	elif Input.is_action_just_pressed(actions.swap_up):
-		floor_manager.swap_floors_up()
+func swap_floors(swap_direction) -> void:
+	AudioManager.play_swap_floor()
+	if swap_direction == "up": floor_manager.swap_floors_up()
+	if swap_direction == "down": floor_manager.swap_floors_down()
 
 # MODIFICAR COLISIONES
 func update_collision() -> void:
@@ -130,14 +128,15 @@ func player_animations(current_animation:String) -> void:
 # RECIBIR DAÑO
 func get_hit(damage) -> void:
 	if !damage_blink:
-		player_data.current_health -= damage
-		if player_data.current_health > 0: get_hit_immunity()
-		#else: state_machine.current_state.state_transition.emit(state_machine.current_state, "Dead")
+		print("eje")
+		AudioManager.play_take_damage()
 		velocity.y = player_data.knockback_force.y
+		player_data.current_health -= damage
+		health_changed.emit(player_data.current_health)
+		if player_data.current_health > 0: get_hit_immunity()
 
 # IMNUNIDAD POST DAÑO
 func get_hit_immunity() -> void:
-	health_changed.emit(player_data.current_health)
 	immunity_timer.start()
 	while immunity_timer.time_left > 0:
 		damage_blink = true

@@ -9,7 +9,9 @@ var can_shoot = true
 
 ###################################### FUNCIONES PRINCIPALES ###############################
 func _physics_process(_delta):
-	if can_shoot: shoot_bullet()
+	if can_shoot: 
+		AudioManager.play_bullet_shot()
+		shoot_bullet()
 	
 ##################################### FUNCIONES AUXILIARES ###############################
 func shoot_bullet():

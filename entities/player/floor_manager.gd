@@ -18,6 +18,7 @@ func init(new_player:Player):
 
 # AGREGAR PISOS 
 func add_floor(floor_type:String) -> void:
+	
 	var new_floor_scene = load("res://entities/player/floors/" + floor_type + ".tscn").instantiate()
 	new_floor_scene.add_to_group("PlayerFloors")
 	new_floor_scene.floor_index = len(get_tree().get_nodes_in_group("PlayerFloors"))
@@ -27,6 +28,8 @@ func add_floor(floor_type:String) -> void:
 	
 	floors.append(new_floor_scene)
 	call_deferred("add_child", new_floor_scene)
+	
+	AudioManager.play_get_floor()
 	
 	player.update_collision()
 	player.update_player_abilities(floor_type)
@@ -82,4 +85,5 @@ func adjust_floor_position(new_floor:CharacterBody2D):
 
 # EXPLOTA A TODOS LOS PISOS
 func explode() -> void:
+	AudioManager.play_explosion()
 	get_tree().call_group("PlayerFloors", "im_ded")

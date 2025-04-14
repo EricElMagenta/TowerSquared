@@ -4,6 +4,7 @@ class_name Jump
 func Enter():
 	# Saltar al iniciar el estado
 	parent.jump()
+	AudioManager.play_jump()
 
 func Physics_Update(delta:float):
 	
@@ -22,7 +23,8 @@ func Physics_Update(delta:float):
 
 	###################### HABILIDADES ################################
 	# SWAP DE PISOS
-	parent.swap_floors()
+	if Input.is_action_just_pressed(parent.actions.swap_up): parent.swap_floors("up")
+	if Input.is_action_just_pressed(parent.actions.swap_down): parent.swap_floors("down")
 
 	# DISPARA AL HACER CLICK CUANDO TIENE OJOS
 	if parent.has_eyes && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
@@ -34,7 +36,7 @@ func Physics_Update(delta:float):
 	if parent.has_arms && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 
 	# MORIRSE AL QUEDARSE SIN VIDA
-	if parent.player_data.current_health < 0:
+	if parent.player_data.current_health <= 0:
 		state_transition.emit(self, "Dead")
 
 func Exit():

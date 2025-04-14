@@ -57,6 +57,7 @@ func _physics_process(delta):
 
 # ANIMACIÓN DE ROMPERSE
 func get_destroyed():
+	AudioManager.play_box_explode()
 	set_collision_mask_value(2, false)
 	animated_sprite_2d.play("destroyed")
 

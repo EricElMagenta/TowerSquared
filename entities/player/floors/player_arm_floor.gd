@@ -30,16 +30,22 @@ func grab_object():
 			
 	#		ALMACENA EL ITEM SI ES AGARRABLE Y LO MARCA COMO AGARRADO
 			if !item.grabbed && item.is_in_group("grabeable"):
+				AudioManager.play_grab_object()
 				animated_sprite_2d.play("grab")
 				item.grabbed_by = self
 				item.grabbed = true
 				grabbed_item = item
+		else:
+			AudioManager.play_inavlid_action()
 
 #	SI TIENE UN ITEM AGARRADO LO SUELTA SIEMPRE Y CUANDO NO CHOQUE CON EL PISO U OTROS OBJETOS AGARABLES. LO MARCA COMO NO AGARRADO
 func drop_object():
 	if is_instance_valid(grabbed_item):
 		if len(grabbed_item.floor_detect_area.get_overlapping_bodies()) == 0:
+			AudioManager.play_drop_object()
 			animated_sprite_2d.play("idle")
 			grabbed_item.grabbed_by = null
 			grabbed_item.grabbed = false
 			grabbed_item = null
+		else:
+			AudioManager.play_inavlid_action()

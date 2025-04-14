@@ -1,0 +1,79 @@
+[gd_scene load_steps=16 format=3 uid="uid://yd2ja8cfkaws"]
+
+[ext_resource type="Script" path="res://singleton/audio_manager.gd" id="1_7ndra"]
+[ext_resource type="AudioStream" uid="uid://dwvm0w2uqmpt" path="res://audio/player/jump.wav" id="2_a4kib"]
+[ext_resource type="AudioStream" uid="uid://bajx0x54ksqh6" path="res://audio/player/pickupFloor.wav" id="3_6w2rk"]
+[ext_resource type="AudioStream" uid="uid://kvb726ot0hf3" path="res://audio/player/pickupKey.wav" id="4_3tcm1"]
+[ext_resource type="AudioStream" uid="uid://d4ayg77raexvf" path="res://audio/player/shoot.wav" id="5_p0qmg"]
+[ext_resource type="AudioStream" uid="uid://cpunkfxpeenri" path="res://audio/player/take_damage.wav" id="6_1nkeo"]
+[ext_resource type="AudioStream" uid="uid://bmljpadq1cok3" path="res://audio/player/explosion.wav" id="7_3pes6"]
+[ext_resource type="AudioStream" uid="uid://bkkgoyoygl1hj" path="res://audio/player/grab_object.wav" id="8_rk1qf"]
+[ext_resource type="AudioStream" uid="uid://t6iqpsvqg2q6" path="res://audio/player/drop_object.wav" id="9_6mfwd"]
+[ext_resource type="AudioStream" uid="uid://dk5tdkcqann7a" path="res://audio/player/bullet_shoot.wav" id="10_8ovus"]
+[ext_resource type="AudioStream" uid="uid://b8k656wes5hgk" path="res://audio/player/box_explode.wav" id="11_kyowq"]
+[ext_resource type="AudioStream" uid="uid://bn6w5wxejhub1" path="res://audio/player/swap_floor.wav" id="12_fq8as"]
+[ext_resource type="AudioStream" uid="uid://i8srdd0qrepg" path="res://audio/player/button_press.wav" id="13_4ksia"]
+[ext_resource type="AudioStream" uid="uid://cafxhf2h5tw3m" path="res://audio/player/invalid_action.wav" id="14_mb8yq"]
+[ext_resource type="AudioStream" uid="uid://dv0uifdptqhk0" path="res://audio/player/map_zone_notification.wav" id="15_o2kdn"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_7ndra")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a4kib")
+volume_db = -18.0
+bus = &"SFX"
+
+[node name="GetFloor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6w2rk")
+volume_db = -18.0
+bus = &"SFX"
+
+[node name="PickupKey" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3tcm1")
+bus = &"SFX"
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_p0qmg")
+volume_db = -18.0
+bus = &"SFX"
+
+[node name="TakeDamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1nkeo")
+volume_db = -12.0
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3pes6")
+volume_db = -18.0
+
+[node name="GrabObject" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rk1qf")
+volume_db = -15.0
+
+[node name="DropObject" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6mfwd")
+volume_db = -18.0
+
+[node name="BulletShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_8ovus")
+volume_db = -18.0
+
+[node name="BoxExplode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_kyowq")
+volume_db = -18.0
+
+[node name="SwapFloor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_fq8as")
+volume_db = -18.0
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_4ksia")
+volume_db = -18.0
+
+[node name="InvalidAction" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_mb8yq")
+volume_db = -18.0
+
+[node name="MapZoneNotification" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_o2kdn")
+volume_db = -18.0

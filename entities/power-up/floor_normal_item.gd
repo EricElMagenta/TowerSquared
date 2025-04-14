@@ -7,4 +7,5 @@ var floor_type = "player_normal_floor"
 func _on_body_entered(body):
 	if body is Player:
 		got_floor.emit(floor_type)
+		GameManager.screen_normal_floor_saw = true
 		queue_free()
