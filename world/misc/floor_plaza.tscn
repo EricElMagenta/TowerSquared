@@ -1,10 +1,78 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfjt4a46f1giq"]
+[gd_scene load_steps=18 format=3 uid="uid://cfjt4a46f1giq"]
 
 [ext_resource type="Texture2D" uid="uid://2723ftcg8r64" path="res://assets/world/world-floor-plaza.png" id="1_hdubb"]
 [ext_resource type="Script" path="res://world/misc/floor_plaza.gd" id="1_uwono"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_lnk80"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="3_wgcn2"]
-[ext_resource type="PackedScene" uid="uid://dv2eqyyogoled" path="res://entities/npcs/npc-suspicious-floor.tscn" id="5_5exih"]
+[ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="5_tov74"]
+[ext_resource type="Texture2D" uid="uid://d2aj1m77x4yew" path="res://assets/npc/npc-suspicious-floor-sheet.png" id="6_jxmgf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bie86"]
+size = Vector2(39, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdijw"]
+atlas = ExtResource("6_jxmgf")
+region = Rect2(0, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef4jp"]
+atlas = ExtResource("6_jxmgf")
+region = Rect2(51, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shr33"]
+atlas = ExtResource("6_jxmgf")
+region = Rect2(102, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b682"]
+atlas = ExtResource("6_jxmgf")
+region = Rect2(153, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fshk"]
+atlas = ExtResource("6_jxmgf")
+region = Rect2(204, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2divk"]
+atlas = ExtResource("6_jxmgf")
+region = Rect2(255, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbpx4"]
+atlas = ExtResource("6_jxmgf")
+region = Rect2(306, 0, 51, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok0e6"]
+atlas = ExtResource("6_jxmgf")
+region = Rect2(357, 0, 51, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4mh0"]
+animations = [{
+"frames": [{
+"duration": 25.0,
+"texture": SubResource("AtlasTexture_qdijw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef4jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shr33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b682")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fshk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2divk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbpx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok0e6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upulw"]
 size = Vector2(20, 47)
@@ -31,10 +99,22 @@ limit_top = -80
 limit_right = 160
 limit_bottom = 80
 
-[node name="Npc-suspicious-floor" parent="." instance=ExtResource("5_5exih")]
-position = Vector2(-41, 48)
-rotation = 3.14159
-scale = Vector2(1, -1)
+[node name="NPC" type="Node2D" parent="."]
+
+[node name="NpcSuspiciousFloor" parent="NPC" instance=ExtResource("5_tov74")]
+position = Vector2(-43, 45)
+scale = Vector2(-1, 1)
+
+[node name="CollisionShape2D" parent="NPC/NpcSuspiciousFloor" index="0"]
+position = Vector2(5.5, 6.5)
+shape = SubResource("RectangleShape2D_bie86")
+
+[node name="NpcDialogue" parent="NPC/NpcSuspiciousFloor" index="1"]
+text = "suspicious_floor_greet"
+
+[node name="AnimatedSprite2D" parent="NPC/NpcSuspiciousFloor" index="2"]
+sprite_frames = SubResource("SpriteFrames_f4mh0")
+frame_progress = 0.826701
 
 [node name="Player" parent="." instance=ExtResource("2_lnk80")]
 position = Vector2(-135, 58)
@@ -55,3 +135,5 @@ shape = SubResource("RectangleShape2D_upulw")
 debug_color = Color(0.659144, 0.364796, 0.917478, 0.42)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
+
+[editable path="NPC/NpcSuspiciousFloor"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bndw8g5jkxjkb"]
+
+[ext_resource type="Texture2D" uid="uid://dar261k52u7ft" path="res://assets/npc/question-floor.png" id="1_16iq1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jcy8"]
+atlas = ExtResource("1_16iq1")
+region = Rect2(0, 0, 53, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bya45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jcy8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NpcSprites" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_bya45")

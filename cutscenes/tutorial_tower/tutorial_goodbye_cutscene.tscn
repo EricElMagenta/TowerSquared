@@ -389,8 +389,8 @@ next_scene = ExtResource("2_qccr6")
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 41.0
 offset_top = 23.0
-offset_right = 258.0
-offset_bottom = 101.0
+offset_right = 176.0
+offset_bottom = 87.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2

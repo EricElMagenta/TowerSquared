@@ -33,7 +33,7 @@ var has_arms = false
 var dir = 1
 var damage_blink = false
 var knockback = Vector2.ZERO
-var talking_to : CharacterBody2D = null
+var talking_to : Area2D = null
 
 ##################################### FUNCIONES PRINCIPALES ###############################
 func _ready():

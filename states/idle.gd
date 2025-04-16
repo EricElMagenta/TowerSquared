@@ -39,22 +39,22 @@ func Physics_Update(delta:float):
 	
 	
 	# OCULTA PROMPT PARA HABLAR
-	if len(parent.dialogue_area.get_overlapping_bodies()) < 1:
+	if len(parent.dialogue_area.get_overlapping_areas()) < 1:
 		parent.talk_prompt.visible = false
 		
 	# DETECTA NPC EN EL AREA DEL JUGADOR
 	else:
-		for body in parent.dialogue_area.get_overlapping_bodies():
+		for area in parent.dialogue_area.get_overlapping_areas():
 			
 			# Mostrar signo para hablar
-			if body.has_method("talk_to_player"):
+			if area.has_method("talk_to_player"):
 				parent.talk_prompt.visible = true
 				
 				# Habla con el NPC si se oprime el botón
 				if Input.is_action_just_pressed(parent.actions.up):
-					body.talk_to_player()
+					area.talk_to_player()
 					state_transition.emit(self, "Talking")
-					parent.talking_to = body
+					parent.talking_to = area
 	
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0:

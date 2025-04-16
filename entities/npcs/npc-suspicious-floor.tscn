@@ -1,7 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv2eqyyogoled"]
+[gd_scene load_steps=13 format=3 uid="uid://cmkma0qvslrrf"]
 
 [ext_resource type="Texture2D" uid="uid://d2aj1m77x4yew" path="res://assets/npc/npc-suspicious-floor-sheet.png" id="1_0reh1"]
-[ext_resource type="Script" path="res://entities/npcs/npc_suspicious_floor.gd" id="1_3rokb"]
+
+[sub_resource type="GDScript" id="GDScript_qmqbr"]
+script/source = "extends CharacterBody2D
+
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
+const lines: Array[String] = [
+	\"suspicious_floor_greet\"
+]
+
+func _ready():
+	animated_sprite_2d.play(\"idle\") 
+
+func talk_to_player():
+	DialogueManager.start_dialog(global_position, lines)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2wp6"]
 size = Vector2(46, 31)
@@ -73,7 +88,7 @@ animations = [{
 [node name="Npc-suspicious-floor" type="CharacterBody2D"]
 collision_layer = 256
 collision_mask = 2
-script = ExtResource("1_3rokb")
+script = SubResource("GDScript_qmqbr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 5.5)
