@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b1mcvwww2aed5"]
+[gd_scene load_steps=17 format=4 uid="uid://b1mcvwww2aed5"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_3.gd" id="1_ese5q"]
 [ext_resource type="PackedScene" uid="uid://big88cj551hbg" path="res://world/tutorial/tutorial_4.tscn" id="2_fivyh"]
@@ -14,10 +14,18 @@
 [ext_resource type="PackedScene" uid="uid://dlgi51sve5pnm" path="res://entities/enemies/enemy_flying_bomb.tscn" id="12_q6c85"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="13_amdd0"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="14_tl7wv"]
+[ext_resource type="Texture2D" uid="uid://cbqsyy4y7l1xs" path="res://assets/UI/swapping.png" id="15_oywor"]
+[ext_resource type="Texture2D" uid="uid://b6qkgu5q5ruus" path="res://assets/UI/arrow-1.png" id="16_nfjny"]
 
 [node name="Tutorial3" type="Node2D"]
 script = ExtResource("1_ese5q")
 next_level = ExtResource("2_fivyh")
+
+[node name="Hints" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hints"]
+position = Vector2(273, 139)
+texture = ExtResource("15_oywor")
 
 [node name="DoorStone" parent="." instance=ExtResource("5_jf5ve")]
 position = Vector2(474, 187)
@@ -48,7 +56,7 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(-26, -4)
 
 [node name="FloorNormalItem2" parent="." instance=ExtResource("4_68g8a")]
-position = Vector2(152, 137)
+position = Vector2(152, 162)
 
 [node name="FloorNormalItem3" parent="." instance=ExtResource("4_68g8a")]
 position = Vector2(916, 80)
@@ -99,3 +107,7 @@ position = Vector2(835, -9)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_amdd0")]
 
 [node name="SceneTransition" parent="." instance=ExtResource("14_tl7wv")]
+
+[node name="Arrow-1" type="Sprite2D" parent="."]
+position = Vector2(458, 66)
+texture = ExtResource("16_nfjny")

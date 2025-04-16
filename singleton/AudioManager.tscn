@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://yd2ja8cfkaws"]
+[gd_scene load_steps=18 format=3 uid="uid://yd2ja8cfkaws"]
 
 [ext_resource type="Script" path="res://singleton/audio_manager.gd" id="1_7ndra"]
 [ext_resource type="AudioStream" uid="uid://dwvm0w2uqmpt" path="res://audio/player/jump.wav" id="2_a4kib"]
@@ -15,9 +15,15 @@
 [ext_resource type="AudioStream" uid="uid://i8srdd0qrepg" path="res://audio/player/button_press.wav" id="13_4ksia"]
 [ext_resource type="AudioStream" uid="uid://cafxhf2h5tw3m" path="res://audio/player/invalid_action.wav" id="14_mb8yq"]
 [ext_resource type="AudioStream" uid="uid://dv0uifdptqhk0" path="res://audio/player/map_zone_notification.wav" id="15_o2kdn"]
+[ext_resource type="AudioStream" uid="uid://7nawil2i6vqg" path="res://audio/cutscenes/peek.wav" id="16_3ij58"]
+[ext_resource type="AudioStream" uid="uid://cicfxi6nbpiax" path="res://audio/cutscenes/dialogue_sound.wav" id="17_eb2w5"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_7ndra")
+
+[node name="BoxExplode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_kyowq")
+volume_db = -18.0
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_a4kib")
@@ -58,10 +64,6 @@ volume_db = -18.0
 stream = ExtResource("10_8ovus")
 volume_db = -18.0
 
-[node name="BoxExplode" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_kyowq")
-volume_db = -18.0
-
 [node name="SwapFloor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_fq8as")
 volume_db = -18.0
@@ -76,4 +78,12 @@ volume_db = -18.0
 
 [node name="MapZoneNotification" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_o2kdn")
+volume_db = -18.0
+
+[node name="Peek" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_3ij58")
+volume_db = -18.0
+
+[node name="DialogueSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_eb2w5")
 volume_db = -18.0

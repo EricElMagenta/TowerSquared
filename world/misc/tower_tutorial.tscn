@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://world/misc/tower_tutorial.gd" id="1_xgnqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfp68"]
-size = Vector2(47, 50)
+size = Vector2(36, 20)
 
 [node name="TutorialTower" type="Area2D"]
 collision_layer = 256
@@ -15,5 +15,5 @@ script = ExtResource("1_xgnqb")
 texture = ExtResource("1_4rtwq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_wfp68")

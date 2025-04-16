@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b64jwgtqsajdj"]
+[gd_scene load_steps=12 format=3 uid="uid://b64jwgtqsajdj"]
 
 [ext_resource type="Texture2D" uid="uid://ivtoskl0p6fn" path="res://assets/world/tower-tutorial-top.png" id="1_fhddo"]
 [ext_resource type="Script" path="res://cutscenes/tutorial_tower/tutorial_end_cutscene.gd" id="1_nwju2"]
 [ext_resource type="Texture2D" uid="uid://bifymtcmbnfbx" path="res://assets/cutscenes/cutscene-player-sheet.png" id="2_ex531"]
 [ext_resource type="PackedScene" uid="uid://b6os5dc1q5uoy" path="res://cutscenes/tutorial_tower/tutorial_photo_cutscene.tscn" id="2_tfnvb"]
+[ext_resource type="AudioStream" uid="uid://7nawil2i6vqg" path="res://audio/cutscenes/peek.wav" id="3_6acxa"]
 [ext_resource type="Texture2D" uid="uid://bamm7ic260bxx" path="res://assets/npc/npc-camera-floor.png" id="3_487ni"]
+[ext_resource type="AudioStream" uid="uid://b01cw2ljm7cy7" path="res://audio/cutscenes/ExitDoor.wav" id="3_poaxs"]
+[ext_resource type="AudioStream" uid="uid://cicfxi6nbpiax" path="res://audio/cutscenes/dialogue_sound.wav" id="5_g0bxb"]
 
 [sub_resource type="Animation" id="Animation_yua1c"]
 resource_name = "Arrival"
@@ -128,6 +131,70 @@ tracks/8/keys = {
 "update": 1,
 "values": [0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0]
 }
+tracks/9/type = "audio"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sound")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/9/use_blend = true
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sound:stream")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.96667, 3.43333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_poaxs"), ExtResource("3_6acxa"), ExtResource("5_g0bxb")]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1, 2, 3.03333, 3.5, 6.1, 6.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/PanelContainer:size")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(3.46667, 5.9, 6.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(145, 65), Vector2(145, 65), Vector2(147, 74)]
+}
 
 [sub_resource type="Animation" id="Animation_ix7bw"]
 length = 0.001
@@ -227,6 +294,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sound:stream")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_6acxa")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/PanelContainer:size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(145, 65)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1brgd"]
 _data = {
@@ -247,18 +338,16 @@ visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -194.0
-offset_right = -46.0
-offset_bottom = 98.0
+offset_left = -159.0
+offset_right = -14.0
+offset_bottom = 65.0
 grow_horizontal = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
-custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
 text = "tutorial_end_1"
 scroll_active = false
-metadata/_edit_group_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -284,3 +373,7 @@ hframes = 5
 [node name="NpcCamera" type="Sprite2D" parent="Characters"]
 position = Vector2(64, 34)
 texture = ExtResource("3_487ni")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6acxa")
+volume_db = -18.0

@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 const lines: Array[String] = [
-	"question_floor_greet"
+	"tutorial_question_floor_1",
+	"tutorial_question_floor_2"
 ]
 
 func talk_to_player():

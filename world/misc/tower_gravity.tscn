@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://rqnv3tqinn6w" path="res://assets/world/tower-gravity.png" id="1_ob78j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25dx6"]
-size = Vector2(34, 54)
+size = Vector2(29, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h7wp"]
 atlas = ExtResource("1_ob78j")
@@ -74,7 +74,7 @@ collision_mask = 0
 script = ExtResource("1_5lvct")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(-0.5, 18)
 shape = SubResource("RectangleShape2D_25dx6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -5,3 +5,6 @@ extends Node2D
 
 func change_scene():
 	get_tree().change_scene_to_packed(world_map)
+
+func play_sound():
+	$Sound.play()

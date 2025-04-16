@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://iqaxps1c2op2" path="res://assets/world/tower-air-Sheet.png" id="1_tyqys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bocnc"]
-size = Vector2(109, 83)
+size = Vector2(38, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lx1bk"]
 atlas = ExtResource("1_tyqys")
@@ -48,7 +48,7 @@ collision_mask = 0
 script = ExtResource("1_kfwgj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(-32, 22.5)
 shape = SubResource("RectangleShape2D_bocnc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

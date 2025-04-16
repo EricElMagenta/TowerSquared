@@ -15,3 +15,6 @@ func pause():
 
 func change_scene():
 	get_tree().change_scene_to_packed(next_scene)
+
+func play_sound():
+	$Sound.play()

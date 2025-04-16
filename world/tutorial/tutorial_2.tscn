@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bve5uq4p6a3if"]
+[gd_scene load_steps=15 format=4 uid="uid://bve5uq4p6a3if"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_2.gd" id="1_52r1m"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_kbksk"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="11_w45p5"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="12_umxdn"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="13_4h4hn"]
+[ext_resource type="PackedScene" uid="uid://be1rb2x0p1vpt" path="res://ui/hints/left_click_hint.tscn" id="14_guhnp"]
 
 [node name="Tutorial2" type="Node2D"]
 script = ExtResource("1_52r1m")
@@ -76,3 +77,8 @@ position = Vector2(-217, 16)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_umxdn")]
 
 [node name="SceneTransition" parent="." instance=ExtResource("13_4h4hn")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="LeftClickHint" parent="Node2D" instance=ExtResource("14_guhnp")]
+position = Vector2(-87, 238)

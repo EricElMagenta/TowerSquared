@@ -1,16 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://vwm03qpk2pfh"]
+[gd_scene load_steps=15 format=3 uid="uid://vwm03qpk2pfh"]
 
 [ext_resource type="Script" path="res://cutscenes/tutorial_tower/tutorial_goodbye_cutscene.gd" id="1_3ilti"]
 [ext_resource type="Texture2D" uid="uid://ivtoskl0p6fn" path="res://assets/world/tower-tutorial-top.png" id="1_s6jpc"]
 [ext_resource type="PackedScene" uid="uid://b46taia2b66ye" path="res://cutscenes/tutorial_tower/tutorial_goodbye_entrance.tscn" id="2_qccr6"]
 [ext_resource type="Texture2D" uid="uid://jx1dcoflck1y" path="res://assets/npc/npc-camera-stand-alone.png" id="3_3yo0e"]
 [ext_resource type="Texture2D" uid="uid://bifymtcmbnfbx" path="res://assets/cutscenes/cutscene-player-sheet.png" id="3_ethwj"]
+[ext_resource type="AudioStream" uid="uid://cicfxi6nbpiax" path="res://audio/cutscenes/dialogue_sound.wav" id="3_m37d1"]
+[ext_resource type="AudioStream" uid="uid://b8k656wes5hgk" path="res://audio/player/box_explode.wav" id="3_s403l"]
 [ext_resource type="Texture2D" uid="uid://diktyvxexh6ko" path="res://assets/npc/npc-camera-floor-alone.png" id="4_p5vd7"]
+[ext_resource type="AudioStream" uid="uid://dm31q5g4jrlf8" path="res://audio/cutscenes/fell_to_bottom.wav" id="5_bgwrm"]
+[ext_resource type="AudioStream" uid="uid://6lpxvper1srm" path="res://audio/cutscenes/falling.wav" id="5_hlik5"]
 [ext_resource type="Texture2D" uid="uid://3raufiknpfyg" path="res://assets/npc/npc-camera-floor-alone-muscle2.png" id="5_tx1x2"]
 
 [sub_resource type="Animation" id="Animation_wog4h"]
 resource_name = "Goodbye"
-length = 10.0
+length = 6.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,7 +34,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.7, 4.26667, 6.16667, 6.4),
+"times": PackedFloat32Array(0.0333333, 0.733333, 4.26667, 6.16667, 6.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -164,10 +168,63 @@ tracks/11/path = NodePath("CanvasLayer/PanelContainer:size")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 6.06667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5.83333, 6.06667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(135, 64), Vector2(217, 92)]
+"values": [Vector2(135, 64), Vector2(135, 64), Vector2(217, 78)]
+}
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sound")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(0.633333)
+}
+tracks/12/use_blend = true
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.733333, 2.26667, 4.26667, 6.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Sound:stream")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.633333, 2.2, 4.2, 5.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_m37d1"), ExtResource("3_s403l"), ExtResource("5_hlik5"), ExtResource("5_bgwrm"), ExtResource("3_m37d1")]
 }
 
 [sub_resource type="Animation" id="Animation_fi4hb"]
@@ -304,6 +361,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(135, 64)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sound:stream")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_s403l")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yo4bq"]
 _data = {
@@ -320,8 +389,8 @@ next_scene = ExtResource("2_qccr6")
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 41.0
 offset_top = 23.0
-offset_right = 176.0
-offset_bottom = 87.0
+offset_right = 258.0
+offset_bottom = 101.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
@@ -373,3 +442,7 @@ texture = ExtResource("5_tx1x2")
 [node name="CameraStand" type="Sprite2D" parent="Characters"]
 position = Vector2(-6, 34)
 texture = ExtResource("3_3yo0e")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s403l")
+volume_db = -18.0

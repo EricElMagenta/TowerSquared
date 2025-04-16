@@ -29,7 +29,10 @@ func play_swap_floor() -> void:
 
 func play_inavlid_action() -> void:
 	if !mute: $InvalidAction.play()
-	
+
+func play_dialogue_sound():
+	if !mute: $DialogueSound.play()
+
 ############################################### SONIDOS DE OBJETOS ################################
 func play_bullet_shot():
 	if !mute: $BulletShoot.play()
@@ -43,3 +46,7 @@ func play_button_press():
 ############################################### SONIDOS DEL MAPA ################################
 func play_map_zone_notification():
 	if !mute: $MapZoneNotification.play()
+
+################################################### OTROS #######################################
+func play_peek():
+	if !mute: $Peek.play()

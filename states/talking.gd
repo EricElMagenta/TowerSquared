@@ -2,6 +2,7 @@ extends State
 class_name Talking
 
 func Enter():
+	AudioManager.play_dialogue_sound()
 	parent.talk_prompt.visible = false
 
 func Update(_delta:float):

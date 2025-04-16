@@ -128,7 +128,6 @@ func player_animations(current_animation:String) -> void:
 # RECIBIR DAÑO
 func get_hit(damage) -> void:
 	if !damage_blink:
-		print("eje")
 		AudioManager.play_take_damage()
 		velocity.y = player_data.knockback_force.y
 		player_data.current_health -= damage

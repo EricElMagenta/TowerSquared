@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfjt4a46f1giq" path="res://world/misc/floor_plaza.tscn" id="2_vld0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx53u"]
-size = Vector2(77, 73)
+size = Vector2(59, 30)
 
 [node name="WorldPlaza" type="Area2D"]
 collision_layer = 256
@@ -14,7 +14,7 @@ script = ExtResource("1_4fibm")
 next_zone = ExtResource("2_vld0e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
+position = Vector2(-3.5, 18)
 shape = SubResource("RectangleShape2D_wx53u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
