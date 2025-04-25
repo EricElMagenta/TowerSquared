@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwlel8jemp12v"]
+
+[ext_resource type="Script" path="res://entities/power-up/floor_propeller_item.gd" id="1_2m3bu"]
+[ext_resource type="Texture2D" uid="uid://dtqutiuvupiu6" path="res://assets/power-ups/propeller_floor.png" id="2_esv7v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djg5k"]
+atlas = ExtResource("2_esv7v")
+region = Rect2(0, 0, 40, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eogsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djg5k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmtl0"]
+size = Vector2(31, 14)
+
+[node name="FloorPropellerItem" type="Area2D" groups=["FloorItems"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_2m3bu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eogsr")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_bmtl0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

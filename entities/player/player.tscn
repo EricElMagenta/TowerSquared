@@ -1,10 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=30 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
-[ext_resource type="Resource" uid="uid://fi706ut52ub3" path="res://entities/player/player_input_actions.tres" id="2_wa1jq"]
+[ext_resource type="Resource" uid="uid://fi706ut52ub3" path="res://entities/player/player_resources/player_input_actions.tres" id="2_wa1jq"]
 [ext_resource type="Script" path="res://states/state_machine.gd" id="3_3l04b"]
-[ext_resource type="Resource" uid="uid://bxnvfrsg4unnr" path="res://entities/player/player_data.tres" id="3_7fvv7"]
+[ext_resource type="Resource" uid="uid://bxnvfrsg4unnr" path="res://entities/player/player_resources/player_data.tres" id="3_7fvv7"]
 [ext_resource type="Script" path="res://states/idle.gd" id="4_50gyb"]
 [ext_resource type="Texture2D" uid="uid://cve8gogtv0r1r" path="res://assets/player/feet_4.png" id="4_p57qm"]
 [ext_resource type="Texture2D" uid="uid://cl27nqds5d54i" path="res://assets/player/feet_5.png" id="4_wobo5"]
@@ -20,6 +20,9 @@
 [ext_resource type="Script" path="res://states/talking.gd" id="16_xdf66"]
 [ext_resource type="Script" path="res://states/dead.gd" id="17_e4y31"]
 [ext_resource type="PackedScene" uid="uid://cg73ce71qhivk" path="res://ui/text_box/talk_prompt.tscn" id="18_r1dyh"]
+[ext_resource type="Script" path="res://states/swim_idle.gd" id="19_207n2"]
+[ext_resource type="Script" path="res://states/swim_move.gd" id="21_3b456"]
+[ext_resource type="Resource" uid="uid://bd8yj7m2reygk" path="res://entities/player/player_resources/floor_count_data.tres" id="23_c7rcm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j21rn"]
 atlas = ExtResource("6_oifr3")
@@ -60,6 +63,23 @@ animations = [{
 "speed": 12.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wyfvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ahwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2w3c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ahwc")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 6.0
+}, {
+"frames": [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_j21rn")
 }, {
@@ -95,7 +115,7 @@ animations = [{
 size = Vector2(21, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gynlg"]
-size = Vector2(36, 25)
+size = Vector2(36, 12)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
@@ -107,11 +127,10 @@ player_data = ExtResource("3_7fvv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8phsy")
-animation = &"dead"
+animation = &"swim"
 
 [node name="LabelState" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
 offset_left = -18.0
 offset_top = 8.0
 offset_right = 22.0
@@ -148,8 +167,15 @@ script = ExtResource("16_xdf66")
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("17_e4y31")
 
+[node name="SwimIdle" type="Node" parent="StateMachine"]
+script = ExtResource("19_207n2")
+
+[node name="SwimMove" type="Node" parent="StateMachine"]
+script = ExtResource("21_3b456")
+
 [node name="FloorManager" type="Node2D" parent="."]
 script = ExtResource("9_ns01a")
+floor_count_data = ExtResource("23_c7rcm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_avwer")
@@ -163,7 +189,7 @@ one_shot = true
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
-position = Vector2(0, -7.5)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_gynlg")
 debug_color = Color(0.886275, 0.682353, 0.2, 0.419608)
 

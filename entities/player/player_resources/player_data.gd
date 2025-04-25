@@ -5,6 +5,7 @@ class_name PlayerData
 @export var move_speed  = 200.0
 @export var jump_force = -300.0
 @export var air_jump_force = -300
+@export var gravity = 980
 @export var accel = 100
 @export var friction = 100
 @export var arm_strength = 0
@@ -12,3 +13,10 @@ class_name PlayerData
 @export var knockback_force = Vector2(40, -300)
 
 var current_health = max_health
+
+
+# MOVIMIENTO EN AGUA
+@export var swim_speed  = 20
+@export var sink_speed = 80
+@export var fall_in_water_down_hold = 500
+@export var swim_up_force = -80.0

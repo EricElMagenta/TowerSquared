@@ -12,6 +12,7 @@ signal stop_action
 # RESOURCES
 @export var actions : PlayerInputActions
 @export var player_data : PlayerData
+#@export var player_swimming_data : PlayerSwimmingData
 
 # NODOS
 @onready var floor_manager = $FloorManager
@@ -30,6 +31,7 @@ var remaining_air_jumps = 0 # Saltos en el aire restantes
 var has_eyes = false
 var has_mouth = false
 var has_arms = false
+var can_swim = false
 var dir = 1
 var damage_blink = false
 var knockback = Vector2.ZERO
@@ -43,14 +45,15 @@ func _ready():
 	# Se instancia el floor manager
 	floor_manager.init(self)
 	
-	# Resetear power ups después de morir
+	# Resetear power ups y conteo de pisos después de morir
 	reset_power_ups()
+	floor_manager.restart_floor_count()
 	
 	# Resetea la vida al máximo
 	player_data.current_health = player_data.max_health
 
-#func _physics_process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_just_pressed("restart"): get_tree().reload_current_scene()
 
 ##################################### FUNCIONES AUXILIARES ###############################
 # OBTENER DIRECCIÓN
@@ -69,7 +72,7 @@ func get_direction() -> Vector2:
 # MOVERSE
 func move(delta) -> Vector2:
 	# Add the gravity.
-	if not is_on_floor(): velocity += get_gravity() * delta
+	if not is_on_floor(): velocity.y += player_data.gravity * delta
 	
 	input_vector = get_direction()
 	velocity = Vector2(input_vector[0] * player_data.move_speed, velocity.y)
@@ -102,6 +105,7 @@ func reset_power_ups():
 	has_eyes = false
 	has_arms = false
 	has_mouth = false
+	can_swim = false
 	max_air_jumps = 0
 
 # DETECTAR EL TIPO DE PISO OBTENIDO Y ACTUALIZAR HABILIDADES DEL JUGADOR
@@ -113,6 +117,7 @@ func update_player_abilities(new_floor_type: String) -> void:
 	if new_floor_type.to_lower() == "player_eye_floor":	has_eyes = true
 	if new_floor_type.to_lower() == "player_mouth_floor": has_mouth = true
 	if new_floor_type.to_lower() == "player_arm_floor": has_arms = true
+	if new_floor_type.to_lower() == "player_fish_floor": can_swim = true
 
 # GESTIONA LAS ANIMACIONES DEL JUGADOR
 func player_animations(current_animation:String) -> void:
@@ -153,6 +158,30 @@ func ded() -> void:
 	await get_tree().create_timer(1).timeout
 	GameManager.restart_scene()
 
+##################################### NADAR ###############################
+# VELOCIDAD DE NADO
+func move_in_water(delta) -> Vector2:
+	if not is_on_floor(): velocity.y += player_data.sink_speed * delta
+	input_vector = get_direction()
+	
+	# Cambiar velocidad de nado según cantidad de colas y si se mantienen oprimidas las flechas de arriba o abajo
+	velocity = Vector2(input_vector[0] * player_data.swim_speed * floor_manager.floor_count_data.fish_floor_count, 
+	min(velocity.y, player_data.sink_speed))
+	
+	move_and_slide()
+	return input_vector
+
+#func holding_down() -> int:
+	#return int(Input.is_action_pressed("down"))
+
+func swim_up() -> void:
+	velocity.y = player_data.swim_up_force
+
+#func move_in_water() -> Vector2:
+	#input_vector = get_direction()
+	#velocity = Vector2(input_vector[0] * player_swimming_data.move_speed, velocity.y)
+	#move_and_slide()
+	#return input_vector
 
 # EMPUJAR OBJECTOS EMPUJABLES
 #func push_object():

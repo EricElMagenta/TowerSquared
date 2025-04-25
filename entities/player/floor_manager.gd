@@ -1,9 +1,14 @@
 extends Node2D
 class_name FloorManager
 
+# RESOURCES
+@export var floor_count_data : FloorCountData
+
+# CONSTANTES
 const FLOOR_HEIGHT = 13
 const FLOOR_OFFSET = 2
 
+# VARIABLES
 var floors = []
 var player : Player
 
@@ -26,11 +31,11 @@ func add_floor(floor_type:String) -> void:
 	new_floor_scene.scale.x = player.dir
 	adjust_floor_position(new_floor_scene)
 	
+	add_floor_to_count_data(floor_type)
 	floors.append(new_floor_scene)
 	call_deferred("add_child", new_floor_scene)
 	
 	AudioManager.play_get_floor()
-	
 	player.update_collision()
 	player.update_player_abilities(floor_type)
 
@@ -71,7 +76,16 @@ func swap_floors_up():
 # OBTENER TOTAL DE PISOS
 func get_total_floors():
 	return len(floors)
+	
+# CONTAR CANTIDAD DE PISOS OBTENIDOS POR TIPO (SOLO PARA PISOS CUYO EFECTO INCLUYE CANTIDAD DE COPIAS)
+func add_floor_to_count_data(floor_type:String) -> void:
+	match floor_type:
+		"player_fish_floor": floor_count_data.fish_floor_count += 1
 
+# REINICIA EL CONTEO DE PISOS
+func restart_floor_count() -> void:
+	floor_count_data = FloorCountData.new()
+	
 # CORRIJE LA POSICIÓN DE LOS PISOS PARA ALINEARLOS CON LOS OTROS PISOS
 func adjust_floor_position(new_floor:CharacterBody2D):
 	if new_floor.name.to_lower() == "PlayerMouthFloor".to_lower():
@@ -82,6 +96,12 @@ func adjust_floor_position(new_floor:CharacterBody2D):
 	
 	if new_floor.name.to_lower() == "PlayerArmFloor".to_lower():
 		new_floor.position.x += 8 * player.dir
+		
+	if new_floor.name.to_lower() == "PlayerPropellerFloor".to_lower():
+		new_floor.position.x -= 4.5 * player.dir
+		
+	if new_floor.name.to_lower() == "PlayerFishFloor".to_lower():
+		new_floor.position.x -= 7.5 * player.dir
 
 # EXPLOTA A TODOS LOS PISOS
 func explode() -> void:

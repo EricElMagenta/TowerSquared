@@ -35,6 +35,10 @@ func Physics_Update(delta:float):
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0:
 		state_transition.emit(self, "Dead")
+		
+	if parent.can_swim:
+		for area in parent.dialogue_area.get_overlapping_areas():
+			if area is Water: state_transition.emit(self, "SwimIdle")
 
 func Exit():
 	pass

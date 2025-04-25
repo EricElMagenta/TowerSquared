@@ -19,7 +19,7 @@ func _physics_process(delta):
 
 func change_direction():
 	if scale.x != player.dir: 
-		position.x += 15 * player.dir
+		position.x += 17 * player.dir
 		scale.x = player.dir
 
 #	AGARRA ALGO SI NO TIENE NADA Y SI HAY ALGO EN EL AREA

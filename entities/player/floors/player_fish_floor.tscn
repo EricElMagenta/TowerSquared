@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgbin2cqpayb6"]
+
+[ext_resource type="Script" path="res://entities/player/floors/player_fish_floor.gd" id="1_ahvji"]
+[ext_resource type="Texture2D" uid="uid://dqmge667ouhs3" path="res://assets/power-ups/fish_tail_floor.png" id="2_wl8gb"]
+[ext_resource type="Texture2D" uid="uid://b8htg5kbkisnj" path="res://assets/player/fish_tail_floor-Sheet.png" id="3_7w7oq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opgcg"]
+atlas = ExtResource("2_wl8gb")
+region = Rect2(0, 0, 46, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08apv"]
+atlas = ExtResource("3_7w7oq")
+region = Rect2(0, 0, 46, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4050x"]
+atlas = ExtResource("3_7w7oq")
+region = Rect2(46, 0, 46, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnhpr"]
+atlas = ExtResource("3_7w7oq")
+region = Rect2(92, 0, 46, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfjct"]
+atlas = ExtResource("3_7w7oq")
+region = Rect2(138, 0, 46, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plvnw"]
+atlas = ExtResource("3_7w7oq")
+region = Rect2(184, 0, 46, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_px86e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opgcg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_08apv")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4050x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnhpr")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_cfjct")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_plvnw")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_cfjct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnhpr")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4050x")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cc4va"]
+size = Vector2(31, 14)
+
+[node name="PlayerFishFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_ahvji")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_px86e")
+animation = &"swimming"
+frame_progress = 0.590428
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.5, 0)
+shape = SubResource("RectangleShape2D_cc4va")

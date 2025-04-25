@@ -34,7 +34,7 @@ func Physics_Update(delta:float):
 	# AGARRAR COSAS
 	if parent.has_arms && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
 	
-	# SOLTAR COSASwfa
+	# SOLTAR COSAS
 	if parent.has_arms && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 	
 	# OCULTA PROMPT PARA HABLAR

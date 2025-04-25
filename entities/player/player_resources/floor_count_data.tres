@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bd8yj7m2reygk"]
+
+[ext_resource type="Script" path="res://entities/player/player_resources/floor_count_data.gd" id="1_447ge"]
+
+[resource]
+script = ExtResource("1_447ge")
