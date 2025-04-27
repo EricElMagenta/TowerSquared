@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=32 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://cg73ce71qhivk" path="res://ui/text_box/talk_prompt.tscn" id="18_r1dyh"]
 [ext_resource type="Script" path="res://states/swim_idle.gd" id="19_207n2"]
 [ext_resource type="Script" path="res://states/swim_move.gd" id="21_3b456"]
+[ext_resource type="Script" path="res://states/charge.gd" id="21_wwp7e"]
+[ext_resource type="Script" path="res://states/charge_release.gd" id="22_oj400"]
 [ext_resource type="Resource" uid="uid://bd8yj7m2reygk" path="res://entities/player/player_resources/floor_count_data.tres" id="23_c7rcm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j21rn"]
@@ -172,6 +174,12 @@ script = ExtResource("19_207n2")
 
 [node name="SwimMove" type="Node" parent="StateMachine"]
 script = ExtResource("21_3b456")
+
+[node name="Charge" type="Node" parent="StateMachine"]
+script = ExtResource("21_wwp7e")
+
+[node name="ChargeRelease" type="Node" parent="StateMachine"]
+script = ExtResource("22_oj400")
 
 [node name="FloorManager" type="Node2D" parent="."]
 script = ExtResource("9_ns01a")

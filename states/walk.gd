@@ -23,6 +23,9 @@ func Physics_Update(delta:float):
 	# Cambio de estado al empezar a caer
 	if parent.velocity.y > 0: state_transition.emit(self, "Fall")
 	
+	# DISMINUYE EL IMPULSO EN TIERRA
+	parent.handle_earth_impulse()
+	
 	###################### HABILIDADES ################################
 	# SWAP DE PISOS
 	if Input.is_action_just_pressed(parent.actions.swap_up): parent.swap_floors("up")

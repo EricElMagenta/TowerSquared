@@ -5,6 +5,8 @@ class_name Player
 signal health_changed
 signal change_direction
 signal shoot_fireball
+signal charge_propeller
+signal release_propeller
 signal flapping
 signal action
 signal stop_action
@@ -22,6 +24,9 @@ signal stop_action
 @onready var immunity_timer = $ImmunityTimer
 @onready var dialogue_area = $DialogueArea
 @onready var talk_prompt = $TalkPrompt
+@onready var remote_transform_2d = $RemoteTransform2D
+
+@onready var charge_bar = load("res://ui/floor_related/propeller_charge_bar.tscn")
 
 
 # VARIABLES DEL JUGADOR (POWER UP Y WEÁS)
@@ -32,6 +37,7 @@ var has_eyes = false
 var has_mouth = false
 var has_arms = false
 var can_swim = false
+var has_propeller = false
 var dir = 1
 var damage_blink = false
 var knockback = Vector2.ZERO
@@ -75,7 +81,7 @@ func move(delta) -> Vector2:
 	if not is_on_floor(): velocity.y += player_data.gravity * delta
 	
 	input_vector = get_direction()
-	velocity = Vector2(input_vector[0] * player_data.move_speed, velocity.y)
+	velocity = Vector2(input_vector[0] * player_data.move_speed + player_data.impulse, velocity.y)
 	move_and_slide()
 	return input_vector
 
@@ -118,6 +124,7 @@ func update_player_abilities(new_floor_type: String) -> void:
 	if new_floor_type.to_lower() == "player_mouth_floor": has_mouth = true
 	if new_floor_type.to_lower() == "player_arm_floor": has_arms = true
 	if new_floor_type.to_lower() == "player_fish_floor": can_swim = true
+	if new_floor_type.to_lower() == "player_propeller_floor": has_propeller = true
 
 # GESTIONA LAS ANIMACIONES DEL JUGADOR
 func player_animations(current_animation:String) -> void:
@@ -158,6 +165,11 @@ func ded() -> void:
 	await get_tree().create_timer(1).timeout
 	GameManager.restart_scene()
 
+
+func handle_earth_impulse() -> void:
+	if is_on_floor(): player_data.impulse -= player_data.friction * sign(player_data.impulse)
+	if player_data.impulse > -100 && player_data.impulse < 100: player_data.impulse = 0
+
 ##################################### NADAR ###############################
 # VELOCIDAD DE NADO
 func move_in_water(delta) -> Vector2:
@@ -165,7 +177,7 @@ func move_in_water(delta) -> Vector2:
 	input_vector = get_direction()
 	
 	# Cambiar velocidad de nado según cantidad de colas y si se mantienen oprimidas las flechas de arriba o abajo
-	velocity = Vector2(input_vector[0] * player_data.swim_speed * floor_manager.floor_count_data.fish_floor_count, 
+	velocity = Vector2(input_vector[0] * player_data.swim_speed * floor_manager.floor_count_data.fish_floor_count + player_data.impulse, 
 	min(velocity.y, player_data.sink_speed))
 	
 	move_and_slide()
@@ -176,6 +188,20 @@ func move_in_water(delta) -> Vector2:
 
 func swim_up() -> void:
 	velocity.y = player_data.swim_up_force
+
+func charge_shake() -> void:
+	position.y += 1.5
+	await get_tree().create_timer(0.01).timeout
+	position.y -= 1.5
+
+func show_charge_bar():
+	var charge_bar_instance = charge_bar.instantiate()
+	charge_bar_instance.position += Vector2(-40 * dir,-25)
+	add_child(charge_bar_instance)
+
+func delete_charge_bar():
+	var charge_bar_to_delete = get_tree().get_first_node_in_group("charge_bar")
+	charge_bar_to_delete.delete_charge_bar()
 
 #func move_in_water() -> Vector2:
 	#input_vector = get_direction()

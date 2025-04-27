@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct6kpwdwov4ir"]
+
+[ext_resource type="Texture2D" uid="uid://p6skgcx2qaym" path="res://assets/UI/propeller_charge_bar.png" id="1_c47fi"]
+[ext_resource type="Texture2D" uid="uid://dni5hvab0gt2j" path="res://assets/UI/propeller_charge_bar_empty.png" id="1_matme"]
+[ext_resource type="Script" path="res://ui/floor_related/propeller_charge_bar.gd" id="1_v70qb"]
+[ext_resource type="Texture2D" uid="uid://b5v02ys3tt7hb" path="res://assets/UI/propeller_charge_bar_full.png" id="2_wrnc6"]
+
+[node name="PropellerChargeBar" type="Node2D" groups=["charge_bar"]]
+process_mode = 1
+script = ExtResource("1_v70qb")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.499999, 0.500001)
+scale = Vector2(1, 1)
+texture = ExtResource("1_c47fi")
+
+[node name="PropellerChargeBar" type="TextureProgressBar" parent="."]
+offset_left = -2.0
+offset_top = -13.0
+offset_right = 3.0
+offset_bottom = 15.0
+value = 12.0
+fill_mode = 3
+texture_under = ExtResource("1_matme")
+texture_progress = ExtResource("2_wrnc6")

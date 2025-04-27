@@ -1,7 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwlel8jemp12v"]
+[gd_scene load_steps=10 format=3 uid="uid://dwlel8jemp12v"]
 
 [ext_resource type="Script" path="res://entities/power-up/floor_propeller_item.gd" id="1_2m3bu"]
 [ext_resource type="Texture2D" uid="uid://dtqutiuvupiu6" path="res://assets/power-ups/propeller_floor.png" id="2_esv7v"]
+[ext_resource type="Texture2D" uid="uid://bccqrewr2p52j" path="res://assets/player/propeller_floor-Sheet.png" id="2_ka6s3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqtjh"]
+atlas = ExtResource("2_ka6s3")
+region = Rect2(0, 0, 40, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_457lb"]
+atlas = ExtResource("2_ka6s3")
+region = Rect2(40, 0, 40, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp8pn"]
+atlas = ExtResource("2_ka6s3")
+region = Rect2(80, 0, 40, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djg5k"]
 atlas = ExtResource("2_esv7v")
@@ -9,6 +22,20 @@ region = Rect2(0, 0, 40, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eogsr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqtjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_457lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp8pn")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 24.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_djg5k")
@@ -28,7 +55,8 @@ script = ExtResource("1_2m3bu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eogsr")
-animation = &"idle"
+animation = &"charge"
+frame_progress = 0.717307
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, 0)

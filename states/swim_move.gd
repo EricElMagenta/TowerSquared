@@ -5,6 +5,11 @@ func Enter():
 	pass
 	
 func Physics_Update(delta:float):
+	
+	# DISMINUYE EL IMPULSO EN EL AGUA
+	if parent.is_on_wall(): parent.player_data.impulse = 0
+	parent.player_data.impulse -= 10 * sign(parent.player_data.impulse)
+	
 	parent.player_animations("swim")
 	
 	# MOVERSE EN EL AGUA
@@ -24,6 +29,9 @@ func Physics_Update(delta:float):
 	# SWAP DE PISOS
 	if Input.is_action_just_pressed(parent.actions.swap_up): parent.swap_floors("up")
 	if Input.is_action_just_pressed(parent.actions.swap_down): parent.swap_floors("down")
+	
+	# CARGAR PROPULSOR
+	if Input.is_action_pressed(parent.actions.action) && parent.has_propeller: state_transition.emit(self, "Charge")
 
 	
 func Exit():
