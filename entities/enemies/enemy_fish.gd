@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 const BUBBLE_ORIGIN_OFFSET = 12
 
@@ -11,16 +11,17 @@ enum BOUNCEPOWER{
 	MEDIUM,
 	STRONG
 }
-
 @export var selected_power = BOUNCEPOWER.LIGHT
 
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var bubble_timer = $BubbleTimer
+
 func _ready():
-	$AnimatedSprite2D.play("default")
-	$BubbleTimer.start()
+	animated_sprite_2d.play("default")
+	bubble_timer.start()
 
 func _physics_process(delta):
-	# Detecta al jugador constantemente
-	for body in $Hitbox.get_overlapping_bodies():
+	for body in get_overlapping_bodies():
 		if body.has_method("get_hit") && body.player_data.current_health > 0:
 			body.get_hit(damage)
 
@@ -29,7 +30,7 @@ func _process(delta):
 		spit_bubbles()
 
 func spit_bubbles():
-	$AnimatedSprite2D.play("spit")
+	animated_sprite_2d.play("spit")
 	can_spit_bubbles = false
 	
 	var bubble_instance = bubble.instantiate()
@@ -39,7 +40,7 @@ func spit_bubbles():
 	add_child(bubble_instance)
 
 func _on_bubble_timer_timeout():
-	$AnimatedSprite2D.play("default")
+	animated_sprite_2d.play("default")
 	await get_tree().create_timer(2).timeout
 	can_spit_bubbles = true
-	$BubbleTimer.start()
+	bubble_timer.start()

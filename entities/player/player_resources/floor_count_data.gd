@@ -17,4 +17,5 @@ var floor_count_dict = {
 	"fish_floor":0,
 	"propeller_floor":0,
 	"winged_floor":0,
+	"suck_floor":0
 }

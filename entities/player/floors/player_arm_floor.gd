@@ -12,7 +12,6 @@ func _ready():
 	player.stop_action.connect(drop_object)
 
 func _physics_process(delta):
-	
 	# SI NO TIENE NADA, VUELVE A LA ANIMACIÓN NORMAL
 	if !grabbed_item:
 		animated_sprite_2d.play("idle")

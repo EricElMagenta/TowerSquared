@@ -1,11 +1,12 @@
 extends Area2D
 
 enum MOVEMENT {
+	STILL,
 	HORIZONTAL,
 	VERTICAL,
 	CIRCLE
 }
-@export var selected_movement = MOVEMENT.HORIZONTAL
+@export var selected_movement = MOVEMENT.STILL
 
 @export var limit_left := 100
 @export var limit_right := -100
@@ -26,6 +27,9 @@ func _ready():
 
 func _physics_process(delta):
 	match selected_movement:
+		MOVEMENT.STILL:
+			position = initial_pos
+		
 		MOVEMENT.HORIZONTAL: 
 			if initial_pos.x - position.x < limit_right || initial_pos.x - position.x > limit_left: dir *= -1
 			position.x += dir * speed

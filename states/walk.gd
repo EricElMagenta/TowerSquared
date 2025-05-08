@@ -40,6 +40,12 @@ func Physics_Update(delta:float):
 	# SOLTAR COSAS SI TIENE BRAZOS
 	if parent.get_floor_count("arm_floor") && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 	
+	# SUCKEAR BURBUJAS
+	if parent.get_floor_count("suck_floor") && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
+	
+	# DESSUCKEAR BURBUJAS
+	if parent.get_floor_count("suck_floor") && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()	
+	
 	# OCULTA PROMPT PARA HABLAR
 	if len(parent.dialogue_area.get_overlapping_areas()) < 1:
 		parent.talk_prompt.visible = false

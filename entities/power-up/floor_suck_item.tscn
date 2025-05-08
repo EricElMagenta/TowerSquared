@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvyvxa3c4tnn4"]
+
+[ext_resource type="Script" path="res://entities/power-up/floor_suck_item.gd" id="1_ye3te"]
+[ext_resource type="Texture2D" uid="uid://iosw3fkr3s8o" path="res://assets/power-ups/suck_floor.png" id="2_fh8sc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsutw"]
+atlas = ExtResource("2_fh8sc")
+region = Rect2(0, 0, 54, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyndc"]
+atlas = ExtResource("2_fh8sc")
+region = Rect2(54, 0, 54, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ajptj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsutw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyndc")
+}],
+"loop": true,
+"name": &"suck",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebim3"]
+size = Vector2(39, 13)
+
+[node name="FloorSuckItem" type="Area2D" groups=["FloorItems"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_ye3te")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ajptj")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, -0.5)
+shape = SubResource("RectangleShape2D_ebim3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

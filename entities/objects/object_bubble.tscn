@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cafiynnbjl0nj"]
+[gd_scene load_steps=10 format=3 uid="uid://cafiynnbjl0nj"]
 
 [ext_resource type="Script" path="res://entities/objects/object_bubble.gd" id="1_7s7ha"]
 [ext_resource type="Texture2D" uid="uid://crsvowusnesgd" path="res://assets/hazards/hazard-bubble.png" id="1_ltelk"]
@@ -42,7 +42,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ObjectBubble" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ppbw1"]
+radius = 13.0384
+
+[node name="ObjectBubble" type="Area2D" groups=["suckeable"]]
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("1_7s7ha")
@@ -56,3 +59,11 @@ shape = SubResource("RectangleShape2D_d73ox")
 sprite_frames = SubResource("SpriteFrames_vl6qk")
 frame = 3
 frame_progress = 1.0
+
+[node name="SuckeableArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SuckeableArea"]
+shape = SubResource("CircleShape2D_ppbw1")
+debug_color = Color(0.571478, 0.420575, 0.927591, 0.42)

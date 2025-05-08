@@ -112,6 +112,9 @@ func adjust_floor_position(new_floor:CharacterBody2D):
 	if new_floor.name.to_lower() == "PlayerFishFloor".to_lower():
 		new_floor.position.x -= 7.5 * player.dir
 
+	if new_floor.name.to_lower() == "PlayerSuckFloor".to_lower():
+		new_floor.position.x += 11.5 * player.dir
+
 # EXPLOTA A TODOS LOS PISOS
 func explode() -> void:
 	AudioManager.play_explosion()

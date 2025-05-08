@@ -32,6 +32,12 @@ func Physics_Update(delta:float):
 	# SOLTAR COSAS SI TIENE BRAZOS
 	if parent.get_floor_count("arm_floor") && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 	
+	# SUCKEAR BURBUJAS
+	if parent.get_floor_count("suck_floor") && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
+	
+	# DESSUCKEAR BURBUJAS
+	if parent.get_floor_count("suck_floor") && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()	
+	
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0:
 		state_transition.emit(self, "Dead")
