@@ -31,13 +31,6 @@ signal stop_action
 
 # VARIABLES DEL JUGADOR (POWER UP Y WEÁS)
 var input_vector: Vector2 = Vector2.ZERO # Movimiento del jugador
-var max_air_jumps = 0 # Saltar en el aire
-var remaining_air_jumps = 0 # Saltos en el aire restantes
-var has_eyes = false
-var has_mouth = false
-var has_arms = false
-var can_swim = false
-var has_propeller = false
 var dir = 1
 var damage_blink = false
 var knockback = Vector2.ZERO
@@ -52,13 +45,13 @@ func _ready():
 	floor_manager.init(self)
 	
 	# Resetear power ups y conteo de pisos después de morir
-	reset_power_ups()
 	floor_manager.restart_floor_count()
 	
 	# Resetea la vida al máximo
 	player_data.current_health = player_data.max_health
 
 func _process(delta):
+	#print(floor_manager.floor_count_data.floor_count_dict)
 	if Input.is_action_just_pressed("restart"): get_tree().reload_current_scene()
 
 ##################################### FUNCIONES AUXILIARES ###############################
@@ -93,6 +86,13 @@ func air_jump()-> void:
 	velocity.y = player_data.air_jump_force
 	flapping.emit()
 
+# REBOTAR
+func bounce(bounce_multiplier:int) -> void:
+	velocity.y = player_data.bounce_power * bounce_multiplier
+	AudioManager.play_jump()
+
+
+######################################## FUNCIONES CON FLOOR MANAGER ##############################
 # ALTERNAR PISOS AL OPPRIMIR EL SWAP
 func swap_floors(swap_direction) -> void:
 	AudioManager.play_swap_floor()
@@ -106,26 +106,19 @@ func update_collision() -> void:
 	collision_shape_2d.scale.y += 1.56
 	collision_shape_2d.position.y -= 6.24
 
-# RESETEA LOS POWER UPS
-func reset_power_ups():
-	has_eyes = false
-	has_arms = false
-	has_mouth = false
-	can_swim = false
-	max_air_jumps = 0
+# ACTIVAR ANIMACIÓN DE MUERTE
+func ded() -> void:
+	await get_tree().create_timer(0.5).timeout
+	floor_manager.explode()
+	animated_sprite_2d.visible = false
+	await get_tree().create_timer(1).timeout
+	GameManager.restart_scene()
 
 # DETECTAR EL TIPO DE PISO OBTENIDO Y ACTUALIZAR HABILIDADES DEL JUGADOR
-func update_player_abilities(new_floor_type: String) -> void:
-	if new_floor_type.to_lower() == "player_winged_floor":	
-		max_air_jumps += 1
-		remaining_air_jumps += 1
-		
-	if new_floor_type.to_lower() == "player_eye_floor":	has_eyes = true
-	if new_floor_type.to_lower() == "player_mouth_floor": has_mouth = true
-	if new_floor_type.to_lower() == "player_arm_floor": has_arms = true
-	if new_floor_type.to_lower() == "player_fish_floor": can_swim = true
-	if new_floor_type.to_lower() == "player_propeller_floor": has_propeller = true
+func get_floor_count(floor_type:String) -> int:
+	return floor_manager.get_this_floor_count(floor_type)
 
+################################################ MISC #############################################
 # GESTIONA LAS ANIMACIONES DEL JUGADOR
 func player_animations(current_animation:String) -> void:
 	# Voltea al jugador según la dirección.
@@ -157,15 +150,6 @@ func get_hit_immunity() -> void:
 		await get_tree().create_timer(0.2).timeout
 	damage_blink = false
 
-# ACTIVAR ANIMACIÓN DE MUERTE
-func ded() -> void:
-	await get_tree().create_timer(0.5).timeout
-	floor_manager.explode()
-	animated_sprite_2d.visible = false
-	await get_tree().create_timer(1).timeout
-	GameManager.restart_scene()
-
-
 func handle_earth_impulse() -> void:
 	if is_on_floor(): player_data.impulse -= player_data.friction * sign(player_data.impulse)
 	if player_data.impulse > -100 && player_data.impulse < 100: player_data.impulse = 0
@@ -177,7 +161,7 @@ func move_in_water(delta) -> Vector2:
 	input_vector = get_direction()
 	
 	# Cambiar velocidad de nado según cantidad de colas y si se mantienen oprimidas las flechas de arriba o abajo
-	velocity = Vector2(input_vector[0] * player_data.swim_speed * floor_manager.floor_count_data.fish_floor_count + player_data.impulse, 
+	velocity = Vector2(input_vector[0] * player_data.swim_speed * get_floor_count("fish_floor") + player_data.impulse, 
 	min(velocity.y, player_data.sink_speed))
 	
 	move_and_slide()
@@ -203,21 +187,5 @@ func delete_charge_bar():
 	var charge_bar_to_delete = get_tree().get_first_node_in_group("charge_bar")
 	charge_bar_to_delete.delete_charge_bar()
 
-#func move_in_water() -> Vector2:
-	#input_vector = get_direction()
-	#velocity = Vector2(input_vector[0] * player_swimming_data.move_speed, velocity.y)
-	#move_and_slide()
-	#return input_vector
-
-# EMPUJAR OBJECTOS EMPUJABLES
-#func push_object():
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#
-		## Obtiene el objeto con el que colisiona
-		#var collision_object = collision.get_collider()
-		#
-		## Empuja el objeto
-		#if collision_object.is_in_group("pushable"):
-			#if abs(collision_object.get_linear_velocity().x) < player_data.move_speed && has_arms:
-				#collision_object.apply_central_impulse(collision.get_normal() * -player_data.push_force)
+func _on_dialogue_area_area_exited(area):
+	if area is Bubble: bounce(area.bounce_multiplier)

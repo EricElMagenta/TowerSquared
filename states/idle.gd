@@ -5,7 +5,7 @@ func Enter():
 	pass
 
 func Physics_Update(delta:float):
-	parent.remaining_air_jumps = parent.max_air_jumps
+	parent.floor_manager.remaining_air_jumps = parent.floor_manager.max_air_jumps
 	
 	parent.player_animations(self.name)
 	
@@ -31,14 +31,14 @@ func Physics_Update(delta:float):
 	if Input.is_action_just_pressed(parent.actions.swap_up): parent.swap_floors("up")
 	if Input.is_action_just_pressed(parent.actions.swap_down): parent.swap_floors("down")
 
-	# DISPARA AL HACER CLICK CUANDO TIENE OJOS
-	if parent.has_eyes && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
+	# DISPARA AL HACER CLICK SI TIENE OJOS
+	if parent.get_floor_count("eye_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
 	
-	# AGARRAR COSAS
-	if parent.has_arms && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
+	# AGARRAR COSAS SI TIENE BRAZOS
+	if parent.get_floor_count("arm_floor") && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
 	
-	# SOLTAR COSAS
-	if parent.has_arms && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
+	# SOLTAR COSAS SI TIENE BRAZOS
+	if parent.get_floor_count("arm_floor") && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 	
 	
 	# OCULTA PROMPT PARA HABLAR

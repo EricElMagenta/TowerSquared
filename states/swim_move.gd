@@ -31,7 +31,7 @@ func Physics_Update(delta:float):
 	if Input.is_action_just_pressed(parent.actions.swap_down): parent.swap_floors("down")
 	
 	# CARGAR PROPULSOR
-	if Input.is_action_pressed(parent.actions.action) && parent.has_propeller: state_transition.emit(self, "Charge")
+	if Input.is_action_pressed(parent.actions.action) && parent.get_floor_count("propeller_floor"): state_transition.emit(self, "Charge")
 
 	
 func Exit():

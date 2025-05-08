@@ -11,6 +11,8 @@ const FLOOR_OFFSET = 2
 # VARIABLES
 var floors = []
 var player : Player
+var max_air_jumps = 0 # Saltar en el aire
+var remaining_air_jumps = 0 # Saltos en el aire restantes
 
 func _ready():
 	# Se obtiene la información de los power ups agarrados
@@ -37,7 +39,7 @@ func add_floor(floor_type:String) -> void:
 	
 	AudioManager.play_get_floor()
 	player.update_collision()
-	player.update_player_abilities(floor_type)
+	if floor_type == "player_winged_floor": update_jumps()
 
 # SWAP DE PISOS HACIA ABAJO
 func swap_floors_down():
@@ -79,8 +81,15 @@ func get_total_floors():
 	
 # CONTAR CANTIDAD DE PISOS OBTENIDOS POR TIPO (SOLO PARA PISOS CUYO EFECTO INCLUYE CANTIDAD DE COPIAS)
 func add_floor_to_count_data(floor_type:String) -> void:
-	match floor_type:
-		"player_fish_floor": floor_count_data.fish_floor_count += 1
+	var add_to_count = floor_type.erase(0,7)
+	floor_count_data.floor_count_dict[add_to_count] += 1
+
+func get_this_floor_count(floor_type:String) -> int:
+	return floor_count_data.floor_count_dict[floor_type]
+
+func update_jumps() -> void:
+	max_air_jumps += 1
+	remaining_air_jumps += 1
 
 # REINICIA EL CONTEO DE PISOS
 func restart_floor_count() -> void:

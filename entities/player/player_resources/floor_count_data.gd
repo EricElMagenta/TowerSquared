@@ -1,4 +1,20 @@
 extends Resource
 class_name FloorCountData
 
+var normal_floor_count : int = 0
+var eye_floor_count : int = 0
+var arm_floor_count : int = 0
+var mouth_floor_count : int = 0
 var fish_floor_count : int = 0
+var propeller_floor_count : int = 0
+var winged_floor_count : int = 0
+
+var floor_count_dict = {
+	"normal_floor":0,
+	"eye_floor":0,
+	"arm_floor":0,
+	"mouth_floor":0,
+	"fish_floor":0,
+	"propeller_floor":0,
+	"winged_floor":0,
+}

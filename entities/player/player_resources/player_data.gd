@@ -4,7 +4,8 @@ class_name PlayerData
 @export var max_health = 3
 @export var move_speed  = 200.0
 @export var jump_force = -300.0
-@export var air_jump_force = -300
+@export var air_jump_force = -300.0
+@export var bounce_power = -400.0 
 @export var gravity = 980
 @export var accel = 100
 @export var friction = 10

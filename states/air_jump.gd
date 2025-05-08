@@ -4,7 +4,7 @@ class_name AirJump
 func Enter():
 	# Saltar al iniciar el estado
 	parent.air_jump()
-	parent.remaining_air_jumps -= 1
+	parent.floor_manager.remaining_air_jumps -= 1
 	
 func Physics_Update(delta:float):
 	
@@ -14,8 +14,8 @@ func Physics_Update(delta:float):
 	
 	# Salto en el aire (si es que quedan saltos)
 	if !parent.is_on_floor() && Input.is_action_just_pressed(parent.actions.jump):
-		if parent.remaining_air_jumps > 0:
-			parent.remaining_air_jumps -= 1
+		if parent.floor_manager.remaining_air_jumps > 0:
+			parent.floor_manager.remaining_air_jumps -= 1
 			parent.air_jump()
 	
 	# Cambio de estado al empezar a caer
@@ -26,14 +26,14 @@ func Physics_Update(delta:float):
 	if Input.is_action_just_pressed(parent.actions.swap_up): parent.swap_floors("up")
 	if Input.is_action_just_pressed(parent.actions.swap_down): parent.swap_floors("down")
 
-	# DISPARA AL HACER CLICK CUANDO TIENE OJOS
-	if parent.has_eyes && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
+	# DISPARA AL HACER CLICK SI TIENE OJOS
+	if parent.get_floor_count("eye_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
 	
-	# AGARRAR COSAS
-	if parent.has_arms && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
+	# AGARRAR COSAS SI TIENE BRAZOS
+	if parent.get_floor_count("arm_floor") && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
 	
-	# SOLTAR COSAS
-	if parent.has_arms && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
+	# SOLTAR COSAS SI TIENE BRAZOS
+	if parent.get_floor_count("arm_floor") && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()
 
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0:

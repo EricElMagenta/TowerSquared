@@ -12,7 +12,6 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.499999, 0.500001)
-scale = Vector2(1, 1)
 texture = ExtResource("1_c47fi")
 
 [node name="PropellerChargeBar" type="TextureProgressBar" parent="."]
