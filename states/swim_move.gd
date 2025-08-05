@@ -24,6 +24,10 @@ func Physics_Update(delta:float):
 	# SALIR DEL AGUA
 	if len(parent.dialogue_area.get_overlapping_areas()) == 0:
 		state_transition.emit(self, "Idle")
+		
+	# MORIRSE AL QUEDARSE SIN VIDA
+	if parent.player_data.current_health <= 0:
+		state_transition.emit(self, "Dead")
 
 	###################### HABILIDADES ################################
 	# SWAP DE PISOS

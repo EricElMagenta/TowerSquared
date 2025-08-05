@@ -90,8 +90,7 @@ func air_jump()-> void:
 func bounce(bounce_multiplier:int) -> void:
 	velocity.y = player_data.bounce_power * bounce_multiplier
 	AudioManager.play_jump()
-
-
+			
 ######################################## FUNCIONES CON FLOOR MANAGER ##############################
 # ALTERNAR PISOS AL OPPRIMIR EL SWAP
 func swap_floors(swap_direction) -> void:
@@ -134,7 +133,13 @@ func player_animations(current_animation:String) -> void:
 func get_hit(damage) -> void:
 	if !damage_blink:
 		AudioManager.play_take_damage()
-		velocity.y = player_data.knockback_force.y
+		if len(dialogue_area.get_overlapping_areas()) > 0:
+			if dialogue_area.get_overlapping_areas()[0] is Water: 
+				velocity.y = 0
+			else:
+				velocity.y = player_data.knockback_force.y
+		else:
+			velocity.y = player_data.knockback_force.y
 		player_data.current_health -= damage
 		health_changed.emit(player_data.current_health)
 		if player_data.current_health > 0: get_hit_immunity()

@@ -6,12 +6,12 @@ enum MOVEMENT {
 	VERTICAL,
 	CIRCLE
 }
-@export var selected_movement = MOVEMENT.STILL
 
-@export var limit_left := 100
-@export var limit_right := -100
-@export var limit_up := -100
-@export var limit_down := 100
+@export var selected_movement = MOVEMENT.STILL
+@export var limit_left := -100
+@export var limit_right := 100
+@export var limit_up := 100
+@export var limit_down := -100
 @export var speed := 1.0
 @export var radius := 120
 @export var damage := 1
@@ -31,11 +31,11 @@ func _physics_process(delta):
 			position = initial_pos
 		
 		MOVEMENT.HORIZONTAL: 
-			if initial_pos.x - position.x < limit_right || initial_pos.x - position.x > limit_left: dir *= -1
+			if initial_pos.x - position.x < (limit_right*-1) || initial_pos.x - position.x > (limit_left*-1): dir *= -1
 			position.x += dir * speed
 		
-		MOVEMENT.VERTICAL:
-			if initial_pos.y - position.y < limit_up || initial_pos.y - position.y > limit_down: dir *= -1
+		MOVEMENT.VERTICAL: 
+			if initial_pos.y - position.y > limit_up || initial_pos.y - position.y < limit_down: dir *= -1
 			position.y += dir * speed
 		
 		MOVEMENT.CIRCLE:

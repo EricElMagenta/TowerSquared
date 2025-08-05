@@ -93,12 +93,15 @@ position = Vector2(74, -144)
 
 [node name="EnemyFlyingBomb" parent="." instance=ExtResource("12_q6c85")]
 position = Vector2(614, -3)
+selected_movement = 1
 
 [node name="EnemyFlyingBomb3" parent="." instance=ExtResource("12_q6c85")]
 position = Vector2(158, -113)
+selected_movement = 1
 
 [node name="EnemyFlyingBomb2" parent="." instance=ExtResource("12_q6c85")]
 position = Vector2(835, -9)
+selected_movement = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

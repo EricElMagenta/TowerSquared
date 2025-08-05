@@ -1,6 +1,20 @@
 extends Enemy
 
-@export var speed = 70
+enum MOVEMENT{
+	STILL,
+	HORIZONTAL,
+	HORIZONTAL_WALL_TURN,
+	VERTICAL
+}
+
+@export var selected_movement = MOVEMENT.STILL
+@export var limit_left := -100
+@export var limit_right := 100
+@export var limit_up := 100
+@export var limit_down := -100
+@export var speed := 1.0
+
+var initial_pos : Vector2
 var dir = 1
 var damage = 1
 
@@ -10,17 +24,36 @@ var damage = 1
 ##################################### FUNCIONES PRINCIPALES ###############################
 func _ready():
 	animated_sprite_2d.play("fly")
+	initial_pos = position
 
 func _physics_process(_delta):
-	# Detecta al jugador constantemente
-	for body in hitbox.get_overlapping_bodies():
-		if body.has_method("get_hit") && body.player_data.current_health > 0:
-			body.get_hit(damage)
 	
-	# Cambia de dirección al chocar con paredes
-	if is_on_wall(): handle_collisions()
-	
-	velocity.x = dir * speed
+	match selected_movement:
+		MOVEMENT.STILL:
+			position = initial_pos
+			
+		MOVEMENT.HORIZONTAL: 
+			if initial_pos.x - position.x < (limit_right*-1) || initial_pos.x - position.x > (limit_left*-1) || is_on_wall(): 
+				animated_sprite_2d.scale.x *= -1
+				dir *= -1
+				
+			position.x += dir * speed
+		
+		MOVEMENT.VERTICAL: 
+			if initial_pos.y - position.y > limit_up || initial_pos.y - position.y < limit_down || is_on_floor() || is_on_ceiling(): 
+				dir *= -1
+			position.y += dir * speed
+			
+		MOVEMENT.HORIZONTAL_WALL_TURN:
+			
+			# Detecta al jugador constantemente
+			for body in hitbox.get_overlapping_bodies():
+				if body.has_method("get_hit") && body.player_data.current_health > 0:
+					body.get_hit(damage)
+			
+			# Cambia de dirección al chocar con paredes
+			if is_on_wall(): handle_collisions()
+		
 	move_and_slide()
 	
 ##################################### FUNCIONES AUXILIARES ###############################

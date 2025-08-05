@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tower Squared"
-run/main_scene="res://world/sea_tower/sea_tower_1.tscn"
+run/main_scene="res://world/tutorial/tutorial_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.678431, 0.227451, 0.47451, 1)
 config/icon="res://icon.svg"

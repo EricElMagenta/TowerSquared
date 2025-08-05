@@ -390,5 +390,5 @@ terrain_set_0/terrain_2/name = "Sand"
 terrain_set_0/terrain_2/color = Color(0.784, 0.84, 0.42, 1)
 sources/2 = SubResource("TileSetAtlasSource_qepxv")
 
-[node name="TileMapLayer" type="TileMapLayer"]
+[node name="SeaTowerTilemap" type="TileMapLayer"]
 tile_set = SubResource("TileSet_8hsei")
