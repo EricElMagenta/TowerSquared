@@ -377,6 +377,23 @@ texture = ExtResource("1_agiqi")
 7:12/0/terrains_peering_bit/left_side = 1
 7:12/0/terrains_peering_bit/top_left_corner = 1
 7:12/0/terrains_peering_bit/top_side = 1
+0:11/0 = 0
+0:11/0/terrain_set = 0
+0:11/0/terrain = 3
+0:12/0 = 0
+0:12/0/terrain_set = 0
+1:11/0 = 0
+1:11/0/terrain_set = 0
+1:12/0 = 0
+1:12/0/terrain_set = 0
+2:11/0 = 0
+2:11/0/terrain_set = 0
+3:11/0 = 0
+3:11/0/terrain_set = 0
+3:12/0 = 0
+3:12/0/terrain_set = 0
+2:12/0 = 0
+2:12/0/terrain_set = 0
 
 [sub_resource type="TileSet" id="TileSet_8hsei"]
 physics_layer_0/collision_layer = 1
@@ -388,6 +405,8 @@ terrain_set_0/terrain_1/name = "Water"
 terrain_set_0/terrain_1/color = Color(0.25, 0.9875, 1, 1)
 terrain_set_0/terrain_2/name = "Sand"
 terrain_set_0/terrain_2/color = Color(0.784, 0.84, 0.42, 1)
+terrain_set_0/terrain_3/name = "Spikes"
+terrain_set_0/terrain_3/color = Color(0.741176, 0, 0.0509804, 1)
 sources/2 = SubResource("TileSetAtlasSource_qepxv")
 
 [node name="SeaTowerTilemap" type="TileMapLayer"]

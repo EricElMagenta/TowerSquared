@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ubdlvms7371x"]
+
+[ext_resource type="Texture2D" uid="uid://ce62lwkehx1f8" path="res://assets/hazards/spike.png" id="1_ajv15"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mu6iq"]
+texture = ExtResource("1_ajv15")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_8g5ip"]
+physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.174428, 0.20538, 1, 1)
+sources/1 = SubResource("TileSetAtlasSource_mu6iq")
+
+[node name="SpikeTileSet" type="TileMapLayer"]
+tile_set = SubResource("TileSet_8g5ip")

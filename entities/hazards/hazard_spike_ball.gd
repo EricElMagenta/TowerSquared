@@ -15,6 +15,7 @@ enum MOVEMENT {
 @export var speed := 1.0
 @export var radius := 120
 @export var damage := 1
+@export var reverse := false
 
 var initial_pos : Vector2
 var dir := 1
@@ -40,8 +41,16 @@ func _physics_process(delta):
 		
 		MOVEMENT.CIRCLE:
 			angle += speed * delta
-			var x_pos = cos(angle)
-			var y_pos = sin(angle)
+			var x_pos 
+			var y_pos 
+			
+			if reverse:
+				x_pos = sin(angle)
+				y_pos = cos(angle)
+			
+			else:
+				x_pos = cos(angle)
+				y_pos = sin(angle)
 			
 			position.x = radius * x_pos + initial_pos.x
 			position.y = radius * y_pos + initial_pos.y

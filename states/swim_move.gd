@@ -34,6 +34,9 @@ func Physics_Update(delta:float):
 	if Input.is_action_just_pressed(parent.actions.swap_up): parent.swap_floors("up")
 	if Input.is_action_just_pressed(parent.actions.swap_down): parent.swap_floors("down")
 	
+	# DISPARA AL HACER CLICK SI TIENE OJOS
+	if parent.get_floor_count("eye_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
+	
 	# CARGAR PROPULSOR
 	if Input.is_action_pressed(parent.actions.action) && parent.get_floor_count("propeller_floor"): state_transition.emit(self, "Charge")
 
