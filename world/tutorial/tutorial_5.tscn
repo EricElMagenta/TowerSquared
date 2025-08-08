@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cnkjhx3isbn6b"]
+[gd_scene load_steps=17 format=4 uid="uid://cnkjhx3isbn6b"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_5.gd" id="1_flj1x"]
 [ext_resource type="PackedScene" uid="uid://b64jwgtqsajdj" path="res://cutscenes/tutorial_tower/tutorial_end_cutscene.tscn" id="2_7a6iy"]
@@ -13,6 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://bcfhdth2ps4n7" path="res://entities/power-up/floor_arm_item.tscn" id="10_kk5gd"]
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="11_h1487"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="13_36tqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogjxp"]
+size = Vector2(73, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccl60"]
+size = Vector2(98.7097, 107.345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ooxpt"]
+size = Vector2(147.742, 124.469)
 
 [node name="Tutorial5" type="Node2D"]
 script = ExtResource("1_flj1x")
@@ -50,13 +59,30 @@ offset = Vector2(0, -50)
 [node name="AreaBulletDespawn" parent="." instance=ExtResource("7_v2dg8")]
 position = Vector2(-403, -91)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBulletDespawn"]
+position = Vector2(14, 38)
+shape = SubResource("RectangleShape2D_ogjxp")
+debug_color = Color(0, 0.541501, 0.953512, 0.42)
+
 [node name="AreaBulletDespawn2" parent="." instance=ExtResource("7_v2dg8")]
 position = Vector2(234, -166)
 scale = Vector2(0.62, 0.565)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBulletDespawn2"]
+position = Vector2(5854.84, -396.46)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ccl60")
+debug_color = Color(0.435069, 0.456052, 1, 0.42)
+
 [node name="AreaBulletDespawn3" parent="." instance=ExtResource("7_v2dg8")]
 position = Vector2(4038, -388)
 scale = Vector2(0.62, 0.565)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBulletDespawn3"]
+position = Vector2(-6096.77, 417.699)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ooxpt")
+debug_color = Color(0.206348, 0.512206, 1, 0.42)
 
 [node name="DamagedBox" parent="." instance=ExtResource("8_s5kkd")]
 position = Vector2(13, -61)

@@ -3,22 +3,26 @@ class_name Bubble
 
 # VARIABLES
 @export var bounce_multiplier : int
+@export var independent := false
+@export var up_speed := 1
 var sucked_by: Floor = null
 var sucked = false
 var spawn_pos : Vector2
 
-const UP_SPEED = 0.5
-
 ##################################### FUNCIONES PRINCIPALES ###############################
 func _ready():
-	global_position = spawn_pos
+	if !independent: global_position = spawn_pos
 	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta):
 	if !sucked:
-		visible = true
-		position.y -= UP_SPEED
-		position.x += sin(Time.get_ticks_msec()*delta*0.5)
+		if !independent:
+			visible = true
+			position.y -= up_speed
+			position.x += sin(Time.get_ticks_msec()*delta*0.5)
+		
+		elif independent:
+			visible = true
 	
 	elif sucked && is_instance_valid(sucked_by):
 		visible = false

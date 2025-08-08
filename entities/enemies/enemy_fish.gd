@@ -3,9 +3,13 @@ extends Area2D
 const BUBBLE_ORIGIN_OFFSET = 12
 
 @export var bubble : PackedScene
+
+# VARIABLES
+@export var bubble_frequency := 3
 var damage = 1
 var can_spit_bubbles = true
 
+# REBOTE DE LAS BURBUJAS
 enum BOUNCEPOWER{
 	LIGHT = 1,
 	MEDIUM,
@@ -13,6 +17,7 @@ enum BOUNCEPOWER{
 }
 @export var selected_power = BOUNCEPOWER.LIGHT
 
+# NODOS
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var bubble_timer = $BubbleTimer
 
@@ -41,6 +46,6 @@ func spit_bubbles():
 
 func _on_bubble_timer_timeout():
 	animated_sprite_2d.play("default")
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(bubble_frequency).timeout
 	can_spit_bubbles = true
 	bubble_timer.start()

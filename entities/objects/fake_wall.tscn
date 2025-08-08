@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0jqbnp2mfolr"]
+
+[ext_resource type="Texture2D" uid="uid://qod1k4vqy2hj" path="res://assets/objects/fake_wall.png" id="1_ia5n4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw8ph"]
+size = Vector2(16, 16)
+
+[node name="FakeWall" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ia5n4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bw8ph")

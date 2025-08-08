@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ift4rh4fn1r"]
+
+[ext_resource type="Script" path="res://world/misc/area_destroy_everything.gd" id="1_ldkga"]
+
+[node name="AreaDestroyEverything" type="Area2D"]
+script = ExtResource("1_ldkga")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

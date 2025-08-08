@@ -2,12 +2,16 @@ extends StaticBody2D
 
 #VARIABLES
 @export var bullet:PackedScene
+@export var shoot_frequency := 1.5
 var can_shoot = true
 
 # NODOS
 @onready var shoot_timer = $ShootTimer
 
 ###################################### FUNCIONES PRINCIPALES ###############################
+func _ready():
+	shoot_timer.wait_time = shoot_frequency
+
 func _physics_process(_delta):
 	if can_shoot: 
 		AudioManager.play_bullet_shot()
