@@ -4,7 +4,9 @@
 
 [node name="AreaSpike" type="Area2D"]
 collision_layer = 128
-collision_mask = 2
+collision_mask = 34
 script = ExtResource("1_7shli")
+metadata/_edit_group_ = true
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

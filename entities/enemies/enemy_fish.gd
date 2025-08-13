@@ -6,6 +6,7 @@ const BUBBLE_ORIGIN_OFFSET = 12
 
 # VARIABLES
 @export var bubble_frequency := 3
+
 var damage = 1
 var can_spit_bubbles = true
 

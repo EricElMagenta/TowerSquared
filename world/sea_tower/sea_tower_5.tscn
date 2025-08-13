@@ -69,47 +69,38 @@ position = Vector2(566, -264)
 
 [node name="ObjectBubble" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(201, -487)
-bounce_multiplier = 1
 independent = true
 
 [node name="ObjectBubble2" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(102, -542)
-bounce_multiplier = 1
 independent = true
 
 [node name="ObjectBubble5" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(-125, -97)
-bounce_multiplier = 1
 independent = true
 
 [node name="ObjectBubble6" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(-261, -150)
-bounce_multiplier = 1
 independent = true
 
 [node name="ObjectBubble7" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(-373, -198)
-bounce_multiplier = 1
 independent = true
 
 [node name="ObjectBubble8" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(-505, -245)
-bounce_multiplier = 1
 independent = true
 
 [node name="ObjectBubble9" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(-628, -298)
-bounce_multiplier = 1
 independent = true
 
 [node name="ObjectBubble4" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(100, -662)
-bounce_multiplier = 1
 independent = true
 
 [node name="ObjectBubble3" parent="Items" instance=ExtResource("7_xkioh")]
 position = Vector2(21, -608)
-bounce_multiplier = 1
 independent = true
 
 [node name="FloorNormalItem" parent="Items" instance=ExtResource("5_wqbla")]
