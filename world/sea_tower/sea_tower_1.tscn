@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://bibiecnb05a2y"]
+[gd_scene load_steps=17 format=4 uid="uid://bibiecnb05a2y"]
 
 [ext_resource type="Script" path="res://world/sea_tower/sea_tower_1.gd" id="1_5fabm"]
 [ext_resource type="PackedScene" uid="uid://dt2t6ni34rqbr" path="res://world/sea_tower/sea_tower_tilemap.tscn" id="2_8w1gf"]
 [ext_resource type="PackedScene" uid="uid://booxfh3hcb2x1" path="res://world/sea_tower/sea_tower_2.tscn" id="2_nr2bd"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="3_awqpp"]
+[ext_resource type="Texture2D" uid="uid://dnqeych20asnr" path="res://assets/world/sea_tower/sea_tower_background_2.png" id="3_yd6bd"]
 [ext_resource type="PackedScene" uid="uid://2av4vqqnrrpg" path="res://world/sea_tower/sea_tower_tilemap_foreground.tscn" id="4_jebys"]
+[ext_resource type="Texture2D" uid="uid://dlq76d3dxhci7" path="res://assets/world/sea_tower/sea_tower_background_1.png" id="4_qp0ph"]
 [ext_resource type="PackedScene" uid="uid://di5fmk4ynuowm" path="res://world/misc/water_area.tscn" id="5_l5rxf"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="7_im2bx"]
 [ext_resource type="PackedScene" uid="uid://b2cm5pd1sye8d" path="res://entities/hazards/hazard_spike_ball.tscn" id="7_phyf6"]
@@ -23,6 +25,27 @@ size = Vector2(145, 589)
 position = Vector2(1, 0)
 script = ExtResource("1_5fabm")
 next_level = ExtResource("2_nr2bd")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.7)
+motion_mirroring = Vector2(320, 215)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("3_yd6bd")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-33, 137)
+motion_scale = Vector2(0.05, 0.7)
+motion_mirroring = Vector2(320, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("4_qp0ph")
+centered = false
 
 [node name="DoorStone" parent="." instance=ExtResource("7_im2bx")]
 position = Vector2(679, -356)

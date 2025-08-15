@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://ck3duqstdridc"]
+[gd_scene load_steps=25 format=4 uid="uid://ck3duqstdridc"]
 
 [ext_resource type="PackedScene" uid="uid://dt2t6ni34rqbr" path="res://world/sea_tower/sea_tower_tilemap.tscn" id="1_2j4ne"]
 [ext_resource type="Script" path="res://world/sea_tower/sea_tower_6.gd" id="1_d1oyk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="2_q48id"]
 [ext_resource type="PackedScene" uid="uid://c7h3incpig5sf" path="res://world/sea_tower/sea_tower_7.tscn" id="2_v2pg6"]
 [ext_resource type="PackedScene" uid="uid://s8ts0x6tcnmb" path="res://entities/enemies/enemy_fish.tscn" id="3_e0ba2"]
+[ext_resource type="Texture2D" uid="uid://dnqeych20asnr" path="res://assets/world/sea_tower/sea_tower_background_2.png" id="3_knljo"]
 [ext_resource type="PackedScene" uid="uid://cbsdbbg6qtqms" path="res://entities/power-up/floor_fish_item.tscn" id="3_mm4s0"]
 [ext_resource type="PackedScene" uid="uid://cafiynnbjl0nj" path="res://entities/objects/object_bubble.tscn" id="4_iouct"]
 [ext_resource type="PackedScene" uid="uid://b2cm5pd1sye8d" path="res://entities/hazards/hazard_spike_ball.tscn" id="4_o51ht"]
@@ -45,6 +46,17 @@ size = Vector2(148, 17)
 [node name="SeaTower6" type="Node2D"]
 script = ExtResource("1_d1oyk")
 next_level = ExtResource("2_v2pg6")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.7)
+motion_mirroring = Vector2(320, 215)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("3_knljo")
+centered = false
 
 [node name="DoorStone" parent="." instance=ExtResource("2_q48id")]
 position = Vector2(721, -1395)
