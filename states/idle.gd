@@ -54,7 +54,6 @@ func Physics_Update(delta:float):
 	# DETECTA NPC EN EL AREA DEL JUGADOR
 	else:
 		for area in parent.dialogue_area.get_overlapping_areas():
-			
 			# Mostrar signo para hablar
 			if area.has_method("talk_to_player"):
 				parent.talk_prompt.visible = true

@@ -1,18 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxvd357xp22yb"]
+[gd_scene load_steps=5 format=3 uid="uid://cxvd357xp22yb"]
 
 [ext_resource type="Script" path="res://entities/npcs/npc_dialogue.gd" id="1_tmeyw"]
+[ext_resource type="Script" path="res://entities/npcs/dialogue_area.gd" id="2_jrgnl"]
 
-[node name="NpcDialogue" type="Area2D"]
-collision_layer = 256
-collision_mask = 2
+[sub_resource type="SpriteFrames" id="SpriteFrames_oy3ji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mvug"]
+size = Vector2(30, 36)
+
+[node name="NPC" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_oy3ji")
 script = ExtResource("1_tmeyw")
-metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="DialogueArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 3
+script = ExtResource("2_jrgnl")
 
-[node name="NpcDialogue" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+position = Vector2(11, 9)
+shape = SubResource("RectangleShape2D_3mvug")

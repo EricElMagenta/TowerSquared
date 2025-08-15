@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cfjt4a46f1giq"]
+[gd_scene load_steps=17 format=3 uid="uid://cfjt4a46f1giq"]
 
 [ext_resource type="Texture2D" uid="uid://2723ftcg8r64" path="res://assets/world/world-floor-plaza.png" id="1_hdubb"]
 [ext_resource type="Script" path="res://world/misc/floor_plaza.gd" id="1_uwono"]
@@ -7,67 +7,64 @@
 [ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="5_tov74"]
 [ext_resource type="Texture2D" uid="uid://d2aj1m77x4yew" path="res://assets/npc/npc-suspicious-floor-sheet.png" id="6_jxmgf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bie86"]
-size = Vector2(39, 33)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qdijw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfwxk"]
 atlas = ExtResource("6_jxmgf")
 region = Rect2(0, 0, 51, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ef4jp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_omxbt"]
 atlas = ExtResource("6_jxmgf")
 region = Rect2(51, 0, 51, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_shr33"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q7t7"]
 atlas = ExtResource("6_jxmgf")
 region = Rect2(102, 0, 51, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8b682"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u08p0"]
 atlas = ExtResource("6_jxmgf")
 region = Rect2(153, 0, 51, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fshk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfdj7"]
 atlas = ExtResource("6_jxmgf")
 region = Rect2(204, 0, 51, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2divk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh68f"]
 atlas = ExtResource("6_jxmgf")
 region = Rect2(255, 0, 51, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbpx4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac72m"]
 atlas = ExtResource("6_jxmgf")
 region = Rect2(306, 0, 51, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ok0e6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_33ua7"]
 atlas = ExtResource("6_jxmgf")
 region = Rect2(357, 0, 51, 46)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_f4mh0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_n077w"]
 animations = [{
 "frames": [{
 "duration": 25.0,
-"texture": SubResource("AtlasTexture_qdijw")
+"texture": SubResource("AtlasTexture_yfwxk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ef4jp")
+"texture": SubResource("AtlasTexture_omxbt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_shr33")
+"texture": SubResource("AtlasTexture_0q7t7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8b682")
+"texture": SubResource("AtlasTexture_u08p0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6fshk")
+"texture": SubResource("AtlasTexture_hfdj7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2divk")
+"texture": SubResource("AtlasTexture_hh68f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xbpx4")
+"texture": SubResource("AtlasTexture_ac72m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ok0e6")
+"texture": SubResource("AtlasTexture_33ua7")
 }],
 "loop": true,
 "name": &"default",
@@ -99,22 +96,12 @@ limit_top = -80
 limit_right = 160
 limit_bottom = 80
 
-[node name="NPC" type="Node2D" parent="."]
-
-[node name="NpcSuspiciousFloor" parent="NPC" instance=ExtResource("5_tov74")]
-position = Vector2(-43, 45)
+[node name="SuspiciousFloor" parent="." instance=ExtResource("5_tov74")]
+position = Vector2(-42, 45)
 scale = Vector2(-1, 1)
-
-[node name="CollisionShape2D" parent="NPC/NpcSuspiciousFloor" index="0"]
-position = Vector2(5.5, 6.5)
-shape = SubResource("RectangleShape2D_bie86")
-
-[node name="NpcDialogue" parent="NPC/NpcSuspiciousFloor" index="1"]
-text = "suspicious_floor_greet"
-
-[node name="AnimatedSprite2D" parent="NPC/NpcSuspiciousFloor" index="2"]
-sprite_frames = SubResource("SpriteFrames_f4mh0")
-frame_progress = 0.826701
+sprite_frames = SubResource("SpriteFrames_n077w")
+frame_progress = 0.736345
+dialogue = "suspicious_floor_greet"
 
 [node name="Player" parent="." instance=ExtResource("2_lnk80")]
 position = Vector2(-135, 58)
@@ -135,5 +122,3 @@ shape = SubResource("RectangleShape2D_upulw")
 debug_color = Color(0.659144, 0.364796, 0.917478, 0.42)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
-
-[editable path="NPC/NpcSuspiciousFloor"]
