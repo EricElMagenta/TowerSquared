@@ -177,6 +177,7 @@ func move_in_water(delta) -> Vector2:
 
 func swim_up() -> void:
 	velocity.y = player_data.swim_up_force
+	AudioManager.play_drop_object()
 
 func charge_shake() -> void:
 	position.y += 1.5

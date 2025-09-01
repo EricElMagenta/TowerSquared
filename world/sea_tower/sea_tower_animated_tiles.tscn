@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq1ymn8fnrcff"]
+
+[ext_resource type="Texture2D" uid="uid://bmdesu85rb8nv" path="res://assets/world/sea_tower/sea_tower_animated_tileset.png" id="1_6d3om"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2foi"]
+texture = ExtResource("1_6d3om")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yqcyh"]
+sources/1 = SubResource("TileSetAtlasSource_q2foi")
+
+[node name="SeaTowerAnimatedTiles" type="TileMapLayer"]
+tile_set = SubResource("TileSet_yqcyh")

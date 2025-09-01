@@ -81,4 +81,4 @@ position = Vector2(-217, 16)
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="LeftClickHint" parent="Node2D" instance=ExtResource("14_guhnp")]
-position = Vector2(-87, 238)
+position = Vector2(-28, 156)

@@ -97,7 +97,7 @@ limit_right = 160
 limit_bottom = 80
 
 [node name="SuspiciousFloor" parent="." instance=ExtResource("5_tov74")]
-position = Vector2(-42, 45)
+position = Vector2(-42, 42)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_n077w")
 frame_progress = 0.736345

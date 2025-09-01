@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://yd2ja8cfkaws"]
+[gd_scene load_steps=19 format=3 uid="uid://yd2ja8cfkaws"]
 
 [ext_resource type="Script" path="res://singleton/audio_manager.gd" id="1_7ndra"]
 [ext_resource type="AudioStream" uid="uid://dwvm0w2uqmpt" path="res://audio/player/jump.wav" id="2_a4kib"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dv0uifdptqhk0" path="res://audio/player/map_zone_notification.wav" id="15_o2kdn"]
 [ext_resource type="AudioStream" uid="uid://7nawil2i6vqg" path="res://audio/cutscenes/peek.wav" id="16_3ij58"]
 [ext_resource type="AudioStream" uid="uid://cicfxi6nbpiax" path="res://audio/cutscenes/dialogue_sound.wav" id="17_eb2w5"]
+[ext_resource type="AudioStream" uid="uid://de6okgkevdupq" path="res://audio/player/splash.wav" id="18_2i17y"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_7ndra")
@@ -87,3 +88,7 @@ volume_db = -18.0
 [node name="DialogueSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_eb2w5")
 volume_db = -18.0
+
+[node name="WaterSplash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_2i17y")
+volume_db = -10.0

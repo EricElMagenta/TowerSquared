@@ -1,15 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxvd357xp22yb"]
+[gd_scene load_steps=4 format=3 uid="uid://cxvd357xp22yb"]
 
 [ext_resource type="Script" path="res://entities/npcs/npc_dialogue.gd" id="1_tmeyw"]
 [ext_resource type="Script" path="res://entities/npcs/dialogue_area.gd" id="2_jrgnl"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_oy3ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mvug"]
 size = Vector2(30, 36)
 
 [node name="NPC" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_oy3ji")
 script = ExtResource("1_tmeyw")
 
 [node name="DialogueArea" type="Area2D" parent="."]

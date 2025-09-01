@@ -368,7 +368,7 @@ position = Vector2(320, 90)
 [node name="Player" type="Sprite2D" parent="Characters"]
 position = Vector2(-269, 67)
 texture = ExtResource("2_ex531")
-hframes = 5
+hframes = 6
 
 [node name="NpcCamera" type="Sprite2D" parent="Characters"]
 position = Vector2(64, 34)

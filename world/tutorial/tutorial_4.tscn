@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://big88cj551hbg"]
+[gd_scene load_steps=18 format=4 uid="uid://big88cj551hbg"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_4.gd" id="1_j4ard"]
 [ext_resource type="PackedScene" uid="uid://cs7m13a0m21js" path="res://world/world_tile_set_1.tscn" id="1_w60d2"]
@@ -14,6 +14,19 @@
 [ext_resource type="PackedScene" uid="uid://cokg054nu4edo" path="res://ui/hints/right_click_hint.tscn" id="12_0nurg"]
 [ext_resource type="Texture2D" uid="uid://b6qkgu5q5ruus" path="res://assets/UI/arrow-1.png" id="13_h8q2q"]
 [ext_resource type="Texture2D" uid="uid://dm13mond1q6bd" path="res://assets/UI/next.png" id="14_fx3xh"]
+[ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="15_li73f"]
+[ext_resource type="Texture2D" uid="uid://dar261k52u7ft" path="res://assets/npc/question-floor.png" id="16_ty0qb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cwfme"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_ty0qb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Tutorial4" type="Node2D"]
 script = ExtResource("1_j4ard")
@@ -100,3 +113,8 @@ position = Vector2(623, 178)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_xfkr7")]
 
 [node name="SceneTransition" parent="." instance=ExtResource("9_eg72w")]
+
+[node name="NPC" parent="." instance=ExtResource("15_li73f")]
+position = Vector2(375, 17)
+sprite_frames = SubResource("SpriteFrames_cwfme")
+dialogue = "tutorial_question_floor_4"

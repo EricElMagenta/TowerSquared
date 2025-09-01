@@ -32,6 +32,9 @@ func play_inavlid_action() -> void:
 
 func play_dialogue_sound():
 	if !mute: $DialogueSound.play()
+	
+func play_water_splash():
+	if !mute: $WaterSplash.play()
 
 ############################################### SONIDOS DE OBJETOS ################################
 func play_bullet_shot():

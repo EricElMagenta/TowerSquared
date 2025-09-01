@@ -410,7 +410,7 @@ position = Vector2(510, -14)
 rotation = 3.14159
 scale = Vector2(0.5, -0.5)
 texture = ExtResource("3_ethwj")
-hframes = 5
+hframes = 6
 frame = 4
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -428,7 +428,7 @@ visible = false
 position = Vector2(152, 67)
 scale = Vector2(-1, 1)
 texture = ExtResource("3_ethwj")
-hframes = 5
+hframes = 6
 
 [node name="NpcCamera" type="Sprite2D" parent="Characters"]
 position = Vector2(116, 63)

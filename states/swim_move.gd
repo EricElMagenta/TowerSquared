@@ -19,7 +19,7 @@ func Physics_Update(delta:float):
 		state_transition.emit(self, "SwimIdle")
 	
 	# NADAR HACIA ARRIBA
-	if Input.is_action_pressed(parent.actions.jump): parent.swim_up()
+	if Input.is_action_just_pressed(parent.actions.jump): parent.swim_up()
 	
 	# SALIR DEL AGUA
 	if len(parent.dialogue_area.get_overlapping_areas()) == 0:

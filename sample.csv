@@ -10,9 +10,12 @@ item_eye_floor,Shoot fireballs from your eye.,Dispara fuego desde tu ojo.
 item_arm_floor,Grab and drop small objects.,Agarra y suelta objetos pequeños.
 item_winged_floor,"Air jump unlocked! The more wings, the more jumps.","¡Ahora puedes saltar en el aire! A más alas, más saltos."
 item_mouth_floor,Devours enemy projectiles.,Devora proyectiles enemigos.
+item_propeller_floor,Charges speed underwater.,Carga velocidad en el agua.
+item_dropper_floor,Sucks and spits out bubbles.,Succiona y escupe burbujas.
 ,,
 ,,
 # Cinematicas,,
+# Tutorial Tower,,
 tutorial_end_1,Welcome!,¡Buenas las tenga!
 tutorial_end_2,Congratulations for making this far!,¡Felicidades por llegar hasta aquí!
 tutorial_end_3,How about a photo to celebrate?,¿Qué tal una foto para celebrar?
@@ -21,6 +24,26 @@ tutorial_end_5,One last thing.,Una última cosa.
 tutorial_end_6,"Don't get too cocky, this was just the tutorial!","¡No te emociones, que esto fue solo el tutorial!"
 ,,
 ,,
+#  Sea Tower,,
+sea_tower_end_1,Good day sir!,¡Buen día señor!
+sea_tower_end_2,Another tower conquered. This deserves a photo.,Otra torre conquistada. Esto amerita una foto. 
+sea_tower_end_3,Come on! It'll be fun.,¡Anímese! 
+sea_tower_end_4,Good. Now smile.,Perfecto. Sonría.
+sea_tower_end_5,Fantastic,Fantástico.
+sea_tower_end_6,The exit is over there.,La salida está por allá.
+,,
+,,
 # NPC en torres,,
 tutorial_question_floor_1,Where are you going?,¿A dónde vas?
 tutorial_question_floor_2,"Congratulations, you know how to talk!","¡Felicidades, sabes hablar!"
+tutorial_question_floor_3,That button is too high. Get taller and shoot it.,Ese botón está demasiado alto. Busca pisos y dispárale.
+tutorial_question_floor_4,You could use those boxes... if you had a hand.,Podrías usar usas cajas... si tuvieras una mano.
+tutorial_question_floor_5,You can use boxes as a shield.,Puedes usar las cajas como escudo.
+,,
+# SEA TOWER,,
+tutorial_question_sea_1,"The more fish tails, the more speed when swimming.","A más colas de pez, más velocidad nadando."
+tutorial_question_sea_2,"Swimming is too slow, use that propeller for ultra speed.","Nadar es muy lento, mejor usa ese propulsor."
+tutorial_question_sea_3,Sorry nothing.,Nada.
+tutorial_question_sea_4,Don't be afraid of bubbles.,No le temas a las burbujas.
+tutorial_question_sea_5,Bubbles can either go up or stay still.,Las burbujas pueden ascender o quedarse quietas.
+tutorial_question_sea_6,The exit is right above us. You need something to go up.,La salida está justo arriba de nosotros. Necesitas algo para subir.

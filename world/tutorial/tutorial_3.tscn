@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b1mcvwww2aed5"]
+[gd_scene load_steps=20 format=4 uid="uid://b1mcvwww2aed5"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_3.gd" id="1_ese5q"]
 [ext_resource type="PackedScene" uid="uid://big88cj551hbg" path="res://world/tutorial/tutorial_4.tscn" id="2_fivyh"]
@@ -16,6 +16,19 @@
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="14_tl7wv"]
 [ext_resource type="Texture2D" uid="uid://cbqsyy4y7l1xs" path="res://assets/UI/swapping.png" id="15_oywor"]
 [ext_resource type="Texture2D" uid="uid://b6qkgu5q5ruus" path="res://assets/UI/arrow-1.png" id="16_nfjny"]
+[ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="17_oxxwh"]
+[ext_resource type="Texture2D" uid="uid://dar261k52u7ft" path="res://assets/npc/question-floor.png" id="18_teuy0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clm8d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_teuy0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Tutorial3" type="Node2D"]
 script = ExtResource("1_ese5q")
@@ -114,3 +127,8 @@ selected_movement = 1
 [node name="Arrow-1" type="Sprite2D" parent="."]
 position = Vector2(458, 66)
 texture = ExtResource("16_nfjny")
+
+[node name="NPC" parent="." instance=ExtResource("17_oxxwh")]
+position = Vector2(355, 177)
+sprite_frames = SubResource("SpriteFrames_clm8d")
+dialogue = "tutorial_question_floor_3"
