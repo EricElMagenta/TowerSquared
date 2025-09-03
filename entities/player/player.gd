@@ -50,7 +50,7 @@ func _ready():
 	# Resetea la vida al máximo
 	player_data.current_health = player_data.max_health
 
-func _process(delta):
+func _process(_delta):
 	#print(floor_manager.floor_count_data.floor_count_dict)
 	if Input.is_action_just_pressed("restart"): get_tree().reload_current_scene()
 
