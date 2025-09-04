@@ -5,6 +5,7 @@ extends Enemy
 @export var damage := 1
 @export var attack_frequency := 3
 @export var jump_force := 300
+@export var immobile := false
 
 var dir := 1
 var is_attacking := false
@@ -40,13 +41,14 @@ func _physics_process(_delta):
 	if initial_height - position.y < 0: go_back_swimming()
 	if ded: velocity = Vector2.ZERO
 
-	hit_player()
+	hit_player() 
 	move_and_slide()
 
 ##################################### FUNCIONES AUXILIARES ###############################
 func swim():
 	if is_on_wall(): handle_collisions()
-	velocity.x = speed * dir
+	if immobile: velocity.x = 0
+	else: velocity.x = speed * dir
 
 func go_back_swimming():
 		set_collision_mask_value(1, true)

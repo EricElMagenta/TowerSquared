@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba7i1548q7y8j"]
+[gd_scene load_steps=9 format=3 uid="uid://ba7i1548q7y8j"]
 
 [ext_resource type="Script" path="res://entities/player/floors/player_suck_floor.gd" id="1_41ndn"]
 [ext_resource type="Texture2D" uid="uid://iosw3fkr3s8o" path="res://assets/power-ups/suck_floor.png" id="2_acipx"]
+[ext_resource type="Texture2D" uid="uid://ssqiwqqf0ymq" path="res://assets/player/suck_floor-Sheet.png" id="3_50e5s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lsutw"]
 atlas = ExtResource("2_acipx")
 region = Rect2(0, 0, 54, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iyndc"]
-atlas = ExtResource("2_acipx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ax2j"]
+atlas = ExtResource("3_50e5s")
 region = Rect2(54, 0, 54, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_me0sh"]
@@ -23,7 +24,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iyndc")
+"texture": SubResource("AtlasTexture_8ax2j")
 }],
 "loop": true,
 "name": &"suck",
@@ -43,7 +44,7 @@ script = ExtResource("1_41ndn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_me0sh")
-animation = &"idle"
+animation = &"suck"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7.5, -0.5)

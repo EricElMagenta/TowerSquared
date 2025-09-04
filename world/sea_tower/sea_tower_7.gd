@@ -1,7 +1,7 @@
 extends Node2D
 
 # VARIABLES
-@export var next_level:PackedScene
+var sea_tower_end := "res://cutscenes/sea_tower/sea_tower_end_cutcscene.tscn"
 
 # NODOS
 @onready var door_stone = $DoorStone
@@ -22,8 +22,8 @@ func _ready():
 	# VIDA DEL JUGADOR
 	health_container.set_max_health(player.player_data.max_health)
 	player.health_changed.connect(health_container.update_health)
-
+	
 func go_to_next_level():
 	scene_transition.next_level_transition()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().call_deferred("change_scene_to_packed", next_level)
+	get_tree().call_deferred("change_scene_to_file", sea_tower_end)

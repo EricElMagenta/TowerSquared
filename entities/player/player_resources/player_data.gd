@@ -17,7 +17,7 @@ var current_health = max_health
 
 
 # MOVIMIENTO EN AGUA
-@export var swim_speed  = 20
+@export var swim_speed  = 100
 @export var sink_speed = 80
 @export var fall_in_water_down_hold = 500
 @export var swim_up_force = -80.0

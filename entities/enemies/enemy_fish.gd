@@ -26,12 +26,12 @@ func _ready():
 	animated_sprite_2d.play("default")
 	bubble_timer.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	for body in get_overlapping_bodies():
 		if body.has_method("get_hit") && body.player_data.current_health > 0:
 			body.get_hit(damage)
 
-func _process(delta):
+func _process(_delta):
 	if can_spit_bubbles:
 		spit_bubbles()
 

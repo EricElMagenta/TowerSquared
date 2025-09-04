@@ -166,7 +166,7 @@ func move_in_water(delta) -> Vector2:
 	input_vector = get_direction()
 	
 	# Cambiar velocidad de nado según cantidad de colas y si se mantienen oprimidas las flechas de arriba o abajo
-	velocity = Vector2(input_vector[0] * player_data.swim_speed * get_floor_count("fish_floor") + player_data.impulse, 
+	velocity = Vector2(input_vector[0] * player_data.swim_speed + player_data.impulse, 
 	min(velocity.y, player_data.sink_speed))
 	
 	move_and_slide()

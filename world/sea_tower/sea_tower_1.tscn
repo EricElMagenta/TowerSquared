@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bibiecnb05a2y"]
+[gd_scene load_steps=18 format=4 uid="uid://bibiecnb05a2y"]
 
 [ext_resource type="Script" path="res://world/sea_tower/sea_tower_1.gd" id="1_5fabm"]
 [ext_resource type="PackedScene" uid="uid://dt2t6ni34rqbr" path="res://world/sea_tower/sea_tower_tilemap.tscn" id="2_8w1gf"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsdbbg6qtqms" path="res://entities/power-up/floor_fish_item.tscn" id="10_yhucb"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="11_d045i"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="12_1458f"]
+[ext_resource type="Texture2D" uid="uid://j5roqpa6i0g4" path="res://assets/UI/space.png" id="15_bwvx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw2hx"]
 size = Vector2(194, 98)
@@ -137,3 +138,9 @@ limit_right = 0
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_d045i")]
 
 [node name="SceneTransition" parent="." instance=ExtResource("12_1458f")]
+
+[node name="Hints" type="Node2D" parent="."]
+
+[node name="Space" type="Sprite2D" parent="Hints"]
+position = Vector2(-136, 451)
+texture = ExtResource("15_bwvx0")
