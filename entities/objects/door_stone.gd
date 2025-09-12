@@ -7,7 +7,7 @@ signal level_finished
 @onready var sprite_2d = $Sprite2D
 @onready var area_2d = $Area2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	for body in area_2d.get_overlapping_bodies():
 		if (body is Player && body.is_on_floor()) && sprite_2d.frame == 0:
 			body.state_machine.current_state.state_transition.emit(body.state_machine.current_state, "victory")

@@ -19,7 +19,8 @@ func _on_resume_button_pressed():
 	is_paused = false
 
 func _on_exit_level_button_pressed():
-	get_tree().quit()
+	is_paused = false
+	get_tree().change_scene_to_file("res://world/misc/world_map.tscn")
 
 func _on_pause_button_pressed():
 	is_paused = !is_paused

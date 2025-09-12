@@ -4,9 +4,21 @@ class_name FloorManager
 # RESOURCES
 @export var floor_count_data : FloorCountData
 
-# CONSTANTES
+# CONSTANTES PARA AJUSTAR LA ALTURA DE LOS PISOS
 const FLOOR_HEIGHT = 13
 const FLOOR_OFFSET = 2
+
+# CONSTANTES PARA ALINEAR NUEVOS PISOS
+const PLAYER_MOUTH_FLOOR_OFFSET = 6
+const PLAYER_EYE_FLOOR_OFFSET = 3.4
+const PLAYER_ARM_FLOOR_OFFSET = 8
+const PLAYER_PROPELLER_FLOOR_OFFSET = 4.5
+const PLAYER_FISH_FLOOR_OFFSET = 7.5
+const PLAYER_SUCK_FLOOR_OFFSET = 11.5
+
+# CONSTANTES PARA VOLTEAR PISOS QUE TAPAN LA ANIMACIÓN DE VICTORIA
+const VICTORY_FLIP_PLAYER_FISH_FLOOR_OFFSET = 15
+const VICTORY_FLIP_PLAYER_PROPELLER_FLOOR_OFFSET = 9
 
 # VARIABLES
 var floors = []
@@ -98,24 +110,36 @@ func restart_floor_count() -> void:
 # CORRIJE LA POSICIÓN DE LOS PISOS PARA ALINEARLOS CON LOS OTROS PISOS
 func adjust_floor_position(new_floor:CharacterBody2D):
 	if new_floor.name.to_lower() == "PlayerMouthFloor".to_lower():
-		new_floor.position.x += 6 * player.dir
+		new_floor.position.x += PLAYER_MOUTH_FLOOR_OFFSET * player.dir
 	
 	if new_floor.name.to_lower() == "PlayerEyeFloor".to_lower():
-		new_floor.position.x += 3.4 * player.dir
+		new_floor.position.x += PLAYER_EYE_FLOOR_OFFSET * player.dir
 	
 	if new_floor.name.to_lower() == "PlayerArmFloor".to_lower():
-		new_floor.position.x += 8 * player.dir
+		new_floor.position.x += PLAYER_ARM_FLOOR_OFFSET * player.dir
 		
 	if new_floor.name.to_lower() == "PlayerPropellerFloor".to_lower():
-		new_floor.position.x -= 4.5 * player.dir
+		new_floor.position.x -= PLAYER_PROPELLER_FLOOR_OFFSET * player.dir
 		
 	if new_floor.name.to_lower() == "PlayerFishFloor".to_lower():
-		new_floor.position.x -= 7.5 * player.dir
+		new_floor.position.x -= PLAYER_FISH_FLOOR_OFFSET * player.dir
 
 	if new_floor.name.to_lower() == "PlayerSuckFloor".to_lower():
-		new_floor.position.x += 11.5 * player.dir
+		new_floor.position.x += PLAYER_SUCK_FLOOR_OFFSET * player.dir
 
 # EXPLOTA A TODOS LOS PISOS
 func explode() -> void:
 	AudioManager.play_explosion()
 	get_tree().call_group("PlayerFloors", "im_ded")
+
+func flip_first_overlapping_floor():
+	if get_total_floors() > 0:
+		match floors[0].name:
+			
+			"PlayerFishFloor":
+				floors[0].scale.x *= -1
+				floors[0].position.x += VICTORY_FLIP_PLAYER_FISH_FLOOR_OFFSET * player.dir
+
+			"PlayerPropellerFloor": 
+				floors[0].scale.x *= -1
+				floors[0].position.x += VICTORY_FLIP_PLAYER_PROPELLER_FLOOR_OFFSET * player.dir

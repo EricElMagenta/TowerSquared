@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnapw4wt8avbd"]
+
+[ext_resource type="Theme" uid="uid://i8ek1ejvkff1" path="res://ui/theme_button.tres" id="1_2vbbu"]
+[ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_dl7wy"]
+[ext_resource type="Texture2D" uid="uid://dukfogiyc2h55" path="res://assets/UI/main_screen.png" id="2_fqon0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_dl7wy")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("2_fqon0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -34.0
+offset_bottom = 34.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelContainerPlay" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2vbbu")
+
+[node name="PlayBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainerPlay"]
+layout_mode = 2
+theme = ExtResource("1_2vbbu")
+theme_override_font_sizes/font_size = 10
+text = "main_1"
+
+[node name="PanelContainerLang" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2vbbu")
+
+[node name="LangBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainerLang"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "main_2"
+
+[node name="PanelContainerCredits" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2vbbu")
+
+[node name="CreditsBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainerCredits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "main_3"
+
+[node name="PanelContainerExot" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2vbbu")
+
+[node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainerExot"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "main_4"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerPlay/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerLang/LangBtn" to="." method="_on_lang_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerCredits/CreditsBtn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerExot/ExitBtn" to="." method="_on_exit_btn_pressed"]

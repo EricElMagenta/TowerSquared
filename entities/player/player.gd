@@ -129,6 +129,8 @@ func player_animations(current_animation:String) -> void:
 		current_animation = "Jump"
 	animated_sprite_2d.play(current_animation.to_lower())
 
+	if animated_sprite_2d.animation == "victory": floor_manager.flip_first_overlapping_floor()
+
 # RECIBIR DAÑO
 func get_hit(damage) -> void:
 	if !damage_blink:

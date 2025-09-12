@@ -208,7 +208,7 @@ position = Vector2(568, -115)
 texture = ExtResource("13_ibqrn")
 
 [node name="Player" parent="." instance=ExtResource("2_3ilt1")]
-position = Vector2(75, -89)
+position = Vector2(505, -115)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -217,7 +217,7 @@ remote_path = NodePath("../../Camera2D")
 [node name="FloorFishItem" parent="Player" instance=ExtResource("3_mm4s0")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(75, -89)
+position = Vector2(505, -115)
 offset = Vector2(0, -50)
 
 [node name="Objects" type="Node2D" parent="."]
@@ -260,7 +260,7 @@ position = Vector2(508, -1125)
 independent = true
 
 [node name="Items" type="Node2D" parent="."]
-position = Vector2(340, -53)
+position = Vector2(519, -81)
 metadata/_edit_group_ = true
 
 [node name="FloorSuckItem" parent="Items" instance=ExtResource("5_y543c")]

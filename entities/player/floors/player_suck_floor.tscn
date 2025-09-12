@@ -52,7 +52,7 @@ shape = SubResource("RectangleShape2D_8wye0")
 
 [node name="SuckArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 32
+collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SuckArea"]
 position = Vector2(23.75, -0.25)

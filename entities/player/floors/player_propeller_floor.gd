@@ -6,7 +6,7 @@ func _ready():
 	player.release_propeller.connect(release_propeller)
 
 func change_direction():
-	if scale.x != player.dir: 
+	if scale.x != player.dir || player.animated_sprite_2d.animation == "victory": 
 		position.x -= 9 * player.dir
 		scale.x = player.dir
 

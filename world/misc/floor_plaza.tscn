@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfjt4a46f1giq"]
+[gd_scene load_steps=20 format=3 uid="uid://cfjt4a46f1giq"]
 
 [ext_resource type="Texture2D" uid="uid://2723ftcg8r64" path="res://assets/world/world-floor-plaza.png" id="1_hdubb"]
 [ext_resource type="Script" path="res://world/misc/floor_plaza.gd" id="1_uwono"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_lnk80"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="3_wgcn2"]
+[ext_resource type="Texture2D" uid="uid://48qdorbubhir" path="res://assets/npc/npc-evil-floor.png" id="5_8an75"]
 [ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="5_tov74"]
 [ext_resource type="Texture2D" uid="uid://d2aj1m77x4yew" path="res://assets/npc/npc-suspicious-floor-sheet.png" id="6_jxmgf"]
 
@@ -71,40 +72,58 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwfeu"]
+atlas = ExtResource("5_8an75")
+region = Rect2(0, 0, 101, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsnpy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwfeu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upulw"]
-size = Vector2(20, 47)
+size = Vector2(20, 90.5)
 
 [node name="FloorPlaza" type="Node2D"]
 script = ExtResource("1_uwono")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-175, 4)
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(3, -15)
-polygon = PackedVector2Array(-163, 92, 157, 92, 157, 104, -163, 104)
+polygon = PackedVector2Array(-177, 92, 494, 92, 493, 104, -177, 104)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+position = Vector2(-14, 4)
+color = Color(0, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-14, 4)
 texture = ExtResource("1_hdubb")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-135, 58)
-offset = Vector2(0, -10)
-limit_left = -160
-limit_top = -80
-limit_right = 160
-limit_bottom = 80
-
 [node name="SuspiciousFloor" parent="." instance=ExtResource("5_tov74")]
-position = Vector2(-42, 42)
+position = Vector2(-231, 50)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_n077w")
 frame_progress = 0.736345
 dialogue = "suspicious_floor_greet"
 
+[node name="DemiFloor" parent="." instance=ExtResource("5_tov74")]
+position = Vector2(-57, 58)
+sprite_frames = SubResource("SpriteFrames_vsnpy")
+dialogue = "demifloor_greet"
+
 [node name="Player" parent="." instance=ExtResource("2_lnk80")]
-position = Vector2(-135, 58)
+position = Vector2(-320, 69)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -112,12 +131,24 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="FloorNormalItem" parent="Player" instance=ExtResource("3_wgcn2")]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-320, 69)
+offset = Vector2(0, -60)
+limit_left = -350
+limit_right = 320
+
 [node name="Exit" type="Area2D" parent="."]
+position = Vector2(-189, 8)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-position = Vector2(-165, 47)
+position = Vector2(-171, 25)
+shape = SubResource("RectangleShape2D_upulw")
+debug_color = Color(0.659144, 0.364796, 0.917478, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Exit"]
+position = Vector2(523, 24)
 shape = SubResource("RectangleShape2D_upulw")
 debug_color = Color(0.659144, 0.364796, 0.917478, 0.42)
 

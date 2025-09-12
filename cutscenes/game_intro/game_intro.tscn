@@ -1,0 +1,191 @@
+[gd_scene load_steps=10 format=3 uid="uid://l30nvtw1yegs"]
+
+[ext_resource type="Theme" uid="uid://bbfqv2peew1p7" path="res://ui/panel_story_theme.tres" id="1_ar463"]
+[ext_resource type="Script" path="res://cutscenes/game_intro/game_intro.gd" id="1_gxlo1"]
+[ext_resource type="Texture2D" uid="uid://cn5yd8n6ynyph" path="res://assets/cutscenes/story_intro_1.png" id="2_xlneo"]
+[ext_resource type="Texture2D" uid="uid://dxi4swt7ootmd" path="res://assets/cutscenes/story_intro_2.png" id="4_xn063"]
+[ext_resource type="Texture2D" uid="uid://dbbmscnftqjqs" path="res://assets/cutscenes/story_intro_3.png" id="5_7hw84"]
+[ext_resource type="Texture2D" uid="uid://keyo6850enui" path="res://assets/cutscenes/story_intro_4.png" id="6_brviu"]
+
+[sub_resource type="Animation" id="Animation_os7ct"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StoryPanel/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xlneo")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 53)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StoryPanel/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["intro_game_story_1"]
+}
+
+[sub_resource type="Animation" id="Animation_bcn5h"]
+resource_name = "story"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StoryPanel/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4.93333, 5.06667, 6.96667, 10.1, 10.1333, 12.0333, 15, 15.0333, 17.0667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.93333, 5.03333, 10.1, 10.1333, 15, 15.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_xlneo"), ExtResource("2_xlneo"), ExtResource("4_xn063"), ExtResource("4_xn063"), ExtResource("5_7hw84"), ExtResource("5_7hw84"), ExtResource("6_brviu")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.93333, 5.03333, 10.1, 10.1333, 15, 15.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(160, 53), Vector2(160, 53), Vector2(160, 90), Vector2(160, 90), Vector2(160, 76), Vector2(160, 76), Vector2(160, 68)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.43333, 4.93333, 5.43333, 9.6, 10.1, 10.6, 14.4667, 14.9667, 15.4667, 20.0667, 20.5667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StoryPanel/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.93333, 5.06667, 10.1, 10.1333, 15, 15.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["intro_game_story_1", "intro_game_story_1", "intro_game_story_2", "intro_game_story_2", "intro_game_story_3", "intro_game_story_3", "intro_game_story_4"]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(20.5667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_next_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wry7n"]
+_data = {
+"RESET": SubResource("Animation_os7ct"),
+"story": SubResource("Animation_bcn5h")
+}
+
+[node name="GameIntro" type="Node2D"]
+script = ExtResource("1_gxlo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, 53)
+texture = ExtResource("2_xlneo")
+
+[node name="StoryPanel" type="PanelContainer" parent="."]
+offset_left = 6.0
+offset_top = 133.0
+offset_right = 315.0
+offset_bottom = 178.0
+theme = ExtResource("1_ar463")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StoryPanel"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "intro_game_story_1"
+scroll_active = false
+shortcut_keys_enabled = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -50.0
+offset_top = -57.0
+offset_right = 392.0
+offset_bottom = 246.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wry7n")
+}
+autoplay = "story"
