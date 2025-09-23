@@ -1,6 +1,19 @@
 extends Node
 
 @export var mute : bool = false
+@onready var music = $Music
+
+var current_music : String
+
+##################################################### MUSICA ################################
+func change_song(new_music:String):
+
+	if current_music != new_music:
+		current_music = new_music
+		music.stream = load("res://music/" + new_music + ".ogg")
+		if !mute: music.play()
+	else:
+		return
 
 ############################################### SONIDOS DEL JUGADOR ################################
 func play_jump() -> void:

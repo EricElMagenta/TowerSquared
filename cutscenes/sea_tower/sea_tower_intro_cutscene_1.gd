@@ -8,6 +8,7 @@ extends Node2D
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
+	AudioManager.music.stop()
 	animation_player.play("sea_tower_intro_1")
 
 func next_animation_1():

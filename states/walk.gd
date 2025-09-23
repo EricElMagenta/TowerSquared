@@ -55,7 +55,10 @@ func Physics_Update(delta:float):
 		for area in parent.dialogue_area.get_overlapping_areas():
 			if area.has_method("talk_to_player"):
 				parent.talk_prompt.visible = true
-	
+			
+			if area.name.to_lower() == "door": 
+				parent.talk_prompt.visible = true
+
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0:
 		state_transition.emit(self, "Dead")

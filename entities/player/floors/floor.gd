@@ -12,4 +12,4 @@ func im_ded() -> void:
 	explosion_instance.scale = Vector2(2, 2)
 	explosion_instance.position = self.position
 	add_sibling(explosion_instance)
-	queue_free()
+	self.visible = false

@@ -51,7 +51,7 @@ tile_map_data = PackedByteArray("AAD4/xAAAgABAAYAAAD4/w8AAgABAAYAAAD4/w4AAgABAAY
 tile_map_data = PackedByteArray("AAD7/xwAAQAAAAAAAAAEABwAAQAAAAAAAAD+/xwAAQAAAAAAAAA=")
 
 [node name="Player" parent="." instance=ExtResource("3_awqpp")]
-position = Vector2(580, -394)
+position = Vector2(-64, -874)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -60,7 +60,7 @@ remote_path = NodePath("../../Camera2D")
 [node name="FloorFishItem" parent="Player" instance=ExtResource("10_yhucb")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(580, -394)
+position = Vector2(-64, -874)
 offset = Vector2(0, -50)
 metadata/_edit_lock_ = true
 

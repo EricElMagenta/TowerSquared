@@ -9,8 +9,9 @@ var screen_winged_floor_saw:bool = false
 var screen_propeller_floor_saw:bool = false
 var screen_suck_floor_saw:bool = false
 
-# POSICIÓN DEL JUGADOR EN EL MAPA
+# POSICIÓN DEL JUGADOR EN EL MAPA O AL PASAR POR PUERTAS
 var player_map_position := Vector2(195, 141)
+var player_plaza_position := Vector2(-421, 70)
 
 # IDIOMAS
 var current_lang = "es"

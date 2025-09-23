@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://uyqdnnw4ykl6"]
+
+[ext_resource type="Texture2D" uid="uid://dcmoshi6x0e6q" path="res://assets/world/world_floor_bar.png" id="1_huyw3"]
+[ext_resource type="Script" path="res://world/misc/floor_bar.gd" id="1_u2v17"]
+[ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_tkwdp"]
+[ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="3_y8cck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c023"]
+size = Vector2(50, 82)
+
+[node name="floor_bar" type="Node2D"]
+script = ExtResource("1_u2v17")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 18, 0, 162, 784, 163, 784, 13, 830, 12, 826, 212, -34, 212, -34, 17)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(393, 90)
+texture = ExtResource("1_huyw3")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(47, 163)
+limit_left = 0
+limit_top = 0
+limit_right = 784
+limit_bottom = 180
+
+[node name="Player" parent="." instance=ExtResource("2_tkwdp")]
+position = Vector2(47, 163)
+metadata/_edit_group_ = true
+
+[node name="FloorNormalItem" parent="Player" instance=ExtResource("3_y8cck")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Silla 1" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Silla 1"]
+polygon = PackedVector2Array(129, 127, 129, 133, 155, 133, 155, 127)
+one_way_collision = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Silla 1/CollisionPolygon2D"]
+color = Color(0, 0, 0, 1)
+
+[node name="Silla 2" type="StaticBody2D" parent="."]
+position = Vector2(63, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Silla 2"]
+polygon = PackedVector2Array(129, 127, 129, 133, 155, 133, 155, 127)
+one_way_collision = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Silla 2/CollisionPolygon2D"]
+color = Color(0, 0, 0, 1)
+
+[node name="Silla 3" type="StaticBody2D" parent="."]
+position = Vector2(126, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Silla 3"]
+polygon = PackedVector2Array(129, 127, 129, 133, 155, 133, 155, 127)
+one_way_collision = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Silla 3/CollisionPolygon2D"]
+color = Color(0, 0, 0, 1)
+
+[node name="Silla 4" type="StaticBody2D" parent="."]
+position = Vector2(189, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Silla 4"]
+polygon = PackedVector2Array(129, 127, 129, 133, 155, 133, 155, 127)
+one_way_collision = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Silla 4/CollisionPolygon2D"]
+color = Color(0, 0, 0, 1)
+
+[node name="Silla 5" type="StaticBody2D" parent="."]
+position = Vector2(252, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Silla 5"]
+polygon = PackedVector2Array(129, 127, 129, 133, 155, 133, 155, 127)
+one_way_collision = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Silla 5/CollisionPolygon2D"]
+color = Color(0, 0, 0, 1)
+
+[node name="Door" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(48, 131)
+shape = SubResource("RectangleShape2D_2c023")
+debug_color = Color(0.85098, 1, 0.160784, 0.419608)

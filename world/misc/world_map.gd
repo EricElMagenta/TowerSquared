@@ -5,5 +5,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	AudioManager.change_song("world_map")
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	polygon_2d.polygons = collision_polygon_2d.polygon

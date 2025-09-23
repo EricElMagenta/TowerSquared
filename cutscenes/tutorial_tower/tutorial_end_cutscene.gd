@@ -6,6 +6,7 @@ extends Node2D
 
 
 func _ready():
+	if AudioManager.music.playing: AudioManager.music.stop()
 	RenderingServer.set_default_clear_color(Color.BLACK)
 
 # CONTINÚA LA CINEMÁTICA SI SE OPRIME "NEXT" Y ESTÁ PAUSADO

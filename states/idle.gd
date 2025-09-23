@@ -63,6 +63,11 @@ func Physics_Update(delta:float):
 					area.talk_to_player()
 					state_transition.emit(self, "Talking")
 					parent.talking_to = area
+
+			if area.name.to_lower() == "door": 
+				parent.talk_prompt.visible = true
+				if Input.is_action_just_pressed(parent.actions.up):
+					parent.enter_door.emit()
 	
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0:

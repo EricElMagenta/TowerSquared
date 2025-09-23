@@ -25,14 +25,15 @@ script = ExtResource("1_7ndra")
 [node name="BoxExplode" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_kyowq")
 volume_db = -18.0
-
-[node name="Jump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_a4kib")
-volume_db = -18.0
 bus = &"SFX"
 
 [node name="GetFloor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6w2rk")
+volume_db = -18.0
+bus = &"SFX"
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a4kib")
 volume_db = -18.0
 bus = &"SFX"
 
@@ -48,47 +49,65 @@ bus = &"SFX"
 [node name="TakeDamage" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1nkeo")
 volume_db = -12.0
+bus = &"SFX"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_3pes6")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="GrabObject" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_rk1qf")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="DropObject" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_6mfwd")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="BulletShoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_8ovus")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="SwapFloor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_fq8as")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="ButtonPress" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_4ksia")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="InvalidAction" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_mb8yq")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="MapZoneNotification" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_o2kdn")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="Peek" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_3ij58")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="DialogueSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_eb2w5")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="WaterSplash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_2i17y")
 volume_db = -10.0
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+volume_db = -10.0
+autoplay = true
+bus = &"Music"

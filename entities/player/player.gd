@@ -10,6 +10,7 @@ signal release_propeller
 signal flapping
 signal action
 signal stop_action
+signal enter_door
 
 # RESOURCES
 @export var actions : PlayerInputActions
