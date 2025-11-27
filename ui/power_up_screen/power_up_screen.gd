@@ -17,7 +17,7 @@ var is_paused:bool = false:
 		get_tree().paused = is_paused
 
 # PAUSAR EL JUEGO MIENTRAS SE MUESTRA LA INFORMACIÓN DEL POWER UP
-func _process(delta):
+func _process(_delta):
 #	Muestra el piso solo una vez y pausa el juego
 	if visible:
 		if !floor_showed: show_new_floor(floor_type)

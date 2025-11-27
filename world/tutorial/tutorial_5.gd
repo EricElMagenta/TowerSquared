@@ -11,7 +11,7 @@ extends Node2D
 
 
 func _ready():
-	if !AudioManager.music.playing: AudioManager.change_song("tutorial_tower")
+	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "tutorial_tower": AudioManager.change_song("tutorial_tower")
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	
 	# TRANCISIÓN DEL NIVEL
@@ -26,6 +26,7 @@ func _ready():
 	player.health_changed.connect(health_container.update_health)
 
 func go_to_next_level():
+	GameManager.tutorial_tower_clear = true
 	scene_transition.next_level_transition()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().call_deferred("change_scene_to_packed", map_world)

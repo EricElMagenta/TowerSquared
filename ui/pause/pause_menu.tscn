@@ -22,10 +22,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -112.0
-offset_top = -58.0
-offset_right = 119.0
-offset_bottom = 50.0
+offset_left = -63.0
+offset_top = -54.0
+offset_right = 63.0
+offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -45,20 +45,20 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 
-[node name="ButtonContainer" type="PanelContainer" parent="MenuContainer/MarginContainer/GridContainer/HBoxContainer"]
+[node name="ResumeContainer" type="PanelContainer" parent="MenuContainer/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_4ebe6")
 
-[node name="ResumeButton" type="Button" parent="MenuContainer/MarginContainer/GridContainer/HBoxContainer/ButtonContainer"]
+[node name="ResumeButton" type="Button" parent="MenuContainer/MarginContainer/GridContainer/HBoxContainer/ResumeContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Resume"
 
-[node name="ButtonContainer2" type="PanelContainer" parent="MenuContainer/MarginContainer/GridContainer/HBoxContainer"]
+[node name="ExitContainer" type="PanelContainer" parent="MenuContainer/MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_4ebe6")
 
-[node name="ExitLevelButton" type="Button" parent="MenuContainer/MarginContainer/GridContainer/HBoxContainer/ButtonContainer2"]
+[node name="ExitLevelButton" type="Button" parent="MenuContainer/MarginContainer/GridContainer/HBoxContainer/ExitContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "Exit level
@@ -88,6 +88,6 @@ offset_bottom = 14.0
 focus_mode = 0
 theme = ExtResource("2_4ebe6")
 
-[connection signal="pressed" from="MenuContainer/MarginContainer/GridContainer/HBoxContainer/ButtonContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MarginContainer/GridContainer/HBoxContainer/ButtonContainer2/ExitLevelButton" to="." method="_on_exit_level_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MarginContainer/GridContainer/HBoxContainer/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MarginContainer/GridContainer/HBoxContainer/ExitContainer/ExitLevelButton" to="." method="_on_exit_level_button_pressed"]
 [connection signal="pressed" from="PauseIcon/PauseButton" to="." method="_on_pause_button_pressed"]

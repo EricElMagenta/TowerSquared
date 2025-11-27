@@ -15,7 +15,7 @@ func _ready():
 	animated_sprite_2d.play("idle")
 	position = GameManager.player_map_position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var input_direction = Input.get_vector(actions.left, actions.right, actions.up, actions.down)
 	handle_colisions(input_direction)
 	handle_animation(input_direction)
@@ -44,12 +44,16 @@ func handle_animation(input_direction):
 	animated_sprite_2d.play(current_anim_state)
 
 func detect_zone():
-	for area in zone_detect.get_overlapping_areas(): 
+	for area in zone_detect.get_overlapping_areas():
 		if Input.is_action_just_pressed(actions.action):
-			if area.has_method("go_to_next_zone"): 
+			if area.has_method("toogle_level_selector") && area.is_tower_cleared():
+				area.toogle_level_selector()
+				GameManager.player_map_position = area.position + Vector2(0, 30)
+			
+			elif area.has_method("go_to_next_zone"):
 				area.go_to_next_zone()
 				GameManager.player_map_position = area.position + Vector2(0, 30)
-				
+
 			else: print(" no está disponible por ahora")
 
 func _on_zone_detect_area_entered(area):

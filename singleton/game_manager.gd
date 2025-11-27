@@ -13,6 +13,19 @@ var screen_suck_floor_saw:bool = false
 var player_map_position := Vector2(195, 141)
 var player_plaza_position := Vector2(-421, 70)
 
+# TORRES CONQUISTADAS
+var tutorial_tower_clear = true
+var sea_tower_clear = true
+var air_tower_clear = false
+var techno_tower = false
+
+func is_current_tower_cleared(current_tower:String) -> bool:
+	match current_tower.to_lower():
+		"tutorial": return tutorial_tower_clear
+		"seatower": return sea_tower_clear
+	
+	return false
+
 # IDIOMAS
 var current_lang = "es"
 

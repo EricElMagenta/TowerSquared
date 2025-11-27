@@ -1,0 +1,112 @@
+[gd_scene load_steps=17 format=3 uid="uid://ga7q88s25o0d"]
+
+[ext_resource type="Script" path="res://ui/level_selector/level_selector_tutorial.gd" id="1_2dyro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_it1ck"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yfgx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yjbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdbh0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5bou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25kcn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofqb0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2i3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oej5h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f682g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvgr2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_427px"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3yoea"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rcri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilnqx"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+metadata/_edit_group_ = true
+
+[node name="LevelSelectorTutorial" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -50.0
+offset_right = 79.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2dyro")
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelSelectorTutorial"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectorTutorial/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="LevelSelectorTutorial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "select_tutorial"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectorTutorial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level1" type="Button" parent="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_it1ck")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4yfgx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yjbf")
+text = "1"
+
+[node name="Level2" type="Button" parent="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vdbh0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b5bou")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_25kcn")
+text = "2"
+
+[node name="Level3" type="Button" parent="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ofqb0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c2i3j")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oej5h")
+text = "3"
+
+[node name="Level4" type="Button" parent="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f682g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tvgr2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_427px")
+text = "4"
+
+[node name="Level5" type="Button" parent="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3yoea")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1rcri")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ilnqx")
+text = "5"
+
+[connection signal="pressed" from="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer/Level1" to="LevelSelectorTutorial" method="_on_level_1_pressed"]
+[connection signal="pressed" from="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer/Level2" to="LevelSelectorTutorial" method="_on_level_2_pressed"]
+[connection signal="pressed" from="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer/Level3" to="LevelSelectorTutorial" method="_on_level_3_pressed"]
+[connection signal="pressed" from="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer/Level4" to="LevelSelectorTutorial" method="_on_level_4_pressed"]
+[connection signal="pressed" from="LevelSelectorTutorial/MarginContainer/VBoxContainer/HBoxContainer/Level5" to="LevelSelectorTutorial" method="_on_level_5_pressed"]

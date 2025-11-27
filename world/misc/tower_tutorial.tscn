@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl6mjjkge5uud"]
+[gd_scene load_steps=7 format=3 uid="uid://dl6mjjkge5uud"]
 
 [ext_resource type="Texture2D" uid="uid://t2ngjp81eayy" path="res://assets/world/tower-tutorial.png" id="1_4rtwq"]
 [ext_resource type="Script" path="res://world/misc/tower_tutorial.gd" id="1_xgnqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfp68"]
 size = Vector2(36, 20)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twd8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1orsn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlvn3"]
 
 [node name="TutorialTower" type="Area2D"]
 collision_layer = 256
@@ -17,3 +23,82 @@ texture = ExtResource("1_4rtwq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_wfp68")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="LevelSelectorSea" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -50.0
+offset_right = 79.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LevelSelectorSea"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelectorSea/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "select_tutorial"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Level1" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twd8t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1orsn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlvn3")
+text = "1"
+
+[node name="Level2" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twd8t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1orsn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlvn3")
+text = "2"
+
+[node name="Level3" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twd8t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1orsn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlvn3")
+text = "3"
+
+[node name="Level4" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twd8t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1orsn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlvn3")
+text = "4"
+
+[node name="Level5" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twd8t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1orsn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlvn3")
+text = "5"
+
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level5" to="." method="_on_level_5_pressed"]

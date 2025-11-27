@@ -9,6 +9,7 @@ var spawm_pos:Vector2
 # Spawnea en las coordenadas introducidas
 func _ready():
 	global_position = spawm_pos
+	$Area2D.rotate(45)
 
 # Viaja hasta chocar con algo, entonces desaparece
 func _physics_process(_delta):

@@ -12,6 +12,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "sea_tower": AudioManager.change_song("sea_tower")
 	RenderingServer.set_default_clear_color(Color.BLACK)
 
 	# TRANCISIÓN DEL NIVEL

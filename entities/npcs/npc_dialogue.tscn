@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://entities/npcs/dialogue_area.gd" id="2_jrgnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mvug"]
-size = Vector2(30, 36)
+size = Vector2(30, 41)
 
 [node name="NPC" type="AnimatedSprite2D"]
 script = ExtResource("1_tmeyw")
@@ -15,5 +15,5 @@ collision_mask = 3
 script = ExtResource("2_jrgnl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
-position = Vector2(11, 9)
+position = Vector2(11, 11.5)
 shape = SubResource("RectangleShape2D_3mvug")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://big88cj551hbg"]
+[gd_scene load_steps=19 format=4 uid="uid://big88cj551hbg"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_4.gd" id="1_j4ard"]
 [ext_resource type="PackedScene" uid="uid://cs7m13a0m21js" path="res://world/world_tile_set_1.tscn" id="1_w60d2"]
 [ext_resource type="PackedScene" uid="uid://cnkjhx3isbn6b" path="res://world/tutorial/tutorial_5.tscn" id="2_aohsu"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_e0myb"]
 [ext_resource type="PackedScene" uid="uid://bul1gey3ok4aa" path="res://entities/objects/box_metalic.tscn" id="3_cl227"]
+[ext_resource type="Texture2D" uid="uid://bo24sebggm1v7" path="res://assets/world/tutorial_tower_background.png" id="3_vcf5r"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="4_gxaq4"]
 [ext_resource type="PackedScene" uid="uid://bcfhdth2ps4n7" path="res://entities/power-up/floor_arm_item.tscn" id="4_whpd6"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="7_gst0k"]
@@ -31,6 +32,18 @@ animations = [{
 [node name="Tutorial4" type="Node2D"]
 script = ExtResource("1_j4ard")
 next_level = ExtResource("2_aohsu")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.1)
+motion_mirroring = Vector2(320, 215)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("3_vcf5r")
+centered = false
 
 [node name="DoorStone" parent="." instance=ExtResource("7_gst0k")]
 position = Vector2(306, -85)
@@ -69,12 +82,11 @@ texture = ExtResource("14_fx3xh")
 position = Vector2(223, 102)
 metadata/_edit_group_ = true
 
+[node name="FloorNormalItem" parent="Player" instance=ExtResource("4_gxaq4")]
+
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, -50)
 remote_path = NodePath("../../Camera2D")
-
-[node name="FloorNormalItem" parent="Player/RemoteTransform2D" instance=ExtResource("4_gxaq4")]
-position = Vector2(0, 50)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(223, 52)

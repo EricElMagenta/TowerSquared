@@ -1,9 +1,82 @@
-[gd_scene load_steps=6 format=3 uid="uid://uyqdnnw4ykl6"]
+[gd_scene load_steps=19 format=3 uid="uid://uyqdnnw4ykl6"]
 
 [ext_resource type="Texture2D" uid="uid://dcmoshi6x0e6q" path="res://assets/world/world_floor_bar.png" id="1_huyw3"]
 [ext_resource type="Script" path="res://world/misc/floor_bar.gd" id="1_u2v17"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_tkwdp"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="3_y8cck"]
+[ext_resource type="Texture2D" uid="uid://hvdox07fxtpx" path="res://assets/npc/npc_curious_floor.png" id="4_wy713"]
+[ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="5_0ba2b"]
+[ext_resource type="Texture2D" uid="uid://dduqkdhk21kuh" path="res://assets/npc/npc_caveman_floor.png" id="5_m4yvo"]
+[ext_resource type="Texture2D" uid="uid://bc56idqd4qo38" path="res://assets/npc/npc_floormon.png" id="5_rb5c6"]
+[ext_resource type="Texture2D" uid="uid://c62ramm5h71kv" path="res://assets/npc/npc_guard_floor.png" id="6_kynwa"]
+[ext_resource type="Texture2D" uid="uid://c4h41qjmpyaba" path="res://assets/npc/npc_lucifloor.png" id="6_sno26"]
+[ext_resource type="Texture2D" uid="uid://ds334nuugyw1j" path="res://assets/npc/npc_bartender_floor.png" id="7_t0tru"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfue7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wy713")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ec76y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rb5c6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_haf22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kynwa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c8fe4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_m4yvo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bawws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_sno26")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckth8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_t0tru")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c023"]
 size = Vector2(50, 82)
@@ -30,6 +103,42 @@ limit_left = 0
 limit_top = 0
 limit_right = 784
 limit_bottom = 180
+
+[node name="NPC" type="Node2D" parent="."]
+
+[node name="NpcCuriousFloor" parent="NPC" instance=ExtResource("5_0ba2b")]
+position = Vector2(324, 116)
+sprite_frames = SubResource("SpriteFrames_lfue7")
+offset = Vector2(9.98, 0)
+dialogue = "curious_floor_greet"
+
+[node name="NpcFloormon" parent="NPC" instance=ExtResource("5_0ba2b")]
+position = Vector2(406, 112)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_ec76y")
+offset = Vector2(5.54, 0)
+dialogue = "floormon_greet"
+
+[node name="NpcGuard" parent="NPC" instance=ExtResource("5_0ba2b")]
+position = Vector2(662, 123)
+sprite_frames = SubResource("SpriteFrames_haf22")
+dialogue = "guard_floor_greet"
+
+[node name="NpcCaveman" parent="NPC" instance=ExtResource("5_0ba2b")]
+position = Vector2(459, 128)
+sprite_frames = SubResource("SpriteFrames_c8fe4")
+dialogue = "caveman_floor_greet"
+
+[node name="NpcLucifloor" parent="NPC" instance=ExtResource("5_0ba2b")]
+position = Vector2(196, 110)
+sprite_frames = SubResource("SpriteFrames_bawws")
+offset = Vector2(10.27, 0)
+dialogue = "lucifloor_greet"
+
+[node name="NpcBartender" parent="NPC" instance=ExtResource("5_0ba2b")]
+position = Vector2(268, 105)
+sprite_frames = SubResource("SpriteFrames_ckth8")
+dialogue = "bartender_floor_greet"
 
 [node name="Player" parent="." instance=ExtResource("2_tkwdp")]
 position = Vector2(47, 163)

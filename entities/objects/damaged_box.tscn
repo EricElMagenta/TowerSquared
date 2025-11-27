@@ -91,4 +91,8 @@ position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_7pmf7")
 debug_color = Color(0.2456, 0.000453007, 0.790911, 0.419608)
 
+[node name="BoxDetector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 10)
+collision_mask = 32
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

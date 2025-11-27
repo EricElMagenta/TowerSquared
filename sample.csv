@@ -17,17 +17,6 @@ intro_game_story_3,"When a floor becomes of age, it begins a ritual in which it 
 intro_game_story_4,A journey that turns kids into adults. This is your adventure.,Un viaje que convierte a los niños en adultos. Esta es tu aventura.
 ,,
 ,,
-# FLOOR PLAZA,,
-suspicious_floor_greet,I know nothing!,¡No sé nada!
-demifloor_greet,"I'll defeat you Lucifloor, remember it. I AM DEMIFLOOR!","Te venceré Lucipiso, reduérdalo ¡SOY EL DEMIPISO!"
-lucifloor_greet,"Who is Demifloor, and why does he want to punch me?",¿Quién es Demipiso y por qué quiere golpearme?
-bart_floor_greet,I don't talk to losers.,No hablo con perdedores.
-floormon_greet,Hi. I'm Floormon.,Hola. Soy Pisomón.
-curious_floor_greet,What kind of floor is this?,Qué piso es este?
-swing_floor_greet,Don't push me. I'll get dizzy.,No me empujes que me mareo.
-funky_floor_greet,Hey dude! Show those towers who is the boss!,¡Hola amigo! ¡Muéstrale a esas torres quién es el jefe!
-,,
-,,
 # Recoger Power Ups,,
 item_normal_floor,"Does absolutely nothing, but now you are taller.","No hace absolutamente nada, pero ahora eres más alto."
 item_eye_floor,Shoot fireballs from your eye.,Dispara fuego desde tu ojo.
@@ -71,3 +60,28 @@ tutorial_question_sea_3,Sorry nothing.,Nada.
 tutorial_question_sea_4,Don't be afraid of bubbles.,No le temas a las burbujas.
 tutorial_question_sea_5,Bubbles can either go up or stay still.,Las burbujas pueden ascender o quedarse quietas
 tutorial_question_sea_6,The exit is right above us. You need something to go up.,La salida está justo arriba de nosotros. Necesitas algo para subir.
+,,
+,,
+# FLOOR PLAZA,,
+suspicious_floor_greet,I know nothing!,¡No sé nada!
+demifloor_greet,I'm looking for the horned beast.,Busco a la bestia con cuernos.
+lucifloor_greet,Why does that floor want to hit me?,¿Por qué ese piso quiere golpearme?
+bart_floor_greet,I don't talk to losers.,No hablo con perdedores.
+floormon_greet,Hi. I'm Floormon.,Hola. Me llamo Pisomon.
+curious_floor_greet,What kind of floor is this?,¿Qué piso es este?
+swing_floor_greet,Don't push me. I'll get dizzy.,No me empujes que me mareo.
+funky_floor_greet,Hey dude! Show those towers who is the boss!,¡Hola amigo! ¡Muéstrale a esas torres quién es el jefe!
+caveman_floor_greet,Me like place.,Yo gustar aquí.
+guard_floor_greet,Go away! Nothing to see here.,¡Lárgate! No hay nada que ver aquí.
+guard_floor_scared_greet,Nobody told me what to do in cases like this!,¡Nadie me dijo qué hacer en casos como este!
+bartender_floor_greet,I heard the guard is afraid of sharks.,Escuché que el guardia le tiene terror a los tiburones.
+tutorial_floor_secret_level_greet,Welcome to Getting Tower It.,Bienvenido a Getting Tower It.
+,,
+,,
+#LEVEL SELECTOR,,
+select_tutorial,Tutorial Tower,Torre Tutorial
+select_sea,Sea Tower,Torre del Mar
+select_air,Air Tower,Torre del Aire
+select_techno,Techno Tower,Torre Tecno
+select_exit,Exit,Salir
+not_available,Not available in demo.,No disponible en la demo.

@@ -920,9 +920,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -140.0
-offset_top = 81.1937
-offset_right = -23.4839
-offset_bottom = 142.839
+offset_top = 47.0
+offset_right = -8.0
+offset_bottom = 108.0
 grow_horizontal = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]

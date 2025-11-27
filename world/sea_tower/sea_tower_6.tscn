@@ -260,7 +260,7 @@ position = Vector2(508, -1125)
 independent = true
 
 [node name="Items" type="Node2D" parent="."]
-position = Vector2(519, -81)
+position = Vector2(412, -51)
 metadata/_edit_group_ = true
 
 [node name="FloorSuckItem" parent="Items" instance=ExtResource("5_y543c")]

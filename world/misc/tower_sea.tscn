@@ -1,17 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://ded4idbhp5n0x"]
+[gd_scene load_steps=7 format=3 uid="uid://ded4idbhp5n0x"]
 
 [ext_resource type="Texture2D" uid="uid://dd5miyjlun3v8" path="res://assets/world/tower-sea.png" id="1_1oadx"]
 [ext_resource type="Script" path="res://world/misc/tower_sea.gd" id="1_l3ewo"]
-[ext_resource type="PackedScene" uid="uid://dibg2o2515jnu" path="res://cutscenes/sea_tower/sea_tower_intro_cutscene_1.tscn" id="2_hy0so"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqvlq"]
 size = Vector2(28, 19)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brvio"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06h0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_usyq7"]
 
 [node name="TowerSea" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("1_l3ewo")
-next_zone = ExtResource("2_hy0so")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1oadx")
@@ -19,3 +23,100 @@ texture = ExtResource("1_1oadx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 32.5)
 shape = SubResource("RectangleShape2D_eqvlq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="LevelSelectorSea" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -50.0
+offset_right = 79.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LevelSelectorSea"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelectorSea/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "select_sea"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Level1" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06h0a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
+text = "1"
+
+[node name="Level2" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06h0a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
+text = "2"
+
+[node name="Level3" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06h0a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
+text = "3"
+
+[node name="Level4" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06h0a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
+text = "4"
+
+[node name="Level5" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06h0a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
+text = "5"
+
+[node name="Level6" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06h0a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
+text = "6"
+
+[node name="Level7" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06h0a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
+text = "7"
+
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level7" to="." method="_on_level_7_pressed"]

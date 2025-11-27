@@ -1,3 +1,5 @@
+class_name DamagedBox
+
 extends CharacterBody2D
 
 # VARIABLES
@@ -8,6 +10,7 @@ var grabbed = false
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var floor_detect_area = $FloorDetectArea
 @onready var grab_bullet_detect = $GrabBulletDetect
+@onready var box_detector = $BoxDetector
 
 
 ##################################### FUNCIONES PRINCIPALES ###############################
@@ -29,7 +32,10 @@ func _physics_process(delta):
 		set_collision_mask_value(6, true)
 		set_collision_layer_value(6, true)
 		if not is_on_floor(): velocity += get_gravity() * delta
+		if box_detector.is_colliding(): velocity.y = 0
+
 		
+	
 	velocity.x *= -0.3
 	
 #	HITBOX SEPARADA PARA DETECTAR BALAS MIENTRAS EL OBJETO ESTÁ AGARRADO. 

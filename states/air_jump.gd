@@ -39,5 +39,12 @@ func Physics_Update(delta:float):
 	if parent.player_data.current_health <= 0:
 		state_transition.emit(self, "Dead")
 
+	# NADA AL CAER EN AGUA SI TIENE LA COLA DE PEZ
+	if parent.get_floor_count("fish_floor"):
+		for area in parent.dialogue_area.get_overlapping_areas():
+			if area is Water: 
+				AudioManager.play_water_splash()
+				state_transition.emit(self, "SwimIdle")
+
 func Exit():
 	pass

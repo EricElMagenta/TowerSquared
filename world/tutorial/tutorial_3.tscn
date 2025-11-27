@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=4 uid="uid://b1mcvwww2aed5"]
+[gd_scene load_steps=21 format=4 uid="uid://b1mcvwww2aed5"]
 
 [ext_resource type="Script" path="res://world/tutorial/tutorial_3.gd" id="1_ese5q"]
 [ext_resource type="PackedScene" uid="uid://big88cj551hbg" path="res://world/tutorial/tutorial_4.tscn" id="2_fivyh"]
 [ext_resource type="PackedScene" uid="uid://dcw2eb7cpgu33" path="res://world/tile_set_tutorial.tscn" id="2_g7bjn"]
+[ext_resource type="Texture2D" uid="uid://bo24sebggm1v7" path="res://assets/world/tutorial_tower_background.png" id="3_8mh7m"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="3_084i6"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="4_68g8a"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="5_jf5ve"]
@@ -33,6 +34,18 @@ animations = [{
 [node name="Tutorial3" type="Node2D"]
 script = ExtResource("1_ese5q")
 next_level = ExtResource("2_fivyh")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.1)
+motion_mirroring = Vector2(320, 215)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("3_8mh7m")
+centered = false
 
 [node name="Hints" type="Node2D" parent="."]
 

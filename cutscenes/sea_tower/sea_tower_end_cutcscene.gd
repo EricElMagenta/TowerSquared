@@ -9,6 +9,7 @@ var shake_strength := 0.0
 var decay_rate := 5.0
 
 func _ready():
+	if AudioManager.music.playing: AudioManager.music.stop()
 	RenderingServer.set_default_clear_color(Color.BLACK)
 
 func _process(delta):
