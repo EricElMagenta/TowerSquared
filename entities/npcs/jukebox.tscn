@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnc87rgxlcdo5"]
+
+[ext_resource type="Script" path="res://entities/npcs/jukebox.gd" id="1_3m7yc"]
+[ext_resource type="Texture2D" uid="uid://deaoewicxt2qv" path="res://assets/npc/jukebox.png" id="1_y2nyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_polja"]
+size = Vector2(42, 62)
+
+[node name="Jukebox" type="Area2D"]
+collision_layer = 256
+collision_mask = 2
+script = ExtResource("1_3m7yc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y2nyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_polja")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://uyqdnnw4ykl6"]
+[gd_scene load_steps=21 format=3 uid="uid://uyqdnnw4ykl6"]
 
 [ext_resource type="Texture2D" uid="uid://dcmoshi6x0e6q" path="res://assets/world/world_floor_bar.png" id="1_huyw3"]
 [ext_resource type="Script" path="res://world/misc/floor_bar.gd" id="1_u2v17"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bc56idqd4qo38" path="res://assets/npc/npc_floormon.png" id="5_rb5c6"]
 [ext_resource type="Texture2D" uid="uid://c62ramm5h71kv" path="res://assets/npc/npc_guard_floor.png" id="6_kynwa"]
 [ext_resource type="Texture2D" uid="uid://c4h41qjmpyaba" path="res://assets/npc/npc_lucifloor.png" id="6_sno26"]
+[ext_resource type="Texture2D" uid="uid://bgvthei0jt5yj" path="res://assets/npc/npc_guard_floor_scared.png" id="7_i08da"]
 [ext_resource type="Texture2D" uid="uid://ds334nuugyw1j" path="res://assets/npc/npc_bartender_floor.png" id="7_t0tru"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lfue7"]
@@ -42,6 +43,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_i08da")
+}],
+"loop": true,
+"name": &"scared",
 "speed": 5.0
 }]
 
@@ -80,6 +89,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c023"]
 size = Vector2(50, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sul6y"]
+size = Vector2(110, 86)
 
 [node name="floor_bar" type="Node2D"]
 script = ExtResource("1_u2v17")
@@ -122,6 +134,7 @@ dialogue = "floormon_greet"
 [node name="NpcGuard" parent="NPC" instance=ExtResource("5_0ba2b")]
 position = Vector2(662, 123)
 sprite_frames = SubResource("SpriteFrames_haf22")
+animation = &"scared"
 dialogue = "guard_floor_greet"
 
 [node name="NpcCaveman" parent="NPC" instance=ExtResource("5_0ba2b")]
@@ -205,8 +218,20 @@ color = Color(0, 0, 0, 1)
 [node name="Door" type="Area2D" parent="."]
 collision_layer = 256
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(48, 131)
 shape = SubResource("RectangleShape2D_2c023")
 debug_color = Color(0.85098, 1, 0.160784, 0.419608)
+
+[node name="SecretDoor" type="Area2D" parent="."]
+position = Vector2(617, 86)
+collision_layer = 256
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretDoor"]
+position = Vector2(45, 33)
+shape = SubResource("RectangleShape2D_sul6y")
+debug_color = Color(1, 0.101961, 1, 0.419608)

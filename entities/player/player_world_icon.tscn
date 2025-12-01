@@ -1,8 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://5mluh6cdtwub"]
+[gd_scene load_steps=19 format=3 uid="uid://5mluh6cdtwub"]
 
 [ext_resource type="Script" path="res://entities/player/player_world_icon.gd" id="1_sq4n2"]
 [ext_resource type="Resource" uid="uid://fi706ut52ub3" path="res://entities/player/player_resources/player_input_actions.tres" id="2_7rvhl"]
 [ext_resource type="Texture2D" uid="uid://exwufrwoaqme" path="res://assets/player/player-world-icon-sheet.png" id="2_22vxj"]
+[ext_resource type="Texture2D" uid="uid://0hb8dhdf0alh" path="res://assets/player/player-world-icon-sheet7.png" id="4_hu58h"]
+[ext_resource type="Texture2D" uid="uid://dg3ys1kgwbu80" path="res://assets/player/player-world-icon-sheet8.png" id="5_85j3c"]
+[ext_resource type="Texture2D" uid="uid://dyqcqc6w6f1su" path="res://assets/player/player-world-icon-sheet11.png" id="6_6kfct"]
+[ext_resource type="Texture2D" uid="uid://dh1lfbjk5d2d1" path="res://assets/player/player-world-icon-sheet12.png" id="7_c3n3h"]
+[ext_resource type="Texture2D" uid="uid://db118toec87su" path="res://assets/player/player-world-icon-sheet9.png" id="8_5xon1"]
+[ext_resource type="Texture2D" uid="uid://dkd2de12c3h5l" path="res://assets/player/player-world-icon-sheet10.png" id="9_lwty5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qylon"]
 size = Vector2(16, 6)
@@ -45,6 +51,39 @@ animations = [{
 "speed": 24.0
 }, {
 "frames": [{
+"duration": 10.0,
+"texture": ExtResource("4_hu58h")
+}, {
+"duration": 10.0,
+"texture": ExtResource("5_85j3c")
+}],
+"loop": true,
+"name": &"sharked_idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("6_6kfct")
+}, {
+"duration": 6.0,
+"texture": ExtResource("7_c3n3h")
+}],
+"loop": true,
+"name": &"sharked_walk_left_right",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("8_5xon1")
+}, {
+"duration": 6.0,
+"texture": ExtResource("9_lwty5")
+}],
+"loop": true,
+"name": &"sharked_walk_up_down",
+"speed": 24.0
+}, {
+"frames": [{
 "duration": 6.0,
 "texture": SubResource("AtlasTexture_ys0ev")
 }, {
@@ -81,7 +120,7 @@ shape = SubResource("RectangleShape2D_qylon")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kcrg7")
-animation = &"walk_up_down"
+animation = &"idle"
 
 [node name="ZoneDetect" type="Area2D" parent="."]
 collision_layer = 0

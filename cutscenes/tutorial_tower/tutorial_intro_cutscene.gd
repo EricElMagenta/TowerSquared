@@ -3,6 +3,7 @@ extends Node2D
 @onready var sfx = $SFX
 
 func play_sound():
+	GameManager.sharked_player = false
 	sfx.play()
 
 func go_next_scene():

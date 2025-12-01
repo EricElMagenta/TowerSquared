@@ -9,6 +9,7 @@ var shake_strength := 0.0
 var decay_rate := 5.0
 
 func _ready():
+	GameManager.sharked_player = true
 	if AudioManager.music.playing: AudioManager.music.stop()
 	RenderingServer.set_default_clear_color(Color.BLACK)
 

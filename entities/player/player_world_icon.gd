@@ -9,10 +9,12 @@ extends CharacterBody2D
 
 # VARIABLES
 const SPEED = 100
+const SHARK_SPRITE_OFFSET = 30
 
 ##################################### FUNCIONES PRINCIPALES ###############################
 func _ready():
 	animated_sprite_2d.play("idle")
+	if GameManager.sharked_player: animated_sprite_2d.offset.y -= SHARK_SPRITE_OFFSET
 	position = GameManager.player_map_position
 
 func _physics_process(_delta):
@@ -31,15 +33,27 @@ func handle_colisions(input_direction):
 func handle_animation(input_direction):
 	var current_anim_state = ""
 	
-	# Caminar en diferentes direcciones (debe haber alguna mejor forma de hacer esto)
-	if input_direction == Vector2(0,0):
-		current_anim_state = "idle"
-	elif input_direction[0] == 0:
-		if input_direction[1] != 0: current_anim_state = "walk_up_down"
-	elif input_direction[0] != 0:
-		current_anim_state = "walk_left_right"
-		if input_direction[0] < 0: animated_sprite_2d.scale.x = -1
-		else: animated_sprite_2d.scale.x = 1
+
+	if !GameManager.sharked_player:
+
+		# Caminar en diferentes direcciones (debe haber alguna mejor forma de hacer esto)
+		if input_direction == Vector2(0,0):
+			current_anim_state = "idle"
+		elif input_direction[0] == 0:
+			if input_direction[1] != 0: current_anim_state = "walk_up_down"
+		elif input_direction[0] != 0:
+			current_anim_state = "walk_left_right"
+			if input_direction[0] < 0: animated_sprite_2d.scale.x = -1
+			else: animated_sprite_2d.scale.x = 1
+	else:
+		if input_direction == Vector2(0,0):
+			current_anim_state = "sharked_idle"
+		elif input_direction[0] == 0:
+			if input_direction[1] != 0: current_anim_state = "sharked_walk_up_down"
+		elif input_direction[0] != 0:
+			current_anim_state = "sharked_walk_left_right"
+			if input_direction[0] < 0: animated_sprite_2d.scale.x = -1
+			else: animated_sprite_2d.scale.x = 1
 	
 	animated_sprite_2d.play(current_anim_state)
 

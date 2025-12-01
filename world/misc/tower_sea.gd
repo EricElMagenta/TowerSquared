@@ -29,31 +29,38 @@ func is_tower_cleared():
 	return GameManager.sea_tower_clear
 
 func _on_level_1_pressed():
+	GameManager.sharked_player = false
 	if AudioManager.music.playing: AudioManager.music.stop()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://cutscenes/sea_tower/sea_tower_intro_cutscene_1.tscn")
 
 func _on_level_2_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/sea_tower/"+level_2)
 
 func _on_level_3_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/sea_tower/"+level_3)
 
 func _on_level_4_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/sea_tower/"+level_4)
 
 func _on_level_5_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/sea_tower/"+level_5)
 
 func _on_level_6_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/sea_tower/"+level_6)
 
 func _on_level_7_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/sea_tower/"+level_7)
 

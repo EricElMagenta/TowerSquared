@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bdegyg4ku5dn8"]
+[gd_scene load_steps=43 format=3 uid="uid://bdegyg4ku5dn8"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_42w66"]
 [ext_resource type="Texture2D" uid="uid://vxad7muhni6t" path="res://assets/player/feet_1.png" id="2_4ahwc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://law2iw03waoc" path="res://assets/player/feet_3.png" id="6_2w3c5"]
 [ext_resource type="Texture2D" uid="uid://vi1fls6mh4ce" path="res://assets/player/player-victory-Sheet.png" id="6_oifr3"]
 [ext_resource type="Script" path="res://states/jump.gd" id="6_udnbo"]
+[ext_resource type="Texture2D" uid="uid://qb3fioqsi6wv" path="res://assets/cutscenes/cutscene_shark_sheet.png" id="7_71j05"]
 [ext_resource type="Script" path="res://states/fall.gd" id="8_6cvpb"]
 [ext_resource type="Script" path="res://entities/player/floor_manager.gd" id="9_ns01a"]
 [ext_resource type="Script" path="res://states/air_jump.gd" id="9_xga2y"]
@@ -25,6 +26,31 @@
 [ext_resource type="Script" path="res://states/charge.gd" id="21_wwp7e"]
 [ext_resource type="Script" path="res://states/charge_release.gd" id="22_oj400"]
 [ext_resource type="Resource" uid="uid://bd8yj7m2reygk" path="res://entities/player/player_resources/floor_count_data.tres" id="23_c7rcm"]
+[ext_resource type="Script" path="res://states/sharked_idle.gd" id="24_r4l7i"]
+[ext_resource type="Script" path="res://states/shark_walk.gd" id="25_xkggq"]
+[ext_resource type="Script" path="res://states/shark_jump.gd" id="26_kh4bb"]
+[ext_resource type="Script" path="res://states/shark_fall.gd" id="27_dqylv"]
+[ext_resource type="Script" path="res://states/sharked_talk.gd" id="28_08jit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j4mj"]
+atlas = ExtResource("7_71j05")
+region = Rect2(147, 0, 49, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av4sq"]
+atlas = ExtResource("7_71j05")
+region = Rect2(0, 0, 49, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54ufb"]
+atlas = ExtResource("7_71j05")
+region = Rect2(0, 0, 49, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l3l6"]
+atlas = ExtResource("7_71j05")
+region = Rect2(49, 0, 49, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovb8u"]
+atlas = ExtResource("7_71j05")
+region = Rect2(98, 0, 49, 127)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j21rn"]
 atlas = ExtResource("6_oifr3")
@@ -62,6 +88,47 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j4mj")
+}],
+"loop": true,
+"name": &"sharkedfall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av4sq")
+}],
+"loop": true,
+"name": &"sharkedidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j4mj")
+}],
+"loop": true,
+"name": &"sharkedjump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54ufb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l3l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54ufb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovb8u")
+}],
+"loop": true,
+"name": &"sharkedwalk",
 "speed": 12.0
 }, {
 "frames": [{
@@ -129,7 +196,7 @@ player_data = ExtResource("3_7fvv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8phsy")
-animation = &"swim"
+animation = &"idle"
 
 [node name="LabelState" type="Label" parent="."]
 unique_name_in_owner = true
@@ -142,9 +209,10 @@ theme_override_colors/font_color = Color(0.776471, 0, 0.741176, 1)
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "sharked_state")]
 script = ExtResource("3_3l04b")
 initial_state = NodePath("Idle")
+sharked_state = NodePath("SharkedIdle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_50gyb")
@@ -181,6 +249,21 @@ script = ExtResource("21_wwp7e")
 
 [node name="ChargeRelease" type="Node" parent="StateMachine"]
 script = ExtResource("22_oj400")
+
+[node name="SharkedIdle" type="Node" parent="StateMachine"]
+script = ExtResource("24_r4l7i")
+
+[node name="SharkedWalk" type="Node" parent="StateMachine"]
+script = ExtResource("25_xkggq")
+
+[node name="SharkedJump" type="Node" parent="StateMachine"]
+script = ExtResource("26_kh4bb")
+
+[node name="SharkedFall" type="Node" parent="StateMachine"]
+script = ExtResource("27_dqylv")
+
+[node name="SharkedTalk" type="Node" parent="StateMachine"]
+script = ExtResource("28_08jit")
 
 [node name="FloorManager" type="Node2D" parent="."]
 script = ExtResource("9_ns01a")

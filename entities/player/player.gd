@@ -11,6 +11,7 @@ signal flapping
 signal action
 signal stop_action
 signal enter_door
+signal enter_secret_door
 
 # RESOURCES
 @export var actions : PlayerInputActions
@@ -51,6 +52,10 @@ func _ready():
 	# Resetea la vida al máximo
 	player_data.current_health = player_data.max_health
 
+	if GameManager.sharked_player : 
+		animated_sprite_2d.offset.y -= 60
+		floor_manager.visible = false
+
 func _process(_delta):
 	#print(floor_manager.floor_count_data.floor_count_dict)
 	if Input.is_action_just_pressed("restart"): get_tree().reload_current_scene()
@@ -90,6 +95,7 @@ func air_jump()-> void:
 # REBOTAR
 func bounce(bounce_multiplier:int) -> void:
 	velocity.y = player_data.bounce_power * bounce_multiplier
+	floor_manager.remaining_air_jumps = floor_manager.max_air_jumps
 	AudioManager.play_jump()
 			
 ######################################## FUNCIONES CON FLOOR MANAGER ##############################

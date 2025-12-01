@@ -4,6 +4,7 @@ extends Node
 @onready var music = $Music
 
 var current_music : String
+var music_index = 0
 
 ##################################################### MUSICA ################################
 func change_song(new_music:String):
@@ -48,6 +49,9 @@ func play_dialogue_sound():
 	
 func play_water_splash():
 	if !mute: $WaterSplash.play()
+
+func play_chomp():
+	if !mute: $Chomp.play()
 
 ############################################### SONIDOS DE OBJETOS ################################
 func play_bullet_shot():

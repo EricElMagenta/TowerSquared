@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://yd2ja8cfkaws"]
+[gd_scene load_steps=20 format=3 uid="uid://yd2ja8cfkaws"]
 
 [ext_resource type="Script" path="res://singleton/audio_manager.gd" id="1_7ndra"]
 [ext_resource type="AudioStream" uid="uid://dwvm0w2uqmpt" path="res://audio/player/jump.wav" id="2_a4kib"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://7nawil2i6vqg" path="res://audio/cutscenes/peek.wav" id="16_3ij58"]
 [ext_resource type="AudioStream" uid="uid://cicfxi6nbpiax" path="res://audio/cutscenes/dialogue_sound.wav" id="17_eb2w5"]
 [ext_resource type="AudioStream" uid="uid://de6okgkevdupq" path="res://audio/player/splash.wav" id="18_2i17y"]
+[ext_resource type="AudioStream" uid="uid://cj2xk1fltg8n7" path="res://audio/player/chomp.wav" id="19_lkilw"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_7ndra")
@@ -105,6 +106,9 @@ bus = &"SFX"
 stream = ExtResource("18_2i17y")
 volume_db = -10.0
 bus = &"SFX"
+
+[node name="Chomp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_lkilw")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3

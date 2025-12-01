@@ -30,6 +30,7 @@ func collision_detected():
 func _on_area_2d_body_entered(body):
 	
 #	SI DISPARA A UN OBJETO AGARRABLE LO DESTRUYE (SI ES POSIBLE) SIEMPRE Y CUANDO NO ESTÉ SIENDO AGARRADO
+
 	if body.is_in_group("grabeable"):
 		if !body.grabbed && body.has_method("get_destroyed"):
 			body.get_destroyed()

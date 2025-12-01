@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://chtrtbioa33u2"]
+[gd_scene load_steps=5 format=3 uid="uid://chtrtbioa33u2"]
 
 [ext_resource type="Script" path="res://entities/projectiles/fire_ball.gd" id="1_squrk"]
 [ext_resource type="Texture2D" uid="uid://d0u8vpo05faxu" path="res://assets/projectiles/fireball.png" id="2_08ybo"]
@@ -14,11 +14,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_waflc"]
-size = Vector2(10, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w1ou"]
-size = Vector2(12, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0syaa"]
+radius = 7.07107
 
 [node name="FireBall" type="CharacterBody2D"]
 collision_layer = 16
@@ -29,20 +26,22 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_3vkhu")
 animation = &"fireball"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_waflc")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.1, 0)
+scale = Vector2(0.991071, 1)
+polygon = PackedVector2Array(-0.100901, -6, 5.95315, 0, -0.100901, 6, -6.15496, 0)
 
 [node name="FireballTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 36
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_1w1ou")
-debug_color = Color(0.980148, 0, 0.382122, 0.42)
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0syaa")
+debug_color = Color(0.975842, 0, 0.416374, 0.42)
 
 [connection signal="timeout" from="FireballTimer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

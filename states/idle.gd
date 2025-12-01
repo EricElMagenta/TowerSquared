@@ -64,10 +64,21 @@ func Physics_Update(delta:float):
 					state_transition.emit(self, "Talking")
 					parent.talking_to = area
 
+			if area.has_method("change_music"):
+				parent.talk_prompt.visible = true
+				if Input.is_action_just_pressed(parent.actions.up):
+					area.change_music()
+
 			if area.name.to_lower() == "door": 
 				parent.talk_prompt.visible = true
 				if Input.is_action_just_pressed(parent.actions.up):
 					parent.enter_door.emit()
+
+			if GameManager.scared_guard && area.name.to_lower() == "secretdoor":
+				parent.talk_prompt.visible = true
+				if Input.is_action_just_pressed(parent.actions.up):
+					parent.enter_secret_door.emit()
+
 	
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0:

@@ -15,6 +15,7 @@ func change_direction():
 # MASCA LOS OBJETOS QUE ENTREN AL AREA Y SE PUEDAN MASCAR
 func _on_eat_area_body_entered(body):
 	if body.has_method("get_eaten"):
+		AudioManager.play_chomp()
 		animated_sprite_2d.play("chomp")
 		body.get_eaten()
 	

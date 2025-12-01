@@ -3,6 +3,7 @@ class_name StateMachine
 
 @onready var label_state = %LabelState
 @export var initial_state : State
+@export var sharked_state : State
 
 var current_state : State
 var states : Dictionary = {}
@@ -16,8 +17,13 @@ func init(parent : CharacterBody2D):
 			states[child.name.to_lower()] = child
 			child.state_transition.connect(change_state)
 
-# Revisa si hay un estado inicial y se cambia en caso de existir.			
-	if initial_state:
+# Revisa si hay un estado inicial y se cambia en caso de existir.	
+
+	if GameManager.sharked_player: 
+		sharked_state.Enter()
+		current_state = sharked_state
+
+	elif initial_state:
 		initial_state.Enter()
 		current_state = initial_state
 

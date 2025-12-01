@@ -3,6 +3,7 @@ class_name AirJump
 
 func Enter():
 	# Saltar al iniciar el estado
+	AudioManager.play_jump()
 	parent.air_jump()
 	parent.floor_manager.remaining_air_jumps -= 1
 	
@@ -43,6 +44,7 @@ func Physics_Update(delta:float):
 	if parent.get_floor_count("fish_floor"):
 		for area in parent.dialogue_area.get_overlapping_areas():
 			if area is Water: 
+				parent.velocity.y *= .1
 				AudioManager.play_water_splash()
 				state_transition.emit(self, "SwimIdle")
 

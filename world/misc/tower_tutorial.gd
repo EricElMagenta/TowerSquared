@@ -27,22 +27,27 @@ func toogle_level_selector():
 	$CanvasLayer.visible = true
 
 func _on_level_1_pressed():
+	GameManager.sharked_player = false
 	if AudioManager.music.playing: AudioManager.music.stop()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://cutscenes/tutorial_tower/tutorial_intro_cutscene.tscn")
 
 func _on_level_2_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/tutorial/"+level_2)
 
 func _on_level_3_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/tutorial/"+level_3)
 
 func _on_level_4_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/tutorial/"+level_4)
 
 func _on_level_5_pressed():
+	GameManager.sharked_player = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://world/tutorial/"+level_5)

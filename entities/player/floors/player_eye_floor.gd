@@ -29,13 +29,13 @@ func shoot_fireball():
 	
 	# RELOAD
 	if can_shoot: 
-		if len(shoot_area.get_overlapping_bodies()) == 0: 
-			animated_sprite_2d.play("shoot")
-			AudioManager.play_shoot()
-			get_tree().root.add_child(fireball_instance)
-			can_shoot = false
-		else:
-			AudioManager.play_inavlid_action()
+		# if len(shoot_area.get_overlapping_bodies()) == 0: 
+		animated_sprite_2d.play("shoot")
+		AudioManager.play_shoot()
+		get_tree().root.add_child(fireball_instance)
+		can_shoot = false
+		# else:
+		# 	AudioManager.play_inavlid_action()
 
 
 # RECARGAR DISPARO
