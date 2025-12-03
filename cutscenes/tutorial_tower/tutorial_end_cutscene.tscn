@@ -11,7 +11,7 @@
 
 [sub_resource type="Animation" id="Animation_yua1c"]
 resource_name = "Arrival"
-length = 7.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

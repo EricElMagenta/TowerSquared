@@ -17,5 +17,6 @@ func _on_exit_body_entered(body):
 		get_tree().call_deferred("change_scene_to_file", "res://world/misc/world_map.tscn")
 
 func entering_door():
-	if player: GameManager.player_plaza_position = player.position
+	if player:
+		GameManager.player_plaza_position = player.position
 	get_tree().change_scene_to_file("res://world/misc/floor_bar.tscn")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh6n5v3arm625"]
+
+[ext_resource type="Texture2D" uid="uid://62cvkxm30k6g" path="res://assets/world/clar-flag-Sheet.png" id="1_lndgp"]
+[ext_resource type="Script" path="res://world/clear_flag.gd" id="2_7vcio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvgal"]
+atlas = ExtResource("1_lndgp")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gllsy"]
+atlas = ExtResource("1_lndgp")
+region = Rect2(15, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lkxx"]
+atlas = ExtResource("1_lndgp")
+region = Rect2(30, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qju57"]
+atlas = ExtResource("1_lndgp")
+region = Rect2(45, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0iwpx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvgal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gllsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lkxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qju57")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="ClearFlag" type="AnimatedSprite2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_0iwpx")
+frame = 1
+frame_progress = 0.643828
+script = ExtResource("2_7vcio")

@@ -51,14 +51,14 @@ func swim():
 	else: velocity.x = speed * dir
 
 func go_back_swimming():
-		set_collision_mask_value(1, true)
-		velocity.y = NO_VERTICAL_MOVEMENT
+	set_collision_mask_value(1, true)
+	velocity.y = NO_VERTICAL_MOVEMENT
 
-		if dir == 1: rotation_degrees = SHARK_LOOK_RIGHT_DEGREES
-		elif dir == -1: rotation_degrees = SHARK_LOOK_LEFT_DEGREES
+	if dir == 1: rotation_degrees = SHARK_LOOK_RIGHT_DEGREES
+	elif dir == -1: rotation_degrees = SHARK_LOOK_LEFT_DEGREES
 
-		is_attacking = false
-		animated_sprite_2d.play("swim")
+	is_attacking = false
+	animated_sprite_2d.play("swim")
 	
 func handle_gravity():
 	if !is_attacking: position.y = initial_height

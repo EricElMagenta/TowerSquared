@@ -10,8 +10,10 @@ var screen_propeller_floor_saw:bool = false
 var screen_suck_floor_saw:bool = false
 
 # POSICIÓN DEL JUGADOR EN EL MAPA O AL PASAR POR PUERTAS
-var player_map_position := Vector2(195, 141)
 var player_plaza_position := Vector2(-421, 70)
+var player_bar_enter_door_position := Vector2(47, 163)
+var player_map_position := Vector2(195, 141)
+
 
 # TORRES CONQUISTADAS
 var tutorial_tower_clear = false

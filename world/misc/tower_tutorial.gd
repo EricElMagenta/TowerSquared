@@ -6,6 +6,9 @@ const level_3 := "tutorial_3.tscn"
 const level_4 := "tutorial_4.tscn"
 const level_5 := "tutorial_5.tscn"
 
+func _ready():
+	if GameManager.tutorial_tower_clear: $ClearFlag.visible = true
+
 var is_paused:bool = false:
 	set(value):
 		is_paused = value

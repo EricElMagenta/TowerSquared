@@ -9,6 +9,7 @@ extends Node2D
 @onready var health_container = $CanvasLayer/HealthContainer
 @onready var door_stone = $DoorStone
 @onready var scene_transition = $SceneTransition
+@onready var secret_door = $SecretDoor
 
 var is_on_shooting_range = false
 var open_wahhll_count = 0
@@ -31,6 +32,9 @@ func _ready():
 	button_2.kill_wall.connect(open_wahhll)
 	button_3.kill_wall.connect(open_wahhll)
 
+	if $Player: $Player.enter_secret_door.connect(entering_secret_door)
+	else: return
+
 
 func open_wahhll():
 	open_wahhll_count += 1
@@ -40,3 +44,6 @@ func go_to_next_level():
 	scene_transition.next_level_transition()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().call_deferred("change_scene_to_packed", next_level)
+
+func entering_secret_door():
+	get_tree().change_scene_to_file("res://world/misc/floor_bar.tscn")

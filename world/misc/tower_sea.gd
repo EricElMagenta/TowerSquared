@@ -8,6 +8,8 @@ const level_5 := "sea_tower_5.tscn"
 const level_6 := "sea_tower_6.tscn"
 const level_7 := "sea_tower_7.tscn"
 
+func _ready():
+	if GameManager.tutorial_tower_clear: $ClearFlag.visible = true
 
 var is_paused:bool = false:
 	set(value):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ded4idbhp5n0x"]
+[gd_scene load_steps=8 format=3 uid="uid://ded4idbhp5n0x"]
 
 [ext_resource type="Texture2D" uid="uid://dd5miyjlun3v8" path="res://assets/world/tower-sea.png" id="1_1oadx"]
 [ext_resource type="Script" path="res://world/misc/tower_sea.gd" id="1_l3ewo"]
+[ext_resource type="PackedScene" uid="uid://dh6n5v3arm625" path="res://world/clear_flag.tscn" id="2_gmred"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqvlq"]
 size = Vector2(28, 19)
@@ -16,6 +17,9 @@ size = Vector2(28, 19)
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("1_l3ewo")
+
+[node name="ClearFlag" parent="." instance=ExtResource("2_gmred")]
+position = Vector2(2, -50)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1oadx")

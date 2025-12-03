@@ -58,6 +58,13 @@ func Physics_Update(delta:float):
 			
 			if area.name.to_lower() == "door": 
 				parent.talk_prompt.visible = true
+			
+			if GameManager.scared_guard && area.name.to_lower() == "secretdoor":
+				parent.talk_prompt.visible = true
+
+			if area.has_method("change_music"):
+				parent.talk_prompt.visible = true
+
 
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0:
