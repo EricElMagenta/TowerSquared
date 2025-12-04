@@ -8,7 +8,25 @@ const level_5 := "sea_tower_5.tscn"
 const level_6 := "sea_tower_6.tscn"
 const level_7 := "sea_tower_7.tscn"
 
+#NODOS
+@onready var button_level_1 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level1
+@onready var button_level_2 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level2
+@onready var button_level_3 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level3
+@onready var button_level_4 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level4
+@onready var button_level_5 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level5
+@onready var button_level_6 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level6
+@onready var button_level_7 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level7
+
 func _ready():
+	# Mostrar niveles seleccionables
+	if GameManager.is_level_selectable("seatower", "sea_1"): button_level_1.visible = true
+	if GameManager.is_level_selectable("seatower", "sea_2"): button_level_2.visible = true
+	if GameManager.is_level_selectable("seatower", "sea_3"): button_level_3.visible = true
+	if GameManager.is_level_selectable("seatower", "sea_4"): button_level_4.visible = true
+	if GameManager.is_level_selectable("seatower", "sea_5"): button_level_5.visible = true
+	if GameManager.is_level_selectable("seatower", "sea_6"): button_level_6.visible = true
+	if GameManager.is_level_selectable("seatower", "sea_7"): button_level_7.visible = true
+
 	if GameManager.tutorial_tower_clear: $ClearFlag.visible = true
 
 var is_paused:bool = false:

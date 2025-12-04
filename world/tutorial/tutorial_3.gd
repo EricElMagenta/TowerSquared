@@ -29,6 +29,9 @@ func _ready():
 	button.button_pressed.connect(open_dohhr)
 	door_stone.sprite_2d.frame = 1
 
+	#MARCA EL NIVEL COMO SELECCIONABLE
+	GameManager.mark_level_as_selectable("tutorialtower", "tutorial_3")
+
 func go_to_next_level():
 	scene_transition.next_level_transition()
 	await get_tree().create_timer(0.5).timeout

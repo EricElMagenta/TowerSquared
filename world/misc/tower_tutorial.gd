@@ -1,12 +1,27 @@
 extends Area2D
 
+#CONSTANTES
 const level_1 := "tutorial_1.tscn"
 const level_2 := "tutorial_2.tscn"
 const level_3 := "tutorial_3.tscn"
 const level_4 := "tutorial_4.tscn"
 const level_5 := "tutorial_5.tscn"
 
+#NODOS
+@onready var button_level_1 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level1
+@onready var button_level_2 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level2
+@onready var button_level_3 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level3
+@onready var button_level_4 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level4
+@onready var button_level_5 = $CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer/Level5
+
 func _ready():
+	# Mostrar niveles seleccionables
+	if GameManager.is_level_selectable("tutorialtower", "tutorial_1"): button_level_1.visible = true
+	if GameManager.is_level_selectable("tutorialtower", "tutorial_2"): button_level_2.visible = true
+	if GameManager.is_level_selectable("tutorialtower", "tutorial_3"): button_level_3.visible = true
+	if GameManager.is_level_selectable("tutorialtower", "tutorial_4"): button_level_4.visible = true
+	if GameManager.is_level_selectable("tutorialtower", "tutorial_5"): button_level_5.visible = true
+
 	if GameManager.tutorial_tower_clear: $ClearFlag.visible = true
 
 var is_paused:bool = false:

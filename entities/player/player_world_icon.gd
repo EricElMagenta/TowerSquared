@@ -60,7 +60,7 @@ func handle_animation(input_direction):
 func detect_zone():
 	for area in zone_detect.get_overlapping_areas():
 		if Input.is_action_just_pressed(actions.action):
-			if area.has_method("toogle_level_selector") && area.is_tower_cleared():
+			if area.has_method("toogle_level_selector") && GameManager.is_level_selectable(area.name.to_lower(), (area.name.erase(len(area.name)-5, len(area.name))+"_1").to_lower()):
 				area.toogle_level_selector()
 				GameManager.player_map_position = area.position + Vector2(0, 30)
 			

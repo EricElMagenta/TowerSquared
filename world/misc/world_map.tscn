@@ -33,7 +33,7 @@ position = Vector2(196, 111)
 [node name="TowerTechno" parent="." instance=ExtResource("5_27k7b")]
 position = Vector2(447, 109)
 
-[node name="TowerSea" parent="." instance=ExtResource("6_40v8w")]
+[node name="SeaTower" parent="." instance=ExtResource("6_40v8w")]
 position = Vector2(258, -117)
 
 [node name="WorldPlaza" parent="." instance=ExtResource("7_skcb8")]

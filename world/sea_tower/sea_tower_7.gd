@@ -23,6 +23,10 @@ func _ready():
 	# VIDA DEL JUGADOR
 	health_container.set_max_health(player.player_data.max_health)
 	player.health_changed.connect(health_container.update_health)
+
+	#MARCA EL NIVEL COMO SELECCIONABLE
+	GameManager.mark_level_as_selectable("seatower", "sea_7")
+
 	
 func go_to_next_level():
 	GameManager.sea_tower_clear = true

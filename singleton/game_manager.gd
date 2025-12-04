@@ -14,6 +14,32 @@ var player_plaza_position := Vector2(-421, 70)
 var player_bar_enter_door_position := Vector2(47, 163)
 var player_map_position := Vector2(195, 141)
 
+# SELECCIÓN DE NIVELES (COMPLETADOS)
+var cleared_levels = {
+	"tutorialtower" = {
+		"tutorial_1" : false,
+		"tutorial_2" : false,
+		"tutorial_3" : false,
+		"tutorial_4" : false,
+		"tutorial_5" : false
+	},
+	"seatower" = {
+		"sea_1" : false,
+		"sea_2" : false,
+		"sea_3" : false,
+		"sea_4" : false,
+		"sea_5" : false,
+		"sea_6" : false,
+		"sea_7" : false
+	}
+}
+
+func mark_level_as_selectable(tower:String, level:String):
+	cleared_levels[tower][level] = true
+
+func is_level_selectable(tower:String, level:String):
+	if cleared_levels[tower][level]: return true
+	return false
 
 # TORRES CONQUISTADAS
 var tutorial_tower_clear = false

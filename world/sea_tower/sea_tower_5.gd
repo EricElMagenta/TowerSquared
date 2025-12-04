@@ -34,6 +34,10 @@ func _ready():
 	button_2.kill_wall.connect(open_wahhll)
 	door_stone.sprite_2d.frame = 1
 
+	#MARCA EL NIVEL COMO SELECCIONABLE
+	GameManager.mark_level_as_selectable("seatower", "sea_5")
+
+
 func open_dohhr():
 	door_stone.sprite_2d.frame = 0
 

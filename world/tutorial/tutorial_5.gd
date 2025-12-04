@@ -25,6 +25,9 @@ func _ready():
 	health_container.set_max_health(player.player_data.max_health)
 	player.health_changed.connect(health_container.update_health)
 
+	#MARCA EL NIVEL COMO SELECCIONABLE
+	GameManager.mark_level_as_selectable("tutorialtower", "tutorial_5")
+
 func go_to_next_level():
 	GameManager.tutorial_tower_clear = true
 	scene_transition.next_level_transition()

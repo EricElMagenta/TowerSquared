@@ -73,7 +73,8 @@ sprite_frames = SubResource("SpriteFrames_o87rn")
 dialogue = "tutorial_question_floor_1"
 
 [node name="Player" parent="." instance=ExtResource("3_i03aw")]
-position = Vector2(78, 77)
+position = Vector2(1146, -291)
+metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -85,7 +86,7 @@ position = Vector2(-1, 0)
 position = Vector2(719, 32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(78, 77)
+position = Vector2(1146, -291)
 offset = Vector2(0, -50)
 limit_left = -190
 

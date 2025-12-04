@@ -62,6 +62,7 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Level1" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
@@ -70,6 +71,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
 text = "1"
 
 [node name="Level2" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
@@ -78,6 +80,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
 text = "2"
 
 [node name="Level3" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
@@ -86,6 +89,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
 text = "3"
 
 [node name="Level4" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
@@ -94,6 +98,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
 text = "4"
 
 [node name="Level5" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
@@ -102,6 +107,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
 text = "5"
 
 [node name="Level6" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
@@ -110,6 +116,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_usyq7")
 text = "6"
 
 [node name="Level7" type="Button" parent="CanvasLayer/LevelSelectorSea/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxEmpty_brvio")
