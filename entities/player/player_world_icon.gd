@@ -6,6 +6,7 @@ extends CharacterBody2D
 # NODOS
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var zone_detect = $ZoneDetect
+@onready var talk_prompt = $TalkPrompt
 
 # VARIABLES
 const SPEED = 100
@@ -13,6 +14,7 @@ const SHARK_SPRITE_OFFSET = 30
 
 ##################################### FUNCIONES PRINCIPALES ###############################
 func _ready():
+	talk_prompt.visible = false
 	animated_sprite_2d.play("idle")
 	if GameManager.sharked_player: animated_sprite_2d.offset.y -= SHARK_SPRITE_OFFSET
 	position = GameManager.player_map_position
@@ -59,7 +61,7 @@ func handle_animation(input_direction):
 
 func detect_zone():
 	for area in zone_detect.get_overlapping_areas():
-		if Input.is_action_just_pressed(actions.action):
+		if Input.is_action_just_pressed(actions.talk):
 			if area.has_method("toogle_level_selector") && GameManager.is_level_selectable(area.name.to_lower(), (area.name.erase(len(area.name)-5, len(area.name))+"_1").to_lower()):
 				area.toogle_level_selector()
 				GameManager.player_map_position = area.position + Vector2(0, 30)
@@ -68,8 +70,19 @@ func detect_zone():
 				area.go_to_next_zone()
 				GameManager.player_map_position = area.position + Vector2(0, 30)
 
-			else: print(" no está disponible por ahora")
+			else:
+				AudioManager.play_inavlid_action()
+				$NotAvailablePanel.visible = true
+				await get_tree().create_timer(1).timeout
+				$NotAvailablePanel.visible = false
 
 func _on_zone_detect_area_entered(area):
 	if area is Area2D:
+		talk_prompt.visible = true
 		AudioManager.play_map_zone_notification()
+
+
+func _on_zone_detect_area_exited(area:Area2D):
+	if area is Area2D:
+		talk_prompt.visible = false
+

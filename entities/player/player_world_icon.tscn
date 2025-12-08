@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5mluh6cdtwub"]
+[gd_scene load_steps=20 format=3 uid="uid://5mluh6cdtwub"]
 
 [ext_resource type="Script" path="res://entities/player/player_world_icon.gd" id="1_sq4n2"]
 [ext_resource type="Resource" uid="uid://fi706ut52ub3" path="res://entities/player/player_resources/player_input_actions.tres" id="2_7rvhl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dh1lfbjk5d2d1" path="res://assets/player/player-world-icon-sheet12.png" id="7_c3n3h"]
 [ext_resource type="Texture2D" uid="uid://db118toec87su" path="res://assets/player/player-world-icon-sheet9.png" id="8_5xon1"]
 [ext_resource type="Texture2D" uid="uid://dkd2de12c3h5l" path="res://assets/player/player-world-icon-sheet10.png" id="9_lwty5"]
+[ext_resource type="PackedScene" uid="uid://cg73ce71qhivk" path="res://ui/text_box/talk_prompt.tscn" id="10_4ilo0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qylon"]
 size = Vector2(16, 6)
@@ -131,4 +132,22 @@ position = Vector2(-0.5, 4.75)
 shape = SubResource("RectangleShape2D_rfgfd")
 debug_color = Color(0.800593, 0.313805, 0.095456, 0.42)
 
+[node name="TalkPrompt" parent="." instance=ExtResource("10_4ilo0")]
+offset_top = -24.0
+offset_bottom = -24.0
+
+[node name="NotAvailablePanel" type="PanelContainer" parent="."]
+visible = false
+offset_left = -96.0
+offset_top = -40.0
+offset_right = 16.0
+offset_bottom = 22.0
+
+[node name="RichTextLabel" type="Label" parent="NotAvailablePanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "not_available"
+horizontal_alignment = 1
+
 [connection signal="area_entered" from="ZoneDetect" to="." method="_on_zone_detect_area_entered"]
+[connection signal="area_exited" from="ZoneDetect" to="." method="_on_zone_detect_area_exited"]

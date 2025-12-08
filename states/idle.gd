@@ -28,8 +28,8 @@ func Physics_Update(delta:float):
 	
 	###################### HABILIDADES ################################
 	# SWAP DE PISOS
-	if Input.is_action_just_pressed(parent.actions.swap_up): parent.swap_floors("up")
-	if Input.is_action_just_pressed(parent.actions.swap_down): parent.swap_floors("down")
+	if Input.is_action_just_pressed(parent.actions.swap_up) && parent.floor_manager.get_total_floors() > 1: parent.swap_floors("up")
+	if Input.is_action_just_pressed(parent.actions.swap_down) && parent.floor_manager.get_total_floors() > 1: parent.swap_floors("down")
 
 	# DISPARA AL HACER CLICK SI TIENE OJOS
 	if parent.get_floor_count("eye_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
@@ -59,24 +59,24 @@ func Physics_Update(delta:float):
 				parent.talk_prompt.visible = true
 				
 				# Habla con el NPC si se oprime el botón
-				if Input.is_action_just_pressed(parent.actions.up):
+				if Input.is_action_just_pressed(parent.actions.talk):
 					area.talk_to_player()
 					state_transition.emit(self, "Talking")
 					parent.talking_to = area
 
 			if area.has_method("change_music"):
 				parent.talk_prompt.visible = true
-				if Input.is_action_just_pressed(parent.actions.up):
+				if Input.is_action_just_pressed(parent.actions.talk):
 					area.change_music()
 
 			if area.name.to_lower() == "door": 
 				parent.talk_prompt.visible = true
-				if Input.is_action_just_pressed(parent.actions.up):
+				if Input.is_action_just_pressed(parent.actions.talk):
 					parent.enter_door.emit()
 
 			if GameManager.scared_guard && area.name.to_lower() == "secretdoor":
 				parent.talk_prompt.visible = true
-				if Input.is_action_just_pressed(parent.actions.up):
+				if Input.is_action_just_pressed(parent.actions.talk):
 					parent.enter_secret_door.emit()
 
 	

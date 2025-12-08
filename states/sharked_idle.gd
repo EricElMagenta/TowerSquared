@@ -29,19 +29,19 @@ func Physics_Update(delta:float):
                 parent.talk_prompt.visible = true
                 
                 # Habla con el NPC si se oprime el botón
-                if Input.is_action_just_pressed(parent.actions.up):
+                if Input.is_action_just_pressed(parent.actions.talk):
                     area.talk_to_player()
                     state_transition.emit(self, "SharkedTalk")
                     parent.talking_to = area
 
             if area.name.to_lower() == "door": 
                 parent.talk_prompt.visible = true
-                if Input.is_action_just_pressed(parent.actions.up):
+                if Input.is_action_just_pressed(parent.actions.talk):
                     parent.enter_door.emit()
 
             if GameManager.scared_guard && area.name.to_lower() == "secretdoor":
                 parent.talk_prompt.visible = true
-                if Input.is_action_just_pressed(parent.actions.up):
+                if Input.is_action_just_pressed(parent.actions.talk):
                     parent.enter_secret_door.emit()
 
 func Exit():

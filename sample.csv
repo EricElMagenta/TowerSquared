@@ -67,11 +67,11 @@ suspicious_floor_greet,I know nothing!,¡No sé nada!
 demifloor_greet,I'm looking for the horned beast.,Busco a la bestia con cuernos.
 lucifloor_greet,Why does that floor want to hit me?,¿Por qué ese piso quiere golpearme?
 bart_floor_greet,I don't talk to losers.,No hablo con perdedores.
-floormon_greet,Hi. I'm Floormon.,Hola. Me llamo Pisomon.
-curious_floor_greet,What kind of floor is this?,¿Qué piso es este?
+floormon_greet,Hi. I'm Floormon.,Hola. Soy Pisomon.
+curious_floor_greet,What kind of floor is this?,¿Qué clase de piso es este?
 swing_floor_greet,Don't push me. I'll get dizzy.,No me empujes que me mareo.
 funky_floor_greet,Hey dude! Show those towers who is the boss!,¡Hola amigo! ¡Muéstrale a esas torres quién es el jefe!
-caveman_floor_greet,Me like place.,Yo gustar aquí.
+caveman_floor_greet,Me like place.,Yo gustar lugar.
 guard_floor_greet,Go away! Nothing to see here.,¡Lárgate! No hay nada que ver aquí.
 guard_floor_scared_greet,Nobody told me what to do in cases like this!,¡Nadie me dijo qué hacer en casos como este!
 bartender_floor_greet,I heard the guard is afraid of sharks.,Escuché que el guardia le tiene terror a los tiburones.
@@ -84,4 +84,7 @@ select_sea,Sea Tower,Torre del Mar
 select_air,Air Tower,Torre del Aire
 select_techno,Techno Tower,Torre Tecno
 select_exit,Exit,Salir
+not_available,Not available in demo.,No disponible en la demo.
+,,
+#MAPA,,
 not_available,Not available in demo.,No disponible en la demo.

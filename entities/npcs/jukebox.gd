@@ -1,5 +1,5 @@
 extends Area2D
-var songs = ["secret_level", "tutorial_tower", "floor_plaza", "sea_tower", "world_map", "techno_tower"]
+var songs = ["secret_level", "tutorial_tower", "floor_plaza", "sea_tower", "world_map", "techno_tower", "menu"]
 
 func _ready():
     if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "tutorial_tower": AudioManager.change_song(songs[AudioManager.music_index])

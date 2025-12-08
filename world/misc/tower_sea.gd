@@ -27,7 +27,7 @@ func _ready():
 	if GameManager.is_level_selectable("seatower", "sea_6"): button_level_6.visible = true
 	if GameManager.is_level_selectable("seatower", "sea_7"): button_level_7.visible = true
 
-	if GameManager.tutorial_tower_clear: $ClearFlag.visible = true
+	if GameManager.sea_tower_clear: $ClearFlag.visible = true
 
 var is_paused:bool = false:
 	set(value):

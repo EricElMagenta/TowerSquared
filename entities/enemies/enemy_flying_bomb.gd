@@ -64,6 +64,7 @@ func handle_collisions():
 	
 func get_destroyed():
 	speed = 0
+	set_collision_layer_value(3, false)
 	hitbox.set_collision_mask_value(2, false)
 	AudioManager.play_explosion()
 	animated_sprite_2d.play("explode")

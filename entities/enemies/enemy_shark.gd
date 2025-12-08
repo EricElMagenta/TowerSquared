@@ -86,6 +86,7 @@ func hit_player():
 
 func get_destroyed():
 	ded = true
+	set_collision_layer_value(3, false)
 	hitbox.set_collision_mask_value(2, false)
 	hitbox.set_collision_mask_value(5, false)
 	animated_sprite_2d.play("explode")

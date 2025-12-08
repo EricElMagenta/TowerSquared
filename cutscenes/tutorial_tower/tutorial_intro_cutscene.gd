@@ -4,6 +4,7 @@ extends Node2D
 
 func play_sound():
 	GameManager.sharked_player = false
+	AudioManager.music.stop()
 	sfx.play()
 
 func go_next_scene():

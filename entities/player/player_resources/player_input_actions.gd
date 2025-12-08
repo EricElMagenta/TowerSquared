@@ -12,3 +12,4 @@ class_name PlayerInputActions
 @export var shoot 			: StringName = "shoot"
 @export var action			: StringName = "action"
 @export var stop_action		: StringName = "stop_action"
+@export var talk		: StringName = "talk"

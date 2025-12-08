@@ -12,6 +12,7 @@ func change_direction():
 
 func release_propeller():
 	$AnimatedSprite2D.play("idle")
+	AudioManager.play_explosion()
 	player.remote_transform_2d.set_update_position(true)
 
 # ACTIVA EL PROPULSOR (MIENTRAS MÁS SE CARGA, MÁS RÁPIDO AL SOLTAR)

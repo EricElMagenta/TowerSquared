@@ -142,6 +142,6 @@ position = Vector2(458, 66)
 texture = ExtResource("16_nfjny")
 
 [node name="NPC" parent="." instance=ExtResource("17_oxxwh")]
-position = Vector2(355, 177)
+position = Vector2(338, 177)
 sprite_frames = SubResource("SpriteFrames_clm8d")
 dialogue = "tutorial_question_floor_3"

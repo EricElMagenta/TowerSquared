@@ -20,8 +20,8 @@ func Physics_Update(delta:float):
 
 	###################### HABILIDADES ################################
 	# SWAP DE PISOS
-	if Input.is_action_just_pressed(parent.actions.swap_up): parent.swap_floors("up")
-	if Input.is_action_just_pressed(parent.actions.swap_down): parent.swap_floors("down")
+	if Input.is_action_just_pressed(parent.actions.swap_up) && parent.floor_manager.get_total_floors() > 1: parent.swap_floors("up")
+	if Input.is_action_just_pressed(parent.actions.swap_down) && parent.floor_manager.get_total_floors() > 1: parent.swap_floors("down")
 
 	# DISPARA AL HACER CLICK SI TIENE OJOS
 	if parent.get_floor_count("eye_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
