@@ -18,10 +18,10 @@ intro_game_story_4,A journey that turns kids into adults. This is your adventure
 ,,
 ,,
 # Recoger Power Ups,,
-item_normal_floor,"Does absolutely nothing, but now you are taller.","No hace absolutamente nada, pero ahora eres más alto."
+item_normal_floor,Does nothing.,No hace nada.
 item_eye_floor,Shoot fireballs from your eye.,Dispara fuego desde tu ojo.
 item_arm_floor,Grab and drop small objects.,Agarra y suelta objetos pequeños.
-item_winged_floor,"Air jump unlocked! The more wings, the more jumps.","¡Ahora puedes saltar en el aire! A más alas, más saltos."
+item_winged_floor,Enables air jump.,Permite saltar en el aire.
 item_mouth_floor,Devours enemy projectiles.,Devora proyectiles enemigos.
 item_propeller_floor,Charges speed underwater.,Carga velocidad en el agua.
 item_suck_floor,Sucks and spits out bubbles.,Succiona y escupe burbujas.

@@ -53,4 +53,4 @@ func get_carried(sucker:Floor) -> void:
 
 # Reventar burbuja
 func get_popped():
-	queue_free()
+	if !sucked:	queue_free()

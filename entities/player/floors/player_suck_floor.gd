@@ -12,6 +12,10 @@ func _ready():
 	player.action.connect(suck_bubble)
 	player.stop_action.connect(unsuck_bubble)
 
+func _process(_delta):
+	if !is_instance_valid(sucked_bubble):
+		animated_sprite_2d.play("idle")
+
 func change_direction():
 	if scale.x != player.dir: 
 		position.x += 24 * player.dir

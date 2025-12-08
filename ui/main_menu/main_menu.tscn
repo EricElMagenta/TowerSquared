@@ -98,16 +98,16 @@ offset_bottom = 173.0
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 6
 text = "Música usada:
+Virtual 3D (Giten Megami Tensei: Tokyo Mokushiroku)
 Grim Reaper's Cavern (Jack Bros),
 Sewer (Devil Summoner),
 2D Field (Devil Summoner),
-Little Bossa Nova (Giten Megami Tensei),
-Tin Pan (Giten Megami Tensei),
-Evolution (Majin Tensei 2: Spiral Nemesis),
+Little Bossa Nova (Giten Megami Tensei: Tokyo Mokushiroku),
+Tin Pan (Giten Megami Tensei: Tokyo Mokushiroku),
 Bonus Room Blitz (Donkey Kong Country),
 Bonus Room Lose (Donkey Kong Country),
 
-Tilesets por Eddiewoof."
+Tilesets del tutorial y nivel ????? por Eddiewoof."
 scroll_active = false
 
 [node name="ExitCreditButtons" type="Button" parent="."]
