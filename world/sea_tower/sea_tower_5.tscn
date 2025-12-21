@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cwo3gawjm25v7"]
+[gd_scene load_steps=33 format=4 uid="uid://cwo3gawjm25v7"]
 
 [ext_resource type="PackedScene" uid="uid://dt2t6ni34rqbr" path="res://world/sea_tower/sea_tower_tilemap.tscn" id="1_8ns7f"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_cfrtt"]
@@ -27,20 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="22_e1teh"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="23_a33jc"]
 [ext_resource type="Texture2D" uid="uid://dfxlu78qaln48" path="res://assets/misc/hint_arrow.png" id="23_rpcai"]
-[ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="24_xxhve"]
-[ext_resource type="Texture2D" uid="uid://dar261k52u7ft" path="res://assets/npc/question-floor.png" id="25_hdg6x"]
 [ext_resource type="Texture2D" uid="uid://beugetim4c86m" path="res://assets/misc/warning.png" id="26_n3pry"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0diw3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("25_hdg6x")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwsfa"]
 size = Vector2(83, 184)
@@ -246,11 +233,6 @@ texture = ExtResource("23_rpcai")
 [node name="HintArrow5" type="Sprite2D" parent="Hints"]
 position = Vector2(-645, -72)
 texture = ExtResource("23_rpcai")
-
-[node name="NPC" parent="Hints" instance=ExtResource("24_xxhve")]
-position = Vector2(240, -154)
-sprite_frames = SubResource("SpriteFrames_0diw3")
-dialogue = "tutorial_question_sea_4"
 
 [node name="Warning" type="Sprite2D" parent="Hints"]
 position = Vector2(566, -468)

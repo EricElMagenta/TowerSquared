@@ -65,7 +65,7 @@ tutorial_question_sea_6,The exit is right above us. You need something to go up.
 # FLOOR PLAZA,,
 suspicious_floor_greet,I know nothing!,¡No sé nada!
 demifloor_greet,I'm looking for the horned beast.,Busco a la bestia con cuernos.
-lucifloor_greet,Why does that floor want to hit me?,¿Por qué ese piso quiere golpearme?
+lucifloor_greet,Why does that floor want to punch me?,¿Por qué ese piso quiere golpearme?
 bart_floor_greet,I don't talk to losers.,No hablo con perdedores.
 floormon_greet,Hi. I'm Floormon.,Hola. Soy Pisomon.
 curious_floor_greet,What kind of floor is this?,¿Qué clase de piso es este?
