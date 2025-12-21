@@ -6,6 +6,7 @@ signal finished_displaying()
 # NODOS
 @onready var label = $MarginContainer/Label
 @onready var letter_display_timer = $LetterDisplayTimer
+@onready var exit_prompt = $NinePatchRect/ExitPrompt
 
 # VARIABLES
 const MAX_WIDTH = 256 # Textbox no puede tener un ancho mayor a 256 px
@@ -35,6 +36,8 @@ func display_text(text_to_display: String):
 		await resized 
 		await resized
 		custom_minimum_size.y = size.y
+
+	exit_prompt.position.y = size.y + 2
 	
 	# Posición de la text_box	
 	global_position.x -= size.x / 2

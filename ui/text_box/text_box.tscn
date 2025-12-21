@@ -15,7 +15,7 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
+[node name="ExitPrompt" type="Sprite2D" parent="NinePatchRect"]
 position = Vector2(16, 40)
 texture = ExtResource("3_jm5e8")
 
