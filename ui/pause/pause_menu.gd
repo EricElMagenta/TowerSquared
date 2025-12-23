@@ -1,6 +1,7 @@
 extends Control
 
 @onready var menu_container = $MenuContainer
+@onready var exit_btn = $MenuContainer/MarginContainer/GridContainer/HBoxContainer/ExitContainer
 
 # SETTER
 var is_paused:bool = false:
@@ -10,6 +11,10 @@ var is_paused:bool = false:
 		menu_container.visible = is_paused
 	
 ########################## FUNCIÓN PRINCIPAL ##############################
+func _ready():
+	if !GameManager.tutorial_tower_clear: exit_btn.visible = false
+	else: exit_btn.visible = true
+
 func _unhandled_input(event:InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		is_paused = !is_paused

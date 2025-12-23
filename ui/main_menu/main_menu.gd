@@ -5,6 +5,7 @@ extends Control
 
 func _ready():
 	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "menu": AudioManager.change_song("menu")
+	TranslationServer.set_locale("en")
 
 func _on_play_btn_pressed():
 	AudioManager.play_dialogue_sound()

@@ -48,7 +48,7 @@ sea_tower_end_6,The exit is over there.,La salida está por allá.
 ,,
 # NPC en torres,,
 tutorial_question_floor_1,Where are you going?,¿A dónde vas?
-tutorial_question_floor_2,"Congratulations, you know how to talk!","¡Felicidades, sabes hablar!"
+tutorial_question_floor_2,Press R to restart the level.,Apreta R para reiniciar el nivel.
 tutorial_question_floor_3,That button is too high. Get taller and shoot it.,Ese botón está demasiado alto. Busca pisos y dispárale.
 tutorial_question_floor_4,You could use those boxes... if you had a hand.,Podrías usar esas cajas... si tuvieras una mano.
 tutorial_question_floor_5,You can use boxes as a shield.,Puedes usar las cajas como escudo.

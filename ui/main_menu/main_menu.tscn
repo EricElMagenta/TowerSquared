@@ -77,15 +77,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "main_3"
 
-[node name="PanelContainerExot" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_2vbbu")
-
-[node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainerExot"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "main_4"
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 0
@@ -128,5 +119,4 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_1esf3")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerPlay/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerLang/LangBtn" to="." method="_on_lang_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerCredits/CreditsBtn" to="." method="_on_credits_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerExot/ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="ExitCreditButtons" to="." method="_on_exit_credit_buttons_pressed"]
