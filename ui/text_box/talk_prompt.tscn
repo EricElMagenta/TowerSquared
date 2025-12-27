@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg73ce71qhivk"]
 
 [ext_resource type="Script" path="res://ui/text_box/talk_prompt.gd" id="1_nav8c"]
-[ext_resource type="Texture2D" uid="uid://7iwqj225gg" path="res://assets/UI/prompt-e.png" id="2_a012r"]
+[ext_resource type="Texture2D" uid="uid://bqwbk8euhqb7f" path="res://assets/UI/prompt-e-or-x.png" id="2_5jnlj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4u46e"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_a012r")
+"texture": ExtResource("2_5jnlj")
 }],
 "loop": true,
 "name": &"default",

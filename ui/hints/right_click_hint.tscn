@@ -1,24 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://cokg054nu4edo"]
 
-[ext_resource type="Texture2D" uid="uid://gelb6q8esfu2" path="res://assets/UI/hint-right-click.png" id="1_60j3b"]
+[ext_resource type="Texture2D" uid="uid://cuhuqrsl5klj2" path="res://assets/UI/hint-right-click-kbd-Sheet.png" id="1_aqw82"]
 [ext_resource type="Script" path="res://ui/hints/left_click_hint.gd" id="2_6fwc8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l61rw"]
-atlas = ExtResource("1_60j3b")
-region = Rect2(0, 0, 22, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyt4v"]
+atlas = ExtResource("1_aqw82")
+region = Rect2(0, 0, 43, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_admwj"]
-atlas = ExtResource("1_60j3b")
-region = Rect2(22, 0, 22, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5har"]
+atlas = ExtResource("1_aqw82")
+region = Rect2(43, 0, 43, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_25jja"]
 animations = [{
 "frames": [{
 "duration": 10.0,
-"texture": SubResource("AtlasTexture_l61rw")
+"texture": SubResource("AtlasTexture_nyt4v")
 }, {
 "duration": 10.0,
-"texture": SubResource("AtlasTexture_admwj")
+"texture": SubResource("AtlasTexture_v5har")
 }],
 "loop": true,
 "name": &"default",
@@ -27,6 +27,5 @@ animations = [{
 
 [node name="RightClickHint" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_25jja")
-frame = 1
 frame_progress = 0.858748
 script = ExtResource("2_6fwc8")

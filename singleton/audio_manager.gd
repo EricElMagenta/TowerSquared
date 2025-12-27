@@ -2,6 +2,7 @@ extends Node
 
 @export var mute : bool = false
 @onready var music = $Music
+var sfx_muted = false
 
 var current_music : String
 var music_index = 0
@@ -16,57 +17,77 @@ func change_song(new_music:String):
 	else:
 		return
 
+func mute_music():
+	if !mute: 
+		music.playing = false
+		mute = true
+		
+	else: 
+		music.playing = true
+		mute = false
+
+
+func mute_sfx():
+	if !sfx_muted: 
+		AudioServer.set_bus_mute(2, true)
+		sfx_muted = true
+
+	else:
+		AudioServer.set_bus_mute(2, false)
+		sfx_muted = false
+		play_dialogue_sound()
+	
 ############################################### SONIDOS DEL JUGADOR ################################
 func play_jump() -> void:
-	if !mute: $Jump.play()
+	if !sfx_muted: $Jump.play()
 
 func play_get_floor() -> void:
-	if !mute: $GetFloor.play()
+	if !sfx_muted: $GetFloor.play()
 
 func play_shoot() -> void:
-	if !mute: $Shoot.play()
+	if !sfx_muted: $Shoot.play()
 
 func play_take_damage() -> void:
-	if !mute: $TakeDamage.play()
+	if !sfx_muted: $TakeDamage.play()
 
 func play_explosion() -> void:
-	if !mute: $Explosion.play()
+	if !sfx_muted: $Explosion.play()
 
 func play_grab_object() -> void:
-	if !mute: $GrabObject.play()
+	if !sfx_muted: $GrabObject.play()
 
 func play_drop_object() -> void:
-	if !mute: $DropObject.play()
+	if !sfx_muted: $DropObject.play()
 	
 func play_swap_floor() -> void:
-	if !mute: $SwapFloor.play()
+	if !sfx_muted: $SwapFloor.play()
 
 func play_inavlid_action() -> void:
-	if !mute: $InvalidAction.play()
+	if !sfx_muted: $InvalidAction.play()
 
 func play_dialogue_sound():
-	if !mute: $DialogueSound.play()
+	if !sfx_muted: $DialogueSound.play()
 	
 func play_water_splash():
-	if !mute: $WaterSplash.play()
+	if !sfx_muted: $WaterSplash.play()
 
 func play_chomp():
-	if !mute: $Chomp.play()
+	if !sfx_muted: $Chomp.play()
 
 ############################################### SONIDOS DE OBJETOS ################################
 func play_bullet_shot():
-	if !mute: $BulletShoot.play()
+	if !sfx_muted: $BulletShoot.play()
 	
 func play_box_explode():
-	if !mute: $BoxExplode.play()
+	if !sfx_muted: $BoxExplode.play()
 
 func play_button_press():
-	if !mute: $ButtonPress.play()
+	if !sfx_muted: $ButtonPress.play()
 
 ############################################### SONIDOS DEL MAPA ################################
 func play_map_zone_notification():
-	if !mute: $MapZoneNotification.play()
+	if !sfx_muted: $MapZoneNotification.play()
 
 ################################################### OTROS #######################################
 func play_peek():
-	if !mute: $Peek.play()
+	if !sfx_muted: $Peek.play()

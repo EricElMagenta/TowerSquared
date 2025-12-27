@@ -1,0 +1,137 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvbwwfmya17wu"]
+
+[ext_resource type="Theme" uid="uid://i8ek1ejvkff1" path="res://ui/theme_button.tres" id="1_0ue0c"]
+[ext_resource type="Script" path="res://ui/settings_menu/settings_menu.gd" id="1_legfj"]
+[ext_resource type="PackedScene" uid="uid://c1lfxjh8p51re" path="res://ui/settings_menu/volume_scroll.tscn" id="2_bqp2i"]
+[ext_resource type="Texture2D" uid="uid://cxmti3wypp88u" path="res://assets/UI/volume-grabber2.png" id="3_dtn3h"]
+[ext_resource type="Texture2D" uid="uid://bcexe2rl1u2h8" path="res://assets/UI/sfx-button-1.png" id="3_emki1"]
+[ext_resource type="Texture2D" uid="uid://d134foe0o0e1u" path="res://assets/UI/sfx-button-2.png" id="4_ip7vu"]
+[ext_resource type="Texture2D" uid="uid://b745eivc0t1rt" path="res://assets/UI/mute-btn-1.png" id="5_hhcqq"]
+[ext_resource type="Texture2D" uid="uid://cvnxlvoi23a3s" path="res://assets/UI/mute-btn-2.png" id="6_67jhv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6xex"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gd322"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7pgc"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwbfd"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxt6a"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_legfj")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -63.0
+offset_right = 52.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_bqp2i")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("3_dtn3h")
+theme_override_icons/grabber_highlight = ExtResource("3_dtn3h")
+theme_override_styles/slider = SubResource("StyleBoxFlat_m6xex")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_gd322")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_l7pgc")
+step = 0.001
+bus_name = "Music"
+
+[node name="SfxSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_bqp2i")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_constants/center_grabber = -1
+theme_override_icons/grabber = ExtResource("3_dtn3h")
+theme_override_icons/grabber_highlight = ExtResource("3_dtn3h")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_cwbfd")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_gxt6a")
+step = 0.001
+bus_name = "SFX"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="MuteBtn" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("3_emki1")
+texture_pressed = ExtResource("4_ip7vu")
+
+[node name="SfxBtn" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("5_hhcqq")
+texture_pressed = ExtResource("6_67jhv")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("1_0ue0c")
+
+[node name="BackBtn" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+text = "pause_4"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MuteBtn" to="." method="_on_mute_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SfxBtn" to="." method="_on_sfx_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/BackBtn" to="." method="_on_back_btn_pressed"]

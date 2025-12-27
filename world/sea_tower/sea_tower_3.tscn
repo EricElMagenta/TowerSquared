@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="13_1t7ht"]
 [ext_resource type="Texture2D" uid="uid://dfxlu78qaln48" path="res://assets/misc/hint_arrow.png" id="13_2tc03"]
 [ext_resource type="Texture2D" uid="uid://dar261k52u7ft" path="res://assets/npc/question-floor.png" id="14_oupdc"]
-[ext_resource type="Texture2D" uid="uid://dm13mond1q6bd" path="res://assets/UI/next.png" id="19_xxjlu"]
+[ext_resource type="Texture2D" uid="uid://qykygryj1ejt" path="res://assets/UI/action-wasd-kbd.png" id="19_q41aw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bbi8e"]
 animations = [{
@@ -194,6 +194,6 @@ metadata/_edit_lock_ = true
 
 [node name="SceneTransition" parent="." instance=ExtResource("12_dr1nq")]
 
-[node name="Next" type="Sprite2D" parent="."]
-position = Vector2(426, -30)
-texture = ExtResource("19_xxjlu")
+[node name="ActionHint" type="Sprite2D" parent="."]
+position = Vector2(407, -31)
+texture = ExtResource("19_q41aw")

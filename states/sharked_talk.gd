@@ -6,7 +6,7 @@ func Enter():
 	parent.talk_prompt.visible = false
 
 func Update(_delta:float):
-	if Input.is_action_just_pressed(parent.actions.action):
+	if Input.is_action_just_pressed(parent.actions.stop_talking):
 		DialogueManager.end_dialogue()
 		state_transition.emit(self, "SharkedIdle")
 	

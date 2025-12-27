@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bo24sebggm1v7" path="res://assets/world/tutorial_tower_background.png" id="3_8mh7m"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="3_084i6"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="4_68g8a"]
+[ext_resource type="Texture2D" uid="uid://cceh4y6rn640h" path="res://assets/UI/swapping-wasd-arrows.png" id="4_ypydw"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="5_jf5ve"]
 [ext_resource type="PackedScene" uid="uid://x8chpjjpgpgg" path="res://entities/objects/button.tscn" id="6_i6d8m"]
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="7_vqksp"]
@@ -15,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dlgi51sve5pnm" path="res://entities/enemies/enemy_flying_bomb.tscn" id="12_q6c85"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="13_amdd0"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="14_tl7wv"]
-[ext_resource type="Texture2D" uid="uid://cbqsyy4y7l1xs" path="res://assets/UI/swapping.png" id="15_oywor"]
 [ext_resource type="Texture2D" uid="uid://b6qkgu5q5ruus" path="res://assets/UI/arrow-1.png" id="16_nfjny"]
 [ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="17_oxxwh"]
 [ext_resource type="Texture2D" uid="uid://dar261k52u7ft" path="res://assets/npc/question-floor.png" id="18_teuy0"]
@@ -49,9 +49,9 @@ centered = false
 
 [node name="Hints" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Hints"]
+[node name="SwapHint" type="Sprite2D" parent="Hints"]
 position = Vector2(273, 139)
-texture = ExtResource("15_oywor")
+texture = ExtResource("4_ypydw")
 
 [node name="DoorStone" parent="." instance=ExtResource("5_jf5ve")]
 position = Vector2(474, 187)

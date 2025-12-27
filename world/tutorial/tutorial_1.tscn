@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c2xk2n4yqau76" path="res://entities/enemies/enemy_dynamite.tscn" id="2_ikdm2"]
 [ext_resource type="Texture2D" uid="uid://bo24sebggm1v7" path="res://assets/world/tutorial_tower_background.png" id="3_5ahj1"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="3_i03aw"]
+[ext_resource type="Texture2D" uid="uid://c0087p7trv181" path="res://assets/UI/arrows-and-wasd.png" id="6_7g0yn"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="7_6xl4q"]
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="8_7v6ap"]
 [ext_resource type="Texture2D" uid="uid://dar261k52u7ft" path="res://assets/npc/question-floor.png" id="9_8prkc"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="9_oeq48"]
-[ext_resource type="Texture2D" uid="uid://g3nqt8rx5jv" path="res://assets/UI/wasd.png" id="12_sjc6e"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="12_ys628"]
 [ext_resource type="Texture2D" uid="uid://j5roqpa6i0g4" path="res://assets/UI/space.png" id="13_w8p8q"]
 [ext_resource type="PackedScene" uid="uid://cxvd357xp22yb" path="res://entities/npcs/npc_dialogue.tscn" id="14_g1rq5"]
@@ -55,8 +55,8 @@ metadata/_edit_lock_ = true
 position = Vector2(-53, -2)
 
 [node name="WASD" type="Sprite2D" parent="Hints"]
-position = Vector2(78, 2)
-texture = ExtResource("12_sjc6e")
+position = Vector2(51, 2)
+texture = ExtResource("6_7g0yn")
 
 [node name="SPACE" type="Sprite2D" parent="Hints"]
 position = Vector2(150, 9)
@@ -73,7 +73,7 @@ sprite_frames = SubResource("SpriteFrames_o87rn")
 dialogue = "tutorial_question_floor_1"
 
 [node name="Player" parent="." instance=ExtResource("3_i03aw")]
-position = Vector2(24, 80)
+position = Vector2(68, 80)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -86,7 +86,7 @@ position = Vector2(-1, 0)
 position = Vector2(719, 32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(24, 80)
+position = Vector2(68, 80)
 offset = Vector2(0, -50)
 limit_left = -190
 

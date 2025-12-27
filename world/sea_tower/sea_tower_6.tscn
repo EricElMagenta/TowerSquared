@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://dvyvxa3c4tnn4" path="res://entities/power-up/floor_suck_item.tscn" id="5_y543c"]
 [ext_resource type="PackedScene" uid="uid://cokg054nu4edo" path="res://ui/hints/right_click_hint.tscn" id="9_ugeor"]
 [ext_resource type="Texture2D" uid="uid://b6qkgu5q5ruus" path="res://assets/UI/arrow-1.png" id="10_mceiw"]
+[ext_resource type="Texture2D" uid="uid://qykygryj1ejt" path="res://assets/UI/action-wasd-kbd.png" id="11_3hvn4"]
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="11_ap73w"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="12_w8xnw"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="13_dmc7w"]
-[ext_resource type="Texture2D" uid="uid://dm13mond1q6bd" path="res://assets/UI/next.png" id="13_ibqrn"]
 [ext_resource type="Texture2D" uid="uid://dfxlu78qaln48" path="res://assets/misc/hint_arrow.png" id="18_dejgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uanpw"]
@@ -192,9 +192,9 @@ position = Vector2(737, -102)
 rotation = 1.5708
 texture = ExtResource("10_mceiw")
 
-[node name="ActionHint" type="Sprite2D" parent="Hints"]
-position = Vector2(568, -115)
-texture = ExtResource("13_ibqrn")
+[node name="ActionHint" type="Sprite2D" parent="."]
+position = Vector2(564, -122)
+texture = ExtResource("11_3hvn4")
 
 [node name="Player" parent="." instance=ExtResource("2_3ilt1")]
 position = Vector2(124, -91)

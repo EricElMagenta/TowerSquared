@@ -45,7 +45,7 @@ tile_map_data = PackedByteArray("AAANAAEAAAAEAAQAAAAMAAEAAAABAAYAAAALAAEAAAABAAY
 position = Vector2(5, 179)
 
 [node name="Player" parent="." instance=ExtResource("3_i03aw")]
-position = Vector2(-50, 63)
+position = Vector2(-1, 60)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -55,7 +55,7 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(0, -3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-50, 63)
+position = Vector2(-1, 60)
 offset = Vector2(0, -50)
 
 [node name="DamagedBox" parent="." instance=ExtResource("4_2h462")]

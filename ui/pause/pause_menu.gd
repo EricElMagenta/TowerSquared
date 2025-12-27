@@ -29,3 +29,8 @@ func _on_exit_level_button_pressed():
 
 func _on_pause_button_pressed():
 	is_paused = !is_paused
+
+
+func _on_options_button_pressed():
+	AudioManager.play_dialogue_sound()
+	$SettingsMenu.visible = true

@@ -1,24 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://be1rb2x0p1vpt"]
 
-[ext_resource type="Texture2D" uid="uid://6w6nr04dwg64" path="res://assets/UI/hint-left-click.png" id="1_8m03h"]
+[ext_resource type="Texture2D" uid="uid://caw1wwp44sert" path="res://assets/UI/hint-left-click-kbd-Sheet.png" id="1_le5pt"]
 [ext_resource type="Script" path="res://ui/hints/left_click_hint.gd" id="2_w48vg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fties"]
-atlas = ExtResource("1_8m03h")
-region = Rect2(0, 0, 22, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6kop"]
+atlas = ExtResource("1_le5pt")
+region = Rect2(0, 0, 43, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nxo6i"]
-atlas = ExtResource("1_8m03h")
-region = Rect2(22, 0, 22, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd5al"]
+atlas = ExtResource("1_le5pt")
+region = Rect2(43, 0, 43, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_25jja"]
 animations = [{
 "frames": [{
 "duration": 10.0,
-"texture": SubResource("AtlasTexture_fties")
+"texture": SubResource("AtlasTexture_w6kop")
 }, {
 "duration": 10.0,
-"texture": SubResource("AtlasTexture_nxo6i")
+"texture": SubResource("AtlasTexture_hd5al")
 }],
 "loop": true,
 "name": &"default",
@@ -27,5 +27,4 @@ animations = [{
 
 [node name="LeftClickHint" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_25jja")
-frame_progress = 0.710184
 script = ExtResource("2_w48vg")

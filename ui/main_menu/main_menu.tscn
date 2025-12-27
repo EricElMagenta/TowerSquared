@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnapw4wt8avbd"]
+[gd_scene load_steps=11 format=3 uid="uid://cnapw4wt8avbd"]
 
 [ext_resource type="Theme" uid="uid://i8ek1ejvkff1" path="res://ui/theme_button.tres" id="1_2vbbu"]
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_dl7wy"]
 [ext_resource type="Texture2D" uid="uid://dukfogiyc2h55" path="res://assets/UI/main_screen.png" id="2_fqon0"]
+[ext_resource type="PackedScene" uid="uid://dvbwwfmya17wu" path="res://ui/settings_menu/settings_menu.tscn" id="4_ratk2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vayls"]
 
@@ -72,10 +73,19 @@ text = "main_2"
 layout_mode = 2
 theme = ExtResource("1_2vbbu")
 
-[node name="CreditsBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainerCredits"]
+[node name="SettingsBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainerCredits"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "main_3"
+
+[node name="PanelContainerCredits2" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2vbbu")
+
+[node name="CreditsBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainerCredits2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "main_4"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
@@ -98,7 +108,7 @@ Tin Pan (Giten Megami Tensei: Tokyo Mokushiroku),
 Bonus Room Blitz (Donkey Kong Country),
 Bonus Room Lose (Donkey Kong Country),
 
-Tilesets del tutorial y nivel ????? por Eddiewoof."
+Tilesets del tutorial y nivel secreto por Eddiewoof."
 scroll_active = false
 
 [node name="ExitCreditButtons" type="Button" parent="."]
@@ -116,7 +126,12 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_mqgrj")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4k7d3")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1esf3")
 
+[node name="SettingsMenu" parent="." instance=ExtResource("4_ratk2")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerPlay/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerLang/LangBtn" to="." method="_on_lang_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerCredits/CreditsBtn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerCredits/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainerCredits2/CreditsBtn" to="." method="_on_credits_btn_pressed"]
 [connection signal="pressed" from="ExitCreditButtons" to="." method="_on_exit_credit_buttons_pressed"]

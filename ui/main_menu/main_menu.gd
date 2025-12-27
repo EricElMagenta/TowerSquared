@@ -2,6 +2,7 @@ extends Control
 
 @onready var credits_panel = $PanelContainer
 @onready var exit_credits_panel = $ExitCreditButtons
+@onready var settings_menu = $SettingsMenu
 
 func _ready():
 	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "menu": AudioManager.change_song("menu")
@@ -21,10 +22,11 @@ func _on_credits_btn_pressed():
 	credits_panel.visible = true
 	AudioManager.play_dialogue_sound()
 
-func _on_exit_btn_pressed():
-	AudioManager.play_dialogue_sound()
-	get_tree().quit()
 
+func _on_settings_btn_pressed():
+	settings_menu.visible = true
+	AudioManager.play_dialogue_sound()
+	
 
 func _on_exit_credit_buttons_pressed():
 	exit_credits_panel.visible = false
