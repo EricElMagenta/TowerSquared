@@ -1,7 +1,7 @@
 extends Control
 
-@onready var mute_btn = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MuteBtn
-@onready var sfx_btn = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SfxBtn
+@onready var mute_btn = $PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer/MuteBtn
+@onready var sfx_btn = $PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer/SfxBtn
 var aux_texture = null
 var aux_texture_1 = null
 
@@ -30,3 +30,8 @@ func _on_back_btn_pressed():
 
 func _on_sfx_btn_pressed():
 	AudioManager.mute_sfx()
+
+
+func _on_control_btn_pressed():
+	AudioManager.play_dialogue_sound()
+	$ControlMenu.visible = true

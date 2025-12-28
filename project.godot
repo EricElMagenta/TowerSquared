@@ -162,8 +162,13 @@ stop_talking={
 
 [internationalization]
 
+locale/translation_remaps={
+"res://assets/UI/controls-kbd-mouse_en.png": PackedStringArray("res://assets/UI/controls-kbd-mouse_en.png:en", "res://assets/UI/control-kbd-mouse_es.png:es"),
+"res://assets/UI/controls-kbd_en.png": PackedStringArray("res://assets/UI/controls-kbd_en.png:en", "res://assets/UI/control-kbd_es.png:es")
+}
 locale/translations=PackedStringArray("res://sample.es.translation", "res://sample.en.translation")
 locale/fallback=""
+locale/locale_filter_mode=0
 
 [layer_names]
 

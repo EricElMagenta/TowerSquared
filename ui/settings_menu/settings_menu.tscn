@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvbwwfmya17wu"]
+[gd_scene load_steps=15 format=3 uid="uid://dvbwwfmya17wu"]
 
 [ext_resource type="Theme" uid="uid://i8ek1ejvkff1" path="res://ui/theme_button.tres" id="1_0ue0c"]
 [ext_resource type="Script" path="res://ui/settings_menu/settings_menu.gd" id="1_legfj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d134foe0o0e1u" path="res://assets/UI/sfx-button-2.png" id="4_ip7vu"]
 [ext_resource type="Texture2D" uid="uid://b745eivc0t1rt" path="res://assets/UI/mute-btn-1.png" id="5_hhcqq"]
 [ext_resource type="Texture2D" uid="uid://cvnxlvoi23a3s" path="res://assets/UI/mute-btn-2.png" id="6_67jhv"]
+[ext_resource type="PackedScene" uid="uid://b0x82bsqglx0n" path="res://ui/control_menu/control_menu.tscn" id="9_b6vr6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6xex"]
 bg_color = Color(0, 0, 0, 1)
@@ -66,18 +67,24 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_bqp2i")]
+[node name="MusicSlider" parent="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer2" instance=ExtResource("2_bqp2i")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -90,7 +97,8 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_l7pgc")
 step = 0.001
 bus_name = "Music"
 
-[node name="SfxSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_bqp2i")]
+[node name="SfxSlider" parent="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer2" instance=ExtResource("2_bqp2i")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -102,36 +110,52 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_gxt6a")
 step = 0.001
 bus_name = "SFX"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 
-[node name="MuteBtn" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MuteBtn" type="TextureButton" parent="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 toggle_mode = true
 texture_normal = ExtResource("3_emki1")
 texture_pressed = ExtResource("4_ip7vu")
 
-[node name="SfxBtn" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="SfxBtn" type="TextureButton" parent="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 toggle_mode = true
 texture_normal = ExtResource("5_hhcqq")
 texture_pressed = ExtResource("6_67jhv")
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme = ExtResource("1_0ue0c")
 
-[node name="BackBtn" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+[node name="BackBtn" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 10
 text = "pause_4"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MuteBtn" to="." method="_on_mute_btn_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SfxBtn" to="." method="_on_sfx_btn_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/BackBtn" to="." method="_on_back_btn_pressed"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_0ue0c")
+
+[node name="ControlBtn" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer3/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+text = "pause_5"
+
+[node name="ControlMenu" parent="." instance=ExtResource("9_b6vr6")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer/MuteBtn" to="." method="_on_mute_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer/SfxBtn" to="." method="_on_sfx_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer3/VBoxContainer/PanelContainer/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer3/PanelContainer/ControlBtn" to="." method="_on_control_btn_pressed"]
