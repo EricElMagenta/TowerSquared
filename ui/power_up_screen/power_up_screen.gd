@@ -23,10 +23,10 @@ func _process(_delta):
 		if !floor_showed: show_new_floor(floor_type)
 		is_paused = true
 	
-#	Quita la pausa y la ventana
-	if Input.is_action_just_pressed("next"):
-		if parent_power_up: parent_power_up.queue_free()
-		is_paused = false
+	#	Quita la pausa y la ventana
+		if Input.is_action_just_pressed("next"):
+			if parent_power_up: parent_power_up.queue_free()
+			is_paused = false
 
 # INICIALIZA LA VENTANA CON LA INFORMACIÓN DEL POWER UP
 func init(power_up:Area2D, new_floor_tpye:String):

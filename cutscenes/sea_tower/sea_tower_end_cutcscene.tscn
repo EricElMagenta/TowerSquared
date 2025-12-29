@@ -965,6 +965,7 @@ autoplay = "sea_tower_end_cutscene"
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 743.0

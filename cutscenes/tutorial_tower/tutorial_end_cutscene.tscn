@@ -195,6 +195,18 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector2(145, 65), Vector2(145, 65), Vector2(147, 74)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Sound:bus")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"SFX"]
+}
 
 [sub_resource type="Animation" id="Animation_ix7bw"]
 length = 0.001
@@ -318,6 +330,18 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(145, 65)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sound:bus")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"SFX"]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1brgd"]
 _data = {
@@ -377,3 +401,4 @@ texture = ExtResource("3_487ni")
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6acxa")
 volume_db = -18.0
+bus = &"SFX"

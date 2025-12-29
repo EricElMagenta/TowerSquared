@@ -211,3 +211,4 @@ autoplay = "intro_tutorial"
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3moae")
 volume_db = -18.0
+bus = &"SFX"
