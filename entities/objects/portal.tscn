@@ -1,0 +1,168 @@
+[gd_scene load_steps=21 format=3 uid="uid://c7rmqwr51hpl7"]
+
+[ext_resource type="Script" path="res://entities/objects/portal.gd" id="1_ee6cq"]
+[ext_resource type="Texture2D" uid="uid://e4noawvou5rt" path="res://assets/projectiles/portals_sheet.png" id="1_qrei2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j01c3"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(0, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kasff"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(22, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saqsw"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(22, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0mmk"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(0, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0r4q"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(44, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07i25"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(66, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rqps"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(88, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw803"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(110, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmbqg"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(0, 21, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u82ko"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(22, 21, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv5nc"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(22, 21, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qelsr"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(0, 21, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aikrn"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(44, 21, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjqrm"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(66, 21, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1flog"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(88, 21, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv85u"]
+atlas = ExtResource("1_qrei2")
+region = Rect2(110, 21, 22, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3gdom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j01c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kasff")
+}],
+"loop": false,
+"name": &"A",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saqsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0mmk")
+}],
+"loop": false,
+"name": &"A_erase",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0r4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07i25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rqps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw803")
+}],
+"loop": true,
+"name": &"A_loop",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmbqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u82ko")
+}],
+"loop": false,
+"name": &"Z",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv5nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qelsr")
+}],
+"loop": false,
+"name": &"Z_erase",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aikrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjqrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1flog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv85u")
+}],
+"loop": true,
+"name": &"Z_loop",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2pdl"]
+
+[node name="Portal" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_ee6cq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3gdom")
+animation = &"Z_erase"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a2pdl")
+debug_color = Color(0.828161, 0.00150784, 0.949239, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

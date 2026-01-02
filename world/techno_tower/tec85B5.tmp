@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=4 uid="uid://bxy5em1xevaoj"]
+
+[ext_resource type="Script" path="res://world/techno_tower/techno_tower_1.gd" id="1_ssvav"]
+[ext_resource type="PackedScene" uid="uid://dcw2eb7cpgu33" path="res://world/tile_set_tutorial.tscn" id="2_sk8ji"]
+[ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="3_k2iek"]
+[ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="4_umbdo"]
+[ext_resource type="PackedScene" uid="uid://betpjnbcn74c7" path="res://entities/power-up/portal_floor_item.tscn" id="5_wt1t3"]
+
+[node name="TechnoTower1" type="Node2D"]
+script = ExtResource("1_ssvav")
+metadata/_edit_lock_ = true
+
+[node name="TutorialTileSet" parent="." instance=ExtResource("2_sk8ji")]
+tile_map_data = PackedByteArray("AAATAAoAAAACAAYAAAATAAkAAAACAAQAAAASAAoAAAABAAYAAAASAAkAAAABAAQAAAARAAoAAAABAAYAAAARAAkAAAABAAQAAAAQAAoAAAABAAYAAAAQAAkAAAABAAQAAAAPAAoAAAABAAYAAAAPAAkAAAABAAQAAAAOAAoAAAABAAYAAAAOAAkAAAABAAQAAAANAAoAAAABAAYAAAANAAkAAAABAAQAAAAMAAoAAAABAAYAAAAMAAkAAAABAAQAAAALAAoAAAABAAYAAAALAAkAAAABAAQAAAAKAAoAAAABAAYAAAAKAAkAAAABAAQAAAAJAAoAAAABAAYAAAAJAAkAAAABAAQAAAAIAAoAAAABAAYAAAAIAAkAAAABAAQAAAAHAAoAAAABAAYAAAAHAAkAAAABAAQAAAAGAAoAAAABAAYAAAAGAAkAAAABAAQAAAAFAAoAAAABAAYAAAAFAAkAAAABAAQAAAAEAAoAAAABAAYAAAAEAAkAAAABAAQAAAADAAoAAAABAAYAAAADAAkAAAABAAQAAAACAAoAAAABAAYAAAACAAkAAAABAAQAAAABAAoAAAABAAYAAAABAAkAAAABAAQAAAAAAAoAAAABAAYAAAAAAAkAAAABAAQAAAD//woAAAABAAYAAAD//wkAAAABAAQAAAD+/woAAAAAAAYAAAD+/wkAAAAAAAQAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("3_k2iek")]
+position = Vector2(104, 125)
+
+[node name="FloorNormalItem" parent="Player" instance=ExtResource("4_umbdo")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(0, -50)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(104, 75)
+
+[node name="PortalFloorItem" parent="." instance=ExtResource("5_wt1t3")]
+position = Vector2(170, 122)

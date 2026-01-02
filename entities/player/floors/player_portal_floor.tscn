@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://bh0y26t33ffy5"]
+
+[ext_resource type="Texture2D" uid="uid://gmxn4hnrpch5" path="res://assets/player/portal_floor-Sheet.png" id="1_diims"]
+[ext_resource type="Script" path="res://entities/player/floors/player_portal_floor.gd" id="1_wet1j"]
+[ext_resource type="PackedScene" uid="uid://c8p0s0aommkaj" path="res://entities/projectiles/warp.tscn" id="2_jwqje"]
+[ext_resource type="PackedScene" uid="uid://c1aaywm3jh3tx" path="res://entities/projectiles/deletesign.tscn" id="3_8cjwj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_romww"]
+atlas = ExtResource("1_diims")
+region = Rect2(0, 0, 41, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clnhi"]
+atlas = ExtResource("1_diims")
+region = Rect2(41, 0, 41, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh0mv"]
+atlas = ExtResource("1_diims")
+region = Rect2(82, 0, 41, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_do0jq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_romww")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clnhi")
+}],
+"loop": true,
+"name": &"Z",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh0mv")
+}],
+"loop": true,
+"name": &"_del",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2y7x"]
+size = Vector2(30, 14)
+
+[node name="PlayerPortalFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_wet1j")
+warp = ExtResource("2_jwqje")
+delete_sign = ExtResource("3_8cjwj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_do0jq")
+animation = &"_del"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_o2y7x")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

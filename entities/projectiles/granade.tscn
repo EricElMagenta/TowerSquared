@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://cdc1yr8vspi5t"]
+
+[ext_resource type="Texture2D" uid="uid://d071edpfcwrx" path="res://assets/projectiles/granade-Sheet.png" id="1_gncrm"]
+[ext_resource type="Script" path="res://entities/projectiles/granade.gd" id="1_r1g7b"]
+[ext_resource type="Texture2D" uid="uid://c33jihhfvimav" path="res://assets/objects/explosion-Sheet.png" id="2_no07n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nj3x"]
+atlas = ExtResource("2_no07n")
+region = Rect2(0, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj61v"]
+atlas = ExtResource("2_no07n")
+region = Rect2(35, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy3mr"]
+atlas = ExtResource("2_no07n")
+region = Rect2(70, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atb0t"]
+atlas = ExtResource("2_no07n")
+region = Rect2(105, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w4if"]
+atlas = ExtResource("1_gncrm")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y8uh"]
+atlas = ExtResource("1_gncrm")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnm7k"]
+atlas = ExtResource("1_gncrm")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbglq"]
+atlas = ExtResource("1_gncrm")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6k0ra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nj3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj61v")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_jy3mr")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_atb0t")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w4if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y8uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnm7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbglq")
+}],
+"loop": true,
+"name": &"rolling",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgcwn"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r0ewl"]
+radius = 8.0
+
+[node name="Granade" type="CharacterBody2D" groups=["Granade"]]
+collision_layer = 16
+script = ExtResource("1_r1g7b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6k0ra")
+animation = &"explode"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_lgcwn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_r0ewl")
+debug_color = Color(0.964788, 0, 0.490643, 0.42)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

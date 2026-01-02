@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1aaywm3jh3tx"]
+
+[ext_resource type="Texture2D" uid="uid://c4hlfnahrwocd" path="res://assets/projectiles/delete.png" id="1_43djd"]
+[ext_resource type="Script" path="res://entities/projectiles/deletesign.gd" id="2_w0krn"]
+
+[node name="DELETESIGN" type="Sprite2D"]
+texture = ExtResource("1_43djd")
+script = ExtResource("2_w0krn")

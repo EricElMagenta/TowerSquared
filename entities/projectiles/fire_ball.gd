@@ -4,11 +4,11 @@ class_name PlayerProjectile
 @export var speed = 400.0
 
 var dir:int
-var spawm_pos:Vector2
+var spawn_pos:Vector2
 
 # Spawnea en las coordenadas introducidas
 func _ready():
-	global_position = spawm_pos
+	global_position = spawn_pos
 	$Area2D.rotate(45)
 
 # Viaja hasta chocar con algo, entonces desaparece

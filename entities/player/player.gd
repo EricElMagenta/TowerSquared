@@ -5,9 +5,12 @@ class_name Player
 signal health_changed
 signal change_direction
 signal shoot_fireball
+signal shoot_granade
+signal shoot_portal
 signal charge_propeller
 signal release_propeller
 signal flapping
+signal change_portal
 signal action
 signal stop_action
 signal enter_door

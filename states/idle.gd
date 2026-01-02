@@ -34,6 +34,9 @@ func Physics_Update(delta:float):
 	# DISPARA AL HACER CLICK SI TIENE OJOS
 	if parent.get_floor_count("eye_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_fireball.emit()
 	
+	# DISPARA AL HACER CLICK SI TIENE EL LANZA GRANADAS
+	if parent.get_floor_count("granade_launcher_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_granade.emit()
+
 	# AGARRAR COSAS SI TIENE BRAZOS
 	if parent.get_floor_count("arm_floor") && Input.is_action_just_pressed(parent.actions.action): parent.action.emit()
 	
@@ -46,7 +49,13 @@ func Physics_Update(delta:float):
 	# DESSUCKEAR BURBUJAS
 	if parent.get_floor_count("suck_floor") && Input.is_action_just_pressed(parent.actions.stop_action): parent.stop_action.emit()	
 	
+	# CAMBIA LOS PORTALES
+	if parent.get_floor_count("portal_floor") && Input.is_action_just_pressed(parent.actions.stop_action): parent.change_portal.emit()
+
+	# DISPARA PORTALES
+	if parent.get_floor_count("portal_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_portal.emit()
 	
+
 	# OCULTA PROMPT PARA HABLAR
 	if len(parent.dialogue_area.get_overlapping_areas()) < 1:
 		parent.talk_prompt.visible = false

@@ -24,15 +24,15 @@ func shoot_fireball():
 	var fireball_instance = fireball.instantiate()
 	fireball_instance.dir = player.dir
 	
-	if fireball_instance.dir == 1: fireball_instance.spawm_pos = global_position + Vector2(15, 0)
-	elif fireball_instance.dir == -1: fireball_instance.spawm_pos = global_position + Vector2(-15, 0)
+	if fireball_instance.dir == 1: fireball_instance.spawn_pos = global_position + Vector2(15, 0)
+	elif fireball_instance.dir == -1: fireball_instance.spawn_pos = global_position + Vector2(-15, 0)
 	
 	# RELOAD
 	if can_shoot: 
 		# if len(shoot_area.get_overlapping_bodies()) == 0: 
 		animated_sprite_2d.play("shoot")
 		AudioManager.play_shoot()
-		get_tree().root.add_child(fireball_instance)
+		get_parent().get_parent().get_parent().add_child(fireball_instance)
 		can_shoot = false
 		# else:
 		# 	AudioManager.play_inavlid_action()

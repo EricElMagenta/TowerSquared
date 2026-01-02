@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://betpjnbcn74c7"]
+
+[ext_resource type="Texture2D" uid="uid://cj3gj2agt8eod" path="res://assets/power-ups/portal_floor.png" id="1_gcd3q"]
+[ext_resource type="Script" path="res://entities/power-up/portal_floor_item.gd" id="1_vn0d1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_didqb"]
+size = Vector2(40, 14)
+
+[node name="PortalFloorItem" type="Area2D" groups=["FloorItems"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_vn0d1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gcd3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_didqb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

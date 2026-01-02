@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8p0s0aommkaj"]
+
+[ext_resource type="Texture2D" uid="uid://dcobli8qhjvco" path="res://assets/projectiles/projectile_a.png" id="1_dt54b"]
+[ext_resource type="Script" path="res://entities/projectiles/warp.gd" id="1_j767f"]
+[ext_resource type="Texture2D" uid="uid://cu6xpj7bi326o" path="res://assets/projectiles/projectile_z.png" id="2_e7vbt"]
+[ext_resource type="PackedScene" uid="uid://c7rmqwr51hpl7" path="res://entities/objects/portal.tscn" id="2_e43d2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbbtx"]
+atlas = ExtResource("1_dt54b")
+region = Rect2(0, 0, 9, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf3af"]
+atlas = ExtResource("2_e7vbt")
+region = Rect2(0, 0, 9, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l5s5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbbtx")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf3af")
+}],
+"loop": true,
+"name": &"Z",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8grx6"]
+radius = 3.0
+
+[node name="Warp" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_j767f")
+portal = ExtResource("2_e43d2")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1l5s5")
+animation = &"A"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8grx6")

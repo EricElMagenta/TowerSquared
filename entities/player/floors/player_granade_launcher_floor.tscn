@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgarl1tovuqpp"]
+
+[ext_resource type="Script" path="res://entities/player/floors/player_granade_launcher_floor.gd" id="1_nof0a"]
+[ext_resource type="PackedScene" uid="uid://cdc1yr8vspi5t" path="res://entities/projectiles/granade.tscn" id="2_7bmkw"]
+[ext_resource type="Texture2D" uid="uid://scbcjtri6ctj" path="res://assets/power-ups/granade_launcher_floor.png" id="2_odehw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv0vs"]
+size = Vector2(29, 14)
+
+[node name="PlayerGranadeLauncherFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_nof0a")
+granade = ExtResource("2_7bmkw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_odehw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_xv0vs")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
