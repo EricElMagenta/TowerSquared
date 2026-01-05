@@ -24,7 +24,7 @@ func shoot_granade():
 	
 	if can_shoot:
 		var old_granade = get_tree().get_first_node_in_group("Granade")
-		get_parent().get_parent().get_parent().add_child(granade_instance)
+		player.add_sibling(granade_instance)
 		can_shoot = false
 		if old_granade: old_granade.explode()
 

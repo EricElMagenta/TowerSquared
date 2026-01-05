@@ -32,7 +32,7 @@ func shoot_fireball():
 		# if len(shoot_area.get_overlapping_bodies()) == 0: 
 		animated_sprite_2d.play("shoot")
 		AudioManager.play_shoot()
-		get_parent().get_parent().get_parent().add_child(fireball_instance)
+		player.add_sibling(fireball_instance)
 		can_shoot = false
 		# else:
 		# 	AudioManager.play_inavlid_action()

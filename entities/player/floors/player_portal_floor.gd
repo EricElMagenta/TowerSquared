@@ -45,13 +45,13 @@ func shoot_portal():
 		if can_shoot:
 			can_shoot = false
 			AudioManager.play_shoot()
-			get_parent().get_parent().get_parent().add_child(warp_instance)
+			player.add_sibling(warp_instance)
 	
 	# BORRAR PORTALES
 	else:
 		var delete_instance = delete_sign.instantiate()
 		delete_instance.spawn_pos = global_position + Vector2(player.dir * 45, 0) 
-		get_parent().get_parent().get_parent().add_child(delete_instance)
+		player.add_sibling(delete_instance)
 
 		AudioManager.play_drop_object()
 		if get_tree().get_first_node_in_group("PortalA"): get_tree().get_first_node_in_group("PortalA").erase_portal()

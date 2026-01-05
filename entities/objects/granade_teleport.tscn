@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dywt8ir6aytcx"]
+
+[ext_resource type="Texture2D" uid="uid://tjilec3nd6d5" path="res://assets/world/techno_tower/granade_teleporter..png" id="1_jyokb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l83l2"]
+atlas = ExtResource("1_jyokb")
+region = Rect2(0, 0, 48, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3enoh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l83l2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lpn4"]
+size = Vector2(26, 23)
+
+[node name="GranadeTeleport" type="Area2D"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3enoh")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_1lpn4")
+debug_color = Color(0.964537, 0, 0.49216, 0.42)

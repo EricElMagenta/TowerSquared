@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://rceiavdvwme5"]
+
+[ext_resource type="Texture2D" uid="uid://du4jopalb6vn0" path="res://assets/projectiles/granade_portals_sheet-Sheet.png" id="1_fl1dy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ear1"]
+atlas = ExtResource("1_fl1dy")
+region = Rect2(0, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryhiq"]
+atlas = ExtResource("1_fl1dy")
+region = Rect2(22, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohiiu"]
+atlas = ExtResource("1_fl1dy")
+region = Rect2(44, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi6x4"]
+atlas = ExtResource("1_fl1dy")
+region = Rect2(66, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_182u7"]
+atlas = ExtResource("1_fl1dy")
+region = Rect2(88, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pgr3"]
+atlas = ExtResource("1_fl1dy")
+region = Rect2(110, 0, 22, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbcqn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ear1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryhiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohiiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi6x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_182u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pgr3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10ym5"]
+
+[node name="GranadePortal" type="Area2D"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qbcqn")
+frame = 5
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_10ym5")
+debug_color = Color(0.938702, 1.2899e-05, 0.622558, 0.42)
