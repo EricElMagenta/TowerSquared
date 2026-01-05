@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://rceiavdvwme5"]
+[gd_scene load_steps=11 format=3 uid="uid://rceiavdvwme5"]
 
+[ext_resource type="Script" path="res://entities/objects/granade_portal.gd" id="1_75j11"]
 [ext_resource type="Texture2D" uid="uid://du4jopalb6vn0" path="res://assets/projectiles/granade_portals_sheet-Sheet.png" id="1_fl1dy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ear1"]
@@ -10,19 +11,19 @@ region = Rect2(0, 0, 22, 21)
 atlas = ExtResource("1_fl1dy")
 region = Rect2(22, 0, 22, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohiiu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiupi"]
 atlas = ExtResource("1_fl1dy")
 region = Rect2(44, 0, 22, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pi6x4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxlpi"]
 atlas = ExtResource("1_fl1dy")
 region = Rect2(66, 0, 22, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_182u7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhy47"]
 atlas = ExtResource("1_fl1dy")
 region = Rect2(88, 0, 22, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6pgr3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4wxx"]
 atlas = ExtResource("1_fl1dy")
 region = Rect2(110, 0, 22, 21)
 
@@ -34,35 +35,42 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ryhiq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ohiiu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pi6x4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_182u7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6pgr3")
 }],
 "loop": false,
-"name": &"default",
+"name": &"G",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiupi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxlpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhy47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4wxx")
+}],
+"loop": true,
+"name": &"G_loop",
 "speed": 24.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10ym5"]
 
-[node name="GranadePortal" type="Area2D"]
+[node name="GranadePortal" type="Area2D" groups=["PortalG"]]
 collision_layer = 32
 collision_mask = 16
+script = ExtResource("1_75j11")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qbcqn")
-frame = 5
-frame_progress = 1.0
+animation = &"G_loop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_10ym5")
 debug_color = Color(0.938702, 1.2899e-05, 0.622558, 0.42)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -157,7 +157,7 @@ script = ExtResource("1_ee6cq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3gdom")
-animation = &"Z_erase"
+animation = &"A_loop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_a2pdl")
