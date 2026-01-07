@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt6wiijxl5ycj"]
+
+[ext_resource type="Texture2D" uid="uid://cf3j8i2efxf0w" path="res://assets/enemies/scrap.png" id="1_3n8d2"]
+[ext_resource type="Script" path="res://entities/enemies/enemy_scrap.gd" id="1_wpxmy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otilh"]
+radius = 13.26
+height = 38.0
+
+[node name="EnemyScrap" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_wpxmy")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3n8d2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_otilh")
+debug_color = Color(0.970136, 0, 0.194564, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

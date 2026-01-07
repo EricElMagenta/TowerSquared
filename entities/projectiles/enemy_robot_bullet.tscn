@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://we0c2oll6t3e"]
+
+[ext_resource type="Texture2D" uid="uid://bqnxk6xbwvpnc" path="res://assets/enemies/enemy_robot_bullet.png" id="1_4qlab"]
+[ext_resource type="Script" path="res://entities/projectiles/enemy_robot_bullet.gd" id="1_sau1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tiq4"]
+size = Vector2(20, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15k26"]
+size = Vector2(20, 9)
+
+[node name="EnemyRobotBullet" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_sau1o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4qlab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4tiq4")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_15k26")
+debug_color = Color(0.982457, 0, 0.36201, 0.42)

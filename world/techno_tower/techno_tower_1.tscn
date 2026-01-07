@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://210jik6cokjf" path="res://world/techno_tower/conveyor_belt.tscn" id="3_w3hxs"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="4_umbdo"]
 [ext_resource type="PackedScene" uid="uid://betpjnbcn74c7" path="res://entities/power-up/portal_floor_item.tscn" id="5_wt1t3"]
-[ext_resource type="PackedScene" uid="uid://ex38betbcm66" path="res://entities/power-up/granade_launcher_item.tscn" id="7_4ya5l"]
 [ext_resource type="PackedScene" uid="uid://bul1gey3ok4aa" path="res://entities/objects/box_metalic.tscn" id="7_en2ol"]
 [ext_resource type="PackedScene" uid="uid://dywt8ir6aytcx" path="res://entities/objects/granade_teleport.tscn" id="8_vxlqd"]
 [ext_resource type="PackedScene" uid="uid://rceiavdvwme5" path="res://entities/objects/granade_portal.tscn" id="9_g4bx8"]
+[ext_resource type="PackedScene" uid="uid://bdei3gdapp6v2" path="res://entities/power-up/floor_mouth_item.tscn" id="13_f0ip4"]
 
 [node name="TechnoTower1" type="Node2D"]
 script = ExtResource("1_ssvav")
@@ -24,7 +24,7 @@ tile_map_data = PackedByteArray("AAAXAAkAAAABAAUAAAAWAAkAAAAAAAUAAAAOAAkAAAACAAU
 tile_map_data = PackedByteArray("AAARAAUAAAACAAEAAAAQAAUAAAABAAEAAAAPAAUAAAABAAEAAAAOAAUAAAABAAEAAAANAAUAAAABAAEAAAAMAAUAAAABAAEAAAALAAUAAAABAAEAAAALAAIAAAACAAAAAAAKAAIAAAABAAAAAAAJAAIAAAABAAAAAAAIAAIAAAABAAAAAAAHAAIAAAABAAAAAAAGAAIAAAAAAAAAAAAKAAUAAAAAAAEAAAA=")
 
 [node name="Player" parent="." instance=ExtResource("3_k2iek")]
-position = Vector2(562, 51)
+position = Vector2(301, -9)
 metadata/_edit_group_ = true
 
 [node name="FloorNormalItem" parent="Player" instance=ExtResource("4_umbdo")]
@@ -37,18 +37,18 @@ remote_path = NodePath("../../Camera2D")
 tile_map_data = PackedByteArray("AAAVAAkAAAACAAEAAAAVAAgAAAACAAAAAAAUAAkAAAABAAEAAAAUAAgAAAABAAAAAAATAAkAAAABAAEAAAATAAgAAAABAAAAAAASAAkAAAABAAEAAAASAAgAAAABAAAAAAARAAkAAAABAAEAAAARAAgAAAABAAAAAAAQAAkAAAABAAEAAAAQAAgAAAABAAAAAAAPAAkAAAAAAAEAAAAPAAgAAAAAAAAAAAA=")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(562, 1)
+position = Vector2(301, -59)
 
 [node name="PortalFloorItem" parent="." instance=ExtResource("5_wt1t3")]
 position = Vector2(384, 129)
 
 [node name="BoxMetalic" parent="." instance=ExtResource("7_en2ol")]
-position = Vector2(107, 16)
+position = Vector2(208, 66)
 
 [node name="GranadePortal" parent="." instance=ExtResource("9_g4bx8")]
 position = Vector2(621, 27)
 selected_movement = 3
 radius = 30
 
-[node name="GranadeLauncherItem" parent="." instance=ExtResource("7_4ya5l")]
-position = Vector2(561, 74)
+[node name="FloorMouthlItem" parent="." instance=ExtResource("13_f0ip4")]
+position = Vector2(300, 18)
