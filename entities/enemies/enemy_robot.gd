@@ -55,6 +55,9 @@ func get_destroyed():
 	await get_tree().create_timer(0.4).timeout
 	AudioManager.play_box_explode()
 
+func get_eaten():
+	get_destroyed()
+
 func prepare_to_shoot():
 	speed = 0
 	animated_sprite_2d.play("shooting")
