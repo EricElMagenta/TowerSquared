@@ -46,9 +46,9 @@ func Physics_Update(delta:float):
 
 	# DISPARA PORTALES
 	if parent.get_floor_count("portal_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_portal.emit()
-	
+
 	# MORIRSE AL QUEDARSE SIN VIDA
-	if parent.player_data.current_health <= 0:
+	if parent.player_data.current_health <= 0 || parent.entered_dead_zone:
 		state_transition.emit(self, "Dead")
 	
 	# NADA AL CAER EN AGUA SI TIENE LA COLA DE PEZ

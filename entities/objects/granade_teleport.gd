@@ -20,7 +20,7 @@ func link_portal():
 func _on_body_entered(body:Node2D):
     if body is Granade:
         animated_sprite_2d.play("teleporting")
-        body.position = my_portal.position
+        body.position = my_portal.global_position
 
 func _on_animated_sprite_2d_animation_finished():
     AudioManager.play_map_zone_notification()

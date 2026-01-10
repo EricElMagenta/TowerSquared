@@ -11,7 +11,6 @@ extends Node2D
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
-
 	# TRANCISIÓN DEL NIVEL
 	scene_transition.new_level_transition()
 	await get_tree().create_timer(0.5).timeout

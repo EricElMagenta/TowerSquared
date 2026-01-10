@@ -1,17 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3g7qtdc3qiu2"]
+[gd_scene load_steps=3 format=3 uid="uid://d3g7qtdc3qiu2"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_spawner.gd" id="1_5jt5t"]
-[ext_resource type="PackedScene" uid="uid://blqvjfdqem7uf" path="res://entities/enemies/enemy_train.tscn" id="2_2r72b"]
-[ext_resource type="PackedScene" uid="uid://4ift4rh4fn1r" path="res://world/misc/area_destroy_everything.tscn" id="2_hokrs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xwhb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_diiu2"]
-size = Vector2(48, 20)
-
 [node name="EnemySpawner" type="Area2D"]
 script = ExtResource("1_5jt5t")
-enemy = ExtResource("2_2r72b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3xwhb")
@@ -19,14 +13,5 @@ debug_color = Color(0.580392, 1, 0, 0.419608)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="AreaDestroyEverything" parent="." instance=ExtResource("2_hokrs")]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDestroyEverything"]
-position = Vector2(0, 344)
-shape = SubResource("RectangleShape2D_diiu2")
-debug_color = Color(0.713288, 0.272793, 0.982089, 0.42)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

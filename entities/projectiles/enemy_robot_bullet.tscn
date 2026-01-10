@@ -1,7 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://we0c2oll6t3e"]
+[gd_scene load_steps=12 format=3 uid="uid://we0c2oll6t3e"]
 
 [ext_resource type="Texture2D" uid="uid://bqnxk6xbwvpnc" path="res://assets/enemies/enemy_robot_bullet.png" id="1_4qlab"]
 [ext_resource type="Script" path="res://entities/projectiles/enemy_robot_bullet.gd" id="1_sau1o"]
+[ext_resource type="Texture2D" uid="uid://c33jihhfvimav" path="res://assets/objects/explosion-Sheet.png" id="3_ent5s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rkqm"]
+atlas = ExtResource("1_4qlab")
+region = Rect2(0, 0, 20, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haj6s"]
+atlas = ExtResource("3_ent5s")
+region = Rect2(0, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8folg"]
+atlas = ExtResource("3_ent5s")
+region = Rect2(35, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6byba"]
+atlas = ExtResource("3_ent5s")
+region = Rect2(70, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rdt1"]
+atlas = ExtResource("3_ent5s")
+region = Rect2(105, 0, 35, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuder"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rkqm")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haj6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8folg")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6byba")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5rdt1")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 24.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tiq4"]
 size = Vector2(20, 7)
@@ -10,22 +59,31 @@ size = Vector2(20, 7)
 size = Vector2(20, 9)
 
 [node name="EnemyRobotBullet" type="CharacterBody2D"]
-collision_layer = 4
+collision_layer = 64
 collision_mask = 0
 script = ExtResource("1_sau1o")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4qlab")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wuder")
+animation = &"bullet"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_4tiq4")
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 4
+collision_mask = 34
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_15k26")
 debug_color = Color(0.982457, 0, 0.36201, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

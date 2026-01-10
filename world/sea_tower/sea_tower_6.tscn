@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://ck3duqstdridc"]
+[gd_scene load_steps=29 format=4 uid="uid://ck3duqstdridc"]
 
 [ext_resource type="PackedScene" uid="uid://dt2t6ni34rqbr" path="res://world/sea_tower/sea_tower_tilemap.tscn" id="1_2j4ne"]
 [ext_resource type="Script" path="res://world/sea_tower/sea_tower_6.gd" id="1_d1oyk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsdbbg6qtqms" path="res://entities/power-up/floor_fish_item.tscn" id="3_mm4s0"]
 [ext_resource type="PackedScene" uid="uid://cafiynnbjl0nj" path="res://entities/objects/object_bubble.tscn" id="4_iouct"]
 [ext_resource type="PackedScene" uid="uid://b2cm5pd1sye8d" path="res://entities/hazards/hazard_spike_ball.tscn" id="4_o51ht"]
+[ext_resource type="Texture2D" uid="uid://clh5xe442n5me" path="res://assets/objects/stone_door.png" id="5_f5qfn"]
 [ext_resource type="PackedScene" uid="uid://dvyvxa3c4tnn4" path="res://entities/power-up/floor_suck_item.tscn" id="5_y543c"]
 [ext_resource type="PackedScene" uid="uid://cokg054nu4edo" path="res://ui/hints/right_click_hint.tscn" id="9_ugeor"]
 [ext_resource type="Texture2D" uid="uid://b6qkgu5q5ruus" path="res://assets/UI/arrow-1.png" id="10_mceiw"]
@@ -61,6 +62,7 @@ centered = false
 
 [node name="DoorStone" parent="." instance=ExtResource("2_q48id")]
 position = Vector2(721, -1395)
+sprite = ExtResource("5_f5qfn")
 
 [node name="Areas" type="Node2D" parent="."]
 

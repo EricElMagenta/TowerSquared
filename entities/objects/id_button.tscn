@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnpamvyy7xfxv"]
+
+[ext_resource type="Script" path="res://entities/objects/id_button.gd" id="1_dee82"]
+[ext_resource type="Texture2D" uid="uid://devs00chfyrou" path="res://assets/objects/button.png" id="1_dt7p3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma331"]
+size = Vector2(14, 9)
+
+[node name="IdButton" type="Node2D"]
+script = ExtResource("1_dee82")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dt7p3")
+hframes = 2
+
+[node name="PushArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_ma331")
+debug_color = Color(0.105882, 0.913725, 0.305882, 0.419608)
+
+[connection signal="body_entered" from="PushArea" to="." method="_on_push_area_body_entered"]

@@ -7,9 +7,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_v7sf3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 792, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 116, 107)
 }
-point_count = 2
+point_count = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1juq"]
 atlas = ExtResource("1_jt7bv")

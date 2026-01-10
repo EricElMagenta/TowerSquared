@@ -38,6 +38,7 @@ signal enter_secret_door
 var input_vector: Vector2 = Vector2.ZERO # Movimiento del jugador
 var dir = 1
 var damage_blink = false
+var entered_dead_zone = false
 var knockback = Vector2.ZERO
 var talking_to : Area2D = null
 
@@ -166,6 +167,9 @@ func get_hit_immunity() -> void:
 		self.modulate.a = 1
 		await get_tree().create_timer(0.2).timeout
 	damage_blink = false
+
+func enter_dead_zone():
+	entered_dead_zone = true
 
 func handle_earth_impulse() -> void:
 	if is_on_floor(): player_data.impulse -= player_data.friction * sign(player_data.impulse)

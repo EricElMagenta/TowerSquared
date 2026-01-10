@@ -3,12 +3,16 @@ extends CharacterBody2D
 # VARIABLES
 var grabbed_by: Floor
 var grabbed = false
+var spawn_pos:Vector2
 
 # NODOS
 @onready var grab_bullet_detect = $GrabBulletDetect
 @onready var floor_detect_area = $FloorDetectArea
 
 ##################################### FUNCIONES PRINCIPALES ###############################
+func _ready():
+	spawn_pos = position
+
 func _physics_process(delta):
 	# Se vuelve inmune a los disparos del jugador mientras es agarrado
 	if grabbed && grabbed_by:
@@ -37,3 +41,5 @@ func _physics_process(delta):
 func destroy_bullet(bullet):
 	bullet.queue_free()
 	
+func return_to_spawn_point():
+	position = spawn_pos

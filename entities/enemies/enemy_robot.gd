@@ -12,7 +12,7 @@ const RECOVER_SPEED = 100
 
 # VARIABLES
 @export var speed = 100
-var dir = 1
+@export var dir = 1
 var damage = 1
 
 
@@ -27,7 +27,7 @@ func _physics_process(delta):
 			body.get_hit(damage)
 
 	# Add the gravity
-	if not is_on_floor():
+	if not is_on_floor() && animated_sprite_2d.animation != "explode":
 		velocity += get_gravity() * delta
 	
 	# Cambia de dirección al chocar con paredes
@@ -43,8 +43,10 @@ func handle_collisions():
 	player_detect_area.position.x *= -1
 
 func get_destroyed():
+	player_detect_area.monitoring = false
 	speed = 0
 	set_collision_layer_value(3, false)
+	set_collision_mask_value(1, false)
 	hitbox.set_collision_mask_value(2, false)
 	hitbox.set_collision_mask_value(5, false)
 	animated_sprite_2d.play("explode")

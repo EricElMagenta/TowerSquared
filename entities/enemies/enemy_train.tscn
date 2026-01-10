@@ -1,10 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://blqvjfdqem7uf"]
+[gd_scene load_steps=10 format=3 uid="uid://blqvjfdqem7uf"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy_train.gd" id="1_32vpj"]
 [ext_resource type="Texture2D" uid="uid://ygo8fmbro2nl" path="res://assets/enemies/enemy_train.png" id="1_mjfdi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pijk4"]
 size = Vector2(60, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxfuk"]
+atlas = ExtResource("1_mjfdi")
+region = Rect2(0, 0, 69, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpaug"]
+atlas = ExtResource("1_mjfdi")
+region = Rect2(69, 0, 69, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq4mc"]
+atlas = ExtResource("1_mjfdi")
+region = Rect2(138, 0, 69, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heaij"]
+atlas = ExtResource("1_mjfdi")
+region = Rect2(207, 0, 69, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7vrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxfuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpaug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq4mc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heaij")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqfiw"]
 size = Vector2(66, 36)
@@ -17,12 +53,12 @@ metadata/_edit_group_ = true
 position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_pijk4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mjfdi")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i7vrj")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 5
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 2)

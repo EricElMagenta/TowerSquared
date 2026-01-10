@@ -76,7 +76,7 @@ func Physics_Update(delta:float):
 
 
 	# MORIRSE AL QUEDARSE SIN VIDA
-	if parent.player_data.current_health <= 0:
+	if parent.player_data.current_health <= 0 || parent.entered_dead_zone:
 		state_transition.emit(self, "Dead")
 		
 	# NADA AL TOCAR AGUA SI TIENE LA COLA DE PEZ

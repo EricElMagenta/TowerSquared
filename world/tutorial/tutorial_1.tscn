@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b61pattpo6dc2"]
+[gd_scene load_steps=18 format=4 uid="uid://b61pattpo6dc2"]
 
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_kbksk"]
 [ext_resource type="Script" path="res://world/tutorial/tutorial_1.gd" id="1_ucgpn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2xk2n4yqau76" path="res://entities/enemies/enemy_dynamite.tscn" id="2_ikdm2"]
 [ext_resource type="Texture2D" uid="uid://bo24sebggm1v7" path="res://assets/world/tutorial_tower_background.png" id="3_5ahj1"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="3_i03aw"]
+[ext_resource type="Texture2D" uid="uid://clh5xe442n5me" path="res://assets/objects/stone_door.png" id="5_rpyqm"]
 [ext_resource type="Texture2D" uid="uid://c0087p7trv181" path="res://assets/UI/arrows-and-wasd.png" id="6_7g0yn"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="7_6xl4q"]
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="8_7v6ap"]
@@ -45,6 +46,7 @@ centered = false
 
 [node name="DoorStone" parent="." instance=ExtResource("1_kbksk")]
 position = Vector2(1197, -277)
+sprite = ExtResource("5_rpyqm")
 
 [node name="WorldTileSet1" parent="." instance=ExtResource("2_dmy0k")]
 position = Vector2(-16, 0)

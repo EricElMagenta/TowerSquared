@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://f70nsaw3i2wc"]
+
+[ext_resource type="Script" path="res://entities/objects/id_fake_wall.gd" id="1_46hix"]
+[ext_resource type="Texture2D" uid="uid://qod1k4vqy2hj" path="res://assets/objects/fake_wall.png" id="1_quo4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cobgt"]
+size = Vector2(16, 16)
+
+[node name="IdFakeWall" type="StaticBody2D" groups=["FakeWallId"]]
+script = ExtResource("1_46hix")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_quo4s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cobgt")

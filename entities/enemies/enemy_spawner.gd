@@ -5,7 +5,7 @@ extends Area2D
 @onready var spawn_timer = $SpawnTimer
 
 # VARIABLES
-@export var time:int
+@export var time:float
 @export var enemy_speed:int
 @export var enemy_direction:int
 

@@ -7,6 +7,12 @@ signal level_finished
 @onready var sprite_2d = $Sprite2D
 @onready var area_2d = $Area2D
 
+# VARIABLES
+@export var sprite:Texture2D
+
+func _ready():
+	sprite_2d.texture = sprite
+
 func _physics_process(_delta):
 	for body in area_2d.get_overlapping_bodies():
 		if (body is Player && body.is_on_floor()) && sprite_2d.frame == 0:
