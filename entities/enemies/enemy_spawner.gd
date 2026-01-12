@@ -8,6 +8,7 @@ extends Area2D
 @export var time:float
 @export var enemy_speed:int
 @export var enemy_direction:int
+@export var is_accelerating := false
 
 ##################################### FUNCIONES  ###############################
 func _ready():
@@ -20,6 +21,8 @@ func spawn_enemy():
 
         if "speed" in enemy_instance: enemy_instance.speed = enemy_speed
         if "dir" in enemy_instance: enemy_instance.dir = enemy_direction
+        if "is_accelerating" in enemy_instance: enemy_instance.is_accelerating = is_accelerating
+
         add_sibling(enemy_instance)
         
     else:

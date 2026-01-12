@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Train
 
 @export var speed:int
 @export var dir:int

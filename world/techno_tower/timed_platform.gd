@@ -41,13 +41,18 @@ func update_timer(seconds:int):
 
 
 func add_time(energy:int):
+	platform_timer.wait_time = platform_timer.time_left
 	platform_timer.stop()
 	
+
 	if platform_timer.wait_time + energy > MAX_ENERGY: platform_timer.wait_time = MAX_ENERGY
 	else: platform_timer.wait_time += energy
 
 	platform_timer.start()
 	platform_countdown.play(str(energy))
+
+func update_speed(new_speed:int):
+	speed = new_speed
 
 func _on_area_2d_body_entered(body:Node2D):
 	if body is Player && !countdown_started:

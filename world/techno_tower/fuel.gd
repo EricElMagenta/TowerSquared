@@ -8,7 +8,8 @@ func _ready():
     $AnimatedSprite2D.play(str(energy)) 
 
 func _on_body_entered(body:Node2D):
-    if body is Player:
+    if body is Player || body is Granade:
         AudioManager.play_get_floor()
-        timed_platform.add_time(energy)
+        if is_instance_valid(timed_platform):
+            timed_platform.add_time(energy)
         queue_free()    

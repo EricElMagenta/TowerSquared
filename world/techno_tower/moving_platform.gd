@@ -7,10 +7,12 @@ class_name MovingPlatform
 
 # VARIABLES
 @export var speed = 100
-@export var is_looping:bool = false
+@export var is_looping := false
+@export var auto_start := false
 var moving := false
 
 func _ready():
+	if auto_start: moving = true
 	path_follow.loop = is_looping
 	animated_sprite_2d.play("stop")
 
