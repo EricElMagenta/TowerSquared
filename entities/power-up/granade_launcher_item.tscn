@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ex38betbcm66"]
+[gd_scene load_steps=5 format=3 uid="uid://ex38betbcm66"]
 
 [ext_resource type="Script" path="res://entities/power-up/granade_launcher_item.gd" id="1_6f5x6"]
 [ext_resource type="Texture2D" uid="uid://scbcjtri6ctj" path="res://assets/power-ups/granade_launcher_floor.png" id="2_rplvb"]
+[ext_resource type="PackedScene" uid="uid://w3s6t4qluteh" path="res://ui/power_up_screen/power_up_screen.tscn" id="3_5efhb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bekoq"]
 size = Vector2(31, 14)
@@ -18,5 +19,7 @@ texture = ExtResource("2_rplvb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_bekoq")
+
+[node name="PowerUpScreen" parent="." instance=ExtResource("3_5efhb")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

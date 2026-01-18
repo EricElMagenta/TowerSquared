@@ -1,10 +1,20 @@
 extends Area2D
 
+@onready var power_up_screen = $PowerUpScreen
+
 signal got_floor
 
 var floor_type = "player_granade_launcher_floor"
 
-func _on_body_entered(body:Node2D):
+func _on_body_entered(body):
 	if body is Player:
 		got_floor.emit(floor_type)
-		queue_free()
+		
+		if !GameManager.screen_granade_floor_saw:
+			power_up_screen.init(self, floor_type.erase(0,7))
+			power_up_screen.visible = true
+			GameManager.screen_granade_floor_saw = true
+			
+		else:
+			queue_free()
+

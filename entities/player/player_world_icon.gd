@@ -85,4 +85,3 @@ func _on_zone_detect_area_entered(area):
 func _on_zone_detect_area_exited(area:Area2D):
 	if area is Area2D:
 		talk_prompt.visible = false
-

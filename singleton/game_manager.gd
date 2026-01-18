@@ -8,6 +8,8 @@ var screen_arm_floor_saw:bool = false
 var screen_winged_floor_saw:bool = false
 var screen_propeller_floor_saw:bool = false
 var screen_suck_floor_saw:bool = false
+var screen_granade_floor_saw:bool = false
+var screen_portal_floor_saw:bool = false
 
 # POSICIÓN DEL JUGADOR EN EL MAPA O AL PASAR POR PUERTAS
 var player_plaza_position := Vector2(-421, 70)
@@ -31,7 +33,16 @@ var cleared_levels = {
 		"sea_5" : false,
 		"sea_6" : false,
 		"sea_7" : false
-	}
+	},
+	"technotower" = {
+		"techno_1" : false,
+		"techno_2" : false,
+		"techno_3" : false,
+		"techno_4" : false,
+		"techno_5" : false,
+		"techno_6" : false,
+		"techno_7" : false
+}
 }
 
 func mark_level_as_selectable(tower:String, level:String):
@@ -45,12 +56,13 @@ func is_level_selectable(tower:String, level:String):
 var tutorial_tower_clear = false
 var sea_tower_clear = false
 var air_tower_clear = false
-var techno_tower = false
+var techno_tower_clear = false
 
 func is_current_tower_cleared(current_tower:String) -> bool:
 	match current_tower.to_lower():
 		"tutorial": return tutorial_tower_clear
 		"seatower": return sea_tower_clear
+		"technotower": return techno_tower_clear
 	
 	return false
 
