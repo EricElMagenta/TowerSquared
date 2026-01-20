@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://kgqwm613ux8w"]
+
+[ext_resource type="Script" path="res://entities/power-up/floor_glider_item.gd" id="1_0kps0"]
+[ext_resource type="Texture2D" uid="uid://cq7w2em1ht2yb" path="res://assets/power-ups/glider_floor-Sheet.png" id="2_xwuq3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7aif"]
+size = Vector2(30, 13)
+
+[node name="FloorGliderItem" type="Area2D" groups=["FloorItems"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_0kps0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xwuq3")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 3.5)
+shape = SubResource("RectangleShape2D_g7aif")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

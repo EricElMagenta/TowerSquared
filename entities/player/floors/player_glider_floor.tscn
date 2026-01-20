@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccm60r1t500uo"]
+
+[ext_resource type="Texture2D" uid="uid://cq7w2em1ht2yb" path="res://assets/power-ups/glider_floor-Sheet.png" id="1_6lue3"]
+[ext_resource type="Script" path="res://entities/player/floors/player_glider_floor.gd" id="1_cjc61"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0hhg"]
+atlas = ExtResource("1_6lue3")
+region = Rect2(38, 0, 38, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxly2"]
+atlas = ExtResource("1_6lue3")
+region = Rect2(0, 0, 38, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oa5mp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0hhg")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxly2")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynwlq"]
+size = Vector2(29, 14.5)
+
+[node name="PlayerGliderFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_cjc61")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oa5mp")
+animation = &"inactive"
+offset = Vector2(0, -3.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ynwlq")

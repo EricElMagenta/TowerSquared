@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=4 uid="uid://c1k5g2b2n7xc5"]
+
+[ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="1_45abq"]
+[ext_resource type="Script" path="res://world/air_tower/air_tower_1.gd" id="1_auri4"]
+[ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="2_ociin"]
+[ext_resource type="PackedScene" uid="uid://b117bhie1rhfv" path="res://world/air_tower/air_tower_tilemap.tscn" id="6_pcpa2"]
+
+[node name="AirTower1" type="Node2D"]
+script = ExtResource("1_auri4")
+
+[node name="AirTowerTilemap" parent="." instance=ExtResource("6_pcpa2")]
+tile_map_data = PackedByteArray("AAANAAUAAAACAAoAAAANAAQAAAACAAkAAAANAAMAAAACAAkAAAANAAIAAAACAAgAAAAMAAUAAAABAAoAAAAMAAQAAAABAAkAAAAMAAMAAAABAAkAAAAMAAIAAAABAAgAAAALAAUAAAABAAoAAAALAAQAAAABAAkAAAALAAMAAAABAAkAAAALAAIAAAABAAgAAAAKAAUAAAABAAoAAAAKAAQAAAABAAkAAAAKAAMAAAABAAkAAAAKAAIAAAABAAgAAAAJAAUAAAABAAoAAAAJAAQAAAABAAkAAAAJAAMAAAABAAkAAAAJAAIAAAABAAgAAAAIAAUAAAABAAoAAAAIAAQAAAABAAkAAAAIAAMAAAABAAkAAAAIAAIAAAABAAgAAAAHAAUAAAABAAoAAAAHAAQAAAABAAkAAAAHAAMAAAABAAkAAAAHAAIAAAABAAgAAAAGAAUAAAABAAoAAAAGAAQAAAABAAkAAAAGAAMAAAABAAkAAAAGAAIAAAABAAgAAAAFAAUAAAABAAoAAAAFAAQAAAABAAkAAAAFAAMAAAABAAkAAAAFAAIAAAABAAgAAAAEAAUAAAABAAoAAAAEAAQAAAABAAkAAAAEAAMAAAABAAkAAAAEAAIAAAABAAgAAAADAAUAAAABAAoAAAADAAQAAAABAAkAAAADAAMAAAABAAkAAAADAAIAAAABAAgAAAACAAUAAAABAAoAAAACAAQAAAABAAkAAAACAAMAAAABAAkAAAACAAIAAAABAAgAAAABAAUAAAABAAoAAAABAAQAAAABAAkAAAABAAMAAAABAAkAAAABAAIAAAABAAgAAAAAAAUAAAABAAoAAAAAAAQAAAABAAkAAAAAAAMAAAABAAkAAAAAAAIAAAABAAgAAAD//wUAAAABAAoAAAD//wQAAAABAAkAAAD//wMAAAABAAkAAAD//wIAAAABAAgAAAD+/wUAAAABAAoAAAD+/wQAAAABAAkAAAD+/wMAAAABAAkAAAD+/wIAAAABAAgAAAD9/wUAAAABAAoAAAD9/wQAAAABAAkAAAD9/wMAAAABAAkAAAD9/wIAAAABAAgAAAD8/wUAAAAAAAoAAAD8/wQAAAAAAAkAAAD8/wMAAAAAAAkAAAD8/wIAAAAAAAgAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("1_45abq")]
+position = Vector2(70, 12)
+metadata/_edit_group_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(0, -50)
+remote_path = NodePath("../../Camera2D")
+
+[node name="FloorNormalItem" parent="Player" instance=ExtResource("2_ociin")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(70, -38)

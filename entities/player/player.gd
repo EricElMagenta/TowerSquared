@@ -7,10 +7,13 @@ signal change_direction
 signal shoot_fireball
 signal shoot_granade
 signal shoot_portal
+signal shoot_platform
 signal charge_propeller
 signal release_propeller
 signal flapping
 signal change_portal
+signal glide
+signal stop_glide
 signal action
 signal stop_action
 signal enter_door
@@ -40,6 +43,7 @@ var dir = 1
 var damage_blink = false
 var entered_dead_zone = false
 var knockback = Vector2.ZERO
+var gliding_floors = 1
 var talking_to : Area2D = null
 
 ##################################### FUNCIONES PRINCIPALES ###############################
@@ -61,7 +65,6 @@ func _ready():
 		floor_manager.visible = false
 
 func _process(_delta):
-	#print(floor_manager.floor_count_data.floor_count_dict)
 	if Input.is_action_just_pressed("restart"): get_tree().reload_current_scene()
 
 ##################################### FUNCIONES AUXILIARES ###############################
@@ -84,7 +87,7 @@ func move(delta) -> Vector2:
 	if not is_on_floor(): velocity.y += player_data.gravity * delta
 	
 	input_vector = get_direction()
-	velocity = Vector2(input_vector[0] * player_data.move_speed + player_data.impulse, velocity.y)
+	velocity = Vector2(input_vector[0] * player_data.move_speed + player_data.impulse, velocity.y/gliding_floors)
 	move_and_slide()
 	return input_vector
 
@@ -211,3 +214,11 @@ func delete_charge_bar():
 
 func _on_dialogue_area_area_exited(area):
 	if area is Bubble: bounce(area.bounce_multiplier)
+
+##################################### PLANEAR ###############################
+
+func apply_gliding():
+	gliding_floors = floor_manager.get_this_floor_count("glider_floor") + 1
+
+func stop_gliding():
+	gliding_floors = 1

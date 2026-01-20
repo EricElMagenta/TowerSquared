@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm0j6svcawxgo"]
+
+[ext_resource type="Texture2D" uid="uid://0xcq3m67k2uv" path="res://assets/power-ups/platform_floor.png" id="1_b7j3p"]
+[ext_resource type="Script" path="res://entities/player/floors/player_platform_floor.gd" id="1_dyiq8"]
+[ext_resource type="PackedScene" uid="uid://cifrbirfji6ge" path="res://entities/projectiles/platform_projectile.tscn" id="2_fe2c5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jmwh"]
+size = Vector2(29, 12)
+
+[node name="PlayerPlatformFloor" type="CharacterBody2D" groups=["PlayerFloors"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_dyiq8")
+platform = ExtResource("2_fe2c5")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b7j3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_3jmwh")

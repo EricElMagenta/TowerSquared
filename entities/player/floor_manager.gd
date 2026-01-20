@@ -16,6 +16,7 @@ const PLAYER_PROPELLER_FLOOR_OFFSET = 4.5
 const PLAYER_FISH_FLOOR_OFFSET = 7.5
 const PLAYER_SUCK_FLOOR_OFFSET = 11.5
 const PLAYER_PORTAL_FLOOR_OFFSET = 5
+const PLAYER_GLIDER_FLOOR_OFFSET = 3.5
 
 # CONSTANTES PARA VOLTEAR PISOS QUE TAPAN LA ANIMACIÓN DE VICTORIA
 const VICTORY_FLIP_PLAYER_FISH_FLOOR_OFFSET = 15
@@ -130,6 +131,9 @@ func adjust_floor_position(new_floor:CharacterBody2D):
 
 	if new_floor.name.to_lower() == "PlayerPortalFloor".to_lower():
 		new_floor.position.x += PLAYER_PORTAL_FLOOR_OFFSET * player.dir
+
+	if new_floor.name.to_lower() == "PlayerGliderFloor".to_lower():
+		new_floor.position.x -= 3.5 * player.dir
 		
 
 # EXPLOTA A TODOS LOS PISOS

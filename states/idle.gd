@@ -55,6 +55,8 @@ func Physics_Update(delta:float):
 	# DISPARA PORTALES
 	if parent.get_floor_count("portal_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_portal.emit()
 	
+	# DISPARA PLATAFORMAS
+	if parent.get_floor_count("platform_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_platform.emit()
 
 	# OCULTA PROMPT PARA HABLAR
 	if len(parent.dialogue_area.get_overlapping_areas()) < 1:

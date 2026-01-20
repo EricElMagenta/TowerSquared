@@ -11,9 +11,16 @@ func Physics_Update(delta:float):
 	parent.move(delta)
 	
 	# Saltar en el aire
-	if !parent.is_on_floor() && Input.is_action_just_pressed(parent.actions.jump):
-		if parent.floor_manager.remaining_air_jumps > 0:
-			state_transition.emit(self, "AirJump")	
+	if !parent.is_on_floor(): 
+		if Input.is_action_just_pressed(parent.actions.jump) && parent.floor_manager.remaining_air_jumps > 0:
+			state_transition.emit(self, "AirJump")
+
+		elif Input.is_action_pressed(parent.actions.jump): parent.glide.emit()
+			
+		if Input.is_action_just_released(parent.actions.jump): parent.stop_glide.emit()
+	
+	
+
 	
 	# Cambiar estado al tocar el suelo
 	if parent.is_on_floor(): state_transition.emit(self, "Idle")
@@ -46,6 +53,9 @@ func Physics_Update(delta:float):
 
 	# DISPARA PORTALES
 	if parent.get_floor_count("portal_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_portal.emit()
+	
+	# DISPARA PLATAFORMAS
+	if parent.get_floor_count("platform_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_platform.emit()
 
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0 || parent.entered_dead_zone:
@@ -59,4 +69,4 @@ func Physics_Update(delta:float):
 				state_transition.emit(self, "SwimIdle")
 
 func Exit():
-	pass
+	parent.stop_glide.emit()

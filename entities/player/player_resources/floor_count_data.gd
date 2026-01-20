@@ -22,5 +22,7 @@ var floor_count_dict = {
 	"winged_floor":0,
 	"suck_floor":0,
 	"granade_launcher_floor": 0,
-	"portal_floor": 0
+	"portal_floor": 0,
+	"glider_floor": 0,
+	"platform_floor": 0
 }

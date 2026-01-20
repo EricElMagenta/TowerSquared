@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://cifrbirfji6ge"]
+
+[ext_resource type="Script" path="res://entities/projectiles/platform_projectile.gd" id="1_aie8e"]
+[ext_resource type="Texture2D" uid="uid://bshc7hkvi0axo" path="res://assets/projectiles/platform_projectile.png" id="1_on7in"]
+[ext_resource type="Texture2D" uid="uid://c33jihhfvimav" path="res://assets/objects/explosion-Sheet.png" id="3_6qtq6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhove"]
+atlas = ExtResource("1_on7in")
+region = Rect2(0, 0, 26, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er78v"]
+atlas = ExtResource("3_6qtq6")
+region = Rect2(0, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18xvr"]
+atlas = ExtResource("3_6qtq6")
+region = Rect2(35, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3koc"]
+atlas = ExtResource("3_6qtq6")
+region = Rect2(70, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2nw4"]
+atlas = ExtResource("3_6qtq6")
+region = Rect2(105, 0, 35, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ls4k8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhove")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er78v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18xvr")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_n3koc")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_q2nw4")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa0ia"]
+size = Vector2(26, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ckbh"]
+size = Vector2(2.5, 2.5)
+
+[node name="PlatformProjectile" type="CharacterBody2D"]
+script = ExtResource("1_aie8e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ls4k8")
+animation = &"explode"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pa0ia")
+
+[node name="PlayerDetectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerDetectArea"]
+position = Vector2(13.75, 1.25)
+shape = SubResource("RectangleShape2D_8ckbh")
+debug_color = Color(1, 1, 0.0588235, 1)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PlayerDetectArea"]
+position = Vector2(-14, 1.25)
+shape = SubResource("RectangleShape2D_8ckbh")
+debug_color = Color(1, 1, 0.0588235, 1)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]

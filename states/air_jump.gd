@@ -45,6 +45,9 @@ func Physics_Update(delta:float):
 	# DISPARA PORTALES
 	if parent.get_floor_count("portal_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_portal.emit()
 	
+	# DISPARA PLATAFORMAS
+	if parent.get_floor_count("platform_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_platform.emit()
+	
 	# MORIRSE AL QUEDARSE SIN VIDA
 	if parent.player_data.current_health <= 0 || parent.entered_dead_zone:
 		state_transition.emit(self, "Dead")
