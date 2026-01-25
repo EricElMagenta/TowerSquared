@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://0mv8gudi4xsr"]
+
+[ext_resource type="Texture2D" uid="uid://bcnwx11emnyc" path="res://assets/world/air_tower/enemy_cloud-Sheet.png" id="1_o8lkq"]
+[ext_resource type="Script" path="res://entities/enemies/enemy_cloud.gd" id="2_1cugv"]
+[ext_resource type="PackedScene" uid="uid://ccno26e8v4y50" path="res://entities/projectiles/enemy_ice_ball.tscn" id="3_i5mew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6k2r"]
+atlas = ExtResource("1_o8lkq")
+region = Rect2(0, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5s5f"]
+atlas = ExtResource("1_o8lkq")
+region = Rect2(55, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8ia6"]
+atlas = ExtResource("1_o8lkq")
+region = Rect2(110, 0, 55, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdd8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6k2r")
+}],
+"loop": true,
+"name": &"center",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5s5f")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8ia6")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krwl0"]
+size = Vector2(84, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_585pn"]
+size = Vector2(85, 103)
+
+[node name="EnemyCloud" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mdd8b")
+animation = &"left"
+autoplay = "left"
+script = ExtResource("2_1cugv")
+ice_ball = ExtResource("3_i5mew")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(2, -1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-61, 49)
+shape = SubResource("RectangleShape2D_krwl0")
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2(2, -1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(58.5, 49)
+shape = SubResource("RectangleShape2D_585pn")
+
+[node name="IceBallTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[connection signal="timeout" from="IceBallTimer" to="." method="_on_ice_ball_timer_timeout"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://wongs8jmlcxf"]
+
+[ext_resource type="Texture2D" uid="uid://c0wcg53ycwuqq" path="res://assets/world/air_tower/wind particle.png" id="1_rqmfm"]
+[ext_resource type="Script" path="res://entities/hazards/wind_sprite.gd" id="2_g8hfy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrg48"]
+size = Vector2(4, 2)
+
+[node name="WindSprite" type="Area2D"]
+script = ExtResource("2_g8hfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rqmfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jrg48")
+debug_color = Color(0, 0, 0, 0.42)

@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://bqmbalgepeot8"]
+
+[ext_resource type="Script" path="res://world/air_tower/floating_platform_falling.gd" id="1_vlo0v"]
+[ext_resource type="Texture2D" uid="uid://c33jihhfvimav" path="res://assets/objects/explosion-Sheet.png" id="3_bxbw2"]
+[ext_resource type="Texture2D" uid="uid://dxc7cnih2pkuv" path="res://assets/world/air_tower/floating_platform_falling-Sheet.png" id="3_qert0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it6ox"]
+atlas = ExtResource("3_bxbw2")
+region = Rect2(0, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy744"]
+atlas = ExtResource("3_bxbw2")
+region = Rect2(35, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2y8b"]
+atlas = ExtResource("3_bxbw2")
+region = Rect2(70, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suj4o"]
+atlas = ExtResource("3_bxbw2")
+region = Rect2(105, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n17qi"]
+atlas = ExtResource("3_qert0")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acrex"]
+atlas = ExtResource("3_qert0")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqxu3"]
+atlas = ExtResource("3_qert0")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dirsf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it6ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy744")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_i2y8b")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_suj4o")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n17qi")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_acrex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqxu3")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vry0x"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg5rj"]
+size = Vector2(46, 1)
+
+[node name="FloatingPlatformFalling" type="AnimatableBody2D"]
+sync_to_physics = false
+script = ExtResource("1_vlo0v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dirsf")
+animation = &"normal"
+autoplay = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vry0x")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_mg5rj")
+debug_color = Color(0.990857, 0, 0.273061, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

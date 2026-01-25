@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm2ixewp5yvr"]
+
+[ext_resource type="Script" path="res://entities/enemies/enemy_ligthing_cloud.gd" id="1_i4pml"]
+[ext_resource type="Texture2D" uid="uid://brena3171v4om" path="res://assets/enemies/enemy_electric_cloud.png" id="1_svmd1"]
+[ext_resource type="PackedScene" uid="uid://blmpb05nnu0yp" path="res://entities/projectiles/enemy_projectile_ligthing.tscn" id="2_qd34q"]
+
+[node name="EnemyLigthingCloud" type="Area2D"]
+script = ExtResource("1_i4pml")
+lighting = ExtResource("2_qd34q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_svmd1")
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 14)
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://ccno26e8v4y50"]
+
+[ext_resource type="Script" path="res://entities/projectiles/enemy_ice_ball.gd" id="1_oqwjl"]
+[ext_resource type="Texture2D" uid="uid://bcub3p2p74lgp" path="res://assets/projectiles/enemy_ice_ball-Sheet.png" id="2_eyhij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4urol"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(84, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ol8a"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(105, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqwi0"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(126, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st8nk"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(147, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5ocd"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(168, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdfla"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(0, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blgnn"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(21, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn4hi"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(42, 0, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0mn3"]
+atlas = ExtResource("2_eyhij")
+region = Rect2(63, 0, 21, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ychh1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4urol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ol8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqwi0")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_st8nk")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_v5ocd")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdfla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blgnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn4hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0mn3")
+}],
+"loop": true,
+"name": &"rolling",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cv7u"]
+size = Vector2(11, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5inoe"]
+size = Vector2(13, 17)
+
+[node name="EnemyIceBall" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_oqwjl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ychh1")
+animation = &"explode"
+autoplay = "rolling"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_5cv7u")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_5inoe")
+debug_color = Color(0.904285, 0.000141504, 0.750363, 0.42)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]

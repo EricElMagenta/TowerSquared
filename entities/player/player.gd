@@ -43,6 +43,8 @@ var dir = 1
 var damage_blink = false
 var entered_dead_zone = false
 var knockback = Vector2.ZERO
+var wind_movement_horizontal = 0
+var wind_movement_vertical = 0
 var gliding_floors = 1
 var talking_to : Area2D = null
 
@@ -87,7 +89,7 @@ func move(delta) -> Vector2:
 	if not is_on_floor(): velocity.y += player_data.gravity * delta
 	
 	input_vector = get_direction()
-	velocity = Vector2(input_vector[0] * player_data.move_speed + player_data.impulse, velocity.y/gliding_floors)
+	velocity = Vector2(input_vector[0] * player_data.move_speed + wind_movement_horizontal + player_data.impulse, velocity.y/gliding_floors - wind_movement_vertical)
 	move_and_slide()
 	return input_vector
 
@@ -215,10 +217,22 @@ func delete_charge_bar():
 func _on_dialogue_area_area_exited(area):
 	if area is Bubble: bounce(area.bounce_multiplier)
 
-##################################### PLANEAR ###############################
+##################################### MISC ###############################
 
 func apply_gliding():
 	gliding_floors = floor_manager.get_this_floor_count("glider_floor") + 1
 
 func stop_gliding():
 	gliding_floors = 1
+
+func apply_wind_horizontal(wind_force:int):
+	wind_movement_horizontal = wind_force
+
+func apply_wind_vertical(wind_force:int):
+	wind_movement_vertical = wind_force
+
+func disable_wind_horizontal():
+	wind_movement_horizontal = 0
+
+func disable_wind_vertical():
+	wind_movement_vertical = 0

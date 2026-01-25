@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdjp42oeuft4w"]
+
+[ext_resource type="Texture2D" uid="uid://cvrvw0bqfcrcl" path="res://assets/world/air_tower/fan-Sheet.png" id="1_w13kd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyeo6"]
+atlas = ExtResource("1_w13kd")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqlsr"]
+atlas = ExtResource("1_w13kd")
+region = Rect2(30, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h0ob"]
+atlas = ExtResource("1_w13kd")
+region = Rect2(60, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tg4r"]
+atlas = ExtResource("1_w13kd")
+region = Rect2(90, 0, 30, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q8y2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyeo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqlsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h0ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tg4r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Fan" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_q8y2r")
+autoplay = "default"
+frame = 3
+frame_progress = 0.414038
