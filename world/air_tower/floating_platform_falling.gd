@@ -20,11 +20,11 @@ func _on_area_2d_body_entered(body:Node2D):
 		animated_sprite_2d.play("falling")
 		AudioManager.play_inavlid_action()
 		await get_tree().create_timer(0.5).timeout
+		set_collision_layer_value(1,false)
 		is_falling = true
 		await get_tree().create_timer(2).timeout
 		is_falling = false
 		falling_speed = 0
-		set_collision_layer_value(1,false)
 		await get_tree().create_timer(0.1).timeout
 		position = starting_point
 		animated_sprite_2d.play("normal")

@@ -25,5 +25,5 @@ func _on_timer_timeout():
     var wind_sprite_instance = wind_sprite.instantiate()
     wind_sprite_instance.dir = dir
     wind_sprite_instance.speed = speed
-    wind_sprite_instance.position.y = randi_range(up_limit, -down_limit)
+    wind_sprite_instance.position.y = randi_range(-up_limit, down_limit)
     add_child(wind_sprite_instance)

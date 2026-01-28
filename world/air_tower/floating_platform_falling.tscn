@@ -78,6 +78,7 @@ size = Vector2(48, 16)
 size = Vector2(46, 1)
 
 [node name="FloatingPlatformFalling" type="AnimatableBody2D"]
+collision_mask = 0
 sync_to_physics = false
 script = ExtResource("1_vlo0v")
 

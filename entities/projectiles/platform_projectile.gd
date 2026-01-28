@@ -30,7 +30,7 @@ func explode():
 
 
 func _on_player_detect_area_body_entered(body:Node2D):
-	if body is Player: explode()
+	if body is Player || body.is_in_group("grabeable"): explode()
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()
