@@ -34,6 +34,8 @@ item_propeller_floor,Charges speed underwater.,Carga velocidad en el agua.
 item_suck_floor,Sucks and spits out bubbles.,Succiona y escupe burbujas.
 item_granade_launcher_floor,Throws bouncing grenades.,Arroja granadas saltarinas.
 item_portal_floor,Teleports from A to Z and vice versa.,Teletransporta desde A a Z.
+item_platform_floor,Shoots small platforms.,Dispara plataformas pequeñas.
+item_glider_floor,Glides in the air.,Planea en el aire.
 ,,
 ,,
 # Cinematicas,,
@@ -70,6 +72,7 @@ tutorial_question_floor_3,That button is too high. Get taller and shoot it.,Ese 
 tutorial_question_floor_4,You could use those boxes... if you had a hand.,Podrías usar esas cajas... si tuvieras una mano.
 tutorial_question_floor_5,You can use boxes as a shield.,Puedes usar las cajas como escudo.
 ,,
+,,
 # SEA TOWER,,
 tutorial_question_sea_1,"The more fish tails, the more speed when swimming.","A más colas de pez, más velocidad nadando."
 tutorial_question_sea_2,"Swimming is too slow, use that propeller for ultra speed.","Nadar es muy lento, mejor usa ese propulsor."
@@ -78,8 +81,14 @@ tutorial_question_sea_4,Don't be afraid of bubbles.,No le temas a las burbujas.
 tutorial_question_sea_5,Bubbles can either go up or stay still.,Las burbujas pueden ascender o quedarse quietas
 tutorial_question_sea_6,The exit is right above us. You need something to go up.,La salida está justo arriba de nosotros. Necesitas algo para subir.
 ,,
+,,
 # TECHNO TOWER,,
 tutorial_question_techno_1,You can stand on the cars.,Puedes pararte encima de los autos.
+,,
+,,
+#AIR TOWER,,
+tutorial_question_air_1,"The more wings, the more jumps.","A más alas, más saltos."
+tutorial_question_air_2,You can shoot and stand on these platforms.,Puedes pararte en las plataformas que disparas.
 ,,
 ,,
 # FLOOR PLAZA,,
@@ -105,6 +114,7 @@ select_air,Air Tower,Torre del Aire
 select_techno,Techno Tower,Torre Tecno
 select_exit,Exit,Salir
 not_available,Not available in demo.,No disponible en la demo.
+,,
 ,,
 #MAPA,,
 not_available,Not available in demo.,No disponible en la demo.

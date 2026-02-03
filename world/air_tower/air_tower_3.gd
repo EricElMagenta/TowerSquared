@@ -11,7 +11,7 @@ extends Node2D
 @onready var scene_transition = $SceneTransition
 
 func _ready():
-	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "techno_tower": AudioManager.change_song("techno_tower")
+	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "air_tower": AudioManager.change_song("air_tower")
 	RenderingServer.set_default_clear_color(Color.BLACK)
 
 	# TRANCISIÓN DEL NIVEL
