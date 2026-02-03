@@ -39,7 +39,7 @@ position = Vector2(258, -117)
 [node name="WorldPlaza" parent="." instance=ExtResource("7_skcb8")]
 position = Vector2(305, 32)
 
-[node name="TowerAir" parent="." instance=ExtResource("8_ro87f")]
+[node name="AirTower" parent="." instance=ExtResource("8_ro87f")]
 position = Vector2(464, -54)
 
 [node name="PlayerWorldIcon" parent="." instance=ExtResource("3_c6t0m")]

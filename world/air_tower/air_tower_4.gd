@@ -27,7 +27,7 @@ func _ready():
 	player.health_changed.connect(health_container.update_health)
 
 	#MARCA EL NIVEL COMO SELECCIONABLE
-	GameManager.mark_level_as_selectable("technotower", "techno_7")
+	GameManager.mark_level_as_selectable("airtower", "air_4")
 	
 func go_to_next_level():
 	GameManager.techno_tower_clear = true
