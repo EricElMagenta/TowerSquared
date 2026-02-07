@@ -30,7 +30,6 @@ func _ready():
 	GameManager.mark_level_as_selectable("airtower", "air_3")
 	
 func go_to_next_level():
-	GameManager.techno_tower_clear = true
 	scene_transition.next_level_transition()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().call_deferred("change_scene_to_packed", next_level)

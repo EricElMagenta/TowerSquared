@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwe8d1b5jmcgu"]
+[gd_scene load_steps=13 format=3 uid="uid://cwe8d1b5jmcgu"]
 
 [ext_resource type="Script" path="res://world/misc/tower_air.gd" id="1_kfwgj"]
 [ext_resource type="Texture2D" uid="uid://iqaxps1c2op2" path="res://assets/world/tower-air-Sheet.png" id="1_tyqys"]
+[ext_resource type="PackedScene" uid="uid://dh6n5v3arm625" path="res://world/clear_flag.tscn" id="2_g5uvx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bocnc"]
 size = Vector2(38, 27)
@@ -52,6 +53,9 @@ animations = [{
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("1_kfwgj")
+
+[node name="ClearFlag" parent="." instance=ExtResource("2_g5uvx")]
+position = Vector2(-26, -44)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-32, 22.5)

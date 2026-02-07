@@ -39,6 +39,8 @@ func _ready():
 	if GameManager.is_level_selectable("airtower", "air_6"): button_level_6.visible = true
 	if GameManager.is_level_selectable("airtower", "air_7"): button_level_7.visible = true
 
+	if GameManager.air_tower_clear: $ClearFlag.visible = true
+
 func _process(_delta):
 	if $CanvasLayer.visible:
 		is_paused = true
@@ -51,13 +53,13 @@ func is_tower_cleared():
 	return GameManager.techno_tower_clear
 
 func go_to_next_zone():
-	get_tree().call_deferred("change_scene_to_file", "res://world/air_tower/air_tower_1.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://cutscenes/air_tower/air_tower_intro_cutscene.tscn")
 
 func _on_level_1_pressed():
 	GameManager.sharked_player = false
 	if AudioManager.music.playing: AudioManager.music.stop()
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://world/air_tower/air_tower_1.tscn")
+	get_tree().change_scene_to_file("res://cutscenes/air_tower/air_tower_intro_cutscene.tscn")
 
 
 func _on_level_2_pressed():

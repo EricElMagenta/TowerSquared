@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=4 uid="uid://devb3hgi62m4e"]
+[gd_scene load_steps=28 format=4 uid="uid://devb3hgi62m4e"]
 
 [ext_resource type="PackedScene" uid="uid://b117bhie1rhfv" path="res://world/air_tower/air_tower_tilemap.tscn" id="1_8pnmq"]
 [ext_resource type="Script" path="res://world/air_tower/air_tower_7.gd" id="1_mgeg2"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_6g4fj"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="2_lech4"]
 [ext_resource type="Texture2D" uid="uid://dfxlu78qaln48" path="res://assets/misc/hint_arrow.png" id="2_oi7b6"]
+[ext_resource type="PackedScene" uid="uid://dudixbnbicel0" path="res://cutscenes/air_tower/air_tower_end_cutscene.tscn" id="2_soetg"]
 [ext_resource type="Texture2D" uid="uid://dgbs8402a3n2x" path="res://assets/objects/stairs_door.png" id="3_fvsfy"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="3_w270l"]
 [ext_resource type="PackedScene" uid="uid://brlj15bdnm34c" path="res://entities/hazards/wind_area.tscn" id="4_nh58x"]
@@ -39,6 +40,7 @@ size = Vector2(10277.4, 1704)
 
 [node name="AirTower7" type="Node2D"]
 script = ExtResource("1_mgeg2")
+next_level = ExtResource("2_soetg")
 
 [node name="Hint" type="Node2D" parent="."]
 

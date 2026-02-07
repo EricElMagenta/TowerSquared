@@ -65,6 +65,15 @@ techno_tower_end_4,¡Perfect!,¡Perfecto!
 techno_tower_end_5,You'll be back to the entrance in no time!,Volverá a la entrada enseguida.
 ,,
 ,,
+# Air Tower,,
+air_tower_end_1,Very good!,¡Muy bien!
+air_tower_end_2,"Another victory for you, sir.",Otra victoria más para usted.
+air_tower_end_3,¡We have to save this moment with a phoyo!,¡Hay que inmortalizarlo con una foto!
+air_tower_end_4,"Be careful, the weather here is quite intense.","Tenga cuidado, el clima aquí es un tanto peligroso."
+air_tower_end_5,Fantastic!,¡Fantástico!
+air_tower_end_6,Allow me to help you get down from here.,Déjeme ayudarle a bajar.
+,,
+,,
 # NPC en torres,,
 tutorial_question_floor_1,Where are you going?,¿A dónde vas?
 tutorial_question_floor_2,Press R to restart the level.,Apreta R para reiniciar el nivel.
