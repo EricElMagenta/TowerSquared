@@ -193,7 +193,7 @@ scale = Vector2(-1, 1)
 dir = -1
 
 [node name="EnemyBird5" parent="Enemies" instance=ExtResource("9_kqtwt")]
-position = Vector2(3324, -425)
+position = Vector2(3324, -428)
 scale = Vector2(-1, 1)
 dir = -1
 
@@ -258,13 +258,13 @@ position = Vector2(668, 0)
 position = Vector2(715, 0)
 
 [node name="FlyingPlatform17" parent="Platform" instance=ExtResource("9_0y17t")]
-position = Vector2(837, 0)
+position = Vector2(837, -3)
 
 [node name="FlyingPlatform18" parent="Platform" instance=ExtResource("9_0y17t")]
-position = Vector2(885, 0)
+position = Vector2(885, -3)
 
 [node name="FlyingPlatform19" parent="Platform" instance=ExtResource("9_0y17t")]
-position = Vector2(933, 0)
+position = Vector2(933, -3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

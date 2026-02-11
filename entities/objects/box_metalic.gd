@@ -40,6 +40,9 @@ func _physics_process(delta):
 
 func destroy_bullet(bullet):
 	bullet.queue_free()
-	
+
+func box_destroyed():
+	queue_free()
+
 func return_to_spawn_point():
 	position = spawn_pos

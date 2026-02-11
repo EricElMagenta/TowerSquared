@@ -29,6 +29,9 @@ func explode():
 	animated_sprite_2d.play("explode")
 
 
+func platform_destroyed():
+	explode()
+
 func _on_player_detect_area_body_entered(body:Node2D):
 	if body is Player || body.is_in_group("grabeable"): explode()
 

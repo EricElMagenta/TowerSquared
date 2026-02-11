@@ -53,6 +53,18 @@ var cleared_levels = {
 		"air_5" : false,
 		"air_6" : false,
 		"air_7" : false
+	},
+	"endtower" = {
+		"end_1" : false,
+		"end_2" : false,
+		"end_3" : false,
+		"end_4" : false,
+		"end_5" : false,
+		"end_6" : false,
+		"end_7" : false,
+		"end_8" : false,
+		"end_9" : false,
+		"end_10" : false,
 	}
 }
 
