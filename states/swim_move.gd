@@ -40,6 +40,8 @@ func Physics_Update(delta:float):
 	# CARGAR PROPULSOR
 	if Input.is_action_pressed(parent.actions.action) && parent.get_floor_count("propeller_floor"): state_transition.emit(self, "Charge")
 
-	
+	# DISPARA AL HACER CLICK SI TIENE EL LANZA GRANADAS
+	if parent.get_floor_count("granade_launcher_floor") && Input.is_action_just_pressed(parent.actions.shoot): parent.shoot_granade.emit()
+		
 func Exit():
 	pass

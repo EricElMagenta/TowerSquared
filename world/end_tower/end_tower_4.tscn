@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://cb4oqmwkkhqvm"]
+[gd_scene load_steps=23 format=4 uid="uid://cb4oqmwkkhqvm"]
 
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_5q00j"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="1_ar202"]
 [ext_resource type="PackedScene" uid="uid://ba78qtodliqom" path="res://world/secret_tile_set.tscn" id="1_iso3q"]
 [ext_resource type="PackedScene" uid="uid://dt2t6ni34rqbr" path="res://world/sea_tower/sea_tower_tilemap.tscn" id="1_nn21a"]
 [ext_resource type="Script" path="res://world/end_tower/end_tower_4.gd" id="1_wvyrt"]
+[ext_resource type="PackedScene" uid="uid://dw16ame3wub2s" path="res://world/end_tower/end_tower_5.tscn" id="2_0wntp"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="2_fsooa"]
 [ext_resource type="PackedScene" uid="uid://b117bhie1rhfv" path="res://world/air_tower/air_tower_tilemap.tscn" id="2_sngk2"]
 [ext_resource type="Texture2D" uid="uid://g6gykad6rv1t" path="res://assets/objects/final_door.png" id="2_ypjuq"]
@@ -34,6 +35,7 @@ size = Vector2(736, 17)
 
 [node name="EndTower4" type="Node2D"]
 script = ExtResource("1_wvyrt")
+next_level = ExtResource("2_0wntp")
 
 [node name="DoorStone" parent="." instance=ExtResource("1_5q00j")]
 position = Vector2(2714, -917)

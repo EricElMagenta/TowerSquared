@@ -22,6 +22,8 @@ func get_destroyed():
 	AudioManager.play_explosion()
 	animated_sprite_2d.play("explode")
 
+func get_eaten():
+	get_destroyed()
 
 func fly_at_player():
 	animated_sprite_2d.play("flying")
