@@ -11,7 +11,7 @@ extends Node2D
 @onready var scene_transition = $SceneTransition
 
 func _ready():
-	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "air_tower": AudioManager.change_song("air_tower")
+	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "end_tower_1": AudioManager.change_song("end_tower_1")
 	RenderingServer.set_default_clear_color(Color.BLACK)
 
 	# TRANCISIÓN DEL NIVEL
@@ -27,7 +27,7 @@ func _ready():
 	player.health_changed.connect(health_container.update_health)
 
 	#MARCA EL NIVEL COMO SELECCIONABLE
-	GameManager.mark_level_as_selectable("endtower", "end_3")
+	GameManager.mark_level_as_selectable("endtower", "end_4")
 	
 func go_to_next_level():
 	scene_transition.next_level_transition()

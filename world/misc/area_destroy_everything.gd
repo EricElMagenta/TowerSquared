@@ -8,4 +8,4 @@ func _on_body_entered(body):
 		body.platform_destroyed()
 
 func _on_area_entered(area):
-	area.queue_free()
+	if area.name != "DialogueArea": area.queue_free()

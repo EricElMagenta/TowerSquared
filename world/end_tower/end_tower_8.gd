@@ -9,14 +9,9 @@ extends Node2D
 @onready var health_container = $CanvasLayer/HealthContainer
 @onready var player = $Player
 @onready var scene_transition = $SceneTransition
-@onready var button_1 = $Objects/Button
-@onready var button_2 = $Objects/Button2
-
-var open_doohr_count = 0
 
 func _ready():
-	door_stone.sprite_2d.frame = 1
-	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "end_tower_1": AudioManager.change_song("end_tower_1")
+	if !AudioManager.music.playing || AudioManager.current_music.to_lower() != "end_tower_2": AudioManager.change_song("end_tower_2")
 	RenderingServer.set_default_clear_color(Color.BLACK)
 
 	# TRANCISIÓN DEL NIVEL
@@ -32,16 +27,9 @@ func _ready():
 	player.health_changed.connect(health_container.update_health)
 
 	#MARCA EL NIVEL COMO SELECCIONABLE
-	GameManager.mark_level_as_selectable("endtower", "end_2")
-
-	button_1.button_pressed.connect(open_doohr)
-	button_2.button_pressed.connect(open_doohr)
+	GameManager.mark_level_as_selectable("endtower", "end_7")
 	
 func go_to_next_level():
 	scene_transition.next_level_transition()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().call_deferred("change_scene_to_packed", next_level)
-
-func open_doohr():
-	open_doohr_count += 1
-	if  open_doohr_count == 2: door_stone.sprite_2d.frame = 0
