@@ -27,7 +27,7 @@ func _ready():
 	player.health_changed.connect(health_container.update_health)
 
 	#MARCA EL NIVEL COMO SELECCIONABLE
-	GameManager.mark_level_as_selectable("endtower", "end_8")
+	GameManager.mark_level_as_selectable("endtower", "end_9")
 	
 func go_to_next_level():
 	scene_transition.next_level_transition()

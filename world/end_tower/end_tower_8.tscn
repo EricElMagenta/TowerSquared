@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=4 uid="uid://8mug372qk36y"]
+[gd_scene load_steps=28 format=4 uid="uid://8mug372qk36y"]
 
 [ext_resource type="PackedScene" uid="uid://f70nsaw3i2wc" path="res://entities/objects/id_fake_wall.tscn" id="1_5d3h5"]
 [ext_resource type="Script" path="res://world/end_tower/end_tower_8.gd" id="1_ac4m3"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="1_vcgso"]
 [ext_resource type="PackedScene" uid="uid://brlj15bdnm34c" path="res://entities/hazards/wind_area.tscn" id="2_03gsm"]
 [ext_resource type="PackedScene" uid="uid://yrp4ssj8s23v" path="res://world/end_tower/end_tower_2_tilemap.tscn" id="2_6hmi3"]
+[ext_resource type="PackedScene" uid="uid://dai4hatspwra5" path="res://world/end_tower/end_tower_9.tscn" id="2_dci8e"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="2_w447l"]
 [ext_resource type="PackedScene" uid="uid://ydfy5qpynvue" path="res://entities/hazards/wind_particle.tscn" id="3_kdimg"]
 [ext_resource type="PackedScene" uid="uid://cafiynnbjl0nj" path="res://entities/objects/object_bubble.tscn" id="5_frrhy"]
@@ -38,6 +39,7 @@ size = Vector2(640.5, 18)
 [node name="EndTower8" type="Node2D"]
 position = Vector2(243, -113)
 script = ExtResource("1_ac4m3")
+next_level = ExtResource("2_dci8e")
 
 [node name="DoorStone" parent="." instance=ExtResource("18_65r0j")]
 position = Vector2(3397, 300)
@@ -250,13 +252,6 @@ selected_movement = 3
 limit_up = 80
 limit_down = -80
 speed = 3.0
-
-[node name="HazardSpikeBall6" parent="Enemies" instance=ExtResource("11_62f03")]
-position = Vector2(1662, 239)
-selected_movement = 3
-limit_up = 80
-limit_down = -80
-radius = 35
 
 [node name="EnemyFlyingBomb" parent="Enemies" instance=ExtResource("12_8l61v")]
 position = Vector2(1404, 245)
