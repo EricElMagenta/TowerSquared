@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4i1lljh0p3kv"]
+
+[ext_resource type="Texture2D" uid="uid://brywiicoda2vr" path="res://assets/projectiles/box_portals_sheet-Sheet.png" id="1_gmtn0"]
+[ext_resource type="Script" path="res://entities/objects/suck_box.gd" id="2_07k8f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fedhr"]
+atlas = ExtResource("1_gmtn0")
+region = Rect2(0, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3l2a"]
+atlas = ExtResource("1_gmtn0")
+region = Rect2(22, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5a62"]
+atlas = ExtResource("1_gmtn0")
+region = Rect2(44, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivq65"]
+atlas = ExtResource("1_gmtn0")
+region = Rect2(66, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0jr7"]
+atlas = ExtResource("1_gmtn0")
+region = Rect2(88, 0, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahg5l"]
+atlas = ExtResource("1_gmtn0")
+region = Rect2(110, 0, 22, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ucmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fedhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3l2a")
+}],
+"loop": false,
+"name": &"P",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5a62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivq65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0jr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahg5l")
+}],
+"loop": true,
+"name": &"P_loop",
+"speed": 24.0
+}]
+
+[node name="SuckBox" type="AnimatedSprite2D"]
+position = Vector2(367, -17)
+sprite_frames = SubResource("SpriteFrames_3ucmj")
+animation = &"P_loop"
+script = ExtResource("2_07k8f")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

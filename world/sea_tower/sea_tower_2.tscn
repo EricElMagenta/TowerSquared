@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://booxfh3hcb2x1"]
+[gd_scene load_steps=17 format=4 uid="uid://booxfh3hcb2x1"]
 
 [ext_resource type="Script" path="res://world/sea_tower/sea_tower_2.gd" id="1_rhohc"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="2_aphfx"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="9_ryuao"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="10_fckq7"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="11_qkmtu"]
+[ext_resource type="PackedScene" uid="uid://2av4vqqnrrpg" path="res://world/sea_tower/sea_tower_tilemap_foreground.tscn" id="13_noixa"]
 [ext_resource type="PackedScene" uid="uid://cech37fjptrlh" path="res://entities/enemies/enemy_shark.tscn" id="17_vi82p"]
 [ext_resource type="PackedScene" uid="uid://dabhd7dl5qssl" path="res://entities/power-up/floor_eye_item.tscn" id="18_4rknc"]
 
@@ -145,6 +146,9 @@ position = Vector2(923, -23)
 position = Vector2(1560, -232)
 
 [node name="Areas" type="Node2D" parent="."]
+
+[node name="TileMapLayerForeground" parent="." instance=ExtResource("13_noixa")]
+tile_map_data = PackedByteArray("AAD//wQAAgACAAEAAAD//wUAAgACAAMAAAD//wMAAgACAAIAAAD//wIAAgACAAAAAAASAAMAAgACAAEAAAASAAQAAgACAAIAAAASAAUAAgACAAMAAAASAAIAAgACAAAAAAATAAQAAgACAAEAAAATAAUAAgACAAMAAAATAAMAAgACAAAAAAAoAAAAAgACAAIAAAAoAAEAAgACAAMAAAAoAP//AgACAAIAAAAjAAIAAgACAAEAAAAjAAMAAgACAAMAAAAjAAEAAgACAAIAAAAjAAAAAgACAAIAAAAjAP//AgACAAAAAAAoAP7/AgACAAEAAAAoAP3/AgACAAAAAACGAPH/AgACAAIAAACGAPD/AgACAAEAAACGAO//AgACAAEAAACGAO7/AgACAAEAAACGAO3/AgACAAAAAACGAPL/AgACAAMAAACEAPD/AgACAAEAAACEAPH/AgACAAIAAACEAPL/AgACAAMAAACEAO//AgACAAAAAACFAPD/AgACAAIAAACFAPH/AgACAAEAAACFAPL/AgACAAMAAACFAO//AgACAAAAAAB3APD/AgACAAEAAAB3APH/AgACAAIAAAB3APL/AgACAAIAAAB3APP/AgACAAMAAAB3AO//AgACAAAAAAB4APH/AgACAAEAAAB4APL/AgACAAIAAAB4APP/AgACAAMAAAB4APD/AgACAAAAAAB2APL/AgACAAIAAAB2APH/AgACAAIAAAB2APP/AgACAAMAAAB2APD/AgACAAAAAAA=")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

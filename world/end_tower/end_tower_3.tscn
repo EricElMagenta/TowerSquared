@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://b3ehctvuc8yur"]
+[gd_scene load_steps=32 format=4 uid="uid://b3ehctvuc8yur"]
 
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="1_05huu"]
 [ext_resource type="Script" path="res://world/end_tower/end_tower_3.gd" id="1_bjxoc"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://ceryf6c74kncp" path="res://ui/health/health_container.tscn" id="18_skvqj"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="19_k1ioo"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="20_is2g2"]
+[ext_resource type="Texture2D" uid="uid://dfxlu78qaln48" path="res://assets/misc/hint_arrow.png" id="22_xixcm"]
+[ext_resource type="PackedScene" uid="uid://c4i1lljh0p3kv" path="res://entities/objects/suck_box.tscn" id="23_xenpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlsvr"]
 size = Vector2(2225, 462.5)
@@ -29,7 +31,7 @@ size = Vector2(2225, 462.5)
 size = Vector2(43.25, 75.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btafc"]
-size = Vector2(34.625, 36.625)
+size = Vector2(24.3125, 22.3125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pe33"]
 size = Vector2(34.625, 49)
@@ -49,6 +51,26 @@ size = Vector2(172.125, 11.5)
 [node name="EndTower3" type="Node2D"]
 script = ExtResource("1_bjxoc")
 next_level = ExtResource("2_j8jsu")
+
+[node name="SuckBox" parent="." instance=ExtResource("23_xenpy")]
+position = Vector2(1808, -378)
+
+[node name="Hints" type="Node2D" parent="."]
+
+[node name="HintArrow" type="Sprite2D" parent="Hints"]
+position = Vector2(1733, -488)
+rotation = 1.5708
+texture = ExtResource("22_xixcm")
+
+[node name="HintArrow2" type="Sprite2D" parent="Hints"]
+position = Vector2(1869, -488)
+rotation = 1.5708
+texture = ExtResource("22_xixcm")
+
+[node name="HintArrow3" type="Sprite2D" parent="Hints"]
+position = Vector2(2476, -410)
+rotation = 5.49779
+texture = ExtResource("22_xixcm")
 
 [node name="DoorStone" parent="." instance=ExtResource("1_05huu")]
 position = Vector2(2639, -533)
@@ -161,7 +183,7 @@ shape = SubResource("RectangleShape2D_k7iiw")
 debug_color = Color(0.643137, 0.6, 1, 0.419608)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Areas/AreaDestroyEverything"]
-position = Vector2(1812, -328)
+position = Vector2(1806.84, -377.156)
 shape = SubResource("RectangleShape2D_btafc")
 debug_color = Color(0.643137, 0.6, 1, 0.419608)
 

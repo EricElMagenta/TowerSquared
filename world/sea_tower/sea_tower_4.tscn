@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://wcjmp8w5s8t5"]
+[gd_scene load_steps=29 format=4 uid="uid://wcjmp8w5s8t5"]
 
 [ext_resource type="Script" path="res://world/sea_tower/sea_tower_4.gd" id="1_q5fua"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="2_8mqfx"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dfxlu78qaln48" path="res://assets/misc/hint_arrow.png" id="12_ww03u"]
 [ext_resource type="PackedScene" uid="uid://bk5vnaecrjq01" path="res://ui/pause/pause_menu.tscn" id="13_4v4kt"]
 [ext_resource type="PackedScene" uid="uid://dgmq0sgply78u" path="res://ui/transition/scene_transition.tscn" id="14_q8xt2"]
+[ext_resource type="PackedScene" uid="uid://2av4vqqnrrpg" path="res://world/sea_tower/sea_tower_tilemap_foreground.tscn" id="19_8fr0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6spm"]
 size = Vector2(55, 157)
@@ -239,6 +240,9 @@ limit_down = 0
 position = Vector2(1040, -786)
 selected_movement = 3
 limit_up = 0
+
+[node name="TileMapLayerForeground" parent="." instance=ExtResource("19_8fr0r")]
+tile_map_data = PackedByteArray("AAAPAP7/AgACAAIAAAAPAP//AgACAAMAAAAPAP3/AgACAAAAAAAKAP7/AgACAAEAAAAKAP//AgACAAMAAAAKAP3/AgACAAAAAAAXAPD/AgAEAAEAAAAXAPH/AgAEAAMAAAAXAO//AgAEAAAAAAAbANj/AgAEAAEAAAAbANf/AgAEAAEAAAAbANb/AgAEAAAAAAAbANn/AgAEAAMAAAAhANf/AgAEAAIAAAAhANj/AgAEAAMAAAAhANb/AgAEAAAAAAAeANf/AgAEAAIAAAAeANj/AgAEAAEAAAAeANn/AgAEAAIAAAAeANr/AgAEAAMAAAAeANb/AgAEAAAAAAAfANH/AgACAAEAAAAfANL/AgACAAMAAAAfAND/AgACAAAAAAAYAM3/AgACAAIAAAAYAM7/AgACAAIAAAAYAM//AgACAAEAAAAYAND/AgACAAIAAAAYANH/AgACAAMAAAAYAMz/AgACAAAAAAAaAND/AgACAAIAAAAaAM//AgACAAIAAAAaAM7/AgACAAAAAAAaANH/AgACAAMAAAATAND/AgACAAEAAAATAM//AgACAAEAAAATAM7/AgACAAIAAAATAM3/AgACAAAAAAATANH/AgACAAMAAABTANb/AgACAAEAAABTANX/AgACAAIAAABTANT/AgACAAAAAABTANf/AgACAAMAAABPANb/AgACAAEAAABPANf/AgACAAMAAABPANX/AgACAAAAAAAqAP7/AgACAAIAAAAqAP3/AgACAAEAAAAqAPz/AgACAAIAAAAqAPv/AgACAAEAAAAqAPr/AgACAAAAAAAqAP//AgACAAMAAAA2AP7/AgACAAIAAAA2AP3/AgACAAEAAAA2APz/AgACAAIAAAA2APv/AgACAAIAAAA2APr/AgACAAAAAAA2AP//AgACAAMAAAAnAP7/AgACAAEAAAAnAP//AgACAAMAAAAnAP3/AgACAAAAAAAeAP7/AgACAAIAAAAeAP3/AgACAAEAAAAeAPz/AgACAAAAAAAeAP//AgACAAMAAAA9AP7/AgACAAIAAAA9AP3/AgACAAEAAAA9APz/AgACAAAAAAA9AP//AgACAAMAAAA=")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

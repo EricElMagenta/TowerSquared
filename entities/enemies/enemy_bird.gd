@@ -38,4 +38,6 @@ func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite_2d.animation == "explode": queue_free()
 
 func _on_player_detect_area_body_entered(body:Node2D):
-	if body is Player: fly_at_player()
+	if body is Player: 
+		if velocity.x == 0: AudioManager.play_bird_flight()
+		fly_at_player()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dggewxu7bpgtv"]
 
-[ext_resource type="Script" path="res://enemy_bird.gd" id="1_1ehr0"]
+[ext_resource type="Script" path="res://entities/enemies/enemy_bird.gd" id="1_1ehr0"]
 [ext_resource type="Texture2D" uid="uid://c33jihhfvimav" path="res://assets/objects/explosion-Sheet.png" id="2_kwv2t"]
 [ext_resource type="Texture2D" uid="uid://dux74e5utufr7" path="res://assets/enemies/enemy_bird.png" id="2_xvktq"]
 

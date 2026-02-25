@@ -121,6 +121,7 @@ select_tutorial,Tutorial Tower,Torre Tutorial
 select_sea,Sea Tower,Torre del Mar
 select_air,Air Tower,Torre del Aire
 select_techno,Techno Tower,Torre Tecno
+select_end,End Tower,Torre Final
 select_exit,Exit,Salir
 not_available,Not available in demo.,No disponible en la demo.
 ,,

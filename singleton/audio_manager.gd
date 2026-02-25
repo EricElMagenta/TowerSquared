@@ -74,6 +74,12 @@ func play_water_splash():
 func play_chomp():
 	if !sfx_muted: $Chomp.play()
 
+func play_earthquake():
+	if !sfx_muted: $Earthquake.play()
+
+func play_bird_flight():
+	if !sfx_muted: $BirdFlight.play()
+
 ############################################### SONIDOS DE OBJETOS ################################
 func play_bullet_shot():
 	if !sfx_muted: $BulletShoot.play()

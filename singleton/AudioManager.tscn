@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://yd2ja8cfkaws"]
+[gd_scene load_steps=22 format=3 uid="uid://yd2ja8cfkaws"]
 
 [ext_resource type="Script" path="res://singleton/audio_manager.gd" id="1_7ndra"]
 [ext_resource type="AudioStream" uid="uid://dwvm0w2uqmpt" path="res://audio/player/jump.wav" id="2_a4kib"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://cicfxi6nbpiax" path="res://audio/cutscenes/dialogue_sound.wav" id="17_eb2w5"]
 [ext_resource type="AudioStream" uid="uid://de6okgkevdupq" path="res://audio/player/splash.wav" id="18_2i17y"]
 [ext_resource type="AudioStream" uid="uid://cj2xk1fltg8n7" path="res://audio/player/chomp.wav" id="19_lkilw"]
+[ext_resource type="AudioStream" uid="uid://bds2wwreu03ef" path="res://audio/map/earthquake.wav" id="20_4awb7"]
+[ext_resource type="AudioStream" uid="uid://d2iawtflig3mt" path="res://audio/enemies/bird_flight.wav" id="21_5bxes"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_7ndra")
@@ -109,6 +111,13 @@ bus = &"SFX"
 
 [node name="Chomp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_lkilw")
+
+[node name="Earthquake" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_4awb7")
+volume_db = -18.0
+
+[node name="BirdFlight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_5bxes")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3

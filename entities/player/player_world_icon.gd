@@ -8,7 +8,9 @@ extends CharacterBody2D
 @onready var zone_detect = $ZoneDetect
 @onready var talk_prompt = $TalkPrompt
 
-# VARIABLES
+var can_move := true
+
+# CONSTANTE
 const SPEED = 100
 const SHARK_SPRITE_OFFSET = 30
 
@@ -29,7 +31,8 @@ func _physics_process(_delta):
 ##################################### FUNCIONES AUXILIARES ###############################
 # MANEJAR LAS COLISIONES EN EL MAPA
 func handle_colisions(input_direction):
-	if !is_on_wall() || !is_on_ceiling() : velocity = input_direction * SPEED
+	if can_move:
+		if !is_on_wall() || !is_on_ceiling() : velocity = input_direction * SPEED
 
 # MANEJAR ANIMACIONES
 func handle_animation(input_direction):
@@ -64,11 +67,13 @@ func detect_zone():
 		if Input.is_action_just_pressed(actions.talk):
 			if area.has_method("toogle_level_selector") && GameManager.is_level_selectable(area.name.to_lower(), (area.name.erase(len(area.name)-5, len(area.name))+"_1").to_lower()):
 				area.toogle_level_selector()
-				GameManager.player_map_position = area.position + Vector2(0, 30)
+				if area.name.to_lower() == "endtower": GameManager.player_map_position = area.marker_2d.position
+				else: GameManager.player_map_position = area.position + Vector2(0, 30)
 			
 			elif area.has_method("go_to_next_zone"):
 				area.go_to_next_zone()
-				GameManager.player_map_position = area.position + Vector2(0, 30)
+				if area.name.to_lower() == "endtower": GameManager.player_map_position = area.marker_2d.position
+				else: GameManager.player_map_position = area.position + Vector2(0, 30)
 
 			else:
 				AudioManager.play_inavlid_action()
