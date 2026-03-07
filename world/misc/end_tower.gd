@@ -56,7 +56,7 @@ func _process(_delta):
 
 func go_to_next_zone():
     AudioManager.music.stop()
-    get_tree().call_deferred("change_scene_to_file", "res://world/end_tower/end_tower_1.tscn")
+    get_tree().call_deferred("change_scene_to_file", "res://cutscenes/end_tower/end_tower_intro_cutscene.tscn")
 
 func toogle_level_selector():
     $CanvasLayer.visible = true
@@ -65,7 +65,7 @@ func _on_level_1_pressed():
     GameManager.sharked_player = false
     if AudioManager.music.playing: AudioManager.music.stop()
     get_tree().paused = false
-    get_tree().change_scene_to_file("res://world/end_tower/end_tower_1.tscn")
+    get_tree().change_scene_to_file("res://cutscenes/end_tower/end_tower_intro_cutscene.tscn")
 
 func _on_level_2_pressed():
     GameManager.sharked_player = false

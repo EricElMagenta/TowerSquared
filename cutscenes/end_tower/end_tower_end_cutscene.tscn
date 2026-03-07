@@ -1,0 +1,431 @@
+[gd_scene load_steps=13 format=3 uid="uid://b55mkwjfrduiw"]
+
+[ext_resource type="Script" path="res://cutscenes/end_tower/end_tower_end_cutscene.gd" id="1_7wa1w"]
+[ext_resource type="Texture2D" uid="uid://cs8xyc7f82wet" path="res://assets/cutscenes/end_tower_end_cutscene.png" id="2_1a8my"]
+[ext_resource type="Texture2D" uid="uid://b5m5s5vdp6tar" path="res://assets/cutscenes/cutscene-player-shee1t.png" id="3_nhims"]
+[ext_resource type="Texture2D" uid="uid://bamm7ic260bxx" path="res://assets/npc/npc-camera-floor.png" id="4_ryunb"]
+[ext_resource type="AudioStream" uid="uid://7nawil2i6vqg" path="res://audio/cutscenes/peek.wav" id="5_1q2ne"]
+[ext_resource type="Texture2D" uid="uid://bok44b6gj2iok" path="res://assets/cutscenes/cutscene-interrogation.png" id="5_ne1mb"]
+[ext_resource type="AudioStream" uid="uid://cicfxi6nbpiax" path="res://audio/cutscenes/dialogue_sound.wav" id="6_726bc"]
+[ext_resource type="AudioStream" uid="uid://t6iqpsvqg2q6" path="res://audio/player/drop_object.wav" id="7_ec3mb"]
+[ext_resource type="AudioStream" uid="uid://cx8xplijt8p41" path="res://audio/cutscenes/photo.wav" id="8_mipxq"]
+
+[sub_resource type="Animation" id="Animation_5icq6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32, 150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/PanelContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/PanelContainer/Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["end_tower_end_1"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 90)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cutscene-interrogation:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SFX:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_1q2ne")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fr6ry"]
+resource_name = "start"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.23333, 1.8, 3.53333, 3.99325),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-32, 150), Vector2(135, 150), Vector2(135, 150), Vector2(370, 150), Vector2(370, 150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8.5, 8.51089),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.233333, 0.366667, 0.5, 0.6, 0.733333, 0.866667, 1, 1.1, 1.2, 1.56667, 1.73333, 1.93333, 2.06667, 2.2, 2.33333, 2.43333, 2.56667, 2.7, 2.83333, 2.93333, 3.03333, 3.16667, 3.3, 3.4, 3.5, 4.33333, 4.4, 4.56667, 4.63333, 4.86667, 4.9, 6.06667, 7.4, 7.46667, 7.8, 7.86667, 8.5, 9, 9.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"play_sound"
+}, {
+"args": [],
+"method": &"change_scene"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/PanelContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.53333, 1.56667, 1.76667, 4.33333, 4.46667, 4.56667, 4.7, 4.86667, 5, 7.4, 7.63333, 7.8, 7.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/PanelContainer/Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.2, 4.53333, 4.8, 7.23333, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["end_tower_end_1", "end_tower_end_2", "end_tower_end_3", "end_tower_end_4", "end_tower_end_5", "end_tower_end_6"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.8, 3.53333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(160, 90), Vector2(160, 90), Vector2(440, 90)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cutscene-interrogation:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 6.06667, 7.03333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Player:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333, 0.366667, 0.5, 0.6, 0.733333, 0.866667, 1, 1.1, 1.2, 1.83333, 1.93333, 2.06667, 2.2, 2.33333, 2.43333, 2.56667, 2.7, 2.83333, 2.93333, 3.03333, 3.16667, 3.3, 3.4, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SFX:stream")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.53333, 1.83333, 4.3, 6.03333, 7.06667, 8.46667, 8.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_1q2ne"), ExtResource("6_726bc"), ExtResource("5_1q2ne"), ExtResource("6_726bc"), ExtResource("7_ec3mb"), ExtResource("6_726bc"), ExtResource("7_ec3mb"), ExtResource("8_mipxq")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.3, 9, 9.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nevx"]
+_data = {
+"RESET": SubResource("Animation_5icq6"),
+"start": SubResource("Animation_fr6ry")
+}
+
+[node name="EndTowerEndCutscene" type="Node2D"]
+script = ExtResource("1_7wa1w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -155.0
+offset_top = 47.0
+offset_right = -8.0
+offset_bottom = 109.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "end_tower_end_1"
+horizontal_alignment = 1
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(300, 90)
+texture = ExtResource("2_1a8my")
+metadata/_edit_lock_ = true
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(-32, 150)
+texture = ExtResource("3_nhims")
+hframes = 9
+
+[node name="NpcCamera" type="Sprite2D" parent="."]
+position = Vector2(476, 120)
+texture = ExtResource("4_ryunb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2nevx")
+}
+autoplay = "start"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 90)
+
+[node name="Cutscene-interrogation" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(460, 104)
+texture = ExtResource("5_ne1mb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 635.0
+offset_bottom = 196.0
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1q2ne")
+volume_db = -18.0
+bus = &"SFX"

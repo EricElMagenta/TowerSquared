@@ -74,6 +74,15 @@ air_tower_end_5,Fantastic!,¡Fantástico!
 air_tower_end_6,Allow me to help you get down from here.,Déjeme ayudarle a bajar.
 ,,
 ,,
+# End Tower,,
+end_tower_end_1,Excelent!,¡Excelente!
+end_tower_end_2,"Finally, you've conquered the final tower.","Finalmente, ha conquistado la última torre."
+end_tower_end_3,You have officially finished the rite.,El rito ha terminado.
+end_tower_end_4,¡CONGRATULATIONS!,¡FELICIDADES!
+end_tower_end_5,Look!,¡Mira!
+end_tower_end_6,They've come to congratulate you.,Han venido a felicitarte.
+,,
+,,
 # NPC en torres,,
 tutorial_question_floor_1,Where are you going?,¿A dónde vas?
 tutorial_question_floor_2,Press R to restart the level.,Apreta R para reiniciar el nivel.
@@ -128,3 +137,50 @@ not_available,Not available in demo.,No disponible en la demo.
 ,,
 #MAPA,,
 not_available,Not available in demo.,No disponible en la demo.
+,,
+,,
+#CREDITS,,
+credits_1,Used programs:,Programas usados:
+credits_1.1,"Godot 4.3
+Aseprite
+Audacity
+XMedia Recode
+Jsfxr","Godot 4.3
+Aseprite
+Audacity
+XMedia Recode
+Jsfxr"
+credits_2,Used music:,Música usada:
+credits_2.1,"Virtual 3D (Giten Megami Tensei: Tokyo Mokushiroku)
+Grim Reaper's Cavern (Jack Bros)
+2D Field (Shin Megami Tensei: Devil Summoner)
+Sewer (Shin Megami Tensei: Devil Summoner)
+Jib Jig, Robinson Remix (Donkey Kong Country 2, unknown remix author)
+Evolution (Majin Tensei 2: Spiral Nemesis)
+Gangplank Galleon, Shin Takarajima Remix (Donkey Kong Country, unknown remix author) 
+Snowberry (Phantom Brave)
+Little Bossa Nova (Giten Megami Tensei: Tokyo Mokushiroku)
+Tin Pan (Giten Megami Tensei: Tokyo Mokushiroku)
+Bonus Room Blitz (Donkey Kong Country)
+Bonus Room Lose (Donkey Kong Country)
+Forest Frenzy, Traditional Japanese Remix (Donkey Kong Country, unknown remix author)","Virtual 3D (Giten Megami Tensei: Tokyo Mokushiroku)
+Grim Reaper's Cavern (Jack Bros)
+2D Field (Shin Megami Tensei: Devil Summoner)
+Sewer (Shin Megami Tensei: Devil Summoner)
+Jib Jig, Robinson Remix (Donkey Kong Country 2, autor del remix desconocido)
+Evolution (Majin Tensei 2: Spiral Nemesis)
+Gangplank Galleon, Shin Takarajima Remix (Donkey Kong Country, autor del remix desconocido) 
+Snowberry (Phantom Brave)
+Little Bossa Nova (Giten Megami Tensei: Tokyo Mokushiroku)
+Tin Pan (Giten Megami Tensei: Tokyo Mokushiroku)
+Bonus Room Blitz (Donkey Kong Country)
+Bonus Room Lose (Donkey Kong Country)
+Forest Frenzy, Traditional Japanese Remix (Donkey Kong Country, autor del remix desconocido)"
+credits_3,Thanks to:,Gracias a:
+credits_3.1,"EddieWoof for making most tilesets.
+塩の木 for reuploading those amazing Donkey Kong Country remixes.
+And you for playing and getting to the end.","EddieWoof por hacer la mayoría de tilesets.
+塩の木 por resubir esos increíbles remixes de Donkey Kong Country.
+Y a tí por jugar y llegar hasta aquí."
+credits_4,Made by Mecha Capybara,Hecho por Mecha Capybara
+credits_5,Press F to continue.,Oprime F para continuar.

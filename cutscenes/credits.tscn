@@ -1,0 +1,272 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1bk21gvn0nut"]
+
+[ext_resource type="Script" path="res://cutscenes/credits.gd" id="1_i7ksc"]
+[ext_resource type="Texture2D" uid="uid://d1i42k7adi7kp" path="res://assets/cutscenes/end_tower_photo.png" id="1_sy8nm"]
+[ext_resource type="Texture2D" uid="uid://pyf7t4lvddba" path="res://assets/cutscenes/title.png" id="3_lpc36"]
+
+[sub_resource type="Animation" id="Animation_kjy28"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits/Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_sy8nm")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["credits_4"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qs8y7"]
+resource_name = "start"
+length = 100.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 5.5, 6, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9, 71.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-78, 0), Vector2(-78, 0), Vector2(-78, -837)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits/Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_sy8nm"), ExtResource("3_lpc36")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 50.2667, 50.5667, 53.5667, 53.8667, 54.1667, 54.5667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 53.9333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["credits_4", "credits_5"]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(54.7667, 54.9333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"back_to_game"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ftkjp"]
+_data = {
+"RESET": SubResource("Animation_kjy28"),
+"start": SubResource("Animation_qs8y7")
+}
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_i7ksc")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 328.0
+offset_bottom = 187.0
+color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="UsedPrograms" type="Node2D" parent="Credits"]
+position = Vector2(0, 172)
+
+[node name="Label" type="Label" parent="Credits/UsedPrograms"]
+offset_left = 108.0
+offset_top = 34.0
+offset_right = 151.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 6
+text = "credits_1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Credits/UsedPrograms"]
+offset_left = 108.0
+offset_top = 56.0
+offset_right = 160.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 6
+text = "credits_1.1"
+
+[node name="UsedMusic" type="Node2D" parent="Credits"]
+position = Vector2(0, 284)
+
+[node name="Label" type="Label" parent="Credits/UsedMusic"]
+offset_left = 108.0
+offset_top = 34.0
+offset_right = 151.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 6
+text = "credits_2"
+
+[node name="Label2" type="Label" parent="Credits/UsedMusic"]
+offset_left = 108.0
+offset_top = 56.0
+offset_right = 160.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 6
+text = "credits_2.1"
+
+[node name="Thanks" type="Node2D" parent="Credits"]
+position = Vector2(0, 474)
+
+[node name="Label" type="Label" parent="Credits/Thanks"]
+offset_left = 108.0
+offset_top = 34.0
+offset_right = 151.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 6
+text = "credits_3"
+
+[node name="Label2" type="Label" parent="Credits/Thanks"]
+offset_left = 108.0
+offset_top = 56.0
+offset_right = 160.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 6
+text = "credits_3.1"
+
+[node name="Sprite2D" type="Sprite2D" parent="Credits"]
+position = Vector2(236, 91)
+texture = ExtResource("1_sy8nm")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 53.0
+offset_top = 84.0
+offset_right = 122.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 10
+text = "credits_4"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ftkjp")
+}
+autoplay = "start"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 331.0
+offset_bottom = 194.0

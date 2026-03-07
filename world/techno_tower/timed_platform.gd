@@ -29,7 +29,7 @@ func ded():
 	$AnimatableBody2D.set_collision_layer_value(1, false)
 	has_exploded = true
 	moving = false
-	AudioManager.play_explosion()
+	AudioManager.play_earthquake()
 	platform_countdown.visible = false
 	animated_sprite_2d.play("explode")
 	await get_tree().create_timer(EXPLOSION_TIME).timeout

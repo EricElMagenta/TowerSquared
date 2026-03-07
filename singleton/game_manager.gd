@@ -76,10 +76,10 @@ func is_level_selectable(tower:String, level:String):
 	return false
 
 # TORRES CONQUISTADAS
-var tutorial_tower_clear = true
-var sea_tower_clear = true
-var air_tower_clear = true
-var techno_tower_clear = true
+var tutorial_tower_clear = false
+var sea_tower_clear = false
+var air_tower_clear = false
+var techno_tower_clear = false
 var end_tower_clear = false
 
 # TORRE FINAL APARECE

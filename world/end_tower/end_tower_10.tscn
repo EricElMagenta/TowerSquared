@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world/end_tower/end_tower_10.gd" id="1_15248"]
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="1_q6brd"]
 [ext_resource type="PackedScene" uid="uid://d2y32x8qrwrp8" path="res://entities/power-up/floor_normal_item.tscn" id="2_2oo85"]
-[ext_resource type="PackedScene" uid="uid://dclprx5p7vro3" path="res://world/misc/world_map.tscn" id="2_annim"]
+[ext_resource type="PackedScene" uid="uid://b55mkwjfrduiw" path="res://cutscenes/end_tower/end_tower_end_cutscene.tscn" id="2_7nlfd"]
 [ext_resource type="PackedScene" uid="uid://camnc183tge44" path="res://entities/objects/door_stone.tscn" id="2_lxyjd"]
 [ext_resource type="Texture2D" uid="uid://g6gykad6rv1t" path="res://assets/objects/final_door.png" id="3_5ejk7"]
 [ext_resource type="PackedScene" uid="uid://yrp4ssj8s23v" path="res://world/end_tower/end_tower_2_tilemap.tscn" id="3_eme0q"]
@@ -92,7 +92,7 @@ point_count = 2
 
 [node name="EndTower10" type="Node2D"]
 script = ExtResource("1_15248")
-next_level = ExtResource("2_annim")
+next_level = ExtResource("2_7nlfd")
 
 [node name="HintArrow" type="Sprite2D" parent="."]
 position = Vector2(976, -2804)
@@ -198,10 +198,10 @@ tile_map_data = PackedByteArray("AAABABgAAgACAAMAAAABABcAAgACAAMAAAABABYAAgACAAM
 tile_map_data = PackedByteArray("AAAvAPP/AgAAAAsAAAAuAPP/AgAAAAsAAAAtAPP/AgAAAAsAAAAvAOf/AgAAAAsAAAAuAOf/AgAAAAsAAAAtAOf/AgAAAAsAAAAvAM7/AgAAAAsAAAAuAM7/AgAAAAsAAAAtAM7/AgAAAAsAAAAvAPb/AgABAAwAAAAuAPb/AgABAAwAAAAtAPb/AgABAAwAAAAuAOr/AgABAAwAAAAvAOr/AgABAAwAAAAtAOr/AgABAAwAAAAvANn/AgABAAwAAAAuANn/AgABAAwAAAAtANn/AgABAAwAAAA=")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-64, 206)
+position = Vector2(-84, 186)
 
 [node name="Player" parent="." instance=ExtResource("1_q6brd")]
-position = Vector2(-64, 256)
+position = Vector2(-84, 236)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
