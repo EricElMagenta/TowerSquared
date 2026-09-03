@@ -44,21 +44,9 @@ next_level = ExtResource("2_soetg")
 
 [node name="Hint" type="Node2D" parent="."]
 
-[node name="HintArrow" type="Sprite2D" parent="Hint"]
-position = Vector2(470, 45)
-texture = ExtResource("2_oi7b6")
-
-[node name="HintArrow3" type="Sprite2D" parent="Hint"]
-position = Vector2(822, -796)
-scale = Vector2(-1, 1)
-texture = ExtResource("2_oi7b6")
-
-[node name="HintArrow4" type="Sprite2D" parent="Hint"]
-position = Vector2(-42, -1256)
-texture = ExtResource("2_oi7b6")
-
 [node name="HintArrow5" type="Sprite2D" parent="Hint"]
-position = Vector2(933, -1381)
+position = Vector2(393, -1411)
+rotation = 1.5708
 scale = Vector2(-1, 1)
 texture = ExtResource("2_oi7b6")
 

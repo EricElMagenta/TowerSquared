@@ -202,27 +202,6 @@ scale = Vector2(2, 2)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="HazardSpikeBall" parent="Enemies" instance=ExtResource("17_8bcqi")]
-position = Vector2(294, 206)
-selected_movement = 2
-limit_up = 80
-limit_down = -80
-speed = 2.0
-
-[node name="HazardSpikeBall2" parent="Enemies" instance=ExtResource("17_8bcqi")]
-position = Vector2(515, 206)
-selected_movement = 2
-limit_up = 80
-limit_down = -80
-speed = 2.0
-
-[node name="HazardSpikeBall3" parent="Enemies" instance=ExtResource("17_8bcqi")]
-position = Vector2(701, 206)
-selected_movement = 2
-limit_up = 80
-limit_down = -80
-speed = 2.0
-
 [node name="HazardSpikeBall7" parent="Enemies" instance=ExtResource("17_8bcqi")]
 position = Vector2(2453, 625)
 selected_movement = 2
@@ -336,6 +315,24 @@ limit_left = -300
 limit_right = 300
 limit_up = 80
 limit_down = -80
+
+[node name="EnemyFlyingBomb3" parent="Enemies" instance=ExtResource("18_q3boa")]
+position = Vector2(293, 203)
+selected_movement = 3
+limit_up = 80
+speed = 2.0
+
+[node name="EnemyFlyingBomb4" parent="Enemies" instance=ExtResource("18_q3boa")]
+position = Vector2(515, 203)
+selected_movement = 3
+limit_up = 80
+speed = 2.0
+
+[node name="EnemyFlyingBomb5" parent="Enemies" instance=ExtResource("18_q3boa")]
+position = Vector2(701, 203)
+selected_movement = 3
+limit_up = 80
+speed = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

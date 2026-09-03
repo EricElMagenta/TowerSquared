@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cwp3epqvcd7di"]
+[gd_scene load_steps=22 format=4 uid="uid://cwp3epqvcd7di"]
 
 [ext_resource type="PackedScene" uid="uid://bdegyg4ku5dn8" path="res://entities/player/player.tscn" id="1_mmvkm"]
 [ext_resource type="Script" path="res://world/air_tower/air_tower_6.gd" id="1_yubty"]
@@ -20,9 +20,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nmc4"]
 size = Vector2(86.5, 105.75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppvwi"]
-size = Vector2(454, 579.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irmj4"]
 size = Vector2(952, 184)
@@ -137,6 +134,36 @@ enable_node_path = NodePath("../EnemyCloud")
 
 [node name="EnemyCloud" parent="Enemies/EnemyCloud3" instance=ExtResource("5_8t5r8")]
 
+[node name="EnemyCloud12" type="Node2D" parent="Enemies"]
+position = Vector2(728, -1600)
+metadata/_edit_group_ = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/EnemyCloud12"]
+scale = Vector2(2.7, 1.7)
+enable_node_path = NodePath("../EnemyCloud")
+
+[node name="EnemyCloud" parent="Enemies/EnemyCloud12" instance=ExtResource("5_8t5r8")]
+
+[node name="EnemyCloud14" type="Node2D" parent="Enemies"]
+position = Vector2(640, -1728)
+metadata/_edit_group_ = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/EnemyCloud14"]
+scale = Vector2(2.7, 1.7)
+enable_node_path = NodePath("../EnemyCloud")
+
+[node name="EnemyCloud" parent="Enemies/EnemyCloud14" instance=ExtResource("5_8t5r8")]
+
+[node name="EnemyCloud13" type="Node2D" parent="Enemies"]
+position = Vector2(880, -1360)
+metadata/_edit_group_ = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/EnemyCloud13"]
+scale = Vector2(2.7, 1.7)
+enable_node_path = NodePath("../EnemyCloud")
+
+[node name="EnemyCloud" parent="Enemies/EnemyCloud13" instance=ExtResource("5_8t5r8")]
+
 [node name="EnemyCloud2" type="Node2D" parent="Enemies"]
 position = Vector2(472, -146)
 metadata/_edit_group_ = true
@@ -171,16 +198,7 @@ metadata/_edit_group_ = true
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Enemies/EnemyCloud10"]
 position = Vector2(240, 276.266)
 scale = Vector2(23.2, 25.2266)
-enable_node_path = NodePath("../EnemyCloud")
-
-[node name="EnemyCloud" parent="Enemies/EnemyCloud10" instance=ExtResource("5_8t5r8")]
-
-[node name="CollisionShape2D" parent="Enemies/EnemyCloud10/EnemyCloud/Right" index="0"]
-position = Vector2(91, 159.25)
-shape = SubResource("RectangleShape2D_ppvwi")
-
-[node name="IceBallTimer" parent="Enemies/EnemyCloud10/EnemyCloud" index="3"]
-wait_time = 3.0
+enable_node_path = NodePath("")
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -278,4 +296,3 @@ debug_color = Color(0, 1, 0.701961, 0.419608)
 [node name="SceneTransition" parent="." instance=ExtResource("14_vrypp")]
 
 [editable path="Enemies/EnemyCloud9/EnemyCloud"]
-[editable path="Enemies/EnemyCloud10/EnemyCloud"]

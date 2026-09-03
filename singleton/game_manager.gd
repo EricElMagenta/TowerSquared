@@ -68,19 +68,19 @@ var cleared_levels = {
 	}
 }
 
-func mark_level_as_selectable(tower:String, level:String):
-	cleared_levels[tower][level] = true
-
-func is_level_selectable(tower:String, level:String):
-	if cleared_levels[tower][level]: return true
-	return false
-
 # TORRES CONQUISTADAS
 var tutorial_tower_clear = false
 var sea_tower_clear = false
 var air_tower_clear = false
 var techno_tower_clear = false
 var end_tower_clear = false
+
+func mark_level_as_selectable(tower:String, level:String):
+	cleared_levels[tower][level] = true
+
+func is_level_selectable(tower:String, level:String):
+	if cleared_levels[tower][level]: return true
+	return false
 
 # TORRE FINAL APARECE
 var end_tower_emerged := false
@@ -109,12 +109,12 @@ var current_lang = "es"
 func restart_scene():
 	get_tree().call_deferred("reload_current_scene")
 
-func _input(event):
-	if event.is_action_pressed("change_language"):
-		if current_lang == "es":
-			current_lang = "en"
-			TranslationServer.set_locale("en")
+# func _input(event):
+# 	if event.is_action_pressed("change_language"):
+# 		if current_lang == "es":
+# 			current_lang = "en"
+# 			TranslationServer.set_locale("en")
 		
-		elif current_lang == "en":
-			current_lang = "es"
-			TranslationServer.set_locale("es")
+# 		elif current_lang == "en":
+# 			current_lang = "es"
+# 			TranslationServer.set_locale("es")

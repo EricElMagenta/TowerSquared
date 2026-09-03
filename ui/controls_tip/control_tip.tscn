@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://bywtxlgj428j1"]
+
+[ext_resource type="Script" path="res://ui/controls_tip/control_tip.gd" id="1_4go1h"]
+[ext_resource type="Texture2D" uid="uid://dit8lu1xdterv" path="res://assets/UI/keyboard.png" id="1_qdo0c"]
+[ext_resource type="Texture2D" uid="uid://mpbfq7yvpokj" path="res://assets/UI/mouse.png" id="2_h4hbx"]
+
+[sub_resource type="Animation" id="Animation_yf2if"]
+resource_name = "fade in-out"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 5.1, 5.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_game"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4pqp6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nsmxk"]
+_data = {
+"RESET": SubResource("Animation_4pqp6"),
+"fade in-out": SubResource("Animation_yf2if")
+}
+
+[node name="ControlTip" type="Node2D"]
+modulate = Color(0, 0, 0, 1)
+script = ExtResource("1_4go1h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 345.0
+offset_bottom = 191.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nsmxk")
+}
+autoplay = "fade in-out"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -2.0
+offset_top = 46.0
+offset_right = 302.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 11
+text = "Este juego fue hecho con mouse y teclado en mente."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 83.0
+offset_right = 314.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 11
+text = "This game was made with mouse and keyboard in mind."
+horizontal_alignment = 1
+
+[node name="Keyboard" type="Sprite2D" parent="."]
+position = Vector2(223, 143)
+scale = Vector2(2, 2)
+texture = ExtResource("1_qdo0c")
+
+[node name="Mouse" type="Sprite2D" parent="."]
+position = Vector2(108, 141)
+scale = Vector2(2, 2)
+texture = ExtResource("2_h4hbx")

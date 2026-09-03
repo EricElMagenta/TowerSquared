@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tower Squared"
-run/main_scene="res://ui/main_menu/main_menu.tscn"
+run/main_scene="res://ui/controls_tip/control_tip.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.678431, 0.227451, 0.47451, 1)
 config/icon="res://icon.svg"
@@ -164,7 +164,8 @@ stop_talking={
 
 locale/translation_remaps={
 "res://assets/UI/controls-kbd-mouse_en.png": PackedStringArray("res://assets/UI/controls-kbd-mouse_en.png:en", "res://assets/UI/control-kbd-mouse_es.png:es"),
-"res://assets/UI/controls-kbd_en.png": PackedStringArray("res://assets/UI/controls-kbd_en.png:en", "res://assets/UI/control-kbd_es.png:es")
+"res://assets/UI/controls-kbd_en.png": PackedStringArray("res://assets/UI/controls-kbd_en.png:en", "res://assets/UI/control-kbd_es.png:es"),
+"res://assets/cutscenes/restaart_button_en.png": PackedStringArray("res://assets/cutscenes/restaart_button_en.png:en", "res://assets/cutscenes/restaart_button_es.png:es")
 }
 locale/translations=PackedStringArray("res://sample.es.translation", "res://sample.en.translation")
 locale/fallback=""
